@@ -1,22 +1,41 @@
 <script lang="ts">
 	import '../app.css';
 	import { page } from '$app/stores';
-	import { Menu, X, Github, Linkedin, Mail, Languages, Wallet } from 'lucide-svelte';
+	import { onMount } from 'svelte';
+	import { Menu, X, Github, Linkedin, Mail, Languages, Wallet, Brush } from 'lucide-svelte';
 	import { locale } from '$lib/stores/locale';
 	import { getTranslations } from '$lib/i18n';
-	
-	let mobileMenuOpen = $state(false);
+	import InkBrush from '$lib/components/InkBrush.svelte';
 
+	let mobileMenuOpen = $state(false);
+	let brushEnabled = $state(true);
 	let { children } = $props();
-	
+
 	const t = $derived(getTranslations($locale));
-	
+
+	onMount(() => {
+		const stored = localStorage.getItem('brush-enabled');
+		if (stored !== null) {
+			brushEnabled = stored === 'true';
+		}
+	});
+
+	$effect(() => {
+		if (typeof localStorage === 'undefined') return;
+		localStorage.setItem('brush-enabled', brushEnabled ? 'true' : 'false');
+	});
+
 	function toggleLocale() {
 		$locale = $locale === 'fr' ? 'en' : 'fr';
+	}
+
+	function toggleBrush() {
+		brushEnabled = !brushEnabled;
 	}
 </script>
 
 <div class="min-h-screen bg-paper text-ink font-sans">
+	<InkBrush enabled={brushEnabled} />
 	<nav class="fixed top-0 left-0 right-0 z-50 border-b-2 border-ink bg-paper/90 backdrop-blur-sm">
 		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="flex items-center justify-between h-16">
@@ -25,22 +44,16 @@
 					<span class="text-xs font-mono uppercase tracking-[0.5em]">Grange</span>
 				</a>
 
-				<div class="hidden md:flex items-center gap-6">
-					{#each [
-						{ href: '/', label: t.nav.home }
-					] as link}
-						<a
-							href={link.href}
-							class={`text-xs font-mono uppercase tracking-[0.4em] border-b-2 ${
-								$page.url.pathname === link.href ? 'border-ink text-ink' : 'border-transparent text-ink/60'
-							} hover:border-ink hover:text-ink transition`}
-						>
-							{link.label}
-						</a>
-					{/each}
-				</div>
-
 				<div class="hidden md:flex items-center gap-3">
+					<button
+						onclick={toggleBrush}
+						class={`inline-flex items-center gap-2 border-2 border-ink px-3 py-2 font-mono text-xs uppercase tracking-[0.4em] transition ${
+							brushEnabled ? 'bg-ink text-paper' : 'bg-paper text-ink'
+						}`}
+					>
+						<Brush size={16} />
+						<span>{brushEnabled ? 'brush on' : 'brush off'}</span>
+					</button>
 					<button
 						onclick={toggleLocale}
 						class="inline-flex items-center gap-2 border-2 border-ink px-3 py-2 font-mono text-xs uppercase tracking-[0.4em] hover:bg-ink hover:text-paper transition"
@@ -77,24 +90,16 @@
 		{#if mobileMenuOpen}
 			<div class="md:hidden border-t-2 border-ink bg-paper">
 				<div class="px-4 py-4 space-y-3">
-					{#each [
-						{ href: '/', label: t.nav.home },
-						{ href: '/projets/travia', label: t.nav.travia },
-						{ href: '/projets/speedywiki', label: t.nav.speedywiki },
-						{ href: '/projets/configurateurs', label: t.nav.configurateurs },
-						{ href: '/projets/mcp', label: t.nav.mcp }
-					] as link}
-						<a
-							href={link.href}
-							onclick={() => (mobileMenuOpen = false)}
-							class={`block text-xs font-mono uppercase tracking-[0.4em] border-b ${
-								$page.url.pathname === link.href ? 'border-ink text-ink' : 'border-transparent text-ink/70'
-							} py-2`}
-						>
-							{link.label}
-						</a>
-					{/each}
 					<div class="flex flex-wrap items-center gap-3 pt-4 border-t border-ink/40">
+						<button
+							onclick={toggleBrush}
+							class={`inline-flex flex-1 items-center justify-center gap-2 border-2 border-ink px-3 py-2 font-mono text-xs uppercase tracking-[0.4em] ${
+								brushEnabled ? 'bg-ink text-paper' : 'bg-paper text-ink'
+							}`}
+						>
+							<Brush size={16} />
+							<span>{brushEnabled ? 'brush on' : 'brush off'}</span>
+						</button>
 						<button
 							onclick={toggleLocale}
 							class="inline-flex flex-1 items-center justify-center gap-2 border-2 border-ink px-3 py-2 font-mono text-xs uppercase tracking-[0.4em]"
