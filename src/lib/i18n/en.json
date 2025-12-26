@@ -1,0 +1,102 @@
+{
+  "nav": {
+    "home": "Home",
+    "travia": "Travia",
+    "speedywiki": "SpeedyWiki",
+    "configurateurs": "Configurators",
+    "mcp": "MCP Server"
+  },
+  "hero": {
+    "badge": "Full-Stack Developer",
+    "name": "Jules",
+    "surname": "Grange",
+    "description": "Computer Science student, passionate about modern web development and technological innovation.",
+    "cta_projects": "View my projects",
+    "cta_journey": "My journey",
+    "stats": {
+      "projects": "Major projects",
+      "experience": "Years of experience",
+      "motivation": "Motivation"
+    }
+  },
+  "about": {
+    "badge": "About",
+    "title": "A passionate developer,",
+    "title_highlight": "always moving forward",
+    "p1": "An avid reader of manga and novels, I love creating web experiences that tell a story. My approach to development blends street and raw aesthetics with smooth animations and polished UX.",
+    "p2": "Currently working as an apprentice at Dessine ton meuble/Aryga, I work on innovative projects combining 3D, AI and modern web development.",
+    "p3": "Chill guy but serious when needed, I'm always looking to learn and push the boundaries of what's possible with code.",
+    "stack": {
+      "title": "Tech Stack"
+    },
+    "experience": {
+      "title": "Experience",
+      "current": "Apprenticeship at Dessine ton meuble/Aryga since 2025"
+    },
+    "education": {
+      "title": "Education",
+      "degree": "Computer Science Degree",
+      "bac": "High School Diploma with Honors (2023)"
+    }
+  },
+  "journey": {
+    "badge": "Timeline",
+    "title": "My",
+    "title_highlight": "journey",
+    "items": [
+      {
+        "year": "2023",
+        "title": "High School Diploma with Honors",
+        "description": "Graduated and started Computer Science degree"
+      },
+      {
+        "year": "2024",
+        "title": "Computer Science Degree",
+        "description": "Developing skills in programming and project management"
+      },
+      {
+        "year": "2025",
+        "title": "Internship then Apprenticeship",
+        "description": "At Dessine ton meuble/Aryga - Web development and AI"
+      },
+      {
+        "year": "2026",
+        "title": "Degree + Engineering School",
+        "description": "Continuing studies in engineering school"
+      }
+    ]
+  },
+  "projects": {
+    "badge": "Portfolio",
+    "title": "My",
+    "title_highlight": "projects",
+    "description": "A selection of my most significant achievements, from university projects to enterprise development.",
+    "featured": "Featured",
+    "cta": "View project",
+    "list": [
+      {
+        "title": "MCP Server",
+        "description": "MCP server for AI-powered furniture creation with ChatGPT/Claude integration",
+        "tags": ["TypeScript", "Svelte", "AI", "MCP"]
+      },
+      {
+        "title": "Easy Configurators",
+        "description": "Suite of interactive 3D configurators for custom furniture",
+        "tags": ["Svelte", "TypeScript", "3D", "Canvas"]
+      },
+      {
+        "title": "Travia",
+        "description": "Web application for optimized route search in Star Wars universe",
+        "tags": ["Java", "C", "JavaScript", "MySQL"]
+      },
+      {
+        "title": "SpeedyWiki",
+        "description": "Real-time multiplayer Wikipedia speedrun game",
+        "tags": ["WebSocket", "Express", "Git"]
+      }
+    ]
+  },
+  "footer": {
+    "copyright": "2025 Jules Grange. All rights reserved."
+  }
+}

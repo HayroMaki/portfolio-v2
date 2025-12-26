@@ -1,12 +1,16 @@
 <script lang="ts">
 	import { ArrowRight, Code2, Briefcase, GraduationCap, ChevronDown } from 'lucide-svelte';
 	import { onMount } from 'svelte';
+	import { locale } from '$lib/stores/locale';
+	import { getTranslations } from '$lib/i18n';
 	
 	let scrollY = $state(0);
 	let mounted = $state(false);
 	let aboutVisible = $state(false);
 	let parcoursVisible = $state(false);
 	let projetsVisible = $state(false);
+	
+	const t = $derived(getTranslations($locale));
 	
 	onMount(() => {
 		mounted = true;
@@ -43,39 +47,11 @@
 		};
 	});
 	
-	const projects = [
-		{
-			title: 'MCP Server',
-			description: 'Serveur MCP pour la création de meubles via IA avec intégration ChatGPT/Claude',
-			tags: ['TypeScript', 'Svelte', 'IA', 'MCP'],
-			href: '/projets/mcp',
-			featured: true
-		},
-		{
-			title: 'Configurateurs Easy',
-			description: 'Suite de configurateurs 3D interactifs pour meubles sur mesure',
-			tags: ['Svelte', 'TypeScript', '3D', 'Canvas'],
-			href: '/projets/configurateurs',
-			featured: true
-		},
-		{
-			title: 'Travia',
-			description: 'Application web de recherche de trajets optimisés dans Star Wars',
-			tags: ['Java', 'C', 'JavaScript', 'MySQL'],
-			href: '/projets/travia'
-		},
-		{
-			title: 'SpeedyWiki',
-			description: 'Jeu multijoueur de speedrun Wikipedia en temps réel',
-			tags: ['WebSocket', 'Express', 'Git'],
-			href: '/projets/speedywiki'
-		}
-	];
-	
-	const timeline = [
-		{ year: '2026', event: 'Diplôme BUT Informatique + École d\'ingénieur', status: 'future' },
-		{ year: '2025', event: 'Stage puis alternance chez Dessine ton meuble/Aryga', status: 'current' },
-		{ year: '2023', event: 'BAC STI2D mention Très Bien + Entrée en BUT', status: 'past' }
+	const projectsData = [
+		{ href: '/projets/mcp', featured: true },
+		{ href: '/projets/configurateurs', featured: true },
+		{ href: '/projets/travia', featured: false },
+		{ href: '/projets/speedywiki', featured: false }
 	];
 </script>
 
@@ -91,41 +67,40 @@
 				<div class="space-y-8" style="opacity: {mounted ? 1 : 0}; transform: translateY({mounted ? 0 : 20}px); transition: all 0.8s ease-out;">
 					<div class="space-y-4">
 						<div class="inline-block px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-[#00ffc8] font-medium">
-							Développeur Full-Stack
+							{t.hero.badge}
 						</div>
 						<h1 class="text-5xl md:text-7xl font-bold leading-tight">
-							Jules<br/>
-							<span class="text-gradient">Renaud-Grange</span>
+							{t.hero.name} <span class="text-gradient">{t.hero.surname}</span>
 						</h1>
 						<p class="text-xl text-white/70 max-w-xl">
-							Étudiant en BUT Informatique, passionné par le développement web moderne et l'innovation technologique.
+							{t.hero.description}
 						</p>
 					</div>
 					
 					<div class="flex flex-wrap gap-4">
 						<a href="#projets" class="group inline-flex items-center gap-2 px-6 py-3 bg-[#00ffc8] text-black font-medium rounded-lg hover:bg-[#00d4aa] transition-all hover:scale-105">
-							Voir mes projets
+							{t.hero.cta_projects}
 							<ArrowRight size={18} class="group-hover:translate-x-1 transition-transform" />
 						</a>
 						<a href="#parcours" class="inline-flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 text-white font-medium rounded-lg hover:bg-white/10 transition-all">
-							Mon parcours
+							{t.hero.cta_journey}
 						</a>
 					</div>
 					
 					<div class="flex items-center gap-8 pt-4">
 						<div class="space-y-1">
 							<div class="text-3xl font-bold text-gradient">4+</div>
-							<div class="text-sm text-white/50">Projets majeurs</div>
+							<div class="text-sm text-white/50">{t.hero.stats.projects}</div>
 						</div>
 						<div class="w-px h-12 bg-white/10"></div>
 						<div class="space-y-1">
 							<div class="text-3xl font-bold text-gradient">2+</div>
-							<div class="text-sm text-white/50">Ans d'expérience</div>
+							<div class="text-sm text-white/50">{t.hero.stats.experience}</div>
 						</div>
 						<div class="w-px h-12 bg-white/10"></div>
 						<div class="space-y-1">
 							<div class="text-3xl font-bold text-gradient">∞</div>
-							<div class="text-sm text-white/50">Motivation</div>
+							<div class="text-sm text-white/50">{t.hero.stats.motivation}</div>
 						</div>
 					</div>
 				</div>
@@ -153,35 +128,29 @@
 	
 	<section id="about" class="py-32 relative">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div class="grid lg:grid-cols-3 gap-8" style="opacity: {aboutVisible ? 1 : 0}; transform: translateY({aboutVisible ? 0 : 40}px); transition: all 0.8s ease-out;">
-				<div class="lg:col-span-2 space-y-6">
+			<div class="grid lg:grid-cols-3 gap-8">
+				<div class="lg:col-span-2 space-y-6" style="opacity: {aboutVisible ? 1 : 0}; transform: translateX({aboutVisible ? 0 : -60}px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">
 					<div class="inline-block px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-[#00ffc8] font-medium">
-						À propos
+						{t.about.badge}
 					</div>
 					<h2 class="text-4xl md:text-5xl font-bold">
-						Un développeur passionné,<br/>
-						<span class="text-gradient">toujours en mouvement</span>
+						{t.about.title}<br/>
+						<span class="text-gradient">{t.about.title_highlight}</span>
 					</h2>
 					<div class="space-y-4 text-white/70 text-lg leading-relaxed">
+						<p>{t.about.p1}</p>
 						<p>
-							Grand lecteur de manga et de romans, j'aime créer des expériences web qui racontent une histoire. 
-							Mon approche du développement mélange esthétique street et brut avec des animations fluides et une UX soignée.
+							{t.about.p2.split('Dessine ton meuble/Aryga')[0]}
+							<span class="text-white font-medium">Dessine ton meuble/Aryga</span>{t.about.p2.split('Dessine ton meuble/Aryga')[1]}
 						</p>
-						<p>
-							Actuellement en alternance chez <span class="text-white font-medium">Dessine ton meuble/Aryga</span>, 
-							je travaille sur des projets innovants alliant 3D, IA et développement web moderne.
-						</p>
-						<p>
-							Mec chill mais sérieux quand il le faut, je cherche toujours à apprendre et à repousser les limites 
-							de ce qui est possible avec le code.
-						</p>
+						<p>{t.about.p3}</p>
 					</div>
 				</div>
 				
-				<div class="space-y-6">
-					<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm">
+				<div class="space-y-6" style="opacity: {aboutVisible ? 1 : 0}; transform: translateX({aboutVisible ? 0 : 60}px) rotate({aboutVisible ? 0 : 5}deg); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;">
+					<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm hover:bg-white/10 hover:scale-105 transition-all duration-300">
 						<Code2 size={32} class="text-[#00ffc8] mb-4" />
-						<h3 class="text-xl font-bold mb-2">Stack technique</h3>
+						<h3 class="text-xl font-bold mb-2">{t.about.stack.title}</h3>
 						<div class="flex flex-wrap gap-2">
 							{#each ['TypeScript', 'Svelte', 'React', 'Java', 'C', 'MySQL', 'Git'] as tech}
 								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm text-white/70">
@@ -191,20 +160,18 @@
 						</div>
 					</div>
 					
-					<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm">
+					<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm hover:bg-white/10 hover:scale-105 transition-all duration-300">
 						<Briefcase size={32} class="text-[#00ffc8] mb-4" />
-						<h3 class="text-xl font-bold mb-2">Expérience</h3>
-						<p class="text-white/70">
-							Alternance chez Dessine ton meuble/Aryga depuis 2025
-						</p>
+						<h3 class="text-xl font-bold mb-2">{t.about.experience.title}</h3>
+						<p class="text-white/70">{t.about.experience.current}</p>
 					</div>
 					
-					<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm">
+					<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm hover:bg-white/10 hover:scale-105 transition-all duration-300">
 						<GraduationCap size={32} class="text-[#00ffc8] mb-4" />
-						<h3 class="text-xl font-bold mb-2">Formation</h3>
+						<h3 class="text-xl font-bold mb-2">{t.about.education.title}</h3>
 						<p class="text-white/70">
-							BUT Informatique<br/>
-							BAC STI2D mention TB (2023)
+							{t.about.education.degree}<br/>
+							{t.about.education.bac}
 						</p>
 					</div>
 				</div>
@@ -212,65 +179,76 @@
 		</div>
 	</section>
 	
-	<section id="parcours" class="py-32 bg-white/[0.02]">
+	<section id="parcours" class="py-32 bg-white/[0.02] overflow-hidden">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div class="text-center mb-16" style="opacity: {parcoursVisible ? 1 : 0}; transform: translateY({parcoursVisible ? 0 : 40}px); transition: all 0.8s ease-out;">
+			<div class="text-center mb-16" style="opacity: {parcoursVisible ? 1 : 0}; transform: scale({parcoursVisible ? 1 : 0.9}); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
 				<div class="inline-block px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-[#00ffc8] font-medium mb-4">
-					Timeline
+					{t.journey.badge}
 				</div>
 				<h2 class="text-4xl md:text-5xl font-bold">
-					Mon <span class="text-gradient">parcours</span>
+					{t.journey.title} <span class="text-gradient">{t.journey.title_highlight}</span>
 				</h2>
 			</div>
 			
-			<div class="relative max-w-3xl mx-auto" style="opacity: {parcoursVisible ? 1 : 0}; transform: translateY({parcoursVisible ? 0 : 40}px); transition: all 0.8s ease-out 0.2s;">
-				<div class="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#00ffc8] via-white/20 to-[#00d4aa]"></div>
+			<!-- Timeline horizontale avec scroll -->
+			<div class="relative" style="opacity: {parcoursVisible ? 1 : 0}; transform: translateY({parcoursVisible ? 0 : 60}px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;">
+				<!-- Ligne horizontale principale -->
+				<div class="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-[#00ffc8] via-white/20 to-[#00d4aa] -translate-y-1/2"></div>
 				
-				{#each timeline as item, i}
-					<div class="relative mb-12 last:mb-0">
-						<div class="flex items-center gap-8 {i % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}">
-							<div class="flex-1 {i % 2 === 0 ? 'text-right' : 'text-left'}">
-								<div class="inline-block p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm">
-									<div class="text-2xl font-bold text-[#00ffc8] mb-2">{item.year}</div>
-									<div class="text-white/90">{item.event}</div>
+				<!-- Items de la timeline -->
+				<div class="relative flex justify-between items-center min-h-[400px] py-8">
+					{#each t.journey.items as item, i}
+						<div class="flex-1 relative" style="opacity: {parcoursVisible ? 1 : 0}; transform: translateY({parcoursVisible ? 0 : 40}px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) {0.4 + i * 0.15}s;">
+							<!-- Point sur la ligne -->
+							<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+								<div class="w-6 h-6 rounded-full bg-[#00ffc8] ring-4 ring-[#0a0a0a] {i === 2 ? 'animate-pulse scale-125' : ''} hover:scale-150 transition-transform duration-300"></div>
+							</div>
+							
+							<!-- Carte alternée haut/bas -->
+							<div class="absolute left-1/2 -translate-x-1/2 {i % 2 === 0 ? 'bottom-full mb-12' : 'top-full mt-12'} w-64">
+								<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm hover:bg-white/10 hover:scale-105 hover:rotate-2 transition-all duration-300 group">
+									<div class="text-3xl font-bold text-[#00ffc8] mb-2 group-hover:scale-110 transition-transform">{item.year}</div>
+									<h3 class="text-lg font-bold text-white mb-2">{item.title}</h3>
+									<p class="text-sm text-white/70">{item.description}</p>
+									
+									<!-- Flèche vers le point -->
+									<div class="absolute left-1/2 -translate-x-1/2 {i % 2 === 0 ? 'bottom-0 translate-y-full' : 'top-0 -translate-y-full'}">
+										<div class="w-px h-8 bg-gradient-to-b from-white/20 to-transparent"></div>
+									</div>
 								</div>
 							</div>
-							
-							<div class="relative z-10">
-								<div class="w-4 h-4 rounded-full bg-[#00ffc8] ring-4 ring-[#0a0a0a] {item.status === 'current' ? 'animate-pulse' : ''}"></div>
-							</div>
-							
-							<div class="flex-1"></div>
 						</div>
-					</div>
-				{/each}
+					{/each}
+				</div>
 			</div>
 		</div>
 	</section>
 	
 	<section id="projets" class="py-32">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div class="text-center mb-16" style="opacity: {projetsVisible ? 1 : 0}; transform: translateY({projetsVisible ? 0 : 40}px); transition: all 0.8s ease-out;">
+			<div class="text-center mb-16" style="opacity: {projetsVisible ? 1 : 0}; transform: translateY({projetsVisible ? 0 : 40}px) rotate({projetsVisible ? 0 : -3}deg); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);">
 				<div class="inline-block px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-[#00ffc8] font-medium mb-4">
-					Portfolio
+					{t.projects.badge}
 				</div>
 				<h2 class="text-4xl md:text-5xl font-bold mb-4">
-					Mes <span class="text-gradient">projets</span>
+					{t.projects.title} <span class="text-gradient">{t.projects.title_highlight}</span>
 				</h2>
 				<p class="text-white/70 text-lg max-w-2xl mx-auto">
-					Une sélection de mes réalisations les plus significatives, des projets universitaires aux développements en entreprise.
+					{t.projects.description}
 				</p>
 			</div>
 			
-			<div class="grid md:grid-cols-2 gap-6" style="opacity: {projetsVisible ? 1 : 0}; transform: translateY({projetsVisible ? 0 : 40}px); transition: all 0.8s ease-out 0.2s;">
-				{#each projects as project}
+			<div class="grid md:grid-cols-2 gap-6">
+				{#each projectsData as projectData, i}
+					{@const project = t.projects.list[i]}
 					<a 
-						href={project.href}
-						class="group relative p-8 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition-all hover:scale-[1.02] {project.featured ? 'md:col-span-2 lg:col-span-1' : ''}"
+						href={projectData.href}
+						class="group relative p-8 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition-all hover:scale-[1.02] hover:-rotate-1 {projectData.featured ? 'md:col-span-2 lg:col-span-1' : ''}"
+						style="opacity: {projetsVisible ? 1 : 0}; transform: translateX({projetsVisible ? 0 : (i % 2 === 0 ? -60 : 60)}px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) {0.2 + i * 0.1}s;"
 					>
-						{#if project.featured}
+						{#if projectData.featured}
 							<div class="absolute top-4 right-4 px-3 py-1 bg-[#00ffc8]/20 border border-[#00ffc8]/50 rounded-full text-xs text-[#00ffc8] font-medium">
-								Featured
+								{t.projects.featured}
 							</div>
 						{/if}
 						
@@ -290,7 +268,7 @@
 						</div>
 						
 						<div class="flex items-center gap-2 text-[#00ffc8] font-medium">
-							Voir le projet
+							{t.projects.cta}
 							<ArrowRight size={16} class="group-hover:translate-x-1 transition-transform" />
 						</div>
 					</a>

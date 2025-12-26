@@ -1,0 +1,102 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "travia": "Travia",
+    "speedywiki": "SpeedyWiki",
+    "configurateurs": "Configurateurs",
+    "mcp": "MCP Server"
+  },
+  "hero": {
+    "badge": "Développeur Full-Stack",
+    "name": "Jules",
+    "surname": "Grange",
+    "description": "Étudiant en BUT Informatique, passionné par le développement web moderne et l'innovation technologique.",
+    "cta_projects": "Voir mes projets",
+    "cta_journey": "Mon parcours",
+    "stats": {
+      "projects": "Projets majeurs",
+      "experience": "Ans d'expérience",
+      "motivation": "Motivation"
+    }
+  },
+  "about": {
+    "badge": "À propos",
+    "title": "Un développeur passionné,",
+    "title_highlight": "toujours en mouvement",
+    "p1": "Grand lecteur de manga et de romans, j'aime créer des expériences web qui racontent une histoire. Mon approche du développement mélange esthétique street et brut avec des animations fluides et une UX soignée.",
+    "p2": "Actuellement en alternance chez Dessine ton meuble/Aryga, je travaille sur des projets innovants alliant 3D, IA et développement web moderne.",
+    "p3": "Mec chill mais sérieux quand il le faut, je cherche toujours à apprendre et à repousser les limites de ce qui est possible avec le code.",
+    "stack": {
+      "title": "Stack technique"
+    },
+    "experience": {
+      "title": "Expérience",
+      "current": "Alternance chez Dessine ton meuble/Aryga depuis 2025"
+    },
+    "education": {
+      "title": "Formation",
+      "degree": "BUT Informatique",
+      "bac": "BAC STI2D mention TB (2023)"
+    }
+  },
+  "journey": {
+    "badge": "Timeline",
+    "title": "Mon",
+    "title_highlight": "parcours",
+    "items": [
+      {
+        "year": "2023",
+        "title": "BAC STI2D mention Très Bien",
+        "description": "Obtention du baccalauréat et entrée en BUT Informatique"
+      },
+      {
+        "year": "2024",
+        "title": "BUT Informatique",
+        "description": "Développement de compétences en programmation et gestion de projets"
+      },
+      {
+        "year": "2025",
+        "title": "Stage puis Alternance",
+        "description": "Chez Dessine ton meuble/Aryga - Développement web et IA"
+      },
+      {
+        "year": "2026",
+        "title": "Diplôme BUT + École d'ingénieur",
+        "description": "Poursuite d'études en école d'ingénieur"
+      }
+    ]
+  },
+  "projects": {
+    "badge": "Portfolio",
+    "title": "Mes",
+    "title_highlight": "projets",
+    "description": "Une sélection de mes réalisations les plus significatives, des projets universitaires aux développements en entreprise.",
+    "featured": "Featured",
+    "cta": "Voir le projet",
+    "list": [
+      {
+        "title": "MCP Server",
+        "description": "Serveur MCP pour la création de meubles via IA avec intégration ChatGPT/Claude",
+        "tags": ["TypeScript", "Svelte", "IA", "MCP"]
+      },
+      {
+        "title": "Configurateurs Easy",
+        "description": "Suite de configurateurs 3D interactifs pour meubles sur mesure",
+        "tags": ["Svelte", "TypeScript", "3D", "Canvas"]
+      },
+      {
+        "title": "Travia",
+        "description": "Application web de recherche de trajets optimisés dans Star Wars",
+        "tags": ["Java", "C", "JavaScript", "MySQL"]
+      },
+      {
+        "title": "SpeedyWiki",
+        "description": "Jeu multijoueur de speedrun Wikipedia en temps réel",
+        "tags": ["WebSocket", "Express", "Git"]
+      }
+    ]
+  },
+  "footer": {
+    "copyright": "2025 Jules Grange. Tous droits réservés."
+  }
+}
