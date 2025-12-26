@@ -4,9 +4,6 @@
 	import { locale } from '$lib/stores/locale';
 	import { getTranslations } from '$lib/i18n';
 
-	const tickerItems = ["I HATE PHP", "LET'S WORK (or not)", "I HOPE YOU LIKE MY PORTFOLIO", "", "PROPAGANDA !!!"];
-	const technos = ['Python','Java','C','Bash','HTML/CSS', 'PHP','JS/TS','React','Svelte','MySQL','MongoDB','Git','Docker', "j'en ai peut-être oublié..."];
-
 	type TimelineAlign = 'left' | 'right' | 'center';
 	type TimelineEvent = {
 		date: string;
@@ -16,16 +13,22 @@
 		subEvents?: string[];
 	};
 
+	type Translation = ReturnType<typeof getTranslations>;
+	type JourneyItem = Translation['journey']['items'][number] & {
+		align?: TimelineAlign;
+		sub_events?: string[];
+	};
+
 	const t = $derived(getTranslations($locale));
 	const timelineEvents = $derived<TimelineEvent[]>(
 		t.journey.items.map((item, i) => {
-			const enriched = item as typeof item & { sub_events?: string[] };
+			const enriched = item as JourneyItem;
 			return {
 				date: item.year,
 				title: item.title,
 				description: item.description,
 				subEvents: enriched.sub_events ?? [],
-				align: (item.align ?? (i % 2 === 0 ? 'left' : 'right')) as TimelineAlign
+				align: enriched.align ?? (i % 2 === 0 ? 'left' : 'right')
 			};
 		})
 	);
@@ -73,6 +76,9 @@
 
 		return () => observer.disconnect();
 	});
+
+	const tickerItems = ["I HATE PHP", "LET'S WORK (or not)", "I HOPE YOU LIKE MY PORTFOLIO", "PROPAGANDA !!!"];
+	const technos = ['Python','Java','C','Bash','HTML/CSS', 'PHP','JS/TS','React','Svelte','MySQL','MongoDB','Git','Docker', t.misc.technos_forget];
 </script>
 
 <main class="relative overflow-hidden bg-paper text-ink">
@@ -115,15 +121,15 @@
 
 					<div class="flex flex-wrap gap-8 border-y-2 border-ink py-6 font-mono uppercase tracking-[0.4em] text-sm">
 						<div>
-							<p class="text-4xl font-display">8+</p>
+							<p class="text-4xl font-display">{t.hero.stats.projects_nb}</p>
 							<p>{t.hero.stats.projects}</p>
 						</div>
 						<div>
-							<p class="text-4xl font-display">2+</p>
+							<p class="text-4xl font-display">{t.hero.stats.experience_nb}</p>
 							<p>{t.hero.stats.experience}</p>
 						</div>
 						<div>
-							<p class="text-4xl font-display">∞</p>
+							<p class="text-4xl font-display">{t.hero.stats.motivation_nb}</p>
 							<p>{t.hero.stats.motivation}</p>
 						</div>
 					</div>
@@ -155,13 +161,19 @@
 		</div>
 
 		<div class="relative z-10 border-y-2 border-ink bg-ink text-paper overflow-hidden">
-			<div class="flex gap-10 py-4 font-mono uppercase tracking-[0.5em] whitespace-nowrap tape-marquee">
-				{#each [...tickerItems, ...tickerItems] as label}
-					<span class="flex items-center gap-4">
-						{label}
-						<span class="inline-block h-2 w-2 rounded-full bg-paper"></span>
-					</span>
-				{/each}
+			<div class="marquee" style="--marquee-duration: 22s">
+				<div class="marquee__inner">
+					{#each [0, 1] as loopIndex}
+						<div class="marquee__group font-mono uppercase tracking-[0.5em]" aria-hidden={loopIndex === 1}>
+							{#each tickerItems as label}
+								<span class="flex items-center gap-4">
+									{label}
+									<span class="inline-block h-2 w-2 rounded-full bg-paper"></span>
+								</span>
+							{/each}
+						</div>
+					{/each}
+				</div>
 			</div>
 		</div>
 	</section>
@@ -277,7 +289,7 @@
 								<div class="manga-panel bg-black/30 p-6">
 									<div class="flex items-center justify-between text-xs font-mono uppercase tracking-[0.4em] text-paper/70">
 										<span>Panel {index + 1}</span>
-										<span>進化</span>
+										<span>改善</span>
 									</div>
 									<div class="mt-5 space-y-3">
 										{#if event.subEvents && event.subEvents.length}
@@ -291,7 +303,7 @@
 											</ul>
 										{:else}
 											<p class="font-mono text-sm text-paper/60 leading-relaxed">
-												... c'est vide ici...
+												{t.misc.empty_list}
 											</p>
 										{/if}
 									</div>
@@ -359,15 +371,31 @@
 </main>
 
 <style lang="postcss">
-	.tape-marquee {
-		animation: marquee 18s linear infinite;
+	.marquee {
+		position: relative;
+		overflow: hidden;
 	}
 
-	.tape-marquee:hover {
+	.marquee__inner {
+		display: flex;
+		width: max-content;
+		animation: marquee-slide var(--marquee-duration, 20s) linear infinite;
+	}
+
+	.marquee__group {
+		margin-left: 1.5rem;
+		display: inline-flex;
+		align-items: center;
+		gap: 1.5rem;
+		padding: 1rem 0;
+		flex-shrink: 0;
+	}
+
+	.marquee:hover .marquee__inner {
 		animation-play-state: paused;
 	}
 
-	@keyframes marquee {
+	@keyframes marquee-slide {
 		from {
 			transform: translateX(0);
 		}

@@ -1,36 +1,32 @@
 {
   "nav": {
-    "home": "Home",
-    "travia": "Travia",
-    "speedywiki": "SpeedyWiki",
-    "configurateurs": "Configurators",
-    "mcp": "MCP Server"
+    "home": "Home"
   },
   "hero": {
     "badge": "Full-Stack Developer",
     "name": "Jules",
     "surname": "Grange",
-    "description": "Computer Science student, passionate about modern web development and technological innovation.",
-    "status": "atelier live",
-    "stream": "creative flux",
-    "live": "live update",
-    "cta_projects": "View my projects",
+    "description": "Computer Science BUT student—curious what I do? It's all right here:",
+    "cta_projects": "Check my projects",
     "cta_journey": "My journey",
     "stats": {
-      "projects": "Major projects",
-      "experience": "Years of experience",
-      "motivation": "Motivation"
+      "projects": "Real projects",
+      "projects_nb": "8+",
+      "experience": "Years of exp",
+      "experience_nb": "2+",
+      "motivation": "Motivation",
+      "motivation_nb": "∞"
     }
   },
   "about": {
-    "badge": "About",
-    "title": "A passionate developer,",
-    "title_highlight": "always moving forward",
-    "p1": "An avid reader of manga and novels, I love creating web experiences that tell a story. My approach to development blends street and raw aesthetics with smooth animations and polished UX.",
-    "p2": "Currently working as an apprentice at Dessine ton meuble/Aryga, I work on innovative projects combining 3D, AI and modern web development.",
-    "p3": "Chill guy but serious when needed, I'm always looking to learn and push the boundaries of what's possible with code.",
+    "badge": "that's me",
+    "title": "A passionate developer?",
+    "title_highlight": "Maybe not, but...",
+    "p1": "I'm good at what I do. Curious, serious, meticulous; I love problems and I love solutions even more.",
+    "p2": "Jack of all trades, I enjoy exploring different domains and languages.",
+    "p3": "I'm not getting replaced by AI. Believe it.",
     "stack": {
-      "title": "Tech Stack"
+      "title": "Tech stack"
     },
     "experience": {
       "title": "Experience",
@@ -38,19 +34,19 @@
     },
     "education": {
       "title": "Education",
-      "degree": "Computer Science Degree",
-      "bac": "High School Diploma with Honors (2023)"
+      "degree": "BUT Informatique, Université Gustave Eiffel Marne-la-Vallée",
+      "bac": "STI2D high school diploma with highest honors, Lycée Diderot Paris"
     },
     "mentality": {
       "title": "Mentality",
-      "p1": "Efficient work, autonomy and communication, it's the key to success. Don't forget to hydrate."
+      "p1": "Efficient work, autonomy, and communication—that's the key to success. And don't forget to stay hydrated."
     },
     "passions": {
       "title": "Passions",
-      "p1": "Littérature ('To Your Eternity', 'BLAME', 'La Maison des Feuilles'...) my library is about to explode",
-      "p2": "Jeux vidéos ('Monster Hunter', 'Zelda', 'Rain World', 'Dark Souls'...) my Steam library is about to explode",
-      "p3": "Drawing, on the margins of my notebook :P",
-      "p4": "Skiing in the Alps, I'm chill like that"
+      "p1": "Literature ('To Your Eternity', 'BLAME', 'House of Leaves'...) my bookshelf is about to explode",
+      "p2": "Video games ('Monster Hunter', 'Zelda', 'Rain World', 'Dark Souls'...) my Steam library is about to explode",
+      "p3": "Drawing, all over the margins of my notebook :P",
+      "p4": "Skiing in the Alps, my well-deserved downtime"
     }
   },
   "journey": {
@@ -59,28 +55,41 @@
     "title_highlight": "journey",
     "items": [
       {
-        "year": "2023",
-        "title": "High School Diploma with Honors",
-        "description": "Graduated and started Computer Science degree",
-        "align": "left"
+        "year": "2020-2023",
+        "title": "STI2D High School Diploma",
+        "description": "At Lycée Diderot Paris, I earned my STI2D diploma with highest honors. Specialization in SIN (Information & Digital Systems). Graduated and entered the BUT Computer Science program.",
+        "sub_events": [
+          "Geo-located robot project with Arduino & Raspberry Pi",
+          "Started the BUT Computer Science program"
+        ]
       },
       {
-        "year": "2024",
-        "title": "Computer Science Degree",
-        "description": "Developing skills in programming and project management",
-        "align": "right"
+        "year": "2024-2026 (ongoing)",
+        "title": "BUT Computer Science",
+        "description": "At Université Gustave Eiffel Marne-la-Vallée, I'm currently in the BUT Computer Science program. Building skills in development, programming, databases, and project management (we even had law classes, send help).",
+        "sub_events": [
+          "Qix project (1st year)",
+          "Travia project (2nd year)",
+          "SpeedyWiki project (2nd year)",
+          "Custom Forms project (3rd year)",
+          "Skipped a week of classes to go to Zanzibar (not proud)",
+          "other minor projects"
+        ]
       },
       {
-        "year": "2025",
+        "year": "2025-2026 (ongoing)",
         "title": "Internship then Apprenticeship",
-        "description": "At Dessine ton meuble/Aryga - Web development and AI",
-        "align": "left"
+        "description": "At Dessine ton meuble/Aryga - Web application developer. Learning how to work with AI tools (they don't teach that in school).",
+        "sub_events": [
+          "Easy Configurators project",
+          "MCP Server project"
+        ]
       },
       {
-        "year": "2026",
-        "title": "Degree + Engineering School",
-        "description": "Continuing studies in engineering school",
-        "align": "center"
+        "year": "2026-..?",
+        "title": "Engineering school",
+        "description": "Continuing studies in engineering school, and then I get rich—that's the plan...",
+        "sub_events": []
       }
     ]
   },
@@ -88,33 +97,37 @@
     "badge": "Portfolio",
     "title": "My",
     "title_highlight": "projects",
-    "description": "A selection of my most significant achievements, from university projects to enterprise development.",
-    "featured": "Featured",
-    "cta": "View project",
+    "description": "A selection of my most significant achievements, from university projects to enterprise builds.",
+    "featured": "Pro project",
+    "cta": "View the project",
     "list": [
       {
         "title": "MCP Server",
-        "description": "MCP server for AI-powered furniture creation with ChatGPT/Claude integration",
-        "tags": ["TypeScript", "Svelte", "AI", "MCP"]
+        "description": "MCP server for AI-powered furniture creation for Dessine ton meuble/Aryga",
+        "tags": ["TypeScript", "MCP", "AI", "Docker"]
       },
       {
         "title": "Easy Configurators",
-        "description": "Suite of interactive 3D configurators for custom furniture",
+        "description": "Suite of interactive 3D configurators for bespoke furniture at Dessine ton meuble/Aryga",
         "tags": ["Svelte", "TypeScript", "3D", "Canvas"]
       },
       {
         "title": "Travia",
-        "description": "Web application for optimized route search in Star Wars universe",
-        "tags": ["Java", "C", "JavaScript", "MySQL"]
+        "description": "Web application for optimized route searches in the Star Wars universe",
+        "tags": ["Java", "C", "PHP", "JavaScript", "MySQL"]
       },
       {
         "title": "SpeedyWiki",
         "description": "Real-time multiplayer Wikipedia speedrun game",
-        "tags": ["WebSocket", "Express", "Git"]
+        "tags": ["React", "WebSocket", "Express", "MongoDB"]
       }
     ]
   },
   "footer": {
-    "copyright": "2025 Jules Grange. All rights reserved."
+    "copyright": "2025 Jules Renaud-Grange. All rights reserved."
+  },
+  "misc": {
+    "technos_forget": "I might have forgotten some...",
+    "empty_list": "...it's quite empty here..."
   }
 }

@@ -143,7 +143,7 @@
 					<a href="mailto:julesgrange@outlook.fr" class="px-4 py-2 border-2 border-ink font-mono text-xs uppercase tracking-[0.3em] hover:bg-ink hover:text-paper transition">
 						Mail
 					</a>
-					<a href="CV" class="px-4 py-2 border-2 border-ink font-mono text-xs uppercase tracking-[0.3em] hover:bg-ink hover:text-paper transition">
+					<a href="/CV" class="px-4 py-2 border-2 border-ink font-mono text-xs uppercase tracking-[0.3em] hover:bg-ink hover:text-paper transition">
 						CV
 					</a>
 				</div>

@@ -11,8 +11,11 @@
     "cta_journey": "Mon parcours",
     "stats": {
       "projects": "Vrais projets",
+      "projects_nb": "8+",
       "experience": "Ans d'exp",
-      "motivation": "Motivation"
+      "experience_nb": "2+",
+      "motivation": "Motivation",
+      "motivation_nb": "∞"
     }
   },
   "about": {
@@ -122,5 +125,9 @@
   },
   "footer": {
     "copyright": "2025 Jules Renaud-Grange. Tous droits réservés."
+  },
+  "misc": {
+    "technos_forget": "j'en ai peut-être oublié...",
+    "empty_list": "...c'est vide ici..."
   }
 }

@@ -138,7 +138,7 @@
   }
 
   .kanji-tag::before {
-    content: 'ア';
+    content: '改善';
     font-weight: 600;
   }
 

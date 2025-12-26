@@ -15,7 +15,7 @@
 		tick: number;
 	};
 
-	const MAX_STROKES = 30;
+	const MAX_STROKES = 50;
 	const toDataUrl = (raw: string) => `data:image/svg+xml;utf8,${encodeURIComponent(raw)}`;
 	const BRUSHES = [brush1, brush2, brush3].map(toDataUrl);
 
@@ -49,9 +49,9 @@
 			lastPaint = now;
 
 			const { clientX, clientY } = event;
-			const size = 650 + Math.random() * 100;
+			const size = 450 + Math.random() * 200;
 			const brushIndex = Math.floor(Math.random() * BRUSHES.length);
-			const rotation = Math.random() * 50 - 25;
+			const rotation = Math.random() * 360;
 
 			const index = poolIndex;
 			poolIndex = (poolIndex + 1) % MAX_STROKES;
@@ -101,7 +101,7 @@
         <span
             class={`ink-stroke brush-${stroke.brushIndex}`}
             data-active={stroke.active}
-            style={`--x: ${stroke.x}px; --y: ${stroke.y}px; --size: ${stroke.size}px; --brush-url: url('${brushUrl}'); transform: rotate(${stroke.rotation}deg);`}
+            style={`--x: ${stroke.x}px; --y: ${stroke.y}px; --size: ${stroke.size}px; --brush-url: url('${brushUrl}'); --rotation: ${stroke.rotation}deg;`}
         ></span>
     {/each}
 </div>
@@ -116,7 +116,7 @@
 	}
 
 	.ink-stroke {
-		position: absolute;
+		position: fixed;
 		left: calc(var(--x) - var(--size) / 2);
 		top: calc(var(--y) - var(--size) / 2);
 		width: var(--size);
@@ -126,6 +126,7 @@
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center;
+		transform: rotate(var(--rotation));
 		filter: invert(1) contrast(120%) saturate(110%);
 		opacity: 0.6;
 		opacity: 0;
@@ -138,15 +139,15 @@
 
 	@keyframes brush-fade {
 		from {
-			opacity: 0.9;
-			transform: scale(1);
+			opacity: 1;
+			transform: rotate(var(--rotation)) scale(1);
 		}
 		70% {
-			opacity: 0.45;
+			opacity: 1;
 		}
 		to {
 			opacity: 0;
-			transform: scale(1.1);
+			transform: rotate(var(--rotation)) scale(1.1);
 		}
 	}
 </style>
