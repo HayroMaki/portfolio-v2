@@ -11,6 +11,9 @@
     "name": "Jules",
     "surname": "Grange",
     "description": "Computer Science student, passionate about modern web development and technological innovation.",
+    "status": "atelier live",
+    "stream": "creative flux",
+    "live": "live update",
     "cta_projects": "View my projects",
     "cta_journey": "My journey",
     "stats": {
@@ -37,6 +40,17 @@
       "title": "Education",
       "degree": "Computer Science Degree",
       "bac": "High School Diploma with Honors (2023)"
+    },
+    "mentality": {
+      "title": "Mentality",
+      "p1": "Efficient work, autonomy and communication, it's the key to success. Don't forget to hydrate."
+    },
+    "passions": {
+      "title": "Passions",
+      "p1": "Littérature ('To Your Eternity', 'BLAME', 'La Maison des Feuilles'...) my library is about to explode",
+      "p2": "Jeux vidéos ('Monster Hunter', 'Zelda', 'Rain World', 'Dark Souls'...) my Steam library is about to explode",
+      "p3": "Drawing, on the margins of my notebook :P",
+      "p4": "Skiing in the Alps, I'm chill like that"
     }
   },
   "journey": {
@@ -47,22 +61,26 @@
       {
         "year": "2023",
         "title": "High School Diploma with Honors",
-        "description": "Graduated and started Computer Science degree"
+        "description": "Graduated and started Computer Science degree",
+        "align": "left"
       },
       {
         "year": "2024",
         "title": "Computer Science Degree",
-        "description": "Developing skills in programming and project management"
+        "description": "Developing skills in programming and project management",
+        "align": "right"
       },
       {
         "year": "2025",
         "title": "Internship then Apprenticeship",
-        "description": "At Dessine ton meuble/Aryga - Web development and AI"
+        "description": "At Dessine ton meuble/Aryga - Web development and AI",
+        "align": "left"
       },
       {
         "year": "2026",
         "title": "Degree + Engineering School",
-        "description": "Continuing studies in engineering school"
+        "description": "Continuing studies in engineering school",
+        "align": "center"
       }
     ]
   },

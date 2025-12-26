@@ -1,239 +1,228 @@
 <script lang="ts">
-	import { ArrowLeft, Database, Globe, Code, Zap, Users } from 'lucide-svelte';
+	import { ArrowLeft, Database, Globe, Code, Zap, Users, PenTool } from 'lucide-svelte';
+	const stats = [
+		{ label: 'Technologies', value: '5+', sub: 'multi-langages' },
+		{ label: 'Algorithme', value: 'A*', sub: 'optimisé' },
+		{ label: 'Architecture', value: '100%', sub: 'modulaire' }
+	];
+
+	const collaborators = [
+		{ name: 'Nom du binôme', role: 'Rôle / classe' },
+		{ name: 'Autre membre', role: 'Mission' }
+	];
 </script>
 
-<div class="min-h-screen">
-	<div class="relative py-20 overflow-hidden">
-		<div class="absolute inset-0 opacity-20">
-			<div class="absolute top-1/4 right-1/4 w-96 h-96 bg-[#00ffc8]/20 rounded-full blur-[120px]"></div>
-		</div>
-		
-		<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<a href="/" class="inline-flex items-center gap-2 text-white/70 hover:text-[#00ffc8] transition-colors mb-8">
-				<ArrowLeft size={20} />
-				Retour
-			</a>
-			
-			<div class="space-y-6 mb-12">
-				<div class="inline-block px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-[#00ffc8] font-medium">
-					Projet Universitaire
-				</div>
-				<h1 class="text-5xl md:text-7xl font-bold">
-					<span class="text-gradient">Travia</span>
-				</h1>
-				<p class="text-xl text-white/70 max-w-3xl">
-					Application web de recherche de trajets optimisés dans l'univers de Star Wars, 
-					développée avec une architecture modulaire multi-langages.
+<main class="min-h-screen bg-paper text-ink">
+	<section class="relative overflow-hidden border-b-2 border-ink">
+		<div class="relative z-10 mx-auto max-w-5xl px-6 py-20 space-y-10">
+			<div class="flex items-center gap-4 text-xs font-mono uppercase tracking-[0.4em]">
+				<a href="/" class="inline-flex items-center gap-2 border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper transition">
+					<ArrowLeft size={16} />
+					retour atelier
+				</a>
+				<span class="kanji-tag bg-paper">projet universitaire</span>
+			</div>
+			<div class="space-y-6">
+				<h1 class="stroke-title leading-[0.8]">Travia <strong>Star Routes</strong></h1>
+				<p class="max-w-3xl font-mono text-base leading-relaxed text-ink/80">
+					Application web qui trace des itinéraires optimisés dans la galaxie Star Wars. Architecture modulaire : Java + C + JS
+					qui collaborent comme un équipage rebelle. L'algorithme A* se charge de trouver la route la plus rapide entre les planètes.
 				</p>
 			</div>
-			
-			<div class="grid md:grid-cols-3 gap-6 mb-16">
-				<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm">
-					<div class="text-3xl font-bold text-[#00ffc8] mb-2">5+</div>
-					<div class="text-white/70">Technologies</div>
+
+			<div class="grid gap-4 sm:grid-cols-3">
+				{#each stats as stat}
+					<div class="manga-panel p-6 text-center">
+						<p class="text-4xl font-display">{stat.value}</p>
+						<p class="text-xs font-mono uppercase tracking-[0.4em] text-ink/70 mt-2">{stat.label}</p>
+						<p class="text-xs font-mono text-ink/60 mt-1">{stat.sub}</p>
+					</div>
+				{/each}
+			</div>
+
+			<div class="manga-panel p-6">
+				<div class="flex items-center justify-between font-mono text-xs uppercase tracking-[0.4em]">
+					<span>crew</span>
+					<span>réseau</span>
 				</div>
-				<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm">
-					<div class="text-3xl font-bold text-[#00ffc8] mb-2">A*</div>
-					<div class="text-white/70">Algorithme optimisé</div>
-				</div>
-				<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm">
-					<div class="text-3xl font-bold text-[#00ffc8] mb-2">100%</div>
-					<div class="text-white/70">Modulaire</div>
-				</div>
+				<ul class="mt-4 space-y-3 font-mono text-sm text-ink/80">
+					{#each collaborators as person}
+						<li class="flex flex-wrap items-center justify-between border-b border-ink/10 pb-2">
+							<span class="font-display text-lg">{person.name}</span>
+							<span class="text-xs uppercase tracking-[0.3em] text-ink/60">{person.role}</span>
+						</li>
+					{/each}
+				</ul>
 			</div>
 		</div>
-	</div>
-	
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32">
-		<div class="grid lg:grid-cols-3 gap-12 mb-20">
-			<div class="lg:col-span-2 space-y-12">
-				<section>
-					<h2 class="text-3xl font-bold mb-6">Vue d'ensemble</h2>
-					<div class="space-y-4 text-white/70 text-lg leading-relaxed">
-						<p>
-							Travia est une application web permettant de rechercher des trajets optimisés dans l'univers de Star Wars. 
-							Ce projet universitaire m'a permis d'explorer l'intégration de plusieurs technologies et langages au sein 
-							d'une architecture logicielle modulaire.
-						</p>
-						<p>
-							L'application utilise l'algorithme A* implémenté en C pour calculer les itinéraires optimaux entre les planètes, 
-							tout en offrant une interface utilisateur interactive avec une carte de la galaxie.
-						</p>
-					</div>
-				</section>
-				
-				<section>
-					<h2 class="text-3xl font-bold mb-6">Architecture technique</h2>
-					<div class="space-y-6">
-						<div class="p-6 bg-white/5 border border-white/10 rounded-xl">
-							<div class="flex items-start gap-4">
-								<div class="p-3 bg-[#00ffc8]/10 rounded-lg">
-									<Globe size={24} class="text-[#00ffc8]" />
-								</div>
-								<div class="flex-1">
-									<h3 class="text-xl font-bold mb-2">Serveur Web</h3>
-									<p class="text-white/70">
-										Serveur faisant le lien entre l'interface utilisateur et les modules de traitement. 
-										Gestion des requêtes et orchestration des différents composants.
-									</p>
-								</div>
-							</div>
-						</div>
-						
-						<div class="p-6 bg-white/5 border border-white/10 rounded-xl">
-							<div class="flex items-start gap-4">
-								<div class="p-3 bg-[#00ffc8]/10 rounded-lg">
-									<Code size={24} class="text-[#00ffc8]" />
-								</div>
-								<div class="flex-1">
-									<h3 class="text-xl font-bold mb-2">Interface Utilisateur</h3>
-									<p class="text-white/70 mb-3">
-										Développée en HTML/CSS et JavaScript avec la bibliothèque Leaflet pour afficher 
-										une carte interactive de la galaxie Star Wars.
-									</p>
-									<div class="flex flex-wrap gap-2">
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">HTML/CSS</span>
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">JavaScript</span>
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">Leaflet</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="p-6 bg-white/5 border border-white/10 rounded-xl">
-							<div class="flex items-start gap-4">
-								<div class="p-3 bg-[#00ffc8]/10 rounded-lg">
-									<Database size={24} class="text-[#00ffc8]" />
-								</div>
-								<div class="flex-1">
-									<h3 class="text-xl font-bold mb-2">Génération de Graphe</h3>
-									<p class="text-white/70 mb-3">
-										Module en Java exploitant JDBC pour récupérer les données depuis une base MySQL 
-										et générer le graphe de la galaxie.
-									</p>
-									<div class="flex flex-wrap gap-2">
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">Java</span>
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">JDBC</span>
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">MySQL</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="p-6 bg-white/5 border border-white/10 rounded-xl">
-							<div class="flex items-start gap-4">
-								<div class="p-3 bg-[#00ffc8]/10 rounded-lg">
-									<Zap size={24} class="text-[#00ffc8]" />
-								</div>
-								<div class="flex-1">
-									<h3 class="text-xl font-bold mb-2">Algorithme A*</h3>
-									<p class="text-white/70 mb-3">
-										Implémentation en C de l'algorithme A* pour calculer les itinéraires optimaux 
-										entre les planètes avec une performance maximale.
-									</p>
-									<div class="flex flex-wrap gap-2">
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">C</span>
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">Algorithmes</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="p-6 bg-white/5 border border-white/10 rounded-xl">
-							<div class="flex items-start gap-4">
-								<div class="p-3 bg-[#00ffc8]/10 rounded-lg">
-									<Users size={24} class="text-[#00ffc8]" />
-								</div>
-								<div class="flex-1">
-									<h3 class="text-xl font-bold mb-2">Gestion des Utilisateurs</h3>
-									<p class="text-white/70">
-										Système complet de gestion des utilisateurs : création de compte, connexion, 
-										récupération de compte avec intégration de captcha pour la sécurité.
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				
-				<section>
-					<h2 class="text-3xl font-bold mb-6">Apprentissages clés</h2>
-					<div class="space-y-4 text-white/70 text-lg leading-relaxed">
-						<p>
-							Ce projet m'a permis de travailler sur l'intégration de plusieurs technologies et langages 
-							au sein d'une même application. J'ai appris à :
-						</p>
-						<ul class="space-y-3 ml-6">
-							<li class="flex items-start gap-3">
-								<span class="text-[#00ffc8] mt-1">▸</span>
-								<span>Concevoir une architecture logicielle modulaire et maintenable</span>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-[#00ffc8] mt-1">▸</span>
-								<span>Faire communiquer des modules développés dans différents langages</span>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-[#00ffc8] mt-1">▸</span>
-								<span>Implémenter et optimiser des algorithmes de recherche de chemin</span>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-[#00ffc8] mt-1">▸</span>
-								<span>Gérer une base de données relationnelle avec MySQL et JDBC</span>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-[#00ffc8] mt-1">▸</span>
-								<span>Créer une interface utilisateur interactive avec des bibliothèques de cartographie</span>
-							</li>
-						</ul>
-					</div>
-				</section>
-			</div>
-			
+	</section>
+
+	<section class="border-b-2 border-dashed border-ink bg-paper py-20">
+		<div class="mx-auto grid max-w-5xl gap-10 px-6 lg:grid-cols-[1.1fr,0.9fr]">
 			<div class="space-y-6">
-				<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm sticky top-24">
-					<h3 class="text-xl font-bold mb-4">Technologies utilisées</h3>
-					<div class="space-y-3">
-						<div>
-							<div class="text-sm text-white/50 mb-2">Frontend</div>
-							<div class="flex flex-wrap gap-2">
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">HTML/CSS</span>
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">JavaScript</span>
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">Leaflet</span>
-							</div>
-						</div>
-						
-						<div class="border-t border-white/10 pt-3">
-							<div class="text-sm text-white/50 mb-2">Backend</div>
-							<div class="flex flex-wrap gap-2">
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">Java</span>
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">C</span>
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">JDBC</span>
-							</div>
-						</div>
-						
-						<div class="border-t border-white/10 pt-3">
-							<div class="text-sm text-white/50 mb-2">Base de données</div>
-							<div class="flex flex-wrap gap-2">
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">MySQL</span>
-							</div>
-						</div>
-						
-						<div class="border-t border-white/10 pt-3">
-							<div class="text-sm text-white/50 mb-2">Algorithmes</div>
-							<div class="flex flex-wrap gap-2">
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">A*</span>
-							</div>
-						</div>
-					</div>
+				<h2 class="text-4xl font-display uppercase tracking-[0.3em]">vue d'ensemble</h2>
+				<div class="space-y-4 font-mono text-sm leading-relaxed text-ink/80">
+					<p>
+						Travia explore comment faire collaborer des modules écrits en C, Java et JavaScript autour d'un même objectif : trouver des trajets
+						ultra rapides entre les systèmes planétaires.
+					</p>
+					<p>
+						L'interface utilise Leaflet pour cartographier la galaxie Star Wars alors que l'algorithme A* compilé en C calcule les routes optimales.
+						Java orchestre les données MySQL et rappelle chaque station dans l'ordre parfait.
+					</p>
 				</div>
-				
-				<div class="p-6 bg-gradient-to-br from-[#00ffc8]/10 to-[#00d4aa]/10 border border-[#00ffc8]/20 rounded-xl">
-					<h3 class="text-xl font-bold mb-2 text-[#00ffc8]">Image à venir</h3>
-					<p class="text-white/70 text-sm">
-						Captures d'écran et démonstrations visuelles du projet seront ajoutées prochainement.
+			</div>
+
+			<div class="space-y-4">
+				<div class="kanji-tag bg-paper">Stack croisée</div>
+				<ul class="space-y-3 font-mono text-xs uppercase tracking-[0.4em]">
+					<li class="flex items-center justify-between border-b border-ink/30 py-2">
+						<span>Frontend</span>
+						<span>HTML / CSS / Leaflet</span>
+					</li>
+					<li class="flex items-center justify-between border-b border-ink/30 py-2">
+						<span>Serveur</span>
+						<span>Java + JDBC</span>
+					</li>
+					<li class="flex items-center justify-between border-b border-ink/30 py-2">
+						<span>Algo</span>
+						<span>C + A*</span>
+					</li>
+					<li class="flex items-center justify-between py-2">
+						<span>Data</span>
+						<span>MySQL</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-ink text-paper py-24">
+		<div class="mx-auto max-w-5xl px-6 space-y-10">
+			<div class="flex flex-wrap items-center gap-4">
+				<div class="kanji-tag bg-ink border-paper text-paper">Architecture technique</div>
+				<p class="font-mono text-xs uppercase tracking-[0.4em] text-paper/70">modules alignés</p>
+			</div>
+			<div class="grid gap-6 md:grid-cols-2">
+				<div class="manga-panel border-paper bg-black/20 p-6">
+					<div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.4em] text-paper/60">
+						<Globe size={18} />
+						Serveur Web
+					</div>
+					<p class="mt-4 text-sm font-mono text-paper/80 leading-relaxed">
+						Passerelle qui distribue les requêtes entre modules. Tous les appels transitent ici avant d'être routés vers l'algorithme A* ou les services de données Java.
+					</p>
+				</div>
+				<div class="manga-panel border-paper bg-black/20 p-6">
+					<div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.4em] text-paper/60">
+						<Code size={18} />
+						Interface Leaflet
+					</div>
+					<p class="mt-4 text-sm font-mono text-paper/80 leading-relaxed">
+						Canvas interactif pour parcourir la galaxie et poser des waypoints. Tout est animé en JS pur + Leaflet pour avoir une carte fluide et granuleuse.
+					</p>
+				</div>
+				<div class="manga-panel border-paper bg-black/20 p-6">
+					<div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.4em] text-paper/60">
+						<Database size={18} />
+						Java + MySQL
+					</div>
+					<p class="mt-4 text-sm font-mono text-paper/80 leading-relaxed">
+						Modules JDBC alimentent le graphe interplanétaire, calculent les heuristiques et exposent des endpoints propres pour l'algorithme C.
+					</p>
+				</div>
+				<div class="manga-panel border-paper bg-black/20 p-6">
+					<div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.4em] text-paper/60">
+						<Zap size={18} />
+						Algorithme A*
+					</div>
+					<p class="mt-4 text-sm font-mono text-paper/80 leading-relaxed">
+						Implémenté en C pour maximiser la perf. Les résultats retournent au serveur qui les transforme en routes lisibles et en overlays graphiques.
+					</p>
+				</div>
+				<div class="manga-panel border-paper bg-black/20 p-6 md:col-span-2">
+					<div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.4em] text-paper/60">
+						<Users size={18} />
+						Gestion Users
+					</div>
+					<p class="mt-4 text-sm font-mono text-paper/80 leading-relaxed">
+						Création, connexion, récupération de compte + captcha : tout un workflow sécurisé pour que chaque padawan puisse sauvegarder ses parcours favoris.
 					</p>
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
+	</section>
+
+	<section class="py-24 border-t-2 border-ink">
+		<div class="mx-auto max-w-5xl px-6 space-y-10">
+			<div class="flex flex-wrap items-center gap-4">
+				<h2 class="text-4xl font-display uppercase tracking-[0.3em]">apprentissages clés</h2>
+				<div class="inline-flex items-center gap-2 border-2 border-ink px-4 py-1 font-mono text-xs uppercase tracking-[0.4em]">
+					<PenTool size={16} />
+					notes atelier
+				</div>
+			</div>
+			<ul class="space-y-4 font-mono text-sm leading-relaxed text-ink/90">
+				<li class="flex items-start gap-3 border-b border-ink/20 pb-4">
+					<span class="mt-1 inline-block h-2 w-2 bg-ink"></span>
+					<span>Composer une architecture multi-langages sans friction et partager les contrats entre modules.</span>
+				</li>
+				<li class="flex items-start gap-3 border-b border-ink/20 pb-4">
+					<span class="mt-1 inline-block h-2 w-2 bg-ink"></span>
+					<span>Optimiser un chemin A* en C et exposer ses résultats via une API propre.</span>
+				</li>
+				<li class="flex items-start gap-3 border-b border-ink/20 pb-4">
+					<span class="mt-1 inline-block h-2 w-2 bg-ink"></span>
+					<span>Créer des interfaces map + overlay immersives en JS pur et Leaflet.</span>
+				</li>
+				<li class="flex items-start gap-3 border-b border-ink/20 pb-4">
+					<span class="mt-1 inline-block h-2 w-2 bg-ink"></span>
+					<span>Concevoir un backend Java qui alimente à la fois la data et la sécurité utilisateurs.</span>
+				</li>
+				<li class="flex items-start gap-3">
+					<span class="mt-1 inline-block h-2 w-2 bg-ink"></span>
+					<span>Sculpter une UX manga-ready même pour un outil technique.</span>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="py-20">
+		<div class="mx-auto max-w-5xl px-6 grid gap-8 md:grid-cols-[1.1fr,0.9fr]">
+			<div class="manga-panel p-6">
+				<h3 class="text-2xl font-display uppercase tracking-[0.2em] mb-4">Technos utilisées</h3>
+				<div class="grid gap-4 text-sm font-mono">
+					<div>
+						<p class="text-xs uppercase tracking-[0.4em] text-ink/60">Frontend</p>
+						<div class="mt-2 flex flex-wrap gap-2 text-xs uppercase tracking-[0.3em]">
+							<span class="border-2 border-ink px-3 py-1">HTML/CSS</span>
+							<span class="border-2 border-ink px-3 py-1">JavaScript</span>
+							<span class="border-2 border-ink px-3 py-1">Leaflet</span>
+						</div>
+					</div>
+					<div>
+						<p class="text-xs uppercase tracking-[0.4em] text-ink/60">Backend</p>
+						<div class="mt-2 flex flex-wrap gap-2 text-xs uppercase tracking-[0.3em]">
+							<span class="border-2 border-ink px-3 py-1">Java</span>
+							<span class="border-2 border-ink px-3 py-1">JDBC</span>
+							<span class="border-2 border-ink px-3 py-1">MySQL</span>
+						</div>
+					</div>
+					<div>
+						<p class="text-xs uppercase tracking-[0.4em] text-ink/60">Algorithme</p>
+						<div class="mt-2 flex flex-wrap gap-2 text-xs uppercase tracking-[0.3em]">
+							<span class="border-2 border-ink px-3 py-1">C</span>
+							<span class="border-2 border-ink px-3 py-1">A*</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="manga-panel p-6">
+				<h3 class="text-2xl font-display uppercase tracking-[0.2em] mb-4">Images à venir</h3>
+				<p class="font-mono text-sm leading-relaxed text-ink/80">
+					Screens, cartes et prototypes arriveront bientôt pour illustrer les routes hyperspace façon manga.
+				</p>
+			</div>
+		</div>
+	</section>
+</main>

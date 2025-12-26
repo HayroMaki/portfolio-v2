@@ -1,279 +1,209 @@
 <script lang="ts">
 	import { ArrowLeft, Box, Ruler, TrendingUp, Monitor, Sparkles, Eye } from 'lucide-svelte';
+
+	const stats = [
+		{ label: 'Configurateurs créés', value: '3', sub: 'Easy' },
+		{ label: '3D', value: 'Temps réel', sub: 'viewer propriétaire' },
+		{ label: '1 min', value: 'setup', sub: 'UX ultra guidée' }
+	];
+
+	const configurators = [
+		{
+			icon: Box,
+			title: 'Caisson simple',
+			copy: [
+				'Canvas interactif pour tracer les dimensions à la main',
+				'Paramètres auto pour les matériaux récurrents',
+				'Preview 3D rafraîchie à chaque étape'
+			]
+		},
+		{
+			icon: TrendingUp,
+			title: 'Meubles escaliers',
+			copy: [
+				'Algorithme confort qui calcule marches & hauteurs idéales',
+				'Projection 3D et plan technique en parallèle',
+				'Optimisation pour production interne'
+			]
+		},
+		{
+			icon: Monitor,
+			title: 'Vidéoprojecteurs',
+			copy: [
+				'Interface adaptée aux contraintes de ventilation/lens',
+				'Slots audio & câblage directement configurables',
+				'UX orientée installateur'
+			]
+		}
+	];
+
+	const innovations = [
+		{
+			icon: Ruler,
+			title: 'Canvas interactifs',
+			desc: 'Dessin vectoriel dynamique pour régler les cotes sans formulaire indigeste.'
+		},
+		{
+			icon: Eye,
+			title: 'Viewer 3D proprio',
+			desc: 'Streaming des modèles texturés avec mise à jour temps réel.'
+		},
+		{
+			icon: Sparkles,
+			title: 'Stack Svelte/TS',
+			desc: 'Composants headless pour réutiliser chaque module de configuration.'
+		}
+	];
+
+	const learnings = [
+		'Simplifier des workflows complexes côté client comme côté atelier.',
+		'Construire des algorithmes métiers (indice confort, auto-dimensionnement).',
+		'Designer des interfaces canvas + 3D cohérentes avec la prod.',
+		'Livrer des outils modulaires faciles à décliner.'
+	];
 </script>
 
-<div class="min-h-screen">
-	<div class="relative py-20 overflow-hidden">
-		<div class="absolute inset-0 opacity-20">
-			<div class="absolute top-1/4 right-1/4 w-96 h-96 bg-[#00ffc8]/20 rounded-full blur-[120px]"></div>
-		</div>
-		
-		<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<a href="/" class="inline-flex items-center gap-2 text-white/70 hover:text-[#00ffc8] transition-colors mb-8">
-				<ArrowLeft size={20} />
-				Retour
-			</a>
-			
-			<div class="space-y-6 mb-12">
-				<div class="inline-block px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-[#00ffc8] font-medium">
-					Projets Entreprise
-				</div>
-				<h1 class="text-5xl md:text-7xl font-bold">
-					<span class="text-gradient">Configurateurs Easy</span>
-				</h1>
-				<p class="text-xl text-white/70 max-w-3xl">
-					Suite de trois configurateurs 3D interactifs développés pour simplifier l'expérience utilisateur 
-					sur les meubles les plus récurrents de Dessine ton meuble.
+<main class="min-h-screen bg-paper text-ink">
+	<section class="border-b-2 border-ink">
+		<div class="mx-auto max-w-5xl px-6 py-20 space-y-10">
+			<div class="flex items-center gap-4 text-xs font-mono uppercase tracking-[0.4em]">
+				<a href="/" class="inline-flex items-center gap-2 border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper transition">
+					<ArrowLeft size={16} />
+					retour atelier
+				</a>
+				<span class="kanji-tag bg-paper">projet entreprise</span>
+			</div>
+
+			<div class="space-y-6">
+				<h1 class="stroke-title leading-[0.8]">Configurateurs <strong>Easy</strong></h1>
+				<p class="max-w-3xl font-mono text-base leading-relaxed text-ink/80">
+					J'ai condensé l'ADN du configurateur 3D principal en trois expériences ultra ciblées. Objectif : permettre aux conseillers
+					de créer un meuble standard en moins d'une minute, tout en gardant la puissance du viewer 3D propriétaire.
 				</p>
 			</div>
-			
-			<div class="grid md:grid-cols-3 gap-6 mb-16">
-				<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm">
-					<div class="text-3xl font-bold text-[#00ffc8] mb-2">3</div>
-					<div class="text-white/70">Configurateurs créés</div>
-				</div>
-				<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm">
-					<div class="text-3xl font-bold text-[#00ffc8] mb-2">3D</div>
-					<div class="text-white/70">Visualisation temps réel</div>
-				</div>
-				<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm">
-					<div class="text-3xl font-bold text-[#00ffc8] mb-2">1 min</div>
-					<div class="text-white/70">Création rapide</div>
-				</div>
+
+			<div class="grid gap-4 sm:grid-cols-3">
+				{#each stats as stat}
+					<div class="manga-panel p-6 text-center">
+						<p class="text-xs font-mono uppercase tracking-[0.4em] text-ink/60">{stat.label}</p>
+						<p class="text-3xl font-display mt-1">{stat.value}</p>
+						<p class="text-[0.65rem] font-mono uppercase tracking-[0.35em] text-ink/50 mt-1">{stat.sub}</p>
+					</div>
+				{/each}
 			</div>
 		</div>
-	</div>
-	
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32">
-		<div class="grid lg:grid-cols-3 gap-12 mb-20">
-			<div class="lg:col-span-2 space-y-12">
-				<section>
-					<h2 class="text-3xl font-bold mb-6">Contexte du projet</h2>
-					<div class="space-y-4 text-white/70 text-lg leading-relaxed">
-						<p>
-							Dessine ton meuble propose un configurateur 3D extrêmement complet permettant aux clients de créer 
-							leurs meubles sur mesure. Cependant, sa complexité peut parfois rendre l'expérience difficile pour 
-							certains types de meubles récurrents.
-						</p>
-						<p>
-							J'ai donc développé trois configurateurs "Easy" spécialisés pour simplifier drastiquement l'expérience 
-							utilisateur sur les types de meubles les plus demandés, tout en conservant la visualisation 3D en temps réel.
-						</p>
-					</div>
-				</section>
-				
-				<section>
-					<h2 class="text-3xl font-bold mb-6">Les trois configurateurs</h2>
-					<div class="space-y-6">
-						<div class="p-6 bg-white/5 border border-white/10 rounded-xl">
-							<div class="flex items-start gap-4">
-								<div class="p-3 bg-[#00ffc8]/10 rounded-lg">
-									<Box size={24} class="text-[#00ffc8]" />
-								</div>
-								<div class="flex-1">
-									<h3 class="text-xl font-bold mb-2">Caisson Simple</h3>
-									<p class="text-white/70 mb-3">
-										Premier projet expérimental permettant de créer un caisson sur mesure en moins d'une minute. 
-										Intégration de canvas dessinés et interactifs pour une expérience fluide et intuitive.
-									</p>
-									<div class="space-y-2 text-white/60 text-sm">
-										<div class="flex items-center gap-2">
-											<span class="text-[#00ffc8]">▸</span>
-											<span>Interface simplifiée avec canvas interactifs</span>
-										</div>
-										<div class="flex items-center gap-2">
-											<span class="text-[#00ffc8]">▸</span>
-											<span>Visualisation 3D en temps réel</span>
-										</div>
-										<div class="flex items-center gap-2">
-											<span class="text-[#00ffc8]">▸</span>
-											<span>Configuration en moins d'une minute</span>
-										</div>
-									</div>
-								</div>
-							</div>
+	</section>
+
+	<section class="border-b-2 border-dashed border-ink py-20">
+		<div class="mx-auto max-w-5xl px-6 grid gap-10 lg:grid-cols-[1.1fr,0.9fr]">
+			<div class="space-y-5">
+				<h2 class="text-4xl font-display uppercase tracking-[0.3em]">Contexte</h2>
+				<p class="font-mono text-sm leading-relaxed text-ink/80">
+					Le configurateur historique est un monstre de précision mais pas toujours adapté aux demandes récurrentes. On a identifié trois
+					typologies demandées tous les jours et je les ai transformées en expériences ultra guidées : canvas minimaliste, champs intelligents
+					et viewer photo-réaliste qui suit chaque clic.
+				</p>
+				<ul class="space-y-3 font-mono text-xs uppercase tracking-[0.35em] text-ink/70">
+					<li class="flex justify-between border-b border-ink/20 py-2">
+						<span>Scope</span>
+						<span>3 configurateurs</span>
+					</li>
+					<li class="flex justify-between border-b border-ink/20 py-2">
+						<span>Temps cible</span>
+						<span>&lt; 60s</span>
+					</li>
+					<li class="flex justify-between py-2">
+						<span>Stack</span>
+						<span>Svelte + TS + viewer 3D</span>
+					</li>
+				</ul>
+			</div>
+			<div class="manga-panel p-6 space-y-4">
+				<div class="kanji-tag bg-paper">workflow</div>
+				<p class="font-mono text-sm text-ink/80 leading-relaxed">
+					Toutes les interfaces sont construites comme des planches : croquis noir sur fond papier, repères métriques, focus sur les gestes.
+					Chaque clic déclenche l’update du viewer 3D interne pour contrôler textures et proportions en temps réel.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-24 bg-ink text-paper">
+		<div class="mx-auto max-w-5xl px-6 space-y-8">
+			<div class="flex items-center gap-4">
+				<div class="kanji-tag bg-ink border-paper text-paper">les 3 modules</div>
+				<p class="font-mono text-xs uppercase tracking-[0.4em] text-paper/70">focus sur les essentiels</p>
+			</div>
+			<div class="grid gap-6 md:grid-cols-3">
+				{#each configurators as card}
+					<div class="manga-panel border-paper bg-black/20 p-6">
+						<div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.4em] text-paper/70">
+							<svelte:component this={card.icon} size={18} />
+							{card.title}
 						</div>
-						
-						<div class="p-6 bg-white/5 border border-white/10 rounded-xl">
-							<div class="flex items-start gap-4">
-								<div class="p-3 bg-[#00ffc8]/10 rounded-lg">
-									<TrendingUp size={24} class="text-[#00ffc8]" />
-								</div>
-								<div class="flex-1">
-									<h3 class="text-xl font-bold mb-2">Meubles Escaliers</h3>
-									<p class="text-white/70 mb-3">
-										Configurateur avancé pour meubles escaliers avec algorithme de calcul automatique du nombre 
-										de marches basé sur un indice de confort. Reprise et amélioration de la formule du caisson simple.
-									</p>
-									<div class="space-y-2 text-white/60 text-sm">
-										<div class="flex items-center gap-2">
-											<span class="text-[#00ffc8]">▸</span>
-											<span>Algorithme de calcul intelligent</span>
-										</div>
-										<div class="flex items-center gap-2">
-											<span class="text-[#00ffc8]">▸</span>
-											<span>Indice de confort automatique</span>
-										</div>
-										<div class="flex items-center gap-2">
-											<span class="text-[#00ffc8]">▸</span>
-											<span>Canvas interactifs améliorés</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="p-6 bg-white/5 border border-white/10 rounded-xl">
-							<div class="flex items-start gap-4">
-								<div class="p-3 bg-[#00ffc8]/10 rounded-lg">
-									<Monitor size={24} class="text-[#00ffc8]" />
-								</div>
-								<div class="flex-1">
-									<h3 class="text-xl font-bold mb-2">Meubles Vidéoprojecteurs</h3>
-									<p class="text-white/70 mb-3">
-										Configurateur spécialisé pour meubles vidéoprojecteurs offrant une haute personnalisation 
-										tout en restant simple d'utilisation. Adaptation de l'interface pour ce type de meuble spécifique.
-									</p>
-									<div class="space-y-2 text-white/60 text-sm">
-										<div class="flex items-center gap-2">
-											<span class="text-[#00ffc8]">▸</span>
-											<span>Haute personnalisation</span>
-										</div>
-										<div class="flex items-center gap-2">
-											<span class="text-[#00ffc8]">▸</span>
-											<span>Interface adaptée au cas d'usage</span>
-										</div>
-										<div class="flex items-center gap-2">
-											<span class="text-[#00ffc8]">▸</span>
-											<span>Expérience utilisateur optimisée</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				
-				<section>
-					<h2 class="text-3xl font-bold mb-6">Technologies et innovations</h2>
-					<div class="space-y-6">
-						<div class="p-6 bg-gradient-to-br from-[#00ffc8]/5 to-[#00d4aa]/5 border border-white/10 rounded-xl">
-							<div class="flex items-start gap-4">
-								<div class="p-3 bg-[#00ffc8]/10 rounded-lg">
-									<Ruler size={24} class="text-[#00ffc8]" />
-								</div>
-								<div class="flex-1">
-									<h3 class="text-xl font-bold mb-2">Canvas Interactifs</h3>
-									<p class="text-white/70">
-										Utilisation de canvas HTML5 pour créer des interfaces de dessin interactives permettant 
-										aux utilisateurs de visualiser et modifier leurs meubles de manière intuitive.
-									</p>
-								</div>
-							</div>
-						</div>
-						
-						<div class="p-6 bg-gradient-to-br from-[#00ffc8]/5 to-[#00d4aa]/5 border border-white/10 rounded-xl">
-							<div class="flex items-start gap-4">
-								<div class="p-3 bg-[#00ffc8]/10 rounded-lg">
-									<Eye size={24} class="text-[#00ffc8]" />
-								</div>
-								<div class="flex-1">
-									<h3 class="text-xl font-bold mb-2">Viewer 3D Propriétaire</h3>
-									<p class="text-white/70">
-										Intégration du viewer 3D propriétaire de l'entreprise permettant de voir le meuble 
-										se mettre à jour en temps réel à chaque modification de paramètre.
-									</p>
-								</div>
-							</div>
-						</div>
-						
-						<div class="p-6 bg-gradient-to-br from-[#00ffc8]/5 to-[#00d4aa]/5 border border-white/10 rounded-xl">
-							<div class="flex items-start gap-4">
-								<div class="p-3 bg-[#00ffc8]/10 rounded-lg">
-									<Sparkles size={24} class="text-[#00ffc8]" />
-								</div>
-								<div class="flex-1">
-									<h3 class="text-xl font-bold mb-2">Svelte & TypeScript</h3>
-									<p class="text-white/70">
-										Les trois projets ont été développés avec Svelte et TypeScript, garantissant 
-										une performance optimale et une maintenabilité du code.
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				
-				<section>
-					<h2 class="text-3xl font-bold mb-6">Impact et apprentissages</h2>
-					<div class="space-y-4 text-white/70 text-lg leading-relaxed">
-						<p>
-							Ces projets m'ont permis de développer une expertise en UX design et en optimisation 
-							d'interfaces complexes. Les principaux apprentissages incluent :
-						</p>
-						<ul class="space-y-3 ml-6">
-							<li class="flex items-start gap-3">
-								<span class="text-[#00ffc8] mt-1">▸</span>
-								<span>Simplification d'interfaces complexes sans perte de fonctionnalités</span>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-[#00ffc8] mt-1">▸</span>
-								<span>Manipulation avancée de canvas HTML5 pour des interfaces interactives</span>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-[#00ffc8] mt-1">▸</span>
-								<span>Intégration de viewers 3D propriétaires avec mise à jour en temps réel</span>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-[#00ffc8] mt-1">▸</span>
-								<span>Développement d'algorithmes métier (calcul de confort pour escaliers)</span>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-[#00ffc8] mt-1">▸</span>
-								<span>Itération et amélioration continue basée sur les retours utilisateurs</span>
-							</li>
+						<ul class="mt-4 space-y-3 text-sm font-mono text-paper/80">
+							{#each card.copy as line}
+								<li class="flex items-start gap-2">
+									<span class="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-accent"></span>
+									<span>{line}</span>
+								</li>
+							{/each}
 						</ul>
 					</div>
-				</section>
+				{/each}
 			</div>
-			
-			<div class="space-y-6">
-				<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm sticky top-24">
-					<h3 class="text-xl font-bold mb-4">Technologies utilisées</h3>
-					<div class="space-y-3">
-						<div>
-							<div class="text-sm text-white/50 mb-2">Framework</div>
-							<div class="flex flex-wrap gap-2">
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">Svelte</span>
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">TypeScript</span>
-							</div>
+		</div>
+	</section>
+
+	<section class="py-24 border-t-2 border-ink">
+		<div class="mx-auto max-w-5xl px-6 space-y-10">
+			<h2 class="text-4xl font-display uppercase tracking-[0.3em]">innovations clés</h2>
+			<div class="grid gap-6 md:grid-cols-3">
+				{#each innovations as innovationItem}
+					<div class="manga-panel p-6">
+						<div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.4em] text-ink/60">
+							<svelte:component this={innovationItem.icon} size={18} />
+							{innovationItem.title}
 						</div>
-						
-						<div class="border-t border-white/10 pt-3">
-							<div class="text-sm text-white/50 mb-2">Visualisation</div>
-							<div class="flex flex-wrap gap-2">
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">Canvas</span>
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">Viewer 3D</span>
-							</div>
-						</div>
-						
-						<div class="border-t border-white/10 pt-3">
-							<div class="text-sm text-white/50 mb-2">Compétences</div>
-							<div class="flex flex-wrap gap-2">
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">UX Design</span>
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">Algorithmes</span>
-							</div>
-						</div>
+						<p class="mt-4 text-sm font-mono text-ink/80 leading-relaxed">{innovationItem.desc}</p>
 					</div>
-				</div>
-				
-				<div class="p-6 bg-gradient-to-br from-[#00ffc8]/10 to-[#00d4aa]/10 border border-[#00ffc8]/20 rounded-xl">
-					<h3 class="text-xl font-bold mb-2 text-[#00ffc8]">Images à venir</h3>
-					<p class="text-white/70 text-sm">
-						Captures d'écran des trois configurateurs et démonstrations visuelles seront ajoutées prochainement.
-					</p>
+				{/each}
+			</div>
+		</div>
+	</section>
+
+	<section class="py-20">
+		<div class="mx-auto max-w-5xl px-6 grid gap-8 md:grid-cols-[1.1fr,0.9fr]">
+			<div class="manga-panel p-6 space-y-4">
+				<h3 class="text-2xl font-display uppercase tracking-[0.2em]">Impact & apprentissages</h3>
+				<ul class="space-y-3 font-mono text-sm text-ink/80">
+					{#each learnings as learning}
+						<li class="flex items-start gap-3">
+							<span class="mt-1 inline-block h-2 w-2 bg-ink"></span>
+							<span>{learning}</span>
+						</li>
+					{/each}
+				</ul>
+			</div>
+			<div class="manga-panel p-6 space-y-4">
+				<h3 class="text-2xl font-display uppercase tracking-[0.2em]">Technos utilisées</h3>
+				<div class="grid gap-3 text-xs font-mono uppercase tracking-[0.35em]">
+					<p>Framework — Svelte + TypeScript</p>
+					<p>Visualisation — Canvas + Viewer 3D</p>
+					<p>Compétences — UX, Algorithmes, Dev outil interne</p>
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
+	</section>
+
+	<section class="py-16">
+		<div class="mx-auto max-w-5xl px-6">
+			<div class="manga-panel p-6">
+				<h3 class="text-2xl font-display uppercase tracking-[0.2em] mb-2">Images à venir</h3>
+				<p class="font-mono text-sm leading-relaxed text-ink/80">
+					Les captures du viewer et des canvas seront ajoutées dès que possible pour montrer le flow complet.
+				</p>
+			</div>
+		</div>
+	</section>
+</main>

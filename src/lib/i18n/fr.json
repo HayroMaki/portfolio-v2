@@ -1,31 +1,27 @@
 {
   "nav": {
-    "home": "Accueil",
-    "travia": "Travia",
-    "speedywiki": "SpeedyWiki",
-    "configurateurs": "Configurateurs",
-    "mcp": "MCP Server"
+    "home": "Accueil"
   },
   "hero": {
     "badge": "Développeur Full-Stack",
     "name": "Jules",
     "surname": "Grange",
-    "description": "Étudiant en BUT Informatique, passionné par le développement web moderne et l'innovation technologique.",
-    "cta_projects": "Voir mes projets",
+    "description": "Étudiant en BUT Informatique, vous voulez savoir ce que je fais ? ça se passe ici :",
+    "cta_projects": "Check mes projets",
     "cta_journey": "Mon parcours",
     "stats": {
-      "projects": "Projets majeurs",
-      "experience": "Ans d'expérience",
+      "projects": "Vrais projets",
+      "experience": "Ans d'exp",
       "motivation": "Motivation"
     }
   },
   "about": {
-    "badge": "À propos",
-    "title": "Un développeur passionné,",
-    "title_highlight": "toujours en mouvement",
-    "p1": "Grand lecteur de manga et de romans, j'aime créer des expériences web qui racontent une histoire. Mon approche du développement mélange esthétique street et brut avec des animations fluides et une UX soignée.",
-    "p2": "Actuellement en alternance chez Dessine ton meuble/Aryga, je travaille sur des projets innovants alliant 3D, IA et développement web moderne.",
-    "p3": "Mec chill mais sérieux quand il le faut, je cherche toujours à apprendre et à repousser les limites de ce qui est possible avec le code.",
+    "badge": "ça c'est moi",
+    "title": "Un développeur passionné ?",
+    "title_highlight": "Peut-être pas, mais...",
+    "p1": "Je suis bon dans ce que je fais. Curieux, sérieux, méticuleux; j'adore les problèmes et encore plus les solutions.",
+    "p2": "Touche-à-tout, j'aime explorer différents domaines et languages.",
+    "p3": "Je me ferai pas remplacer par l'IA. Croyez-le.",
     "stack": {
       "title": "Stack technique"
     },
@@ -35,8 +31,19 @@
     },
     "education": {
       "title": "Formation",
-      "degree": "BUT Informatique",
-      "bac": "BAC STI2D mention TB (2023)"
+      "degree": "BUT Informatique Univesité Gustave Eiffel Marne-la-Vallée",
+      "bac": "BAC STI2D mention TB Lycée Diderot Paris"
+    },
+    "mentality": {
+      "title": "Mentalité",
+      "p1": "Travail efficace, autonomie et communcation, c'est la clé du succès. Sans oublier de s'hydrater."
+    },
+    "passions": {
+      "title": "Passions",
+      "p1": "Littérature ('To Your Eternity', 'BLAME', 'La Maison des Feuilles'...) ma bibliothèque va exploser",
+      "p2": "Jeux vidéos ('Monster Hunter', 'Zelda', 'Rain World', 'Dark Souls'...) ma bibliothèque Steam va exploser",
+      "p3": "Déssin, sur les marges de mon cahier :P",
+      "p4": "Skier dans les Alpes, mon repos bien mérité"
     }
   },
   "journey": {
@@ -45,24 +52,41 @@
     "title_highlight": "parcours",
     "items": [
       {
-        "year": "2023",
-        "title": "BAC STI2D mention Très Bien",
-        "description": "Obtention du baccalauréat et entrée en BUT Informatique"
+        "year": "2020-2023",
+        "title": "BAC STI2D",
+        "description": "Au Lycée Diderot Paris, j'ai obtenu mon BAC STI2D mention TB. Spécialité SIN (Systèmes d'Information & Numérique) Obtention du baccalauréat et entrée en BUT Informatique",
+        "sub_events": [
+          "Projet de robot géolocalisé avec Arduino & Raspberry Pi",
+          "Entrée en BUT Info"
+        ]
       },
       {
-        "year": "2024",
+        "year": "2024-2026 (en cours)",
         "title": "BUT Informatique",
-        "description": "Développement de compétences en programmation et gestion de projets"
+        "description": "Au sein de l'Université Gustave Eiffel Marne-la-Vallée, je suis actuellement en BUT Informatique. Développement de compétences en développement, programmation, base de données et gestion de projets (j'ai même eu des cours de droit, à l'aide)",
+        "sub_events": [
+          "Projet Qix (1ère année)",
+          "Projet Travia (2ème année)",
+          "Projet SpeedyWiki (2ème année)",
+          "Projet Custom Forms (3ème année)",
+          "j'ai seiché une semaine de cours pour aller à Zanzibar (c'est pas bien)",
+          "d'autres projets mineurs"
+        ]
       },
       {
-        "year": "2025",
+        "year": "2025-2026 (en cours)",
         "title": "Stage puis Alternance",
-        "description": "Chez Dessine ton meuble/Aryga - Développement web et IA"
+        "description": "Chez Dessine ton meuble/Aryga - Développeur d'applications web. Découvertes des méthodes de travail avec l'IA (on apprends pas ça en cours)",
+        "sub_events": [
+          "Projet Configurateurs Easy",
+          "Projet MCP Server"
+        ]
       },
       {
-        "year": "2026",
-        "title": "Diplôme BUT + École d'ingénieur",
-        "description": "Poursuite d'études en école d'ingénieur"
+        "year": "2026-..?",
+        "title": "École d'ingénieur",
+        "description": "Poursuite d'études en école d'ingénieur, et après je deviens riche, c'est le plan...",
+        "sub_events": []
       }
     ]
   },
@@ -71,32 +95,32 @@
     "title": "Mes",
     "title_highlight": "projets",
     "description": "Une sélection de mes réalisations les plus significatives, des projets universitaires aux développements en entreprise.",
-    "featured": "Featured",
+    "featured": "Projet Pro",
     "cta": "Voir le projet",
     "list": [
       {
         "title": "MCP Server",
-        "description": "Serveur MCP pour la création de meubles via IA avec intégration ChatGPT/Claude",
-        "tags": ["TypeScript", "Svelte", "IA", "MCP"]
+        "description": "Serveur MCP pour la création de meubles par l'IA pour Dessine ton meuble/Aryga",
+        "tags": ["TypeScript", "MCP", "IA", "Docker"]
       },
       {
         "title": "Configurateurs Easy",
-        "description": "Suite de configurateurs 3D interactifs pour meubles sur mesure",
+        "description": "Suite de configurateurs 3D interactifs pour meubles sur mesure pour Dessine ton meuble/Aryga",
         "tags": ["Svelte", "TypeScript", "3D", "Canvas"]
       },
       {
         "title": "Travia",
-        "description": "Application web de recherche de trajets optimisés dans Star Wars",
-        "tags": ["Java", "C", "JavaScript", "MySQL"]
+        "description": "Application web de recherche de trajets optimisés dans l'univers de Star Wars",
+        "tags": ["Java", "C", "PHP", "JavaScript", "MySQL"]
       },
       {
         "title": "SpeedyWiki",
         "description": "Jeu multijoueur de speedrun Wikipedia en temps réel",
-        "tags": ["WebSocket", "Express", "Git"]
+        "tags": ["React", "WebSocket", "Express", "MongoDB"]
       }
     ]
   },
   "footer": {
-    "copyright": "2025 Jules Grange. Tous droits réservés."
+    "copyright": "2025 Jules Renaud-Grange. Tous droits réservés."
   }
 }

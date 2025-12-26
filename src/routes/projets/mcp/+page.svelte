@@ -1,294 +1,195 @@
 <script lang="ts">
 	import { ArrowLeft, Brain, Shield, Package, Zap, Lock, Globe } from 'lucide-svelte';
+
+	const heroStats = [
+		{ label: 'LLM', value: 'ChatGPT + Claude', sub: 'via MCP' },
+		{ label: 'Sécurité', value: 'Rate-limit', sub: 'tokens & origin' },
+		{ label: 'Prod', value: 'clients actifs', sub: 'tools exposés' }
+	];
+
+	const architecture = [
+		{
+			icon: Brain,
+			title: 'Outils MCP',
+			desc: 'Mapping des fonctions métier pour les LLM: création de meubles, calculs structurels, exports.'
+		},
+		{
+			icon: Globe,
+			title: 'ChatGPT App SDK',
+			desc: 'Viewer 3D directement embarqué dans ChatGPT pour visualiser chaque meuble généré.'
+		},
+		{
+			icon: Package,
+			title: 'Package Svelte',
+			desc: 'Handlers headless (chat, tools, manuels) + composant UI pour brancher l’atelier à l’IA.'
+		}
+	];
+
+	const security = [
+		{ icon: Lock, title: 'Tokens signés', desc: 'Liés aux IP/clients pour suivre l’usage et couper à la volée.' },
+		{ icon: Shield, title: 'Rate limiting', desc: 'Contrôle strict des coûts API IA via quotas par utilisateur.' },
+		{ icon: Globe, title: 'Origin check', desc: 'Seul le domaine officiel peut appeler les endpoints sensibles.' },
+		{ icon: Zap, title: 'APIs cloisonnées', desc: 'Récupération de tokens et appels IA uniquement côté serveur.' }
+	];
+
+	const features = [
+		'Génération de meubles depuis texte ou croquis client.',
+		'Visualisation 3D en temps réel dans l’interface de chat.',
+		'Package Svelte réutilisable pour toutes les équipes.',
+		'Monitoring et alertes sur la consommation IA.',
+		'Support multi-models (GPT, Claude) via même protocole.'
+	];
+
+	const learnings = [
+		'Traduire des workflows meubles en outils IA compréhensibles.',
+		'Concevoir un plan de sécurité multi-couches pour l’IA.',
+		'Livrer des packages réutilisables plutôt qu’un monolithe.',
+		'Piloter un déploiement production utilisé par des clients finaux.'
+	];
 </script>
 
-<div class="min-h-screen">
-	<div class="relative py-20 overflow-hidden">
-		<div class="absolute inset-0 opacity-20">
-			<div class="absolute top-1/4 right-1/4 w-96 h-96 bg-[#00ffc8]/20 rounded-full blur-[120px]"></div>
-		</div>
-		
-		<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<a href="/" class="inline-flex items-center gap-2 text-white/70 hover:text-[#00ffc8] transition-colors mb-8">
-				<ArrowLeft size={20} />
-				Retour
-			</a>
-			
-			<div class="space-y-6 mb-12">
-				<div class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#00ffc8]/20 to-[#00d4aa]/20 border border-[#00ffc8]/30 rounded-full text-sm text-[#00ffc8] font-medium">
-					<Zap size={16} />
-					Projet Actuel - Featured
-				</div>
-				<h1 class="text-5xl md:text-7xl font-bold">
-					<span class="text-gradient">MCP Server</span>
-				</h1>
-				<p class="text-xl text-white/70 max-w-3xl">
-					Serveur MCP (Model Context Protocol) pour la création de meubles via IA, avec intégration 
-					ChatGPT/Claude et déploiement sécurisé pour les clients.
+<main class="min-h-screen bg-paper text-ink">
+	<section class="border-b-2 border-ink">
+		<div class="mx-auto max-w-5xl px-6 py-20 space-y-10">
+			<div class="flex items-center gap-4 text-xs font-mono uppercase tracking-[0.4em]">
+				<a href="/" class="inline-flex items-center gap-2 border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper transition">
+					<ArrowLeft size={16} />
+					retour atelier
+				</a>
+				<span class="kanji-tag bg-paper">projet actuel</span>
+			</div>
+
+			<div class="space-y-6">
+				<h1 class="stroke-title leading-[0.8]">MCP <strong>Server</strong></h1>
+				<p class="max-w-3xl font-mono text-base leading-relaxed text-ink/80">
+					Serveur Model Context Protocol qui permet à ChatGPT / Claude de générer des meubles comme un conseiller humain.
+					Chaque outil IA reflète une fonction métier réelle, avec un niveau de sécurité digne d’une prod client.
 				</p>
 			</div>
-			
-			<div class="grid md:grid-cols-3 gap-6 mb-16">
-				<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm">
-					<div class="text-3xl font-bold text-[#00ffc8] mb-2">IA</div>
-					<div class="text-white/70">ChatGPT & Claude</div>
-				</div>
-				<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm">
-					<div class="text-3xl font-bold text-[#00ffc8] mb-2">Sécurisé</div>
-					<div class="text-white/70">Rate-limiting & tokens</div>
-				</div>
-				<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm">
-					<div class="text-3xl font-bold text-[#00ffc8] mb-2">Production</div>
-					<div class="text-white/70">Déployé pour clients</div>
+
+			<div class="grid gap-4 sm:grid-cols-3">
+				{#each heroStats as stat}
+					<div class="manga-panel p-6 text-center">
+						<p class="text-xs font-mono uppercase tracking-[0.4em] text-ink/60">{stat.label}</p>
+						<p class="text-2xl font-display mt-1">{stat.value}</p>
+						<p class="text-[0.65rem] font-mono uppercase tracking-[0.35em] text-ink/50 mt-1">{stat.sub}</p>
+					</div>
+				{/each}
+			</div>
+		</div>
+	</section>
+
+	<section class="border-b-2 border-dashed border-ink py-20">
+		<div class="mx-auto max-w-5xl px-6 space-y-6">
+			<h2 class="text-4xl font-display uppercase tracking-[0.3em]">Pourquoi c’est mon projet phare</h2>
+			<div class="grid gap-8 md:grid-cols-2">
+				<p class="font-mono text-sm leading-relaxed text-ink/80">
+					L’objectif: rendre la prise de brief IA aussi précise qu’un expert atelier. Les LLM manipulent mes outils MCP pour générer un meuble
+					à partir d’un devis, d’un croquis ou d’un vocal. Chaque outil encapsule de la logique métier (calculs, accès DB, viewer 3D) et renvoie
+					des réponses formatées prêtes pour la prod.
+				</p>
+				<p class="font-mono text-sm leading-relaxed text-ink/80">
+					J’ai dû designer la sécurité comme un système bancaire: tokens, origin, quotas, logs. Et emballer le tout dans un package Svelte +
+					TypeScript pour que l’équipe puisse intégrer de nouveaux outils IA en quelques minutes.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-24 bg-ink text-paper">
+		<div class="mx-auto max-w-5xl px-6 space-y-8">
+			<div class="flex items-center gap-4">
+				<div class="kanji-tag bg-ink border-paper text-paper">architecture</div>
+				<p class="font-mono text-xs uppercase tracking-[0.4em] text-paper/70">LLM ready</p>
+			</div>
+			<div class="grid gap-6 md:grid-cols-3">
+				{#each architecture as block}
+					<div class="manga-panel border-paper bg-black/20 p-6">
+						<div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.4em] text-paper/70">
+							<svelte:component this={block.icon} size={18} />
+							{block.title}
+						</div>
+						<p class="mt-4 text-sm font-mono text-paper/80 leading-relaxed">{block.desc}</p>
+					</div>
+				{/each}
+			</div>
+		</div>
+	</section>
+
+	<section class="py-24 border-t-2 border-ink">
+		<div class="mx-auto max-w-5xl px-6 space-y-10">
+			<h2 class="text-4xl font-display uppercase tracking-[0.3em]">Sécurité & production</h2>
+			<div class="grid gap-6 md:grid-cols-2">
+				{#each security as item}
+					<div class="manga-panel p-6">
+						<div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.4em] text-ink/60">
+							<svelte:component this={item.icon} size={18} />
+							{item.title}
+						</div>
+						<p class="mt-3 text-sm font-mono text-ink/80 leading-relaxed">{item.desc}</p>
+					</div>
+				{/each}
+			</div>
+		</div>
+	</section>
+
+	<section class="py-20 border-t border-b border-dashed border-ink">
+		<div class="mx-auto max-w-5xl px-6 grid gap-8 md:grid-cols-[1.1fr,0.9fr]">
+			<div class="manga-panel p-6 space-y-4">
+				<h3 class="text-2xl font-display uppercase tracking-[0.2em]">Fonctionnalités clés</h3>
+				<ul class="space-y-3 font-mono text-sm text-ink/80">
+					{#each features as feat}
+						<li class="flex items-start gap-3">
+							<span class="mt-1 inline-block h-2 w-2 bg-ink"></span>
+							<span>{feat}</span>
+						</li>
+					{/each}
+				</ul>
+			</div>
+			<div class="manga-panel p-6">
+				<h3 class="text-2xl font-display uppercase tracking-[0.2em] mb-2">Technologies</h3>
+				<div class="grid gap-3 text-xs font-mono uppercase tracking-[0.35em]">
+					<p>Core — TypeScript, Node, MCP</p>
+					<p>Frontend — Svelte, Viewer 3D</p>
+					<p>IA — ChatGPT SDK, Claude</p>
+					<p>Sécurité — Tokens, Rate-limit, Origin check</p>
 				</div>
 			</div>
 		</div>
-	</div>
-	
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32">
-		<div class="grid lg:grid-cols-3 gap-12 mb-20">
-			<div class="lg:col-span-2 space-y-12">
-				<section>
-					<h2 class="text-3xl font-bold mb-6">Mon projet préféré</h2>
-					<div class="space-y-4 text-white/70 text-lg leading-relaxed">
-						<p>
-							Ce projet représente le summum de mon travail en alternance. J'ai créé un serveur MCP complet 
-							permettant aux LLM (ChatGPT, Claude) de créer des meubles sur mesure à partir d'un devis client, 
-							avec ou sans croquis.
-						</p>
-						<p>
-							Le défi principal était de rendre des fonctions métier complexes accessibles à l'IA tout en 
-							garantissant la sécurité et la fiabilité du système pour une utilisation en production par les clients.
-						</p>
-					</div>
-				</section>
-				
-				<section>
-					<h2 class="text-3xl font-bold mb-6">Architecture du système</h2>
-					<div class="space-y-6">
-						<div class="p-6 bg-white/5 border border-white/10 rounded-xl">
-							<div class="flex items-start gap-4">
-								<div class="p-3 bg-[#00ffc8]/10 rounded-lg">
-									<Brain size={24} class="text-[#00ffc8]" />
-								</div>
-								<div class="flex-1">
-									<h3 class="text-xl font-bold mb-2">Outils MCP</h3>
-									<p class="text-white/70 mb-3">
-										Création d'une panoplie d'outils utilisables par les LLM, liés à des fonctions métier 
-										complexes de l'entreprise. Chaque outil expose une fonctionnalité spécifique de manière 
-										compréhensible pour l'IA.
-									</p>
-									<div class="flex flex-wrap gap-2">
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">MCP Protocol</span>
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">TypeScript</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="p-6 bg-white/5 border border-white/10 rounded-xl">
-							<div class="flex items-start gap-4">
-								<div class="p-3 bg-[#00ffc8]/10 rounded-lg">
-									<Globe size={24} class="text-[#00ffc8]" />
-								</div>
-								<div class="flex-1">
-									<h3 class="text-xl font-bold mb-2">Intégration ChatGPT App SDK</h3>
-									<p class="text-white/70 mb-3">
-										Intégration du viewer 3D directement dans l'application ChatGPT via leur SDK, 
-										permettant aux utilisateurs de voir leurs meubles se créer en temps réel pendant 
-										la conversation avec l'IA.
-									</p>
-									<div class="flex flex-wrap gap-2">
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">ChatGPT SDK</span>
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">Viewer 3D</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="p-6 bg-white/5 border border-white/10 rounded-xl">
-							<div class="flex items-start gap-4">
-								<div class="p-3 bg-[#00ffc8]/10 rounded-lg">
-									<Package size={24} class="text-[#00ffc8]" />
-								</div>
-								<div class="flex-1">
-									<h3 class="text-xl font-bold mb-2">Package Svelte Headless</h3>
-									<p class="text-white/70 mb-3">
-										Création d'un package Svelte exportant des fonctions handler pour setup facile des API 
-										(chat, tools, appels manuels) et un composant headless pour gérer le chat de manière 
-										entièrement personnalisable.
-									</p>
-									<div class="flex flex-wrap gap-2">
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">Svelte</span>
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">Headless UI</span>
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">NPM Package</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				
-				<section>
-					<h2 class="text-3xl font-bold mb-6">Sécurité et production</h2>
-					<div class="space-y-6">
-						<p class="text-white/70 text-lg">
-							L'intégration dans le site principal nécessitait des mesures de sécurité robustes pour 
-							éviter les abus, car les appels aux API d'IA représentent un coût significatif :
-						</p>
-						
-						<div class="grid md:grid-cols-2 gap-4">
-							<div class="p-6 bg-gradient-to-br from-[#00ffc8]/5 to-[#00d4aa]/5 border border-white/10 rounded-xl">
-								<div class="flex items-center gap-3 mb-3">
-									<Lock size={20} class="text-[#00ffc8]" />
-									<h3 class="font-bold">Gestion par Token</h3>
-								</div>
-								<p class="text-white/60 text-sm">
-									Système de tokens liés à l'adresse IP pour authentifier et tracer les requêtes légitimes.
-								</p>
-							</div>
-							
-							<div class="p-6 bg-gradient-to-br from-[#00ffc8]/5 to-[#00d4aa]/5 border border-white/10 rounded-xl">
-								<div class="flex items-center gap-3 mb-3">
-									<Shield size={20} class="text-[#00ffc8]" />
-									<h3 class="font-bold">Rate-Limiting</h3>
-								</div>
-								<p class="text-white/60 text-sm">
-									Limitation du nombre de requêtes par utilisateur pour prévenir les abus et contrôler les coûts.
-								</p>
-							</div>
-							
-							<div class="p-6 bg-gradient-to-br from-[#00ffc8]/5 to-[#00d4aa]/5 border border-white/10 rounded-xl">
-								<div class="flex items-center gap-3 mb-3">
-									<Globe size={20} class="text-[#00ffc8]" />
-									<h3 class="font-bold">Origin Validation</h3>
-								</div>
-								<p class="text-white/60 text-sm">
-									Vérification de l'origine des requêtes pour s'assurer qu'elles proviennent du site officiel.
-								</p>
-							</div>
-							
-							<div class="p-6 bg-gradient-to-br from-[#00ffc8]/5 to-[#00d4aa]/5 border border-white/10 rounded-xl">
-								<div class="flex items-center gap-3 mb-3">
-									<Zap size={20} class="text-[#00ffc8]" />
-									<h3 class="font-bold">API Sécurisées</h3>
-								</div>
-								<p class="text-white/60 text-sm">
-									Récupération de tokens et appels API uniquement depuis des sources autorisées.
-								</p>
-							</div>
-						</div>
-					</div>
-				</section>
-				
-				<section>
-					<h2 class="text-3xl font-bold mb-6">Fonctionnalités clés</h2>
-					<div class="space-y-4 text-white/70 text-lg leading-relaxed">
-						<ul class="space-y-3 ml-6">
-							<li class="flex items-start gap-3">
-								<span class="text-[#00ffc8] mt-1">▸</span>
-								<span>Création de meubles à partir de descriptions textuelles ou de croquis</span>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-[#00ffc8] mt-1">▸</span>
-								<span>Intégration transparente avec ChatGPT et Claude via MCP</span>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-[#00ffc8] mt-1">▸</span>
-								<span>Visualisation 3D en temps réel dans l'interface de chat</span>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-[#00ffc8] mt-1">▸</span>
-								<span>Package Svelte réutilisable pour faciliter l'intégration</span>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-[#00ffc8] mt-1">▸</span>
-								<span>Système de sécurité multi-couches pour la production</span>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-[#00ffc8] mt-1">▸</span>
-								<span>Déploiement pour utilisation par les clients finaux</span>
-							</li>
-						</ul>
-					</div>
-				</section>
-				
-				<section>
-					<h2 class="text-3xl font-bold mb-6">Impact et apprentissages</h2>
-					<div class="p-6 bg-gradient-to-br from-[#00ffc8]/10 to-[#00d4aa]/10 border border-[#00ffc8]/20 rounded-xl">
-						<p class="text-white/70 text-lg leading-relaxed mb-4">
-							Ce projet m'a permis de travailler sur des technologies de pointe et de résoudre des 
-							problèmes complexes d'architecture, de sécurité et d'intégration IA. C'est le projet 
-							dont je suis le plus fier car il combine innovation technique et valeur business réelle.
-						</p>
-						<div class="grid md:grid-cols-2 gap-3 mt-6">
-							<div class="flex items-center gap-3">
-								<div class="w-2 h-2 bg-[#00ffc8] rounded-full"></div>
-								<span class="text-white/90">Architecture MCP</span>
-							</div>
-							<div class="flex items-center gap-3">
-								<div class="w-2 h-2 bg-[#00ffc8] rounded-full"></div>
-								<span class="text-white/90">Intégration IA</span>
-							</div>
-							<div class="flex items-center gap-3">
-								<div class="w-2 h-2 bg-[#00ffc8] rounded-full"></div>
-								<span class="text-white/90">Sécurité production</span>
-							</div>
-							<div class="flex items-center gap-3">
-								<div class="w-2 h-2 bg-[#00ffc8] rounded-full"></div>
-								<span class="text-white/90">Package development</span>
-							</div>
-						</div>
-					</div>
-				</section>
-			</div>
-			
-			<div class="space-y-6">
-				<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm sticky top-24">
-					<h3 class="text-xl font-bold mb-4">Technologies utilisées</h3>
-					<div class="space-y-3">
-						<div>
-							<div class="text-sm text-white/50 mb-2">Core</div>
-							<div class="flex flex-wrap gap-2">
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">TypeScript</span>
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">MCP</span>
-							</div>
-						</div>
-						
-						<div class="border-t border-white/10 pt-3">
-							<div class="text-sm text-white/50 mb-2">Frontend</div>
-							<div class="flex flex-wrap gap-2">
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">Svelte</span>
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">Viewer 3D</span>
-							</div>
-						</div>
-						
-						<div class="border-t border-white/10 pt-3">
-							<div class="text-sm text-white/50 mb-2">IA</div>
-							<div class="flex flex-wrap gap-2">
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">ChatGPT</span>
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">Claude</span>
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">GPT SDK</span>
-							</div>
-						</div>
-						
-						<div class="border-t border-white/10 pt-3">
-							<div class="text-sm text-white/50 mb-2">Sécurité</div>
-							<div class="flex flex-wrap gap-2">
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">Tokens</span>
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">Rate-limiting</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="p-6 bg-gradient-to-br from-[#00ffc8]/10 to-[#00d4aa]/10 border border-[#00ffc8]/20 rounded-xl">
-					<h3 class="text-xl font-bold mb-2 text-[#00ffc8]">Images à venir</h3>
-					<p class="text-white/70 text-sm">
-						Captures d'écran de l'intégration ChatGPT et démonstrations du système seront ajoutées prochainement.
+	</section>
+
+	<section class="py-24">
+		<div class="mx-auto max-w-5xl px-6 space-y-8">
+			<h2 class="text-4xl font-display uppercase tracking-[0.3em]">Impact & apprentissages</h2>
+			<div class="grid gap-6 md:grid-cols-2">
+				<div class="manga-panel p-6">
+					<p class="font-mono text-sm text-ink/80 leading-relaxed">
+						Projet en prod, utilisé par l’équipe commerciale pour pré-maquetter des meubles avec l’aide d’un LLM. Il a servi de base à notre stratégie IA
+						et prouve que les outils artisanaux peuvent devenir des super-pouvoirs pour les conseillers.
 					</p>
 				</div>
+				<div class="manga-panel p-6 space-y-3">
+					<ul class="space-y-3 font-mono text-sm text-ink/80">
+						{#each learnings as learning}
+							<li class="flex items-start gap-3">
+								<span class="mt-1 inline-block h-2 w-2 bg-ink"></span>
+								<span>{learning}</span>
+							</li>
+						{/each}
+					</ul>
+				</div>
 			</div>
 		</div>
-	</div>
-</div>
+	</section>
+
+	<section class="py-16">
+		<div class="mx-auto max-w-5xl px-6">
+			<div class="manga-panel p-6">
+				<h3 class="text-2xl font-display uppercase tracking-[0.2em] mb-2">Images à venir</h3>
+				<p class="font-mono text-sm leading-relaxed text-ink/80">
+					Ajout prochain des captures ChatGPT + viewer 3D en action pour montrer comment l’IA manipule mes outils.
+				</p>
+			</div>
+		</div>
+	</section>
+</main>

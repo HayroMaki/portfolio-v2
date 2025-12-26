@@ -1,228 +1,207 @@
 <script lang="ts">
-	import { ArrowLeft, Zap, Users, GitBranch, Globe, MessageSquare } from 'lucide-svelte';
+	import { ArrowLeft, Zap, Users, GitBranch, Globe, MessageSquare, PenTool } from 'lucide-svelte';
+
+	const heroStats = [
+		{ label: 'mode', value: 'TEMPS RÉEL', sub: 'websocket' },
+		{ label: 'players', value: 'MULTI', sub: 'jusqu\'à 6' },
+		{ label: 'workflow', value: 'GIT', sub: 'team play' }
+	];
+
+	const features = [
+		{
+			icon: MessageSquare,
+			title: 'Serveur WebSocket',
+			description:
+				'Interactions instantanées, synchronisation des courses et scoreboard en direct. Le serveur pilote tout le rythme des speedruns.',
+			tags: ['WebSocket', 'Temps réel']
+		},
+		{
+			icon: Globe,
+			title: 'Proxy Wikipedia',
+			description:
+				'Express + Axios + CORS pour modifier les pages Wiki à la volée et injecter le tracking des liens dans la couche front.',
+			tags: ['Express', 'Axios', 'CORS']
+		},
+		{
+			icon: GitBranch,
+			title: 'Cadence Git',
+			description:
+				'Workflow strict avec branches, PR, revues quotidiennes et règles de merge. On a tout documenté comme un vrai studio.',
+			tags: ['Git', 'GitHub']
+		}
+	];
+
+	const learnings = [
+		'Composer une communication temps réel robuste pour un jeu multi.',
+		'Négocier les conflits Git et écrire des PR claires.',
+		'Industrialiser un proxy HTTP sans exposer de secrets.',
+		'Imaginer un UI manga pour une app hyper dynamique.'
+	];
+
+	const collaborators = [
+		{ name: 'Binôme 01', role: 'backend & proxy' },
+		{ name: 'Binôme 02', role: 'UX & sockets' }
+	];
 </script>
 
-<div class="min-h-screen">
-	<div class="relative py-20 overflow-hidden">
-		<div class="absolute inset-0 opacity-20">
-			<div class="absolute top-1/4 right-1/4 w-96 h-96 bg-[#00ffc8]/20 rounded-full blur-[120px]"></div>
-		</div>
-		
-		<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<a href="/" class="inline-flex items-center gap-2 text-white/70 hover:text-[#00ffc8] transition-colors mb-8">
-				<ArrowLeft size={20} />
-				Retour
-			</a>
-			
-			<div class="space-y-6 mb-12">
-				<div class="inline-block px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-[#00ffc8] font-medium">
-					Projet Universitaire
-				</div>
-				<h1 class="text-5xl md:text-7xl font-bold">
-					<span class="text-gradient">SpeedyWiki</span>
-				</h1>
-				<p class="text-xl text-white/70 max-w-3xl">
-					Jeu multijoueur de speedrun Wikipedia dans le navigateur, développé en équipe 
-					avec des outils collaboratifs et des bonnes pratiques de communication.
+<main class="min-h-screen bg-paper text-ink">
+	<section class="relative border-b-2 border-ink">
+		<div class="relative z-10 mx-auto max-w-5xl px-6 py-20 space-y-10">
+			<div class="flex items-center gap-4 text-xs font-mono uppercase tracking-[0.4em]">
+				<a href="/" class="inline-flex items-center gap-2 border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper transition">
+					<ArrowLeft size={16} />
+					retour atelier
+				</a>
+				<span class="kanji-tag bg-paper">jeu multijoueur</span>
+			</div>
+			<div class="space-y-6">
+				<h1 class="stroke-title leading-[0.8]">SpeedyWiki <strong>Race</strong></h1>
+				<p class="max-w-3xl font-mono text-base leading-relaxed text-ink/80">
+					Speedrun Wikipedia en équipe, tout dans le navigateur. On part d’une page, on atteint la cible via les liens internes. Pendant
+					ce temps, le serveur WebSocket calcule les moves, le proxy réécrit les pages et l’UI affiche les trajectoires façon planche manga.
 				</p>
 			</div>
-			
-			<div class="grid md:grid-cols-3 gap-6 mb-16">
-				<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm">
-					<div class="text-3xl font-bold text-[#00ffc8] mb-2">Temps réel</div>
-					<div class="text-white/70">WebSocket</div>
+			<div class="grid gap-4 sm:grid-cols-3">
+				{#each heroStats as stat}
+					<div class="manga-panel p-5 text-center">
+						<p class="text-xs font-mono uppercase tracking-[0.4em] text-ink/60">{stat.label}</p>
+						<p class="text-3xl font-display mt-2">{stat.value}</p>
+						<p class="text-xs font-mono text-ink/60 mt-1">{stat.sub}</p>
+					</div>
+				{/each}
+			</div>
+
+			<div class="manga-panel p-6">
+				<div class="flex items-center justify-between font-mono text-xs uppercase tracking-[0.4em]">
+					<span>crew</span>
+					<span>co-dev</span>
 				</div>
-				<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm">
-					<div class="text-3xl font-bold text-[#00ffc8] mb-2">Multi</div>
-					<div class="text-white/70">Joueurs</div>
+				<ul class="mt-4 space-y-3 font-mono text-sm text-ink/80">
+					{#each collaborators as person}
+						<li class="flex flex-wrap items-center justify-between border-b border-ink/10 pb-2">
+							<span class="font-display text-lg">{person.name}</span>
+							<span class="text-xs uppercase tracking-[0.3em] text-ink/60">{person.role}</span>
+						</li>
+					{/each}
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="border-b-2 border-dashed border-ink py-20">
+		<div class="mx-auto max-w-5xl px-6 grid gap-10 lg:grid-cols-[1.1fr,0.9fr]">
+			<div class="space-y-4">
+				<h2 class="text-4xl font-display uppercase tracking-[0.3em]">concept</h2>
+				<p class="font-mono text-sm leading-relaxed text-ink/80">
+					Un duel nerveux : chaque joueur clique sur les liens internes jusqu’à atteindre la page cible. Chaque action est transmise en WebSocket
+					et l’interface trace la progression avec des effets glitch. L’objectif était de rendre la course lisible tout en gardant l’énergie
+					des interfaces arcade.
+				</p>
+			</div>
+			<div class="manga-panel p-6 space-y-4">
+				<div class="kanji-tag bg-paper">boucle jeu</div>
+				<ul class="space-y-2 font-mono text-xs uppercase tracking-[0.35em]">
+					<li class="flex justify-between border-b border-ink/20 py-2">
+						<span>Lobby</span>
+						<span>création / invitation</span>
+					</li>
+					<li class="flex justify-between border-b border-ink/20 py-2">
+						<span>Course</span>
+						<span>tracking temps réel</span>
+					</li>
+					<li class="flex justify-between py-2">
+						<span>Résultat</span>
+						<span>replay + stats</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-ink text-paper py-24">
+		<div class="mx-auto max-w-5xl px-6 space-y-10">
+			<div class="flex items-center gap-4">
+				<div class="kanji-tag bg-ink border-paper text-paper">stack technique</div>
+				<p class="font-mono text-xs uppercase tracking-[0.4em] text-paper/70">tout est synchrone</p>
+			</div>
+			<div class="grid gap-6 md:grid-cols-3">
+				{#each features as feature}
+					<div class="manga-panel border-paper bg-black/30 p-6">
+						<div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.4em] text-paper/70">
+							<svelte:component this={feature.icon} size={20} />
+							{feature.title}
+						</div>
+						<p class="mt-4 text-sm font-mono text-paper/80 leading-relaxed">{feature.description}</p>
+						<div class="mt-4 flex flex-wrap gap-2 text-[10px] font-mono uppercase tracking-[0.3em]">
+							{#each feature.tags as tag}
+								<span class="border border-paper px-2 py-0.5">{tag}</span>
+							{/each}
+						</div>
+					</div>
+				{/each}
+			</div>
+		</div>
+	</section>
+
+	<section class="py-24 border-t-2	border-ink">
+		<div class="mx-auto max-w-5xl px-6 space-y-10">
+			<div class="flex flex-wrap items-center gap-4">
+				<h2 class="text-4xl font-display uppercase tracking-[0.3em]">travail d'équipe</h2>
+				<div class="inline-flex items-center gap-2 border-2 border-ink px-4 py-1 font-mono text-xs uppercase tracking-[0.4em]">
+					<Users size={16} />
+					crew
 				</div>
-				<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm">
-					<div class="text-3xl font-bold text-[#00ffc8] mb-2">Équipe</div>
-					<div class="text-white/70">Collaboration</div>
+			</div>
+			<ul class="space-y-3 font-mono text-sm leading-relaxed text-ink/90">
+				<li class="flex items-start gap-3 border-b border-ink/15 pb-3">
+					<span class="mt-1 inline-block h-2 w-2 bg-ink"></span>
+					<span>Daily stand-up + board Trello custom pour assigner chaque sprint.</span>
+				</li>
+				<li class="flex items-start gap-3 border-b border-ink/15 pb-3">
+					<span class="mt-1 inline-block h-2 w-2 bg-ink"></span>
+					<span>Pair programming sur les modules critiques (proxy + socket handler).</span>
+				</li>
+				<li class="flex items-start gap-3">
+					<span class="mt-1 inline-block h-2 w-2 bg-ink"></span>
+					<span>Session de review pour chaque PR afin de garder un style cohérent.</span>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="py-20">
+		<div class="mx-auto max-w-5xl px-6 grid gap-8 md:grid-cols-[1.1fr,0.9fr]">
+			<div class="manga-panel p-6 space-y-4">
+				<h3 class="text-2xl font-display uppercase tracking-[0.2em]">apprentissages</h3>
+				<ul class="space-y-3 font-mono text-sm text-ink/80">
+					{#each learnings as item}
+						<li class="flex items-start gap-3">
+							<span class="mt-1 inline-block h-2 w-2 bg-ink"></span>
+							<span>{item}</span>
+						</li>
+					{/each}
+				</ul>
+			</div>
+			<div class="manga-panel p-6 space-y-4">
+				<h3 class="text-2xl font-display uppercase tracking-[0.2em]">stack</h3>
+				<div class="grid gap-3 text-xs font-mono uppercase tracking-[0.35em]">
+					<p>Frontend — HTML / CSS / JS</p>
+					<p>Serveur — Express + Node</p>
+					<p>Realtime — WebSocket</p>
+					<p>Collab — Git / GitHub</p>
 				</div>
 			</div>
 		</div>
-	</div>
-	
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32">
-		<div class="grid lg:grid-cols-3 gap-12 mb-20">
-			<div class="lg:col-span-2 space-y-12">
-				<section>
-					<h2 class="text-3xl font-bold mb-6">Concept du jeu</h2>
-					<div class="space-y-4 text-white/70 text-lg leading-relaxed">
-						<p>
-							SpeedyWiki est un jeu multijoueur compétitif où les joueurs doivent naviguer le plus rapidement 
-							possible d'une page Wikipedia à une autre en utilisant uniquement les liens internes.
-						</p>
-						<p>
-							Le jeu se déroule entièrement dans le navigateur et permet à plusieurs joueurs de s'affronter 
-							en temps réel, créant une expérience dynamique et engageante.
-						</p>
-					</div>
-				</section>
-				
-				<section>
-					<h2 class="text-3xl font-bold mb-6">Fonctionnalités techniques</h2>
-					<div class="space-y-6">
-						<div class="p-6 bg-white/5 border border-white/10 rounded-xl">
-							<div class="flex items-start gap-4">
-								<div class="p-3 bg-[#00ffc8]/10 rounded-lg">
-									<MessageSquare size={24} class="text-[#00ffc8]" />
-								</div>
-								<div class="flex-1">
-									<h3 class="text-xl font-bold mb-2">Serveur WebSocket</h3>
-									<p class="text-white/70 mb-3">
-										Mise en place d'un serveur WebSocket permettant une interaction en temps réel entre les joueurs. 
-										Synchronisation instantanée des actions et des scores.
-									</p>
-									<div class="flex flex-wrap gap-2">
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">WebSocket</span>
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">Temps réel</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="p-6 bg-white/5 border border-white/10 rounded-xl">
-							<div class="flex items-start gap-4">
-								<div class="p-3 bg-[#00ffc8]/10 rounded-lg">
-									<Globe size={24} class="text-[#00ffc8]" />
-								</div>
-								<div class="flex-1">
-									<h3 class="text-xl font-bold mb-2">Serveur Proxy</h3>
-									<p class="text-white/70 mb-3">
-										Serveur proxy développé avec Express, Axios et CORS permettant la modification 
-										et l'affichage des pages Wikipedia dans le jeu.
-									</p>
-									<div class="flex flex-wrap gap-2">
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">Express</span>
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">Axios</span>
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">CORS</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="p-6 bg-white/5 border border-white/10 rounded-xl">
-							<div class="flex items-start gap-4">
-								<div class="p-3 bg-[#00ffc8]/10 rounded-lg">
-									<GitBranch size={24} class="text-[#00ffc8]" />
-								</div>
-								<div class="flex-1">
-									<h3 class="text-xl font-bold mb-2">Versionnement Git</h3>
-									<p class="text-white/70 mb-3">
-										Utilisation de Git et GitHub pour le versionnement et la gestion collaborative du code. 
-										Workflow avec branches, pull requests et revues de code.
-									</p>
-									<div class="flex flex-wrap gap-2">
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">Git</span>
-										<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs">GitHub</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				
-				<section>
-					<h2 class="text-3xl font-bold mb-6">Travail d'équipe</h2>
-					<div class="space-y-4 text-white/70 text-lg leading-relaxed">
-						<p>
-							Ce projet m'a particulièrement appris à travailler en équipe sur un projet de développement web. 
-							Les défis de la collaboration ont été nombreux mais enrichissants :
-						</p>
-						<ul class="space-y-3 ml-6">
-							<li class="flex items-start gap-3">
-								<span class="text-[#00ffc8] mt-1">▸</span>
-								<span>Utilisation de Git pour gérer les contributions de chaque membre</span>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-[#00ffc8] mt-1">▸</span>
-								<span>Résolution de conflits de code et merge de branches</span>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-[#00ffc8] mt-1">▸</span>
-								<span>Communication efficace sur les fonctionnalités et les bugs</span>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-[#00ffc8] mt-1">▸</span>
-								<span>Adoption de bonnes pratiques de développement collaboratif</span>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-[#00ffc8] mt-1">▸</span>
-								<span>Revues de code et amélioration continue du projet</span>
-							</li>
-						</ul>
-					</div>
-				</section>
-				
-				<section>
-					<h2 class="text-3xl font-bold mb-6">Apprentissages clés</h2>
-					<div class="p-6 bg-gradient-to-br from-[#00ffc8]/5 to-[#00d4aa]/5 border border-white/10 rounded-xl">
-						<p class="text-white/70 text-lg leading-relaxed mb-4">
-							SpeedyWiki m'a permis de développer mes compétences en :
-						</p>
-						<div class="grid md:grid-cols-2 gap-4">
-							<div class="flex items-center gap-3">
-								<div class="w-2 h-2 bg-[#00ffc8] rounded-full"></div>
-								<span class="text-white/90">Communication WebSocket</span>
-							</div>
-							<div class="flex items-center gap-3">
-								<div class="w-2 h-2 bg-[#00ffc8] rounded-full"></div>
-								<span class="text-white/90">Développement collaboratif</span>
-							</div>
-							<div class="flex items-center gap-3">
-								<div class="w-2 h-2 bg-[#00ffc8] rounded-full"></div>
-								<span class="text-white/90">Gestion de projet Git</span>
-							</div>
-							<div class="flex items-center gap-3">
-								<div class="w-2 h-2 bg-[#00ffc8] rounded-full"></div>
-								<span class="text-white/90">Architecture client-serveur</span>
-							</div>
-						</div>
-					</div>
-				</section>
-			</div>
-			
-			<div class="space-y-6">
-				<div class="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm sticky top-24">
-					<h3 class="text-xl font-bold mb-4">Technologies utilisées</h3>
-					<div class="space-y-3">
-						<div>
-							<div class="text-sm text-white/50 mb-2">Frontend</div>
-							<div class="flex flex-wrap gap-2">
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">HTML/CSS</span>
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">JavaScript</span>
-							</div>
-						</div>
-						
-						<div class="border-t border-white/10 pt-3">
-							<div class="text-sm text-white/50 mb-2">Backend</div>
-							<div class="flex flex-wrap gap-2">
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">Express</span>
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">WebSocket</span>
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">Axios</span>
-							</div>
-						</div>
-						
-						<div class="border-t border-white/10 pt-3">
-							<div class="text-sm text-white/50 mb-2">Outils</div>
-							<div class="flex flex-wrap gap-2">
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">Git</span>
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">GitHub</span>
-								<span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">CORS</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="p-6 bg-gradient-to-br from-[#00ffc8]/10 to-[#00d4aa]/10 border border-[#00ffc8]/20 rounded-xl">
-					<h3 class="text-xl font-bold mb-2 text-[#00ffc8]">Image à venir</h3>
-					<p class="text-white/70 text-sm">
-						Captures d'écran du jeu en action seront ajoutées prochainement.
-					</p>
-				</div>
+	</section>
+
+	<section class="py-16">
+		<div class="mx-auto max-w-5xl px-6">
+			<div class="manga-panel p-6">
+				<h3 class="text-2xl font-display uppercase tracking-[0.2em] mb-2">Images à venir</h3>
+				<p class="font-mono text-sm leading-relaxed text-ink/80">
+					Captures d’écran du lobby et des races seront ajoutées pour montrer comment l’interface réagit en mode speedrun.
+				</p>
 			</div>
 		</div>
-	</div>
-</div>
+	</section>
+</main>

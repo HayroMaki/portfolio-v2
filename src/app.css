@@ -1,73 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: 'Geist';
-    src: local('Arial');
-    font-weight: 100 900;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    color: theme(colors.ink);
+    background-color: theme(colors.paper);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: 'ss02' on, 'ss08' on;
+  }
+
+  body {
+    font-family: theme(fontFamily.sans);
+    background-color: theme(colors.paper);
+    color: theme(colors.ink);
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  body::before,
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+
+  body::before {
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+    background-size: 180px 180px;
+    opacity: 0.35;
+  }
+
+  body::after {
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 100 100"%3E%3Crect width="100" height="100" fill="none" stroke="%23000000" stroke-width="0.4" opacity="0.4"/%3E%3C/svg%3E');
+    opacity: 0.15;
+  }
+
+  ::selection {
+    background: theme(colors.accent);
+    color: theme(colors.paper);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: theme(colors.ink);
+    border: 3px solid theme(colors.paper);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: theme(fontFamily.display);
+    letter-spacing: 0.08em;
   }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@layer components {
+  .manga-panel {
+    @apply relative border-2 border-ink bg-paper overflow-hidden shadow-panel;
+  }
 
-html {
-  scroll-behavior: smooth;
-}
+  .manga-panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.05) 4%,
+        transparent 40%,
+        rgba(0, 0, 0, 0.04) 60%,
+        transparent 100%
+      );
+    opacity: 0.35;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
 
-body {
-  font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: #0a0a0a;
-  color: #ffffff;
-  overflow-x: hidden;
-}
+  .ink-drop {
+    position: relative;
+  }
 
-::selection {
-  background: rgba(0, 255, 200, 0.3);
-  color: #ffffff;
-}
+  .ink-drop::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: conic-gradient(from 90deg, rgba(0, 0, 0, 0.12), transparent 60%);
+    filter: blur(30px);
+    opacity: 0.7;
+    z-index: -1;
+  }
 
-::-webkit-scrollbar {
-  width: 8px;
-}
+  .stroke-title {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    color: transparent;
+    -webkit-text-stroke: 2px theme(colors.ink);
+    text-stroke: 2px theme(colors.ink);
+  }
 
-::-webkit-scrollbar-track {
-  background: #0a0a0a;
-}
+  .stroke-title strong {
+    color: theme(colors.ink);
+    -webkit-text-stroke: 0;
+  }
 
-::-webkit-scrollbar-thumb {
-  background: #1a1a1a;
-  border-radius: 4px;
-}
+  .kanji-tag {
+    font-family: theme(fontFamily.mono);
+    letter-spacing: 0.3em;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    border: 1.5px solid theme(colors.ink);
+    padding: 0.35rem 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #2a2a2a;
-}
+  .kanji-tag::before {
+    content: 'ア';
+    font-weight: 600;
+  }
 
-.text-gradient {
-  background: linear-gradient(135deg, #00ffc8 0%, #00d4aa 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.border-gradient {
-  position: relative;
-}
-
-.border-gradient::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, #00ffc8, #00d4aa);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  .speed-lines {
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 20%, transparent 40%);
+    background-size: 14px 14px;
+  }
 }
