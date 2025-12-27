@@ -4,16 +4,22 @@
 	import { onMount } from 'svelte';
 	import { Menu, X, Github, Linkedin, Mail, Languages, Wallet, Brush } from 'lucide-svelte';
 	import { locale } from '$lib/stores/locale';
-	import { getTranslations } from '$lib/i18n';
+	import { _t } from '$lib/i18n';
 	import InkBrush from '$lib/components/InkBrush.svelte';
+
+	/**
+	* Wrapper to not have to put locale every time
+	* @param slug the translation slug path
+	*/
+	function t(slug: string) {
+		return _t(slug, $locale)
+	}
 
 	const currentOrigin = $page.url.origin;
 
 	let mobileMenuOpen = $state(false);
 	let brushEnabled = $state(true);
 	let { children } = $props();
-
-	const t = $derived(getTranslations($locale));
 
 	onMount(() => {
 		const stored = localStorage.getItem('brush-enabled');
@@ -135,8 +141,8 @@
 		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 			<div class="flex flex-col md:flex-row justify-between gap-6">
 				<div>
-					<p class="font-mono text-xs uppercase tracking-[0.4em]">Portfolio v2</p>
-					<p class="text-base text-ink/70">{t.footer.copyright}</p>
+					<p class="font-mono text-xs uppercase tracking-[0.4em]">{t('footer.project_name')}</p>
+					<p class="text-base text-ink/70">{t('footer.copyright')}</p>
 				</div>
 				<div class="flex items-center gap-4">
 					<a href="https://github.com/HayroMaki" target="_blank" rel="noopener noreferrer" class="px-4 py-2 border-2 border-ink font-mono text-xs uppercase tracking-[0.3em] hover:bg-ink hover:text-paper transition">
