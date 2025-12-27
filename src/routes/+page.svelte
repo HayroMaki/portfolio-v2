@@ -78,7 +78,7 @@
 	});
 
 	const tickerItems = ["I HATE PHP", "LET'S WORK (or not)", "I HOPE YOU LIKE MY PORTFOLIO", "PROPAGANDA !!!"];
-	const technos = ['Python','Java','C','Bash','HTML/CSS', 'PHP','JS/TS','React','Svelte','MySQL','MongoDB','Git','Docker', t.misc.technos_forget];
+	const technos = ['Python','Java','C','Bash','HTML/CSS', 'PHP','JS/TS','React','Svelte','MySQL','MongoDB','Git','Docker', "FORGET"];
 </script>
 
 <main class="relative overflow-hidden bg-paper text-ink">
@@ -200,7 +200,7 @@
 					<div class="flex flex-wrap gap-3 pt-4">
 						{#each technos as tech}
 							<span class="px-4 py-2 border-2 border-ink bg-paper shadow-panel text-xs font-mono uppercase tracking-[0.3em]">
-								{tech}
+								{tech === "FORGET" ? t.misc.technos_forget : tech}
 							</span>
 						{/each}
 					</div>

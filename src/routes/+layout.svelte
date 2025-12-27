@@ -7,6 +7,8 @@
 	import { getTranslations } from '$lib/i18n';
 	import InkBrush from '$lib/components/InkBrush.svelte';
 
+	const currentOrigin = $page.url.origin;
+
 	let mobileMenuOpen = $state(false);
 	let brushEnabled = $state(true);
 	let { children } = $props();
@@ -69,7 +71,7 @@
 					<a href="mailto:julesgrange@outlook.fr" class="p-2 border-2 border-ink hover:bg-ink hover:text-paper transition">
 						<Mail size={18} />
 					</a>
-					<a href="CV" class="p-2 border-2 border-ink hover:bg-ink hover:text-paper transition">
+					<a href={currentOrigin + '/CV'} class="p-2 border-2 border-ink hover:bg-ink hover:text-paper transition">
 						<Wallet size={18} />
 					</a>
 				</div>
@@ -116,6 +118,9 @@
 						<a href="mailto:contact@example.com" class="p-2 border-2 border-ink">
 							<Mail size={18} />
 						</a>
+						<a href={currentOrigin + '/CV'} class="p-2 border-2 border-ink">
+							<Wallet size={18} />
+						</a>
 					</div>
 				</div>
 			</div>
@@ -143,7 +148,7 @@
 					<a href="mailto:julesgrange@outlook.fr" class="px-4 py-2 border-2 border-ink font-mono text-xs uppercase tracking-[0.3em] hover:bg-ink hover:text-paper transition">
 						Mail
 					</a>
-					<a href="/CV" class="px-4 py-2 border-2 border-ink font-mono text-xs uppercase tracking-[0.3em] hover:bg-ink hover:text-paper transition">
+					<a href={currentOrigin + '/CV'} class="px-4 py-2 border-2 border-ink font-mono text-xs uppercase tracking-[0.3em] hover:bg-ink hover:text-paper transition">
 						CV
 					</a>
 				</div>

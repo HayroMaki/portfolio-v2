@@ -1,47 +1,25 @@
 <script lang="ts">
 	import { ArrowLeft, Zap, Users, GitBranch, Globe, MessageSquare, PenTool } from 'lucide-svelte';
+	import { locale } from '$lib/stores/locale';
+	import { getTranslations } from '$lib/i18n';
 
-	const heroStats = [
-		{ label: 'mode', value: 'TEMPS RÉEL', sub: 'websocket' },
-		{ label: 'players', value: 'MULTI', sub: 'jusqu\'à 6' },
-		{ label: 'workflow', value: 'GIT', sub: 'team play' }
-	];
+	const iconMap = {
+		message_square: MessageSquare,
+		globe: Globe,
+		git_branch: GitBranch
+	} as const;
 
-	const features = [
-		{
-			icon: MessageSquare,
-			title: 'Serveur WebSocket',
-			description:
-				'Interactions instantanées, synchronisation des courses et scoreboard en direct. Le serveur pilote tout le rythme des speedruns.',
-			tags: ['WebSocket', 'Temps réel']
-		},
-		{
-			icon: Globe,
-			title: 'Proxy Wikipedia',
-			description:
-				'Express + Axios + CORS pour modifier les pages Wiki à la volée et injecter le tracking des liens dans la couche front.',
-			tags: ['Express', 'Axios', 'CORS']
-		},
-		{
-			icon: GitBranch,
-			title: 'Cadence Git',
-			description:
-				'Workflow strict avec branches, PR, revues quotidiennes et règles de merge. On a tout documenté comme un vrai studio.',
-			tags: ['Git', 'GitHub']
-		}
-	];
-
-	const learnings = [
-		'Composer une communication temps réel robuste pour un jeu multi.',
-		'Négocier les conflits Git et écrire des PR claires.',
-		'Industrialiser un proxy HTTP sans exposer de secrets.',
-		'Imaginer un UI manga pour une app hyper dynamique.'
-	];
-
-	const collaborators = [
-		{ name: 'Binôme 01', role: 'backend & proxy' },
-		{ name: 'Binôme 02', role: 'UX & sockets' }
-	];
+	const t = $derived(getTranslations($locale));
+	const page = $derived(t.project_pages.speedywiki);
+	const hero = $derived(page.hero);
+	const sections = $derived(page.sections);
+	const crew = $derived(page.crew);
+	const featureCards = $derived(
+		sections.features.cards.map((card) => {
+			const Component = iconMap[card.icon as keyof typeof iconMap] ?? MessageSquare;
+			return { ...card, Component };
+		})
+	);
 </script>
 
 <main class="min-h-screen bg-paper text-ink">
@@ -50,19 +28,18 @@
 			<div class="flex items-center gap-4 text-xs font-mono uppercase tracking-[0.4em]">
 				<a href="/" class="inline-flex items-center gap-2 border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper transition">
 					<ArrowLeft size={16} />
-					retour atelier
+					{hero.back}
 				</a>
-				<span class="kanji-tag bg-paper">jeu multijoueur</span>
+				<span class="kanji-tag bg-paper">{hero.badge}</span>
 			</div>
 			<div class="space-y-6">
-				<h1 class="stroke-title leading-[0.8]">SpeedyWiki <strong>Race</strong></h1>
-				<p class="max-w-3xl font-mono text-base leading-relaxed text-ink/80">
-					Speedrun Wikipedia en équipe, tout dans le navigateur. On part d’une page, on atteint la cible via les liens internes. Pendant
-					ce temps, le serveur WebSocket calcule les moves, le proxy réécrit les pages et l’UI affiche les trajectoires façon planche manga.
-				</p>
+				<h1 class="stroke-title leading-[0.8]">
+					{hero.title.regular} <strong>{hero.title.highlight}</strong>
+				</h1>
+				<p class="max-w-3xl font-mono text-base leading-relaxed text-ink/80">{hero.description}</p>
 			</div>
 			<div class="grid gap-4 sm:grid-cols-3">
-				{#each heroStats as stat}
+				{#each hero.stats as stat}
 					<div class="manga-panel p-5 text-center">
 						<p class="text-xs font-mono uppercase tracking-[0.4em] text-ink/60">{stat.label}</p>
 						<p class="text-3xl font-display mt-2">{stat.value}</p>
@@ -73,11 +50,11 @@
 
 			<div class="manga-panel p-6">
 				<div class="flex items-center justify-between font-mono text-xs uppercase tracking-[0.4em]">
-					<span>crew</span>
-					<span>co-dev</span>
+					<span>{hero.crew.title}</span>
+					<span>{hero.crew.subtitle}</span>
 				</div>
 				<ul class="mt-4 space-y-3 font-mono text-sm text-ink/80">
-					{#each collaborators as person}
+					{#each crew as person}
 						<li class="flex flex-wrap items-center justify-between border-b border-ink/10 pb-2">
 							<span class="font-display text-lg">{person.name}</span>
 							<span class="text-xs uppercase tracking-[0.3em] text-ink/60">{person.role}</span>
@@ -91,28 +68,20 @@
 	<section class="border-b-2 border-dashed border-ink py-20">
 		<div class="mx-auto max-w-5xl px-6 grid gap-10 lg:grid-cols-[1.1fr,0.9fr]">
 			<div class="space-y-4">
-				<h2 class="text-4xl font-display uppercase tracking-[0.3em]">concept</h2>
-				<p class="font-mono text-sm leading-relaxed text-ink/80">
-					Un duel nerveux : chaque joueur clique sur les liens internes jusqu’à atteindre la page cible. Chaque action est transmise en WebSocket
-					et l’interface trace la progression avec des effets glitch. L’objectif était de rendre la course lisible tout en gardant l’énergie
-					des interfaces arcade.
-				</p>
+				<h2 class="text-4xl font-display uppercase tracking-[0.3em]">{sections.concept.title}</h2>
+				{#each sections.concept.paragraphs as paragraph}
+					<p class="font-mono text-sm leading-relaxed text-ink/80">{paragraph}</p>
+				{/each}
 			</div>
 			<div class="manga-panel p-6 space-y-4">
-				<div class="kanji-tag bg-paper">boucle jeu</div>
+				<div class="kanji-tag bg-paper">{sections.loop.tag}</div>
 				<ul class="space-y-2 font-mono text-xs uppercase tracking-[0.35em]">
-					<li class="flex justify-between border-b border-ink/20 py-2">
-						<span>Lobby</span>
-						<span>création / invitation</span>
-					</li>
-					<li class="flex justify-between border-b border-ink/20 py-2">
-						<span>Course</span>
-						<span>tracking temps réel</span>
-					</li>
-					<li class="flex justify-between py-2">
-						<span>Résultat</span>
-						<span>replay + stats</span>
-					</li>
+					{#each sections.loop.items as item}
+						<li class="flex justify-between border-b border-ink/20 py-2 last:border-b-0">
+							<span>{item.label}</span>
+							<span>{item.value}</span>
+						</li>
+					{/each}
 				</ul>
 			</div>
 		</div>
@@ -121,14 +90,14 @@
 	<section class="bg-ink text-paper py-24">
 		<div class="mx-auto max-w-5xl px-6 space-y-10">
 			<div class="flex items-center gap-4">
-				<div class="kanji-tag bg-ink border-paper text-paper">stack technique</div>
-				<p class="font-mono text-xs uppercase tracking-[0.4em] text-paper/70">tout est synchrone</p>
+				<div class="kanji-tag bg-ink border-paper text-paper">{sections.features.tag}</div>
+				<p class="font-mono text-xs uppercase tracking-[0.4em] text-paper/70">{sections.features.subtitle}</p>
 			</div>
 			<div class="grid gap-6 md:grid-cols-3">
-				{#each features as feature}
+				{#each featureCards as feature}
 					<div class="manga-panel border-paper bg-black/30 p-6">
 						<div class="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.4em] text-paper/70">
-							<svelte:component this={feature.icon} size={20} />
+							<feature.Component size={20} />
 							{feature.title}
 						</div>
 						<p class="mt-4 text-sm font-mono text-paper/80 leading-relaxed">{feature.description}</p>
@@ -146,25 +115,19 @@
 	<section class="py-24 border-t-2	border-ink">
 		<div class="mx-auto max-w-5xl px-6 space-y-10">
 			<div class="flex flex-wrap items-center gap-4">
-				<h2 class="text-4xl font-display uppercase tracking-[0.3em]">travail d'équipe</h2>
+				<h2 class="text-4xl font-display uppercase tracking-[0.3em]">{sections.teamwork.title}</h2>
 				<div class="inline-flex items-center gap-2 border-2 border-ink px-4 py-1 font-mono text-xs uppercase tracking-[0.4em]">
 					<Users size={16} />
-					crew
+					{sections.teamwork.tag}
 				</div>
 			</div>
 			<ul class="space-y-3 font-mono text-sm leading-relaxed text-ink/90">
-				<li class="flex items-start gap-3 border-b border-ink/15 pb-3">
-					<span class="mt-1 inline-block h-2 w-2 bg-ink"></span>
-					<span>Daily stand-up + board Trello custom pour assigner chaque sprint.</span>
-				</li>
-				<li class="flex items-start gap-3 border-b border-ink/15 pb-3">
-					<span class="mt-1 inline-block h-2 w-2 bg-ink"></span>
-					<span>Pair programming sur les modules critiques (proxy + socket handler).</span>
-				</li>
-				<li class="flex items-start gap-3">
-					<span class="mt-1 inline-block h-2 w-2 bg-ink"></span>
-					<span>Session de review pour chaque PR afin de garder un style cohérent.</span>
-				</li>
+				{#each sections.teamwork.items as item}
+					<li class="flex items-start gap-3 border-b border-ink/15 pb-3 last:border-b-0 last:pb-0">
+						<span class="mt-1 inline-block h-2 w-2 bg-ink"></span>
+						<span>{item}</span>
+					</li>
+				{/each}
 			</ul>
 		</div>
 	</section>
@@ -172,9 +135,9 @@
 	<section class="py-20">
 		<div class="mx-auto max-w-5xl px-6 grid gap-8 md:grid-cols-[1.1fr,0.9fr]">
 			<div class="manga-panel p-6 space-y-4">
-				<h3 class="text-2xl font-display uppercase tracking-[0.2em]">apprentissages</h3>
+				<h3 class="text-2xl font-display uppercase tracking-[0.2em]">{sections.learnings.title}</h3>
 				<ul class="space-y-3 font-mono text-sm text-ink/80">
-					{#each learnings as item}
+					{#each sections.learnings.items as item}
 						<li class="flex items-start gap-3">
 							<span class="mt-1 inline-block h-2 w-2 bg-ink"></span>
 							<span>{item}</span>
@@ -183,12 +146,11 @@
 				</ul>
 			</div>
 			<div class="manga-panel p-6 space-y-4">
-				<h3 class="text-2xl font-display uppercase tracking-[0.2em]">stack</h3>
+				<h3 class="text-2xl font-display uppercase tracking-[0.2em]">{sections.stack.title}</h3>
 				<div class="grid gap-3 text-xs font-mono uppercase tracking-[0.35em]">
-					<p>Frontend — HTML / CSS / JS</p>
-					<p>Serveur — Express + Node</p>
-					<p>Realtime — WebSocket</p>
-					<p>Collab — Git / GitHub</p>
+					{#each sections.stack.items as item}
+						<p>{item}</p>
+					{/each}
 				</div>
 			</div>
 		</div>
@@ -197,10 +159,8 @@
 	<section class="py-16">
 		<div class="mx-auto max-w-5xl px-6">
 			<div class="manga-panel p-6">
-				<h3 class="text-2xl font-display uppercase tracking-[0.2em] mb-2">Images à venir</h3>
-				<p class="font-mono text-sm leading-relaxed text-ink/80">
-					Captures d’écran du lobby et des races seront ajoutées pour montrer comment l’interface réagit en mode speedrun.
-				</p>
+				<h3 class="text-2xl font-display uppercase tracking-[0.2em] mb-2">{sections.gallery.title}</h3>
+				<p class="font-mono text-sm leading-relaxed text-ink/80">{sections.gallery.description}</p>
 			</div>
 		</div>
 	</section>

@@ -129,5 +129,439 @@
   "misc": {
     "technos_forget": "I might have forgotten some...",
     "empty_list": "...it's quite empty here..."
+  },
+  "cv_page": {
+    "badge": "Curriculum",
+    "title": {
+      "regular": "My",
+      "highlight": "CV"
+    },
+    "ctas": {
+      "open": "Open in a new tab",
+      "download": "Download as PDF"
+    },
+    "last_update": "Updated 2025",
+    "contact": {
+      "title": "direct contact",
+      "items": [
+        { "label": "Email", "value": "julesgrange@outlook.fr" },
+        { "label": "Phone", "value": "+33 6 01 28 37 28" },
+        { "label": "LinkedIn", "value": "julesrenaudgrange" },
+        { "label": "Github", "value": "HayroMaki" },
+        { "label": "Paris 10", "value": "Gare du Nord" }
+      ]
+    },
+    "viewer": {
+      "banner": "MY CURRICULUM VITAE",
+      "hint": "scroll / zoom via viewer"
+    }
+  },
+  "project_pages": {
+    "configurateurs": {
+      "hero": {
+        "badge": "company project",
+        "back": "back",
+        "title": {
+          "regular": "Configurators",
+          "highlight": "Easy"
+        },
+        "description": "I condensed the DNA of the main 3D configurator into three ultra-focused experiences. Goal: let users create a standard piece in under a minute while keeping personalization maxed out.",
+        "stats": [
+          { "label": "Configurators", "value": "3 projects", "sub": "Easy" },
+          { "label": "Furniture in", "value": "Real time", "sub": "3D viewer" },
+          { "label": "UX", "value": "Ultra-guided", "sub": "Interactive" }
+        ]
+      },
+      "sections": {
+        "context": {
+          "title": "Context",
+          "paragraphs": [
+            "The historical configurator is a precision beast but not always suited for recurring requests.",
+            "I started by experimenting on the simple cabinet, then on more complex furniture like staircases and projector consoles.",
+            "For each configurator I aimed at an ultra-guided experience: step-by-step flow, minimalist canvas, smart fields, and a viewer that changes in real time."
+          ],
+          "details": [
+            { "label": "Scope", "value": "3 configurators" },
+            { "label": "Target time", "value": "< 60s" },
+            { "label": "Stack", "value": "Svelte + TS + internal package" }
+          ]
+        },
+        "workflow": {
+          "tag": "workflow",
+          "paragraphs": [
+            "Extremely guided interfaces: you advance step by step through dimensions, materials, options, etc. while the 3D viewer stays updated.",
+            "Result: the user can only progress after validating each step and builds the furniture in under a minute. Perfect for non-technical or mobile clients.",
+            "This approach was designed with the team’s Designer, involved across the whole process."
+          ]
+        },
+        "modules": {
+          "tag": "the 3 modules",
+          "subtitle": "focus on the configurators",
+          "cards": [
+            {
+              "icon": "box",
+              "title": "Simple cabinet",
+              "bullets": [
+                "Interactive canvas to sketch dimensions by hand",
+                "Step-by-step interface reused across all configurators",
+                "3D preview refreshed at each step"
+              ]
+            },
+            {
+              "icon": "trending_up",
+              "title": "Stair furniture",
+              "bullets": [
+                "Comfort algorithm computes ideal steps & heights—no headaches for clients",
+                "Ultra-precise canvas for each parameter (nosing, coating, etc.)",
+                "Material palette suggestions"
+              ]
+            },
+            {
+              "icon": "monitor",
+              "title": "Projector units",
+              "bullets": [
+                "Complex assembly: rear space for the screen",
+                "Sliding tray for the projector",
+                "Configurable speaker slots",
+                "Integration into a Prestashop workflow via unique client token"
+              ]
+            }
+          ]
+        },
+        "innovations": {
+          "title": "key innovations",
+          "cards": [
+            {
+              "icon": "ruler",
+              "title": "Interactive canvases",
+              "description": "Dynamic vector drawing to set dimensions and parameters without painful forms."
+            },
+            {
+              "icon": "eye",
+              "title": "In-house 3D viewer",
+              "description": "Textured furniture visual updated in real-time."
+            },
+            {
+              "icon": "sparkles",
+              "title": "Svelte/TS stack",
+              "description": "Step-by-step thinking that guides the client right up to checkout :)."
+            }
+          ]
+        },
+        "impact": {
+          "title": "Impact & learnings",
+          "learnings": [
+            "Simplify user experience.",
+            "Build domain algorithms (comfort index, column auto-sizing).",
+            "Design consistent canvas + 3D interfaces.",
+            "Ship modular tools that are easy to adapt."
+          ]
+        },
+        "technologies": {
+          "title": "Tech used",
+          "items": [
+            { "label": "Framework", "value": "Svelte + TypeScript" },
+            { "label": "Visualization", "value": "Canvas + 3D Viewer" },
+            { "label": "Skills", "value": "UX, Algorithms & furniture data models" }
+          ]
+        },
+        "gallery": {
+          "title": "Images coming soon",
+          "description": "Interface captures coming soon to show the full flow."
+        }
+      }
+    },
+    "mcp": {
+      "hero": {
+        "badge": "current project",
+        "back": "back",
+        "title": {
+          "regular": "MCP",
+          "highlight": "Server"
+        },
+        "description": "MCP (Model Context Protocol) server letting an LLM craft furniture like a human advisor from client text or sketches.",
+        "stats": [
+          { "label": "AI x tools", "value": "MCP", "sub": "(Model Context Protocol)" },
+          { "label": "Security", "value": "Tokens - IP", "sub": "rate-limit & origin" },
+          { "label": "Production", "value": "Clients", "sub": "secured interface" }
+        ]
+      },
+      "sections": {
+        "highlight": {
+          "title": "Flagship project",
+          "paragraphs": [
+            "Goal: let clients obtain furniture without touching the configurator—the AI handles it all. From text or sketch, the LLM reasons, calls several tools to build then adjust the project, and finally reports back.",
+            "Tested first with Claude and ChatGPT, now embedded in the site and used by clients. Security is crucial: only legit users can access the AI (costs rise fast otherwise)."
+          ]
+        },
+        "architecture": {
+          "tag": "architecture",
+          "subtitle": "MCP",
+          "cards": [
+            {
+              "icon": "brain",
+              "title": "MCP tools",
+              "description": "Mapping business functions for LLMs: furniture creation, structural computations, assembling furniture sets."
+            },
+            {
+              "icon": "package",
+              "title": "Svelte package",
+              "description": "Handlers to set up the API quickly + headless component (chat, tools, manual calls) to drive the UI."
+            },
+            {
+              "icon": "pen",
+              "title": "Prompting",
+              "description": "System prompt + per-tool instructions describing usage, errors, params—everything must be crystal clear to the AI."
+            }
+          ]
+        },
+        "security": {
+          "title": "Security & production",
+          "cards": [
+            { "icon": "lock", "title": "Signed tokens", "description": "Secret key, token linked to IP/client to monitor usage and cut access instantly." },
+            { "icon": "shield", "title": "Rate limiting", "description": "Strict control of AI API cost with per-user quotas." },
+            { "icon": "globe", "title": "Origin check", "description": "Only the official domain can call sensitive endpoints." },
+            { "icon": "zap", "title": "Isolated APIs", "description": "Token retrieval and AI calls stay server-side." }
+          ]
+        },
+        "features": {
+          "title": "Key features",
+          "list": [
+            "Furniture generation from client text or sketches.",
+            "Real-time 3D visualization inside the chat.",
+            "Svelte package with handlers + headless chat component.",
+            "Multi-layer security for AI API calls.",
+            "Multi-model support (GPT, Claude, Gemini) via OpenRouter."
+          ]
+        },
+        "technologies": {
+          "title": "Technologies",
+          "items": [
+            "Core — TypeScript, Node, MCP",
+            "Frontend — Svelte, 3D Viewer",
+            "AI — ChatGPT SDK, Claude",
+            "Security — Tokens, Rate-limit, Origin check"
+          ]
+        },
+        "impact": {
+          "title": "Impact & learnings",
+          "paragraphs": [
+            "Production project first used by the sales team to pre-design pieces with an LLM.",
+            "Now used directly by clients to create or kickstart their designs."
+          ],
+          "learnings": [
+            "Translate furniture workflows into AI-friendly tools.",
+            "Design a multi-layer AI security plan.",
+            "Ship reusable packages instead of one monolith.",
+            "Deploy on a server with Docker.",
+            "Handle a production rollout used by real clients."
+          ]
+        },
+        "gallery": {
+          "title": "Images coming soon",
+          "description": "Upcoming captures of the AI chat + 3D viewer in action to show how the AI drives the tools."
+        }
+      }
+    },
+    "travia": {
+      "hero": {
+        "badge": "university project",
+        "back": "back",
+        "title": {
+          "regular": "Travia",
+          "highlight": "Star Routes"
+        },
+        "description": "Web app that charts optimized itineraries across the Star Wars galaxy. Modular architecture: C + Java + PHP + JS + database collaborating like a rebel crew. The C-built A* algorithm finds the quickest path between planets.",
+        "stats": [
+          { "label": "Technologies", "value": "5", "sub": "multi-language" },
+          { "label": "Algorithm", "value": "A*", "sub": "optimized" },
+          { "label": "Architecture", "value": "100%", "sub": "modular" }
+        ],
+        "crew": {
+          "title": "crew",
+          "subtitle": "network"
+        }
+      },
+      "crew": [
+        { "name": "Jules Grange (that's me)", "role": "C Algo & Back-End dev" },
+        { "name": "Guillaume Augeraud", "role": "Front-End dev" },
+        { "name": "Benjamin Rissot", "role": "DB manager & Java dev" },
+        { "name": "Andrei Achirecesei", "role": "Back-End dev" }
+      ],
+      "sections": {
+        "overview": {
+          "title": "overview",
+          "paragraphs": [
+            "Travia explores how C, Java, PHP, JavaScript modules plus a MySQL database can collaborate toward one goal: ultra-fast routes between planetary systems.",
+            "Leaflet maps the Star Wars galaxy while the C-built A* algorithm computes optimal paths. Java orchestrates MySQL data and recalls each station in perfect order. PHP manages user sessions and the REST API, with captcha and email verification.",
+            "Everything communicates for maximum efficiency."
+          ]
+        },
+        "stack": {
+          "tag": "Cross stack",
+          "items": [
+            { "label": "Frontend", "value": "HTML/CSS/JS + Leaflet" },
+            { "label": "Back-End", "value": "PHP + REST API" },
+            { "label": "Server", "value": "Java + JDBC" },
+            { "label": "Algorithm", "value": "C + A*" },
+            { "label": "Data", "value": "MySQL" }
+          ]
+        },
+        "architecture": {
+          "tag": "Technical architecture",
+          "subtitle": "aligned modules",
+          "cards": [
+            {
+              "icon": "globe",
+              "title": "Web server",
+              "description": "Gateway distributing requests between modules. Every call passes here before heading to Java graph processing."
+            },
+            {
+              "icon": "code",
+              "title": "Leaflet interface",
+              "description": "Interactive canvas to browse the galaxy and pull info per planet. Pure JS + Leaflet keeps the map fluid."
+            },
+            {
+              "icon": "database",
+              "title": "Java + MySQL",
+              "description": "JDBC modules feed the interplanetary graph, compute heuristics, and send clean data to the C algorithm."
+            },
+            {
+              "icon": "zap",
+              "title": "A* algorithm",
+              "description": "Implemented in C for max speed. Results return to the server, which turns them into readable routes and overlays."
+            },
+            {
+              "icon": "users",
+              "title": "User management",
+              "description": "Account creation, login, recovery + captcha + email verification: a secure workflow so every rebel can save routes without the Empire snooping."
+            }
+          ]
+        },
+        "learnings": {
+          "title": "key learnings",
+          "tag": "notes",
+          "items": [
+            "Compose a multi-language architecture without friction and keep data flowing.",
+            "Optimize an A* path in C with a heuristic-first mindset.",
+            "Create immersive map + overlay interfaces in JS with Leaflet.",
+            "Design a Java backend handling graph processing.",
+            "Set up user security with captcha and verification emails."
+          ]
+        },
+        "technologies": {
+          "title": "Tech used",
+          "sections": [
+            { "label": "Frontend", "items": ["HTML/CSS", "JavaScript", "Leaflet"] },
+            { "label": "Backend", "items": ["PHP", "Java", "JDBC", "MySQL"] },
+            { "label": "Algorithm", "items": ["C", "A*"] }
+          ]
+        },
+        "gallery": {
+          "title": "Images coming soon",
+          "description": "Screens, maps, and prototypes coming soon to illustrate hyperspace routes."
+        }
+      }
+    },
+    "speedywiki": {
+      "hero": {
+        "badge": "multiplayer game",
+        "back": "back",
+        "title": {
+          "regular": "SpeedyWiki",
+          "highlight": ""
+        },
+        "description": "Multiplayer Wikipedia speedrun, fully in-browser. Start from one page, get a list of targets, and chain links to reach them. Meanwhile the WebSocket server processes moves, the proxy rewrites pages, and the UI rocks a Windows 95 vibe.",
+        "stats": [
+          { "label": "web game in", "value": "REAL TIME", "sub": "via websocket" },
+          { "label": "chat inside the", "value": "CHAT", "sub": "socialize!" },
+          { "label": "NoSQL DB", "value": "MongoDB", "sub": "full match logs" }
+        ],
+        "crew": {
+          "title": "crew",
+          "subtitle": "co-dev"
+        }
+      },
+      "crew": [
+        { "name": "Jules Grange (that's me)", "role": "Back-End WebSocket & Proxy dev" },
+        { "name": "Martial Carceles", "role": "MongoDB manager" },
+        { "name": "Guillaume Augeraud", "role": "Front-End dev & designer" },
+        { "name": "Randhy Bou-Jaber", "role": "Game designer" }
+      ],
+      "sections": {
+        "concept": {
+          "title": "concept",
+          "paragraphs": [
+            "A frantic duel: each player clicks internal Wikipedia links until they reach every target page. Each action is pushed via WebSocket to the server running the full game logic.",
+            "Players can grab positive or negative items and use them to slow down opponents.",
+            "A built-in chat keeps everyone talking mid-race."
+          ]
+        },
+        "loop": {
+          "tag": "game loop",
+          "items": [
+            { "label": "Lobby", "value": "create / invite" },
+            { "label": "Race", "value": "action tracking" },
+            { "label": "Result", "value": "podium & stats" },
+            { "label": "Replay", "value": "I’m addicted" }
+          ]
+        },
+        "features": {
+          "tag": "tech stack",
+          "subtitle": "everything connected",
+          "cards": [
+            {
+              "icon": "message_square",
+              "title": "WebSocket server",
+              "description": "Instant interactions, synced races, live scoreboard. The server drives the speedrun tempo.",
+              "tags": ["WebSocket", "Real-time"]
+            },
+            {
+              "icon": "globe",
+              "title": "Wikipedia proxy",
+              "description": "Express + Axios + CORS rewrite wiki pages on the fly and inject link tracking into the front layer.",
+              "tags": ["Express", "Axios", "CORS"]
+            },
+            {
+              "icon": "git_branch",
+              "title": "Git cadence",
+              "description": "Strict workflow with branches, PRs, (almost) daily reviews and merge rules. Clean docs.",
+              "tags": ["Git", "GitHub"]
+            }
+          ]
+        },
+        "teamwork": {
+          "title": "team work",
+          "tag": "crew",
+          "items": [
+            "Daily stand-ups + custom Trello board to assign every sprint.",
+            "Pair programming on critical modules (proxy + socket handler).",
+            "Review session for each PR to keep the code consistent."
+          ]
+        },
+        "learnings": {
+          "title": "learnings",
+          "items": [
+            "Build solid real-time comms for a multiplayer game.",
+            "Handle Git conflicts and ship clear PRs.",
+            "Industrialize an HTTP proxy that rewrites pages.",
+            "Design a retro Windows 95-inspired UI."
+          ]
+        },
+        "stack": {
+          "title": "stack",
+          "items": [
+            "Frontend — HTML / CSS / REACT",
+            "Server — Express + Node",
+            "Realtime — WebSocket",
+            "Collab — Git / GitHub"
+          ]
+        },
+        "gallery": {
+          "title": "Images coming soon",
+          "description": "Lobby and race screenshots coming soon to show how the UI reacts in speedrun mode."
+        }
+      }
+    }
   }
 }
