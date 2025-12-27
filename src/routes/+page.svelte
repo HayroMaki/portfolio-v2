@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 	import { locale } from '$lib/stores/locale';
 	import TimelineSection from '$lib/components/home/TimelineSection.svelte';
+	import { useIntersectionVisibility } from '$lib/hooks/useIntersectionVisibility';
 	import { _t } from '$lib/i18n';
 
 	/**
@@ -14,8 +15,11 @@
 	}
 
 	let heroReady = $state(false);
-	let atelierVisible = $state(false);
-	let projectsVisible = $state(false);
+	let atelierSection: HTMLElement | null = null;
+	let projectsSection: HTMLElement | null = null;
+
+	const { visible: atelierVisible } = useIntersectionVisibility(() => atelierSection, { threshold: 0.4 });
+	const { visible: projectsVisible } = useIntersectionVisibility(() => projectsSection, { threshold: 0.35 });
 
 	const projectsData = [
 		{ href: '/projets/mcp', featured: true },
@@ -27,33 +31,8 @@
 	onMount(() => {
 		heroReady = true;
 
-		type SectionId = 'atelier' | 'projects';
-		const sectionConfig: Record<SectionId, (value: boolean) => void> = {
-			atelier: (value) => (atelierVisible = value),
-			projects: (value) => (projectsVisible = value)
-		};
-
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (!entry.isIntersecting) return;
-					const setter = sectionConfig[entry.target.id as SectionId];
-					if (setter) {
-						setter(true);
-						observer.unobserve(entry.target);
-					}
-				});
-			},
-			{ threshold: 0.35 }
-		);
-
-		(Object.keys(sectionConfig) as SectionId[]).forEach((id) => {
-			const node = document.getElementById(id);
-			if (node) observer.observe(node);
-		});
-
 		return () => {
-			observer.disconnect();
+			// nothing to cleanup for heroReady
 		};
 	});
 
@@ -160,13 +139,13 @@
 		</div>
 	</section>
 
-	<section id="atelier" class="relative py-28">
+	<section id="atelier" class="relative py-28" bind:this={atelierSection}>
 		<div class="absolute inset-x-0 top-12 mx-auto w-11/12 h-full border-2 border-dashed border-ink pointer-events-none"></div>
 		<div class="container relative z-10 mx-auto max-w-6xl px-6">
 			<div
 				class="grid gap-12 lg:grid-cols-[1.1fr,0.9fr] items-start"
-				class:opacity-0={!atelierVisible}
-				class:translate-y-12={!atelierVisible}
+				class:opacity-0={!$atelierVisible}
+				class:translate-y-12={!$atelierVisible}
 			>
 				<div class="space-y-6">
 					<div class="kanji-tag bg-paper">{t('about.badge')}</div>
@@ -240,8 +219,9 @@
 	<section
 		id="projects"
 		class="relative py-32"
-		class:opacity-0={!projectsVisible}
-		class:translate-y-10={!projectsVisible}
+		class:opacity-0={!$projectsVisible}
+		class:translate-y-10={!$projectsVisible}
+		bind:this={projectsSection}
 	>
 		<div class="absolute inset-x-6 top-12 bottom-12 border-2 border-ink/70 pointer-events-none"></div>
 		<div class="container relative z-10 mx-auto max-w-6xl px-6 space-y-12">
