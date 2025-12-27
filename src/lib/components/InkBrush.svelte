@@ -3,6 +3,7 @@
 	import brush1 from '$lib/assets/brush/brush1.svg?raw';
 	import brush2 from '$lib/assets/brush/brush2.svg?raw';
 	import brush3 from '$lib/assets/brush/brush3.svg?raw';
+	import brush4 from '$lib/assets/brush/brush4.svg?raw';
 
 	type Stroke = {
 		id: number;
@@ -17,7 +18,7 @@
 
 	const MAX_STROKES = 50;
 	const toDataUrl = (raw: string) => `data:image/svg+xml;utf8,${encodeURIComponent(raw)}`;
-	const BRUSHES = [brush1, brush2, brush3].map(toDataUrl);
+	const BRUSHES = [brush1, brush2, brush3, brush4].map(toDataUrl);
 
 	const createStroke = (id: number): Stroke => ({
 		id,

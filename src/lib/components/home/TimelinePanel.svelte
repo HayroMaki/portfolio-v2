@@ -39,7 +39,7 @@
 						<ul class="space-y-2 font-mono text-sm text-paper/80">
 							{#each t('journey.items.' + index + '.sub_events') as sub, i}
 								<li class="timeline-panel__subitem flex items-start gap-2" style="--subitem-index: {i};">
-									<span class="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-accent"></span>
+									<span class="mt-1 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-accent"></span>
 									<span>{sub}</span>
 								</li>
 							{/each}

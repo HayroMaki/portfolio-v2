@@ -292,7 +292,7 @@
 	}
 
 	.marquee:hover .marquee__inner {
-		animation-play-state: paused;
+		
 	}
 
 	@media (max-width: 767px) {
