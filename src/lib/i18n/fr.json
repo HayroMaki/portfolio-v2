@@ -104,22 +104,22 @@
       {
         "title": "MCP Server",
         "description": "Serveur MCP pour la création de meubles par l'IA pour Dessine ton meuble/Aryga",
-        "tags": ["TypeScript", "MCP", "IA", "Docker"]
+        "tags": ["TypeScript", "Serveur MCP", "IA", "Docker", "Package Svelte"]
       },
       {
         "title": "Configurateurs Easy",
         "description": "Suite de configurateurs 3D interactifs pour meubles sur mesure pour Dessine ton meuble/Aryga",
-        "tags": ["Svelte", "TypeScript", "3D", "Canvas"]
+        "tags": ["UX/UI", "Svelte", "TypeScript", "tailwindCSS", "Canvas HTML"]
       },
       {
         "title": "Travia",
         "description": "Application web de recherche de trajets optimisés dans l'univers de Star Wars",
-        "tags": ["Java", "C", "PHP", "JavaScript", "MySQL"]
+        "tags": ["Java", "C", "PHP", "React", "MySQL", "Sécurité", "Captcha", "API"]
       },
       {
         "title": "SpeedyWiki",
         "description": "Jeu multijoueur de speedrun Wikipedia en temps réel",
-        "tags": ["React", "WebSocket", "Express", "MongoDB"]
+        "tags": ["React", "MongoDB", "Serveur WebSocket", "Serveur Proxy", "Gestion de Projet"]
       }
     ]
   },
