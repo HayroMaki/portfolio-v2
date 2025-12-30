@@ -115,13 +115,13 @@
 							<Languages size={16} />
 							<span>{$locale}</span>
 						</button>
-						<a href="https://github.com" target="_blank" rel="noopener noreferrer" class="p-2 border-2 border-ink">
+						<a href="https://github.com/HayroMaki" target="_blank" rel="noopener noreferrer" class="p-2 border-2 border-ink">
 							<Github size={18} />
 						</a>
-						<a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="p-2 border-2 border-ink">
+						<a href="https://www.linkedin.com/in/julesrenaudgrange/" target="_blank" rel="noopener noreferrer" class="p-2 border-2 border-ink">
 							<Linkedin size={18} />
 						</a>
-						<a href="mailto:contact@example.com" class="p-2 border-2 border-ink">
+						<a href="mailto:julesgrange@outlook.fr" class="p-2 border-2 border-ink">
 							<Mail size={18} />
 						</a>
 						<a href={currentOrigin + '/CV'} class="p-2 border-2 border-ink">

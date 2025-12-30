@@ -20,11 +20,11 @@
   },
   "about": {
     "badge": "that's me",
-    "title": "A passionate developer?",
-    "title_highlight": "Maybe not, but...",
-    "p1": "I'm good at what I do. Curious, serious, meticulous; I love problems and I love solutions even more.",
-    "p2": "Jack of all trades, I enjoy exploring different domains and languages.",
-    "p3": "I'm not getting replaced by AI. Believe it.",
+    "title": "Building solutions",
+    "title_highlight": "that work.",
+    "p1": "I'm a problem solver who ships. Curious, meticulous, and driven by the challenge of turning complex requirements into clean, functional code.",
+    "p2": "Full-stack generalist with a focus on modern web technologies. I adapt quickly and learn what's needed to get the job done.",
+    "p3": "Currently building AI-powered tools and 3D configurators in production. I don't just code—I deliver solutions that users actually use.",
     "atelier": {
       "headline": "Studio log",
       "journal": {
@@ -96,7 +96,7 @@
         },
         {
           "name": "Back-End",
-          "items": ["PHP", "Node.js", "SvelteKit APIs"]
+          "items": ["PHP", "Node.js", "SvelteKit"]
         },
         {
           "name": "Data",
@@ -156,6 +156,29 @@
         "sub_events": []
       }
     ]
+  },
+  "contact": {
+    "badge": "Get in touch",
+    "title": "Let's",
+    "title_highlight": "work together",
+    "description": "Looking for a developer who ships fast and builds solid solutions? Let's talk about your next project.",
+    "availability": {
+      "title": "Availability",
+      "status": "Open to opportunities",
+      "description": "Currently seeking apprenticeship opportunities and freelance projects. Available for full-time positions starting 2026."
+    },
+    "info": {
+      "title": "Contact Info",
+      "email_label": "Email",
+      "location_label": "Location",
+      "response_label": "Response time",
+      "response_time": "Within 24-48 hours"
+    },
+    "cta": {
+      "email": "Send me an email",
+      "linkedin": "Connect on LinkedIn",
+      "cv": "Download CV"
+    }
   },
   "projects": {
     "badge": "Portfolio",
@@ -502,6 +525,38 @@
               "description": "Account creation, login, recovery + captcha + email verification: a secure workflow so every rebel can save routes without the Empire snooping."
             }
           ]
+        },
+        "labyrinth": {
+          "tag": "Interactive demo",
+          "title": "Shortest path algo - Visualisation",
+          "description": [
+            "I built a custom package to visualize pathfinding algorithms in action. Watch A* and Dijkstra solve mazes in real-time.",
+            "This interactive demo shows how the algorithm explores nodes and finds the optimal path—the same logic powering Travia's route calculations."
+          ],
+          "points": [
+            { "label": "Algorithm", "value": "A* & Dijkstra" },
+            { "label": "Package", "value": "@hayro_o7/labyrinth" },
+            { "label": "Real-time", "value": "Live visualization" }
+          ],
+          "controls": {
+            "title": "Controls",
+            "subtitle": "Customize the maze",
+            "algorithm": "Algorithm",
+            "width": "Width",
+            "height": "Height",
+            "regenerate": "Regenerate maze",
+            "loading": "Loading...",
+            "legendTitle": "Legend",
+            "legendSubtitle": "Cell states during pathfinding"
+          },
+          "legend": {
+            "start": "Start",
+            "end": "End",
+            "current": "Current",
+            "visiting": "Visiting",
+            "visited": "Visited",
+            "path": "Final path"
+          }
         },
         "learnings": {
           "title": "key learnings",

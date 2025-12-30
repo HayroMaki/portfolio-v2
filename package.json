@@ -24,6 +24,7 @@
 		"vite": "^7.2.6"
 	},
 	"dependencies": {
+		"@hayro_o7/labyrinth": "^0.0.2",
 		"lucide-svelte": "^0.562.0"
 	}
 }

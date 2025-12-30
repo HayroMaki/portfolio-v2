@@ -37,9 +37,7 @@
 		};
 	});
 
-
-
-	const tickerItems = ["I HATE PHP", "LET'S WORK (or not)", "I HOPE YOU LIKE MY PORTFOLIO", "PROPAGANDA !!!"];
+	const tickerItems = ["SVELTE ENTHUSIAST", "BUILDING WITH AI", "3D CONFIGURATORS", "FULL-STACK DEVELOPER", "ALWAYS LEARNING", "SHIP FAST, ITERATE FASTER"];
 </script>
 
 <main class="relative overflow-hidden bg-paper text-ink">
@@ -163,37 +161,21 @@
 						<p>{t('about.p3')}</p>
 					</div>
 
-					<div class="manga-panel p-5 space-y-6 atelier-skills" class:atelier-skills--visible={$atelierVisible} data-open={skillsOpen}>
-						<button
-							class="flex w-full flex-wrap items-center justify-between gap-3 font-mono text-xs uppercase tracking-[0.35em]"
-							onclick={() => (skillsOpen = !skillsOpen)}
-							type="button"
-							aria-expanded={skillsOpen}
-						>
+					<div class="manga-panel p-6 space-y-6 atelier-skills atelier-skills--visible">
+						<div class="flex flex-wrap items-center justify-between gap-3 font-mono text-xs uppercase tracking-[0.35em]">
 							<span>{t('about.skills.title')}</span>
-							<span class="inline-flex items-center gap-3 text-[0.6rem] text-ink/60">
-								{t('about.skills.subtitle')}
-								<svg
-									class={`skill-toggle ${skillsOpen ? 'skill-toggle--open' : ''}`}
-									viewBox="0 0 12 12"
-									width="12"
-									height="12"
-									aria-hidden="true"
-								>
-									<path d="M1 6h10M6 1v10" stroke="currentColor" stroke-width="1.5" />
-								</svg>
-							</span>
-						</button>
-						<div class="atelier-skillboard">
+							<span class="text-[0.6rem] text-ink/60">{t('about.skills.subtitle')}</span>
+						</div>
+						<div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 							{#each t('about.skills.groups') as skillGroup, groupIndex}
-								<div class="skill-lane" style={`--lane-index: ${groupIndex}`}>
-									<div class="skill-lane__rail">
-										<span class="skill-lane__badge">{skillGroup.name}</span>
-										<span class="skill-lane__bolt"></span>
+								<div class="space-y-3">
+									<div class="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.3em] text-ink/70">
+										<span class="inline-block h-2 w-2 bg-accent"></span>
+										{skillGroup.name}
 									</div>
-									<div class="skill-lane__chips">
-										{#each skillGroup.items as skill, skillIndex}
-											<span class="skill-chip" style={`--chip-index: ${skillIndex}`}>
+									<div class="flex flex-wrap gap-2">
+										{#each skillGroup.items as skill}
+											<span class="px-3 py-1.5 border border-ink bg-paper text-xs font-mono uppercase tracking-[0.25em] hover:bg-ink hover:text-paper transition-colors">
 												{skill}
 											</span>
 										{/each}
@@ -205,52 +187,36 @@
 				</div>
 
 				<div class="space-y-6">
-					<div class="grid gap-6 md:grid-cols-2">
-						<div class="manga-panel p-6 space-y-4 animate-panel-rise delay-150">
-							<div class="flex items-center gap-3 font-mono uppercase text-xs tracking-[0.3em]">
-								<PenTool size={20} />
-								{t('about.experience.title')}
-							</div>
-							<p class="text-sm font-mono leading-relaxed text-ink/80">
-								{t('about.experience.current')}
-							</p>
-							<p class="text-sm font-mono leading-relaxed text-ink/80">
-								{t('about.experience.uni')}
-							</p>
+					<div class="manga-panel p-6 space-y-6">
+						<div class="flex items-center gap-3 font-mono uppercase text-xs tracking-[0.3em]">
+							<PenTool size={20} />
+							{t('about.experience.title')}
 						</div>
-						<div class="manga-panel p-6 space-y-4 animate-panel-rise delay-200">
-							<div class="flex items-center gap-3 font-mono uppercase text-xs tracking-[0.3em]">
-								<Sparkles size={20} />
-								{t('about.education.title')}
-							</div>
-							<p class="text-sm font-mono leading-relaxed text-ink/80">
-								{t('about.education.degree')}
-							</p>
-							<p class="text-sm font-mono leading-relaxed text-ink/80">
-								{t('about.education.bac')}
-							</p>
+						<div class="space-y-3 text-sm font-mono leading-relaxed text-ink/80">
+							<p>{t('about.experience.current')}</p>
+							<p>{t('about.experience.uni')}</p>
 						</div>
-						<div class="manga-panel p-6 space-y-4 animate-panel-rise delay-300 md:col-span-2">
-							<div class="flex items-center gap-3 font-mono uppercase text-xs tracking-[0.3em]">
-								<Zap size={20} />
-								{t('about.mentality.title')}
-							</div>
-							<p class="text-sm font-mono leading-relaxed text-ink/80">
-								{t('about.mentality.p1')}
-							</p>
+					</div>
+
+					<div class="manga-panel p-6 space-y-6">
+						<div class="flex items-center gap-3 font-mono uppercase text-xs tracking-[0.3em]">
+							<Sparkles size={20} />
+							{t('about.education.title')}
 						</div>
-						<div class="manga-panel p-6 space-y-4 animate-panel-rise delay-400 md:col-span-2">
-							<div class="flex items-center gap-3 font-mono uppercase text-xs tracking-[0.3em]">
-								<BookHeart size={20} />
-								{t('about.passions.title')}
-							</div>
-							<div class="flex flex-col gap-2 text-sm font-mono leading-relaxed text-ink/80">
-								<p>{t('about.passions.p1')}</p>
-								<p>{t('about.passions.p2')}</p>
-								<p>{t('about.passions.p3')}</p>
-								<p>{t('about.passions.p4')}</p>
-							</div>
+						<div class="space-y-3 text-sm font-mono leading-relaxed text-ink/80">
+							<p>{t('about.education.degree')}</p>
+							<p>{t('about.education.bac')}</p>
 						</div>
+					</div>
+
+					<div class="manga-panel p-6 space-y-6">
+						<div class="flex items-center gap-3 font-mono uppercase text-xs tracking-[0.3em]">
+							<Zap size={20} />
+							{t('about.mentality.title')}
+						</div>
+						<p class="text-sm font-mono leading-relaxed text-ink/80">
+							{t('about.mentality.p1')}
+						</p>
 					</div>
 				</div>
 			</div>
@@ -335,6 +301,86 @@
 						</div>
 					</a>
 				{/each}
+			</div>
+		</div>
+	</section>
+
+	<section id="contact" class="relative py-32 bg-ink text-paper">
+		<div class="absolute inset-0 opacity-10 bg-paper-fiber mix-blend-screen pointer-events-none"></div>
+		<div class="container relative z-10 mx-auto max-w-4xl px-6">
+			<div class="text-center space-y-6 mb-16">
+				<div class="inline-flex px-4 py-2 border border-paper/60 uppercase font-mono tracking-[0.4em]">
+					{t('contact.badge')}
+				</div>
+				<h2 class="text-5xl font-display uppercase tracking-[0.35em]">
+					{t('contact.title')}
+					<span class="text-accent"> {t('contact.title_highlight')}</span>
+				</h2>
+				<p class="mx-auto max-w-2xl font-mono text-base text-paper/80 leading-relaxed">{t('contact.description')}</p>
+			</div>
+
+			<div class="grid gap-8 md:grid-cols-2 mb-12">
+				<div class="manga-panel border-paper bg-black/20 p-8 space-y-6">
+					<h3 class="text-2xl font-display uppercase tracking-[0.2em]">{t('contact.availability.title')}</h3>
+					<div class="space-y-4 font-mono text-sm text-paper/80">
+						<div class="flex items-center gap-3">
+							<span class="inline-block h-3 w-3 rounded-full bg-accent animate-pulse"></span>
+							<span>{t('contact.availability.status')}</span>
+						</div>
+						<p class="leading-relaxed">{t('contact.availability.description')}</p>
+					</div>
+				</div>
+
+				<div class="manga-panel border-paper bg-black/20 p-8 space-y-6">
+					<h3 class="text-2xl font-display uppercase tracking-[0.2em]">{t('contact.info.title')}</h3>
+					<div class="space-y-4 font-mono text-sm text-paper/80">
+						<div class="flex items-start gap-3">
+							<span class="text-accent">→</span>
+							<div>
+								<p class="text-xs uppercase tracking-[0.3em] text-paper/60">{t('contact.info.email_label')}</p>
+								<a href="mailto:julesgrange@outlook.fr" class="hover:text-accent transition">julesgrange@outlook.fr</a>
+							</div>
+						</div>
+						<div class="flex items-start gap-3">
+							<span class="text-accent">→</span>
+							<div>
+								<p class="text-xs uppercase tracking-[0.3em] text-paper/60">{t('contact.info.location_label')}</p>
+								<p>Paris, France</p>
+							</div>
+						</div>
+						<div class="flex items-start gap-3">
+							<span class="text-accent">→</span>
+							<div>
+								<p class="text-xs uppercase tracking-[0.3em] text-paper/60">{t('contact.info.response_label')}</p>
+								<p>{t('contact.info.response_time')}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="flex flex-wrap justify-center gap-4">
+				<a
+					href="mailto:julesgrange@outlook.fr"
+					class="inline-flex items-center gap-3 bg-paper text-ink px-8 py-4 uppercase tracking-[0.3em] border-2 border-paper shadow-panel transition hover:-translate-y-1 font-mono text-sm"
+				>
+					{t('contact.cta.email')}
+					<ArrowRight size={18} />
+				</a>
+				<a
+					href="https://www.linkedin.com/in/julesrenaudgrange/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-flex items-center gap-3 px-8 py-4 border-2 border-paper uppercase tracking-[0.3em] font-mono text-sm hover:bg-paper hover:text-ink transition"
+				>
+					{t('contact.cta.linkedin')}
+				</a>
+				<a
+					href="/CV"
+					class="inline-flex items-center gap-3 px-8 py-4 border-2 border-dashed border-paper uppercase tracking-[0.3em] font-mono text-sm hover:bg-paper/10 transition"
+				>
+					{t('contact.cta.cv')}
+				</a>
 			</div>
 		</div>
 	</section>
@@ -435,113 +481,6 @@
 		pointer-events: none;
 	}
 
-	.atelier-skillboard {
-		display: flex;
-		flex-direction: column;
-		gap: 1.4rem;
-		position: relative;
-		max-height: 999px;
-		opacity: 1;
-		transition: max-height 0.45s ease, opacity 0.3s ease;
-	}
-
-	.atelier-skills[data-open='false'] .atelier-skillboard {
-		max-height: 0;
-		opacity: 0;
-		overflow: hidden;
-	}
-
-	.skill-toggle {
-		transition: transform 0.3s ease;
-	}
-
-	.skill-toggle--open {
-		transform: rotate(45deg);
-	}
-
-	.skill-lane {
-		border: 2px solid #000;
-		padding: 1.2rem 1.4rem;
-		background: linear-gradient(120deg, rgba(0, 0, 0, 0.03), transparent 55%);
-		box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.15);
-		transform: translateX(calc((var(--lane-index) % 2) * 8px));
-		opacity: 0;
-		transition: opacity 0.45s ease, transform 0.45s ease;
-	}
-
-	.atelier-skills--visible .skill-lane {
-		opacity: 1;
-		transform: translateX(0);
-	}
-
-	.skill-lane__rail {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		font-family: var(--font-mono, 'Space Mono', monospace);
-		font-size: 0.75rem;
-		text-transform: uppercase;
-		letter-spacing: 0.35em;
-	}
-
-	.skill-lane__badge {
-		padding: 0.35rem 0.75rem;
-		border: 1px solid #000;
-		background: #fff;
-	}
-
-	.skill-lane__bolt {
-		width: 1.4rem;
-		height: 1.4rem;
-		border: 2px solid #000;
-		border-radius: 999px;
-		background: repeating-linear-gradient(
-			45deg,
-			rgba(0, 0, 0, 0.12),
-			rgba(0, 0, 0, 0.12) 4px,
-			transparent 4px,
-			transparent 8px
-		);
-	}
-
-	.skill-lane__chips {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-		margin-top: 1rem;
-	}
-
-	.skill-chip {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		padding: 0.45rem 0.85rem;
-		border: 1px solid #000;
-		background: #fff;
-		font-family: var(--font-mono, 'Space Mono', monospace);
-		font-size: 0.7rem;
-		text-transform: uppercase;
-		letter-spacing: 0.32em;
-		opacity: 0;
-		transform: translateY(8px);
-		animation: skill-chip-pop 0.4s forwards;
-		animation-delay: calc(var(--chip-index, 0) * 60ms);
-	}
-
-	.atelier-skills:not(.atelier-skills--visible) .skill-chip {
-		animation: none;
-	}
-
-	@keyframes skill-chip-pop {
-		0% {
-			opacity: 0;
-			transform: translateY(8px);
-		}
-		100% {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
 
 	.atelier-stack {
 		position: relative;

@@ -20,11 +20,11 @@
   },
   "about": {
     "badge": "ça c'est moi",
-    "title": "Un développeur passionné ?",
-    "title_highlight": "Peut-être pas, mais...",
-    "p1": "Je suis bon dans ce que je fais. Curieux, sérieux, méticuleux; j'adore les problèmes et encore plus les solutions.",
-    "p2": "Touche-à-tout, j'aime explorer différents domaines et languages.",
-    "p3": "Je me ferai pas remplacer par l'IA. Croyez-le.",
+    "title": "Construire des solutions",
+    "title_highlight": "qui fonctionnent.",
+    "p1": "Je suis un problem solver qui livre. Curieux, méticuleux, et motivé par le défi de transformer des besoins complexes en code propre et fonctionnel.",
+    "p2": "Généraliste full-stack avec un focus sur les technologies web modernes. Je m'adapte rapidement et j'apprends ce qu'il faut pour accomplir le travail.",
+    "p3": "Actuellement en train de construire des outils IA et des configurateurs 3D en production. Je ne code pas juste—je livre des solutions que les utilisateurs utilisent vraiment.",
     "atelier": {
       "headline": "Journal d'atelier",
       "journal": {
@@ -96,7 +96,7 @@
         },
         {
           "name": "Back-End",
-          "items": ["PHP", "Node.js", "API SvelteKit"]
+          "items": ["PHP", "Node.js", "SvelteKit"]
         },
         {
           "name": "Données",
@@ -156,6 +156,29 @@
         "sub_events": []
       }
     ]
+  },
+  "contact": {
+    "badge": "Contactez-moi",
+    "title": "Travaillons",
+    "title_highlight": "ensemble",
+    "description": "Vous cherchez un développeur qui livre vite et construit des solutions solides ? Parlons de votre prochain projet.",
+    "availability": {
+      "title": "Disponibilité",
+      "status": "Ouvert aux opportunités",
+      "description": "Actuellement en recherche d'alternance et de projets freelance. Disponible pour un poste à temps plein à partir de 2026."
+    },
+    "info": {
+      "title": "Informations",
+      "email_label": "Email",
+      "location_label": "Localisation",
+      "response_label": "Temps de réponse",
+      "response_time": "Sous 24-48 heures"
+    },
+    "cta": {
+      "email": "Envoyez-moi un email",
+      "linkedin": "Connectez sur LinkedIn",
+      "cv": "Télécharger le CV"
+    }
   },
   "projects": {
     "badge": "Portfolio",
@@ -494,30 +517,62 @@
           "cards": [
             {
               "icon": "globe",
-              "title": "Serveur Web",
-              "description": "Passerelle qui distribue les requêtes entre modules. Tous les appels transitent ici avant d'être routés vers le traitement du graphe en Java."
+              "title": "Serveur web",
+              "description": "Passage obligé qui distribue les requêtes entre les modules. Chaque appel passe ici avant de filer vers le traitement du graphe en Java."
             },
             {
               "icon": "code",
               "title": "Interface Leaflet",
-              "description": "Canvas interactif pour parcourir la galaxie et obtenir des informations sur chaque planète. Tout est animé en JS pur + Leaflet pour avoir une carte fluide."
+              "description": "Canvas interactif pour parcourir la galaxie et sortir les infos planète par planète. JS + Leaflet, fluidité totale."
             },
             {
               "icon": "database",
               "title": "Java + MySQL",
-              "description": "Modules JDBC alimentent le graphe interplanétaire, calculent les heuristiques et envoient des données propres pour l'algorithme C."
+              "description": "Les modules JDBC alimentent le graphe interplanétaire, calculent les heuristiques et envoient des données propres à l’algorithme C."
             },
             {
               "icon": "zap",
               "title": "Algorithme A*",
-              "description": "Implémenté en C pour maximiser la vitesse. Les résultats retournent au serveur qui les transforme en routes lisibles et en overlays graphiques."
+              "description": "Implémenté en C pour la vitesse max. Les résultats reviennent au serveur qui les traduit en routes lisibles et en superpositions."
             },
             {
               "icon": "users",
-              "title": "Gestion Users",
-              "description": "Création, connexion, récupération de compte + captcha + mail de vérification : tout un workflow sécurisé pour que chaque rebelle puisse sauvegarder ses parcours favoris sans que l'empire puisse les intercepter."
+              "title": "Gestion utilisateurs",
+              "description": "Création de compte, login, récupération + captcha + vérif email : workflow sécurisé pour que chaque rebelle puisse sauvegarder ses routes."
             }
           ]
+        },
+        "labyrinth": {
+          "tag": "Démonstration interactive",
+          "title": "Recherche du + cours chemin - Visualisation",
+          "description": [
+            "J’ai packagé le cœur pathfinding de Travia dans un composant Svelte interactif pour mettre en scène le trajet A*. ",
+            "On peut re-générer le labyrinthe, basculer d’algorithme, et observer l’explorateur tracer ses lignes d’hyperespace."
+          ],
+          "points": [
+            { "label": "Grille", "value": "22 x 14 cases" },
+            { "label": "Génération", "value": "Backtracking récursif" },
+            { "label": "Cadence", "value": "45 ms par étape" }
+          ],
+          "controls": {
+            "title": "Ajuste le labyrinthe",
+            "subtitle": "Visualisation instantanée",
+            "algorithm": "Algorithme",
+            "width": "Largeur",
+            "height": "Hauteur",
+            "regenerate": "Régénérer",
+            "loading": "Création du graphe…",
+            "legendTitle": "Légende",
+            "legendSubtitle": "Codes couleurs"
+          },
+          "legend": {
+            "start": "Départ",
+            "end": "Destination",
+            "current": "Nœud en cours",
+            "visiting": "Frontière",
+            "visited": "Exploré",
+            "path": "Chemin optimal"
+          }
         },
         "learnings": {
           "title": "apprentissages clés",
