@@ -25,17 +25,55 @@
     "p1": "Je suis bon dans ce que je fais. Curieux, sérieux, méticuleux; j'adore les problèmes et encore plus les solutions.",
     "p2": "Touche-à-tout, j'aime explorer différents domaines et languages.",
     "p3": "Je me ferai pas remplacer par l'IA. Croyez-le.",
+    "atelier": {
+      "headline": "Journal d'atelier",
+      "journal": {
+        "title": "Journal d'atelier",
+        "subtitle": "Ce sur quoi je travaille vraiment",
+        "entries": [
+          {
+            "date": "27 déc. 2025",
+            "tag": "Outils IA",
+            "label": "Sécuriser les flux MCP",
+            "detail": "Réécriture du routeur de prompts pour garder les configurateurs déterministes avant que les clients ne touchent au builder 3D."
+          },
+          {
+            "date": "24 déc. 2025",
+            "tag": "Université",
+            "label": "Refonte SpeedyWiki",
+            "detail": "Nettoyage de la reconnexion socket & rédaction d'une note technique pour la soutenance."
+          },
+          {
+            "date": "20 déc. 2025",
+            "tag": "Design system",
+            "label": "Kit UI manga",
+            "detail": "Documentation de l'échelle typo + tokens pour accélérer les dashboards à venir."
+          }
+        ],
+        "footer": "Mis à jour chaque semaine—pingez-moi pour la version longue."
+      },
+      "stack_intro": "outils tachés d'encre en ce moment",
+      "stack_cta": "Besoin d'un autre outil ? demande."
+    },
     "stack": {
-      "title": "Stack technique"
+      "title": "Stack technique",
+      "items": [
+        { "name": "Svelte + TypeScript", "usage": "Stack principale pour dashboards, configurateurs et protos UI rapides." },
+        { "name": "Python & Bash", "usage": "Scripts d'automatisation, data rapide et expérimentations IA." },
+        { "name": "Java & Spring", "usage": "Backends universitaires, APIs REST et architecture propre." },
+        { "name": "Bases de données", "usage": "PostgreSQL/MySQL pour le structuré, MongoDB pour le temps réel." },
+        { "name": "DevOps & tooling", "usage": "Docker, GitHub Actions et packages MCP pour livrer en prod." }
+      ]
     },
     "experience": {
       "title": "Expérience",
-      "current": "Alternance chez Dessine ton meuble/Aryga depuis 2025"
+      "current": "Stage et Alternance chez Dessine ton meuble/Aryga depuis 2025",
+      "uni": "& Beaucoup de projets universitaires variés - à voir plus bas"
     },
     "education": {
       "title": "Formation",
-      "degree": "BUT Informatique Univesité Gustave Eiffel Marne-la-Vallée",
-      "bac": "BAC STI2D mention TB Lycée Diderot Paris"
+      "degree": "BUT Informatique, Université Gustave Eiffel, Marne-la-Vallée",
+      "bac": "BAC STI2D mention TB, Lycée Diderot, Paris"
     },
     "mentality": {
       "title": "Mentalité",
@@ -47,6 +85,32 @@
       "p2": "Jeux vidéos ('Monster Hunter', 'Zelda', 'Rain World', 'Dark Souls'...) ma bibliothèque Steam va exploser",
       "p3": "Déssin, sur les marges de mon cahier :P",
       "p4": "Skier dans les Alpes, mon repos bien mérité"
+    },
+    "skills": {
+      "title": "Inventaire de mes Skills",
+      "subtitle": "Technos maîtrisées",
+      "groups": [
+        {
+          "name": "Front-End/UI",
+          "items": ["Svelte", "React", "Vue", "Astro", "TailwindCSS"]
+        },
+        {
+          "name": "Back-End",
+          "items": ["PHP", "Node.js", "API SvelteKit"]
+        },
+        {
+          "name": "Données",
+          "items": ["PostgreSQL", "MySQL", "MongoDB"]
+        },
+        {
+          "name": "Algorithmie",
+          "items": ["Python", "C", "Java"]
+        },
+        {
+          "name": "Déploiement",
+          "items": ["Docker", "Git"]
+        }
+      ]
     }
   },
   "journey": {

@@ -25,17 +25,55 @@
     "p1": "I'm good at what I do. Curious, serious, meticulous; I love problems and I love solutions even more.",
     "p2": "Jack of all trades, I enjoy exploring different domains and languages.",
     "p3": "I'm not getting replaced by AI. Believe it.",
+    "atelier": {
+      "headline": "Studio log",
+      "journal": {
+        "title": "Studio journal",
+        "subtitle": "What I'm actively shaping right now",
+        "entries": [
+          {
+            "date": "Dec 27, 2025",
+            "tag": "AI tooling",
+            "label": "Configuring safer MCP flows",
+            "detail": "Rewriting the prompt router to keep configurator requests deterministic before clients touch the 3D builder."
+          },
+          {
+            "date": "Dec 24, 2025",
+            "tag": "University",
+            "label": "SpeedyWiki refactor",
+            "detail": "Cleaning socket reconnection logic & writing a short technical note for the jury presentation."
+          },
+          {
+            "date": "Dec 20, 2025",
+            "tag": "Design system",
+            "label": "Manga UI kit",
+            "detail": "Documenting typography scale + tokens so future dashboards feel coherent and fast to prototype."
+          }
+        ],
+        "footer": "Refreshed weekly—ping me if you want the longer version."
+      },
+      "stack_intro": "tools currently smudged with ink",
+      "stack_cta": "Need another tool? just ask."
+    },
     "stack": {
-      "title": "Tech stack"
+      "title": "Tech stack",
+      "items": [
+        { "name": "Svelte + TypeScript", "usage": "Primary stack for dashboards, configurators, and fast UI prototypes." },
+        { "name": "Python & Bash", "usage": "Automation scripts, quick data prep, and AI tooling experiments." },
+        { "name": "Java & Spring", "usage": "University backends, REST APIs, and clean architecture exercises." },
+        { "name": "Databases", "usage": "PostgreSQL/MySQL for structured data, MongoDB for realtime projects." },
+        { "name": "DevOps & tooling", "usage": "Docker, GitHub Actions, and MCP packages to ship production-ready builds." }
+      ]
     },
     "experience": {
       "title": "Experience",
-      "current": "Apprenticeship at Dessine ton meuble/Aryga since 2025"
+      "current": "Internship and Apprenticeship at Dessine ton meuble/Aryga since 2025",
+      "uni": "And a lot of different Uni projects - see below"
     },
     "education": {
       "title": "Education",
-      "degree": "BUT Informatique, Université Gustave Eiffel Marne-la-Vallée",
-      "bac": "STI2D high school diploma with highest honors, Lycée Diderot Paris"
+      "degree": "BUT Computer Science Degree, Gustave Eiffel University, Marne-la-Vallée, France",
+      "bac": "STI2D high school diploma with highest honors, Diderot High School, Paris, France"
     },
     "mentality": {
       "title": "Mentality",
@@ -47,6 +85,32 @@
       "p2": "Video games ('Monster Hunter', 'Zelda', 'Rain World', 'Dark Souls'...) my Steam library is about to explode",
       "p3": "Drawing, all over the margins of my notebook :P",
       "p4": "Skiing in the Alps, my well-deserved downtime"
+    },
+    "skills": {
+      "title": "Skill inventory",
+      "subtitle": "Grouped toolkit I rely on daily",
+      "groups": [
+        {
+          "name": "Front-End/UI",
+          "items": ["Svelte", "React", "Vue", "Astro", "TailwindCSS"]
+        },
+        {
+          "name": "Back-End",
+          "items": ["PHP", "Node.js", "SvelteKit APIs"]
+        },
+        {
+          "name": "Data",
+          "items": ["PostgreSQL", "MySQL", "MongoDB"]
+        },
+        {
+          "name": "Algorithms",
+          "items": ["Python", "C", "Java"]
+        },
+        {
+          "name": "Deployment",
+          "items": ["Docker", "Git"]
+        }
+      ]
     }
   },
   "journey": {
