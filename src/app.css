@@ -4,6 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --paper: #f5f2ed; /* tailwind colors.paper */
+  --ink: #090909; /* tailwind colors.ink */
+  --graphite: #151515; /* tailwind colors.graphite */
+  --tone: #d6d1c4; /* tailwind colors.tone */
+  --accent: #ff2b4c; /* tailwind colors.accent */
+  --accent-muted: #ff7a92; /* tailwind colors.accentMuted */
+}
+
 @layer base {
   * {
     margin: 0;
