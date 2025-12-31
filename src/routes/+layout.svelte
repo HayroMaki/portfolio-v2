@@ -2,10 +2,12 @@
 	import '../app.css';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
+	import { beforeNavigate, afterNavigate } from '$app/navigation';
 	import { Menu, X, Github, Linkedin, Mail, Languages, Wallet, Brush } from 'lucide-svelte';
 	import { locale } from '$lib/stores/locale';
 	import { _t } from '$lib/i18n';
 	import InkBrush from '$lib/components/InkBrush.svelte';
+	import { isTransitioning } from '$lib/stores/pageTransition';
 
 	/**
 	* Wrapper to not have to put locale every time
@@ -20,6 +22,19 @@
 	let mobileMenuOpen = $state(false);
 	let brushEnabled = $state(true);
 	let { children } = $props();
+	let transitioning = $state(false);
+
+	beforeNavigate(() => {
+		transitioning = true;
+		isTransitioning.set(true);
+	});
+
+	afterNavigate(() => {
+		setTimeout(() => {
+			transitioning = false;
+			isTransitioning.set(false);
+		}, 300);
+	});
 
 	onMount(() => {
 		const stored = localStorage.getItem('brush-enabled');
@@ -43,6 +58,13 @@
 </script>
 
 <div class="min-h-screen bg-paper text-ink font-sans">
+	<!-- Page transition overlay -->
+	{#if transitioning}
+		<div class="fixed inset-0 z-[100] pointer-events-none">
+			<div class="absolute inset-0 bg-ink animate-page-transition"></div>
+		</div>
+	{/if}
+	
 	<InkBrush enabled={brushEnabled} />
 	<nav class="fixed top-0 left-0 right-0 z-50 border-b-2 border-ink bg-paper/90 backdrop-blur-sm">
 		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -137,7 +159,7 @@
 		{@render children()}
 	</main>
 
-	<footer class="mt-24 border-t-2 border-ink bg-paper">
+	<footer class="border-t-2 border-ink bg-paper">
 		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 			<div class="flex flex-col md:flex-row justify-between gap-6">
 				<div>

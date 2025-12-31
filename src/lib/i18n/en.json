@@ -7,7 +7,7 @@
     "name": "Jules",
     "surname": "Grange",
     "description": "Computer Science BUT student—curious what I do? It's all right here:",
-    "cta_projects": "Check my projects",
+    "cta_projects": "Check out my projects",
     "cta_journey": "My journey",
     "stats": {
       "projects": "Real projects",
@@ -55,16 +55,6 @@
       "stack_intro": "tools currently smudged with ink",
       "stack_cta": "Need another tool? just ask."
     },
-    "stack": {
-      "title": "Tech stack",
-      "items": [
-        { "name": "Svelte + TypeScript", "usage": "Primary stack for dashboards, configurators, and fast UI prototypes." },
-        { "name": "Python & Bash", "usage": "Automation scripts, quick data prep, and AI tooling experiments." },
-        { "name": "Java & Spring", "usage": "University backends, REST APIs, and clean architecture exercises." },
-        { "name": "Databases", "usage": "PostgreSQL/MySQL for structured data, MongoDB for realtime projects." },
-        { "name": "DevOps & tooling", "usage": "Docker, GitHub Actions, and MCP packages to ship production-ready builds." }
-      ]
-    },
     "experience": {
       "title": "Experience",
       "current": "Internship and Apprenticeship at Dessine ton meuble/Aryga since 2025",
@@ -77,7 +67,7 @@
     },
     "mentality": {
       "title": "Mentality",
-      "p1": "Efficient work, autonomy, and communication—that's the key to success. And don't forget to stay hydrated."
+      "p1": "Efficient work, autonomy, and communication: that's the key to success. And don't forget to stay hydrated."
     },
     "passions": {
       "title": "Passions",
@@ -165,14 +155,14 @@
     "availability": {
       "title": "Availability",
       "status": "Open to opportunities",
-      "description": "Currently seeking apprenticeship opportunities and freelance projects. Available for full-time positions starting 2026."
+      "description": "Currently seeking apprenticeship opportunities to enter engineering school in 2026. Contact me :)"
     },
     "info": {
       "title": "Contact Info",
       "email_label": "Email",
       "location_label": "Location",
       "response_label": "Response time",
-      "response_time": "Within 24-48 hours"
+      "response_time": "Within 24-48 hours (except holidays)"
     },
     "cta": {
       "email": "Send me an email",
@@ -216,7 +206,9 @@
   },
   "misc": {
     "technos_forget": "I might have forgotten some...",
-    "empty_list": "...it's quite empty here..."
+    "empty_list": "...it's quite empty here...",
+    "konami_title":"Konami Code !",
+    "konami_text":"That's it. What were you even expecting ?"
   },
   "cv_page": {
     "badge": "Curriculum",

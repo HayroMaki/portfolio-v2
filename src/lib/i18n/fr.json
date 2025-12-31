@@ -36,34 +36,12 @@
             "tag": "Outils IA",
             "label": "Sécuriser les flux MCP",
             "detail": "Réécriture du routeur de prompts pour garder les configurateurs déterministes avant que les clients ne touchent au builder 3D."
-          },
-          {
-            "date": "24 déc. 2025",
-            "tag": "Université",
-            "label": "Refonte SpeedyWiki",
-            "detail": "Nettoyage de la reconnexion socket & rédaction d'une note technique pour la soutenance."
-          },
-          {
-            "date": "20 déc. 2025",
-            "tag": "Design system",
-            "label": "Kit UI manga",
-            "detail": "Documentation de l'échelle typo + tokens pour accélérer les dashboards à venir."
           }
         ],
         "footer": "Mis à jour chaque semaine—pingez-moi pour la version longue."
       },
       "stack_intro": "outils tachés d'encre en ce moment",
       "stack_cta": "Besoin d'un autre outil ? demande."
-    },
-    "stack": {
-      "title": "Stack technique",
-      "items": [
-        { "name": "Svelte + TypeScript", "usage": "Stack principale pour dashboards, configurateurs et protos UI rapides." },
-        { "name": "Python & Bash", "usage": "Scripts d'automatisation, data rapide et expérimentations IA." },
-        { "name": "Java & Spring", "usage": "Backends universitaires, APIs REST et architecture propre." },
-        { "name": "Bases de données", "usage": "PostgreSQL/MySQL pour le structuré, MongoDB pour le temps réel." },
-        { "name": "DevOps & tooling", "usage": "Docker, GitHub Actions et packages MCP pour livrer en prod." }
-      ]
     },
     "experience": {
       "title": "Expérience",
@@ -165,19 +143,19 @@
     "availability": {
       "title": "Disponibilité",
       "status": "Ouvert aux opportunités",
-      "description": "Actuellement en recherche d'alternance et de projets freelance. Disponible pour un poste à temps plein à partir de 2026."
+      "description": "Actuellement en recherche d'alternance pour mon entrée en école d'ingénieur en 2026. Contactez-moi :)"
     },
     "info": {
       "title": "Informations",
       "email_label": "Email",
       "location_label": "Localisation",
       "response_label": "Temps de réponse",
-      "response_time": "Sous 24-48 heures"
+      "response_time": "Sous 24-48 heures (sauf en vacances)"
     },
     "cta": {
-      "email": "Envoyez-moi un email",
-      "linkedin": "Connectez sur LinkedIn",
-      "cv": "Télécharger le CV"
+      "email": "Envoyez-moi un mail",
+      "linkedin": "Message sur LinkedIn",
+      "cv": "Mon CV"
     }
   },
   "projects": {
@@ -216,7 +194,9 @@
   },
   "misc": {
     "technos_forget": "j'en ai peut-être oublié...",
-    "empty_list": "...c'est vide ici..."
+    "empty_list": "...c'est vide ici...",
+    "konami_title":"Konami Code !",
+    "konami_text":"C'est tout. Tu t'attendais à quoi ?"
   },
   "cv_page": {
     "badge": "Curriculum",

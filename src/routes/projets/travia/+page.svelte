@@ -18,7 +18,7 @@
 		start: '#050505',
 		end: '#d90429',
 		current: '#111111',
-		visiting: '#fdfaf0',
+		visiting: '#f0e7c7',
 		visited: '#cfcab5',
 		path: '#e895a3',
 		background: '#fffdf5',
@@ -170,7 +170,7 @@
 					<span class="font-mono text-xs uppercase tracking-[0.4em] text-ink/60">{t('hero.crew.subtitle')}</span>
 				</div>
 				<div class="grid gap-4 sm:grid-cols-2">
-					{#each t('hero.crew') as person}
+					{#each t('crew') as person}
 						<div class="border-2 border-ink p-4 hover:bg-ink hover:text-paper transition-colors">
 							<p class="font-display text-xl mb-2">{person.name}</p>
 							<p class="text-xs font-mono uppercase tracking-[0.3em] opacity-70">{person.role}</p>
