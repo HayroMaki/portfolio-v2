@@ -2,8 +2,9 @@
 	import { ArrowLeft, Brain, Shield, Package, Zap, Lock, Globe, Pen, Code, Sparkles } from 'lucide-svelte';
 	import { locale } from '$lib/stores/locale';
 	import { getTranslations } from '$lib/i18n';
-	import MCPWorkflowAnimation from '$lib/components/projects/MCPWorkflowAnimation.svelte';
+	import SequenceDiagram from '$lib/components/projects/SequenceDiagram.svelte';
 	import MCPSecurityFlow from '$lib/components/projects/MCPSecurityFlow.svelte';
+	import { mcpActors, mcpSteps } from '$lib/data/mcpWorkflowData';
 
 	const iconMap = {
 		brain: Brain,
@@ -80,7 +81,12 @@
 
 			<!-- MCP Workflow Animation -->
 			<div class="mt-16">
-				<MCPWorkflowAnimation />
+				<SequenceDiagram 
+					actors={mcpActors} 
+					steps={mcpSteps}
+					title="MCP Workflow"
+					subtitle="Scroll pour voir le flux de communication"
+				/>
 			</div>
 		</div>
 	</section>
