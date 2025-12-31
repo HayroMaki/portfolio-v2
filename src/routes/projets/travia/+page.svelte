@@ -38,8 +38,6 @@
 	const MAX_WIDTH = 30;
 	const MIN_CELL_SIZE = 24;
 	const MAX_CELL_SIZE = 50;
-	const TARGET_WIDTH = 520;
-	const TARGET_HEIGHT = 520;
 	const MIN_REFRESH_RATE = 1;
 	const MAX_REFRESH_RATE = 100;
 	const AUTO_PLAY = true;
@@ -51,6 +49,9 @@
 	let refreshRate = $state(MAX_REFRESH_RATE);
 	let graph = $state<Graph | null>(null);
 	let hydrated = $state(false);
+	let windowWidth = $state(0);
+	let targetWidth = $state(520);
+	let targetHeight = $state(520);
 
 	let controls = $state<LabyrinthControls | null>(null);
 
@@ -78,8 +79,31 @@
 	const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value));
 
 	const recalculateCellSize = (w: number, h: number) => {
-		const estimated = Math.floor(Math.min(TARGET_WIDTH / w, TARGET_HEIGHT / h));
+		const estimated = Math.floor(Math.min(targetWidth / w, targetHeight / h));
 		cellSize = clamp(estimated, MIN_CELL_SIZE, MAX_CELL_SIZE);
+	};
+
+	const updateTargetDimensions = () => {
+		if (typeof window === 'undefined') return;
+		windowWidth = window.innerWidth;
+		
+		// Mobile: use most of screen width minus padding
+		if (windowWidth < 640) {
+			targetWidth = Math.min(windowWidth - 48, 400);
+			targetHeight = Math.min(windowWidth - 48, 400);
+		}
+		// Tablet
+		else if (windowWidth < 1024) {
+			targetWidth = 480;
+			targetHeight = 480;
+		}
+		// Desktop
+		else {
+			targetWidth = 600;
+			targetHeight = 600;
+		}
+		
+		recalculateCellSize(width, height);
 	};
 
 	const updateRefreshRate = (event: Event) => {
@@ -91,6 +115,17 @@
 
 	onMount(() => {
 		hydrated = true;
+		updateTargetDimensions();
+		
+		const handleResize = () => {
+			updateTargetDimensions();
+		};
+		
+		window.addEventListener('resize', handleResize);
+		
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
 	});
 
 	$effect(regenerate);
