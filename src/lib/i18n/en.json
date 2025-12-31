@@ -533,19 +533,23 @@
             "I built a custom package to visualize pathfinding algorithms in action. Watch A* and Dijkstra solve mazes in real-time.",
             "This interactive demo shows how the algorithm explores nodes and finds the optimal path—the same logic powering Travia's route calculations."
           ],
-          "points": [
-            { "label": "Algorithm", "value": "A* & Dijkstra" },
-            { "label": "Package", "value": "@hayro_o7/labyrinth" },
-            { "label": "Real-time", "value": "Live visualization" }
-          ],
           "controls": {
             "title": "Controls",
             "subtitle": "Customize the maze",
             "algorithm": "Algorithm",
             "width": "Width",
             "height": "Height",
+            "rate": "Speed (ms)",
             "regenerate": "Regenerate maze",
             "loading": "Loading...",
+            "play": "Play",
+            "pause": "Pause",
+            "stepForward": "Forward",
+            "stepBackward": "Back",
+            "reset": "Reset",
+            "status": "Status",
+            "status_playing": "Exploring",
+            "status_paused": "Paused",
             "legendTitle": "Legend",
             "legendSubtitle": "Cell states during pathfinding"
           },
@@ -555,7 +559,7 @@
             "current": "Current",
             "visiting": "Visiting",
             "visited": "Visited",
-            "path": "Final path"
+            "path": "Optimal path"
           }
         },
         "learnings": {

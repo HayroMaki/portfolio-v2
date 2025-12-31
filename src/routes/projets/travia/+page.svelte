@@ -20,16 +20,10 @@
 		current: '#111111',
 		visiting: '#fdfaf0',
 		visited: '#cfcab5',
-		path: '#0f0f0f',
+		path: '#e895a3',
 		background: '#fffdf5',
 		wall: '#050505',
 		grid: '#e7e1cb',
-		legend: '#050505',
-		legendtext: '#fffdf5',
-		buttons: '#050505',
-		buttonshover: '#d90429',
-		buttonsdisabled: '#9ca3af',
-		buttonstext: '#fffdf5'
 	};
 
 	const legendSwatches: (keyof ColorScheme)[] = ['start', 'end', 'current', 'visiting', 'visited', 'path'];
@@ -38,30 +32,61 @@
 		{ value: 'dijkstra', label: 'Dijkstra' }
 	];
 
+	const MIN_HEIGHT = 6;
+	const MAX_HEIGHT = 20;
+	const MIN_WIDTH = 6;
+	const MAX_WIDTH = 30;
+	const MIN_CELL_SIZE = 24;
+	const MAX_CELL_SIZE = 50;
+	const TARGET_WIDTH = 520;
+	const TARGET_HEIGHT = 520;
+	const MIN_REFRESH_RATE = 1;
+	const MAX_REFRESH_RATE = 100;
+	const AUTO_PLAY = true;
+
 	let algorithm = $state<AlgorithmType>('astar');
 	let width = $state(18);
 	let height = $state(12);
+	let cellSize = $state(24);
+	let refreshRate = $state(MAX_REFRESH_RATE);
 	let graph = $state<Graph | null>(null);
-	let controls= $state<LabyrinthControls | null>(null);
 	let hydrated = $state(false);
+
+	let controls = $state<LabyrinthControls | null>(null);
 
 	const swatchColor = (key: keyof ColorScheme) => labyrinthColors[key] ?? '#ffffff';
 
 	const regenerate = () => {
 		if (!hydrated) return;
+		console.log("regen")
 		graph = generateLabyrinth(width, height);
-		console.log("remaking graph...")
 		controls?.reset();
 	};
 
 	const updateWidth = (event: Event) => {
 		const value = Number((event.currentTarget as HTMLInputElement).value);
 		width = value;
+		recalculateCellSize(width, height);
 	};
 
 	const updateHeight = (event: Event) => {
 		const value = Number((event.currentTarget as HTMLInputElement).value);
 		height = value;
+		recalculateCellSize(width, height);
+	};
+
+	const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value));
+
+	const recalculateCellSize = (w: number, h: number) => {
+		const estimated = Math.floor(Math.min(TARGET_WIDTH / w, TARGET_HEIGHT / h));
+		cellSize = clamp(estimated, MIN_CELL_SIZE, MAX_CELL_SIZE);
+	};
+
+	const updateRefreshRate = (event: Event) => {
+		const value = Number((event.currentTarget as HTMLInputElement).value);
+		refreshRate = value;
+		controls?.pause();
+		controls?.play();
 	};
 
 	onMount(() => {
@@ -216,8 +241,8 @@
 							<input
 								id="labyrinth-width"
 								type="range"
-								min="10"
-								max="30"
+								min="{MIN_WIDTH}"
+								max="{MAX_WIDTH}"
 								step="1"
 								value={width}
 								oninput={updateWidth}
@@ -235,11 +260,30 @@
 							<input
 								id="labyrinth-height"
 								type="range"
-								min="10"
-								max="20"
+								min="{MIN_HEIGHT}"
+								max="{MAX_HEIGHT}"
 								step="1"
 								value={height}
 								oninput={updateHeight}
+								class="mt-2 h-2 w-full cursor-ew-resize appearance-none bg-ink/10 accent-ink"
+							/>
+						</div>
+						<div>
+							<label
+								for="refresh-rate"
+								class="flex items-center justify-between font-mono text-xs uppercase tracking-[0.3em] text-ink/60"
+							>
+								<span>{t('sections.labyrinth.controls.rate')}</span>
+								<span class="text-ink">{refreshRate}</span>
+							</label>
+							<input
+								id="refresh-rate"
+								type="range"
+								min="{MIN_REFRESH_RATE}"
+								max="{MAX_REFRESH_RATE}"
+								step="1"
+								value={refreshRate}
+								oninput={updateRefreshRate}
 								class="mt-2 h-2 w-full cursor-ew-resize appearance-none bg-ink/10 accent-ink"
 							/>
 						</div>
@@ -267,36 +311,64 @@
 							{/each}
 						</div>
 					</div>
-
-					<div class="manga-panel p-6 space-y-3">
-						<h3 class="font-mono text-xs uppercase tracking-[0.4em] text-ink/70">Stats</h3>
-						<ul class="space-y-2 font-mono text-xs uppercase tracking-[0.3em] text-ink/70">
-							{#each t('sections.labyrinth.points') as point}
-								<li class="flex items-center justify-between border-b border-ink/20 pb-2 last:border-0 last:pb-0">
-									<span>{point.label}</span>
-									<span class="text-ink">{point.value}</span>
-								</li>
-							{/each}
-						</ul>
-					</div>
 				</div>
 
-				<div class="manga-panel p-6 flex items-center justify-center min-h-[600px]">
+				<div class="manga-panel p-6 flex flex-col items-center justify-center min-h-[600px]">
 					{#if graph}
 						<div class="w-full h-full flex items-center justify-center">
 							<Labyrinth
 								{graph}
 								{algorithm}
-								cellSize={22}
+								{cellSize}
 								wallThickness={2}
-								animationSpeed={45}
-								autoPlay={true}
+								animationSpeed={refreshRate}
+								autoPlay={AUTO_PLAY}
 								showGrid={false}
 								legend={false}
+								buttons={false}
 								stepCount={false}
 								colors={labyrinthColors}
 								onControls={(c) => (controls = c)}
 							/>
+						</div>
+						<div class="w-full space-y-4 border-t border-ink/20 pt-4">
+							<div class="grid gap-2 sm:grid-cols-3 lg:grid-cols-5">
+								<button
+									type="button"
+									class="border-2 border-ink bg-paper px-4 py-2 font-mono text-[10px] uppercase tracking-[0.35em] transition hover:bg-ink hover:text-paper disabled:cursor-not-allowed disabled:border-ink/30 disabled:text-ink/30 disabled:hover:bg-ink/30"
+									onclick={() => controls?.play()}
+								>
+									{t('sections.labyrinth.controls.play')}
+								</button>
+								<button
+									type="button"
+									class="border-2 border-ink bg-paper px-4 py-2 font-mono text-[10px] uppercase tracking-[0.35em] transition hover:bg-ink hover:text-paper disabled:cursor-not-allowed disabled:border-ink/30 disabled:text-ink/30 disabled:hover:bg-ink/30"
+									onclick={() => controls?.pause()}
+								>
+									{t('sections.labyrinth.controls.pause')}
+								</button>
+								<button
+									type="button"
+									class="border-2 border-ink bg-paper px-4 py-3 font-mono text-[10px] uppercase tracking-[0.35em] transition hover:bg-ink hover:text-paper disabled:cursor-not-allowed disabled:border-ink/30 disabled:text-ink/30"
+									onclick={() => controls?.reset()}
+								>
+									{t('sections.labyrinth.controls.reset')}
+								</button>
+								<button
+									type="button"
+									class="border-2 border-dashed border-ink bg-paper px-4 py-2 font-mono text-[10px] uppercase tracking-[0.35em] transition hover:bg-ink hover:text-paper disabled:cursor-not-allowed disabled:border-ink/30 disabled:text-ink/30 "
+									onclick={() => controls?.stepBackward()}
+								>
+									{t('sections.labyrinth.controls.stepBackward')}
+								</button>
+								<button
+									type="button"
+									class="border-2 border-dashed border-ink bg-paper px-4 py-2 font-mono text-[10px] uppercase tracking-[0.35em] transition hover:bg-ink hover:text-paper disabled:cursor-not-allowed disabled:border-ink/30 disabled:text-ink/30"
+									onclick={() => controls?.stepForward()}
+								>
+									{t('sections.labyrinth.controls.stepForward')}
+								</button>
+							</div>
 						</div>
 					{:else}
 						<div class="flex items-center justify-center font-mono text-xs uppercase tracking-[0.4em] text-ink/50">

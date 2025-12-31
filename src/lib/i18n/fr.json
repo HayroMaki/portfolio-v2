@@ -549,21 +549,25 @@
             "J’ai packagé le cœur pathfinding de Travia dans un composant Svelte interactif pour mettre en scène le trajet A*. ",
             "On peut re-générer le labyrinthe, basculer d’algorithme, et observer l’explorateur tracer ses lignes d’hyperespace."
           ],
-          "points": [
-            { "label": "Grille", "value": "22 x 14 cases" },
-            { "label": "Génération", "value": "Backtracking récursif" },
-            { "label": "Cadence", "value": "45 ms par étape" }
-          ],
           "controls": {
             "title": "Ajuste le labyrinthe",
             "subtitle": "Visualisation instantanée",
             "algorithm": "Algorithme",
             "width": "Largeur",
             "height": "Hauteur",
+            "rate": "Vitesse (ms)",
             "regenerate": "Régénérer",
             "loading": "Création du graphe…",
+            "play": "Play",
+            "pause": "Pause",
+            "stepForward": "Avancer",
+            "stepBackward": "Reculer",
+            "reset": "Reset",
+            "status": "Statut",
+            "status_playing": "Exploration",
+            "status_paused": "En pause",
             "legendTitle": "Légende",
-            "legendSubtitle": "Codes couleurs"
+            "legendSubtitle": "États des cellules"
           },
           "legend": {
             "start": "Départ",
