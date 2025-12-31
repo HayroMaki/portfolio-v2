@@ -36,7 +36,7 @@
 	const MAX_HEIGHT = 20;
 	const MIN_WIDTH = 6;
 	const MAX_WIDTH = 30;
-	const MIN_CELL_SIZE = 24;
+	const MIN_CELL_SIZE = 10;
 	const MAX_CELL_SIZE = 50;
 	const MIN_REFRESH_RATE = 1;
 	const MAX_REFRESH_RATE = 100;
@@ -59,7 +59,6 @@
 
 	const regenerate = () => {
 		if (!hydrated) return;
-		console.log("regen")
 		graph = generateLabyrinth(width, height);
 		controls?.reset();
 	};
@@ -81,26 +80,23 @@
 	const recalculateCellSize = (w: number, h: number) => {
 		const estimated = Math.floor(Math.min(targetWidth / w, targetHeight / h));
 		cellSize = clamp(estimated, MIN_CELL_SIZE, MAX_CELL_SIZE);
+		console.log("recalc", cellSize)
 	};
 
 	const updateTargetDimensions = () => {
 		if (typeof window === 'undefined') return;
 		windowWidth = window.innerWidth;
+		console.log("upd w", windowWidth)
 		
-		// Mobile: use most of screen width minus padding
-		if (windowWidth < 640) {
-			targetWidth = Math.min(windowWidth - 48, 400);
-			targetHeight = Math.min(windowWidth - 48, 400);
-		}
-		// Tablet
-		else if (windowWidth < 1024) {
-			targetWidth = 480;
-			targetHeight = 480;
+		// Mobile (tablet & phone)
+		if (windowWidth < 1024) {
+			targetWidth = Math.min(windowWidth, 1024) - 120;
+			targetHeight = Math.min(windowWidth, 1024) - 120;
 		}
 		// Desktop
 		else {
-			targetWidth = 600;
-			targetHeight = 600;
+			targetWidth = Math.min(windowWidth, 700);
+			targetHeight = Math.min(windowWidth, 400);
 		}
 		
 		recalculateCellSize(width, height);
