@@ -100,8 +100,8 @@
 					{@const isReverse = fromIndex > toIndex}
 					{@const leftPos = Math.min(fromIndex, toIndex)}
 					{@const rightPos = Math.max(fromIndex, toIndex)}
-					{@const arrowWidth = Math.max(15, (rightPos - leftPos) * 25)}
 					{@const colWidth = 100 / actors.length}
+					{@const arrowWidth = Math.max(15, (rightPos - leftPos) * colWidth)}
 					
 					<div class="relative min-h-20" data-step-id={step.id}>
 						<div 

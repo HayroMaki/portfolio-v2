@@ -658,9 +658,9 @@
         },
         "description": "Multiplayer Wikipedia speedrun, fully in-browser. Start from one page, get a list of targets, and chain links to reach them. Meanwhile the WebSocket server processes moves, the proxy rewrites pages, and the UI rocks a Windows 95 vibe.",
         "stats": [
-          { "label": "web game in", "value": "REAL TIME", "sub": "via websocket" },
-          { "label": "chat inside the", "value": "CHAT", "sub": "socialize!" },
-          { "label": "NoSQL DB", "value": "MongoDB", "sub": "full match logs" }
+          { "label": "Multiplayer web game", "value": "REAL TIME", "sub": "via websocket" },
+          { "label": "Live chat", "value": "CHAT", "sub": "socialize!" },
+          { "label": "Match logs", "value": "MongoDB", "sub": "NoSQL database" }
         ],
         "crew": {
           "title": "crew",
@@ -669,11 +669,53 @@
       },
       "crew": [
         { "name": "Jules Grange (that's me)", "role": "Back-End WebSocket & Proxy dev" },
-        { "name": "Martial Carceles", "role": "MongoDB manager" },
+        { "name": "Martial Carceles", "role": "MongoDB & Python solver" },
         { "name": "Guillaume Augeraud", "role": "Front-End dev & designer" },
         { "name": "Randhy Bou-Jaber", "role": "Game designer" }
       ],
       "sections": {
+        "highlight": {
+          "title": "The concept",
+          "paragraphs": [
+            "A frantic duel: each player clicks internal Wikipedia links until they reach every target page. Each action is pushed via WebSocket to the server running the full game logic.",
+            "Players can grab positive or negative items and use them to slow down opponents. A built-in chat keeps everyone talking mid-race."
+          ]
+        },
+        "workflow": {
+          "title": "Real-time communication flow",
+          "subtitle": "How players interact with the system",
+          "actors": [
+            { "id": "client1", "label": "Client 1 (Host)" },
+            { "id": "client2", "label": "Client 2 (Player)" },
+            { "id": "websocket", "label": "WebSocket Server" },
+            { "id": "proxy", "label": "Proxy Server" },
+            { "id": "wikipedia", "label": "Wikipedia" }
+          ],
+          "steps": [
+            { "label": "WS connection established", "code": "CONNECT" },
+            { "label": "Create game", "code": "CREATE" },
+            { "label": "Confirm creation", "code": "OK" },
+            { "label": "Share lobby code", "code": "SHARE" },
+            { "label": "Attempt to join", "code": "JOIN" },
+            { "label": "Confirm addition", "code": "OK" },
+            { "label": "Start game", "code": "START" },
+            { "label": "Fetch random articles", "code": "FETCH" },
+            { "label": "Return articles", "code": "ARTICLES" },
+            { "label": "Distribute objectives", "code": "OBJECTIVES" },
+            { "label": "Distribute objectives", "code": "OBJECTIVES" },
+            { "label": "Navigate to page", "code": "GET" },
+            { "label": "Request Wikipedia", "code": "REQUEST" },
+            { "label": "Original page", "code": "HTML" },
+            { "label": "Modified page", "code": "MODIFIED" },
+            { "label": "Navigate to page", "code": "GET" },
+            { "label": "Request Wikipedia", "code": "REQUEST" },
+            { "label": "Original page", "code": "HTML" },
+            { "label": "Modified page", "code": "MODIFIED" },
+            { "label": "Chat message", "code": "CHAT" },
+            { "label": "Broadcast to sender", "code": "BROADCAST" },
+            { "label": "Broadcast to others", "code": "BROADCAST" }
+          ]
+        },
         "concept": {
           "title": "concept",
           "paragraphs": [
@@ -691,9 +733,9 @@
             { "label": "Replay", "value": "I’m addicted" }
           ]
         },
-        "features": {
-          "tag": "tech stack",
-          "subtitle": "everything connected",
+        "architecture": {
+          "tag": "架構",
+          "subtitle": "tech stack - everything connected",
           "cards": [
             {
               "icon": "message_square",
@@ -712,6 +754,38 @@
               "title": "Git cadence",
               "description": "Strict workflow with branches, PRs, (almost) daily reviews and merge rules. Clean docs.",
               "tags": ["Git", "GitHub"]
+            }
+          ]
+        },
+        "features": {
+          "title": "Features",
+          "list": [
+            "Real-time synchronization of all player actions via WebSocket",
+            "HTTP proxy that modifies Wikipedia pages on the fly (links, CSS, tracking)",
+            "Collectable items system (positive and negative) to spice up races",
+            "Built-in chat for player communication during the game",
+            "Lobby management with unique invitation codes",
+            "Game persistence in MongoDB for history and statistics"
+          ]
+        },
+        "technologies": {
+          "title": "Technologies",
+          "sections": [
+            {
+              "label": "Frontend",
+              "items": ["React", "Vite", "TypeScript"]
+            },
+            {
+              "label": "Realtime",
+              "items": ["WebSocket", "Custom WSContext"]
+            },
+            {
+              "label": "Backend",
+              "items": ["Node.js", "Express", "MongoDB Atlas"]
+            },
+            {
+              "label": "Wikipedia Proxy",
+              "items": ["Axios", "HTML rewrite", "Custom CORS"]
             }
           ]
         },

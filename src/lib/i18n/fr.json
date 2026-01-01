@@ -662,9 +662,9 @@
         },
         "description": "Speedrun Wikipedia en multijoueur, tout dans le navigateur. On part d’une page, et on a une liste de pages à atteindre, à vous de chercher en naviguant de liens en liens. Pendant ce temps, le serveur WebSocket calcule les moves, le proxy réécrit les pages et l’UI affiche une interface style Windows 95.",
         "stats": [
-          { "label": "jeu web en", "value": "TEMPS RÉEL", "sub": "via websocket" },
-          { "label": "communiquez dans le", "value": "CHAT", "sub": "socialisez!" },
-          { "label": "BDD NoSQL", "value": "MongoDB", "sub": "logs complets des parties" }
+          { "label": "Jeu web multijoueurs", "value": "TEMPS RÉEL", "sub": "via websocket" },
+          { "label": "Discussions en direct", "value": "CHAT", "sub": "socialisez!" },
+          { "label": "Logs des parties", "value": "MongoDB", "sub": "BDD NoSQL" }
         ],
         "crew": {
           "title": "crew",
@@ -673,11 +673,53 @@
       },
       "crew": [
         { "name": "Jules Grange (C'est moi)", "role": "Développeur Back-End Websocket & Proxy" },
-        { "name": "Martial Carceles", "role": "Gestionnaire BDD MongoDB" },
+        { "name": "Martial Carceles", "role": "MongoDB & Solveur python" },
         { "name": "Guillaume Augeraud", "role": "Développeur Front-End & Designer" },
         { "name": "Randhy Bou-Jaber", "role": "Game Designer" }
       ],
       "sections": {
+        "highlight": {
+          "title": "Le concept",
+          "paragraphs": [
+            "Un duel nerveux : chaque joueur clique sur les liens internes dans Wikipedia jusqu'à atteindre toutes ses pages cibles. Chaque action est transmise en WebSocket au serveur qui gère toute la logique du jeu.",
+            "Les joueurs peuvent récolter des objets positifs ou négatifs et les utiliser pour mettre des bâtons dans les roues des adversaires. Un chat est intégré pour permettre la discussion entre les joueurs."
+          ]
+        },
+        "workflow": {
+          "title": "Flux de communication temps réel",
+          "subtitle": "Comment les joueurs interagissent avec le système",
+          "actors": [
+            { "id": "client1", "label": "Client 1 (Hôte)" },
+            { "id": "client2", "label": "Client 2 (Joueur)" },
+            { "id": "websocket", "label": "Serveur WebSocket" },
+            { "id": "proxy", "label": "Serveur Proxy" },
+            { "id": "wikipedia", "label": "Wikipedia" }
+          ],
+          "steps": [
+            { "label": "Connexion WS établie", "code": "CONNECT" },
+            { "label": "Création de partie", "code": "CREATE" },
+            { "label": "Confirmation de création", "code": "OK" },
+            { "label": "Partage du code lobby", "code": "SHARE" },
+            { "label": "Tentative de rejoindre", "code": "JOIN" },
+            { "label": "Confirmation d'ajout", "code": "OK" },
+            { "label": "Lancement de la partie", "code": "START" },
+            { "label": "Fetch des articles randoms", "code": "FETCH" },
+            { "label": "Retour des articles", "code": "ARTICLES" },
+            { "label": "Distribution objectifs", "code": "OBJECTIVES" },
+            { "label": "Distribution objectifs", "code": "OBJECTIVES" },
+            { "label": "Navigation vers page", "code": "GET" },
+            { "label": "Requête Wikipedia", "code": "REQUEST" },
+            { "label": "Page originale", "code": "HTML" },
+            { "label": "Page modifiée", "code": "MODIFIED" },
+            { "label": "Navigation vers page", "code": "GET" },
+            { "label": "Requête Wikipedia", "code": "REQUEST" },
+            { "label": "Page originale", "code": "HTML" },
+            { "label": "Page modifiée", "code": "MODIFIED" },
+            { "label": "Message chat", "code": "CHAT" },
+            { "label": "Broadcast à l'expéditeur", "code": "BROADCAST" },
+            { "label": "Broadcast aux autres", "code": "BROADCAST" }
+          ]
+        },
         "concept": {
           "title": "concept",
           "paragraphs": [
@@ -695,9 +737,9 @@
             { "label": "Replay", "value": "je suis addict" }
           ]
         },
-        "features": {
-          "tag": "stack technique",
-          "subtitle": "tout est connecté",
+        "architecture": {
+          "tag": "架構",
+          "subtitle": "stack technique - tout est connecté",
           "cards": [
             {
               "icon": "message_square",
@@ -716,6 +758,38 @@
               "title": "Cadence Git",
               "description": "Travail en workflow strict avec branches, PR, revues (presque) quotidiennes et règles de merge. Documentation clean.",
               "tags": ["Git", "GitHub"]
+            }
+          ]
+        },
+        "features": {
+          "title": "Fonctionnalités",
+          "list": [
+            "Synchronisation temps réel de toutes les actions des joueurs via WebSocket",
+            "Proxy HTTP qui modifie les pages Wikipedia à la volée (liens, CSS, tracking)",
+            "Système d'objets collectables (positifs et négatifs) pour pimenter les courses",
+            "Chat intégré pour la communication entre joueurs pendant la partie",
+            "Gestion de lobbies avec codes d'invitation uniques",
+            "Persistance des parties dans MongoDB pour historique et statistiques"
+          ]
+        },
+        "technologies": {
+          "title": "Technologies",
+          "sections": [
+            {
+              "label": "Frontend",
+              "items": ["React", "Vite", "TypeScript"]
+            },
+            {
+              "label": "Temps réel",
+              "items": ["WebSocket", "WSContext custom"]
+            },
+            {
+              "label": "Backend",
+              "items": ["Node.js", "Express", "MongoDB Atlas"]
+            },
+            {
+              "label": "Proxy avec Wikipedia",
+              "items": ["Axios", "Réécriture HTML", "CORS custom"]
             }
           ]
         },
