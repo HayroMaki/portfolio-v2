@@ -383,8 +383,12 @@
             }
           ]
         },
+        "code": {
+          "title": "Exemple d'outil MCP"
+        },
         "security": {
-          "title": "Sécurité & production",
+          "title": "Sécurité en production",
+          "description": "Système de sécurité multi-couches pour protéger l'accès aux outils MCP et contrôler les coûts d'utilisation de l'IA.",
           "cards": [
             {
               "icon": "lock",
@@ -443,7 +447,72 @@
         },
         "gallery": {
           "title": "Images à venir",
-          "description": "Ajout prochain des captures Chat IA + viewer 3D en action pour montrer comment l’IA manipule mes outils."
+          "description": "Ajout prochain des captures Chat IA + viewer 3D en action pour montrer comment l'IA manipule mes outils."
+        },
+        "security_flow": {
+          "title": "Architecture sécurisée",
+          "subtitle": "Vérification d'origine, tokens HMAC, liaison IP/session & rate limiting strict",
+          "steps": [
+            {
+              "title": "1. Génération de token",
+              "description": "L'utilisateur accède à la page de chat & génère/renouvelle un token.",
+              "code": ["Service privé de token", "→ Signature HMAC-SHA256", "→ Lié à session + IP"],
+              "badge": "Sécurisé HMAC/clé privée"
+            },
+            {
+              "title": "2. Validation du token",
+              "description": "Chaque requête est validée",
+              "code": ["Vérifier Origin/Referer","Vérifier signature HMAC", "Contrôler IP + session", "Valider expiration"],
+              "badge": "Validation stricte"
+            },
+            {
+              "title": "3. Limitation de débit",
+              "description": "Prévenir les abus et la surutilisation",
+              "code": ["token expire en 30min", "10 req/session/min", "5 sessions/IP/heure"],
+              "badge": "Limites dures"
+            }
+          ],
+          "flow": {
+            "steps": [
+              { "label": "Requête utilisateur", "sublabel": "Depuis la page de chat" },
+              { "label": "Vérification token", "sublabel": "Validation HMAC + IP" },
+              { "label": "Limite de débit", "sublabel": "Vérifier quota d'usage" },
+              { "label": "API sécurisée", "sublabel": "Appel de chat/outils" }
+            ]
+          },
+          "endpoints": {
+            "title": "Endpoints protégés",
+            "list": [
+              { "method": "POST", "path": "/api/chat", "desc": "Envoyer un message à l'IA et obtenir une réponse" },
+              { "method": "GET", "path": "/api/tools", "desc": "Lister les outils disponibles" },
+              { "method": "POST", "path": "/api/tool-call", "desc": "Exécuter un outil MCP" },
+              { "method": "PRIVÉ", "path": "Service interne de token", "desc": "Token HMAC émis côté serveur" }
+            ]
+          }
+        },
+        "workflow": {
+          "title": "MCP Workflow",
+          "subtitle": "Scroll pour voir le flux de communication",
+          "actors": [
+            { "id": "client", "label": "Client" },
+            { "id": "site", "label": "Site Web" },
+            { "id": "ai", "label": "AI Provider" },
+            { "id": "mcp", "label": "MCP Server" }
+          ],
+          "steps": [
+            { "label": "Demande meuble", "code": "\"Je voudrais un meuble de 120cm...\"" },
+            { "label": "POST /api/chat", "code": "Transmission de la demande" },
+            { "label": "*/mcp", "code": "Connexion au serveur MCP : récupération des tools, resources, templates..." },
+            { "label": "Connexion établie - envoie les tools, resources...", "code": "[\"create-project\", \"update-column-structure\", ...]" },
+            { "label": "create-project", "code": "{ \"name\": \"Cabinet\", \"type\": \"cabinet\", \"dimensions\": {...} }" },
+            { "label": "Project ID", "code": "{ \"projectId\": \"proj_abc123\" }" },
+            { "label": "update-column-structure", "code": "{ \"projectId\": \"...\", \"structure\": { \"columns\": [...] } }" },
+            { "label": "Confirmation", "code": "{ \"success\": true }" },
+            { "label": "get-viewer-url", "code": "{ \"projectId\": \"proj_abc123\" }" },
+            { "label": "Viewer URL", "code": "{ \"url\": \"https://...\" }" },
+            { "label": "Affichage 3D", "code": "<ViewerComponent />" },
+            { "label": "Meuble visualisé", "code": "✓ Rendu final" }
+          ]
         }
       }
     },
@@ -484,7 +553,7 @@
         "stack": {
           "tag": "Stack croisée",
           "items": [
-            { "label": "Frontend", "value": "HTML/CSS/JS + Leaflet" },
+            { "label": "Frontend", "value": "HTML/CSS/JS" },
             { "label": "Back-End", "value": "PHP + API REST" },
             { "label": "Serveur", "value": "Java + JDBC" },
             { "label": "Algo", "value": "C + A*" },

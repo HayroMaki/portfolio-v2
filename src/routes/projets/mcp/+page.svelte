@@ -4,7 +4,7 @@
 	import { getTranslations } from '$lib/i18n';
 	import SequenceDiagram from '$lib/components/projects/SequenceDiagram.svelte';
 	import MCPSecurityFlow from '$lib/components/projects/MCPSecurityFlow.svelte';
-	import { mcpActors, mcpSteps } from '$lib/data/mcpWorkflowData';
+	import { getMCPWorkflowData } from '$lib/data/mcpWorkflowData';
 
 	const iconMap = {
 		brain: Brain,
@@ -20,6 +20,7 @@
 	const page = $derived(t.project_pages.mcp);
 	const hero = $derived(page.hero);
 	const sections = $derived(page.sections);
+	const workflowData = $derived(getMCPWorkflowData(sections.workflow));
 	const architectureCards = $derived(
 		sections.architecture.cards.map((card) => {
 			const Component = iconMap[card.icon as keyof typeof iconMap] ?? Brain;
@@ -67,7 +68,7 @@
 	<section class="border-b-2 border-dashed border-ink py-20">
 		<div class="mx-auto max-w-6xl px-6">
 			<div class="space-y-6 mb-12">
-				<div class="inline-flex items-center gap-2 border-2 border-ink px-4 py-1 font-mono text-xs uppercase tracking-[0.4em]">
+				<div class="relative inline-flex items-center gap-2 border-2 border-ink bg-paper z-20 px-4 py-2 font-mono text-xs uppercase tracking-[0.4em]">
 					<span class="inline-block h-3 w-3 mr-3 rounded-full bg-red-500 animate-pulse"></span>
 					Live in Production
 				</div>
@@ -82,10 +83,10 @@
 			<!-- MCP Workflow Animation -->
 			<div class="mt-16">
 				<SequenceDiagram 
-					actors={mcpActors} 
-					steps={mcpSteps}
-					title="MCP Workflow"
-					subtitle="Scroll pour voir le flux de communication"
+					actors={workflowData.actors} 
+					steps={workflowData.steps}
+					title={sections.workflow.title}
+					subtitle={sections.workflow.subtitle}
 				/>
 			</div>
 		</div>
@@ -115,7 +116,7 @@
 			<div class="manga-panel border-paper bg-black/30 p-6">
 				<div class="flex items-center gap-3 mb-4">
 					<Code size={20} />
-					<h3 class="font-display text-lg uppercase tracking-[0.2em]">Exemple de Tool MCP</h3>
+					<h3 class="font-display text-lg uppercase tracking-[0.2em]">{sections.code.title}</h3>
 				</div>
 				<pre class="font-mono text-xs text-paper/90 overflow-x-auto p-4 bg-black/40 border border-paper/30"><code>
 {`
@@ -205,16 +206,16 @@
 		<div class="mx-auto max-w-6xl px-6 space-y-12">
 			<div class="space-y-4">
 				<h2 class="text-4xl font-display uppercase tracking-[0.3em]">{sections.security.title}</h2>
-				<p class="font-mono text-sm text-ink/70 max-w-3xl">Système de sécurité multi-couches pour protéger l'accès aux outils MCP et contrôler les coûts d'utilisation de l'IA.</p>
+				<p class="font-mono text-sm text-ink/70 max-w-3xl">{sections.security.description}</p>
 			</div>
 
 			<!-- Security Flow Component -->
-			<MCPSecurityFlow />
+			<MCPSecurityFlow data={sections.security_flow} />
 
 			<!-- Security Cards -->
 			<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
 				{#each securityCards as item}
-					<div class="manga-panel p-6 hover:shadow-lg transition-shadow">
+					<div class="manga-panel z-20 p-6 hover:shadow-lg transition-shadow">
 						<div class="flex items-center gap-3 mb-3">
 							<div class="w-10 h-10 border-2 border-ink rounded-full flex items-center justify-center">
 								<item.Component size={18} />

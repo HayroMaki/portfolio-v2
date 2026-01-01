@@ -103,7 +103,7 @@
 					</div>
 
 					<div 
-						class="flex flex-wrap gap-4 transition-all duration-500 ease-out delay-300"
+						class="flex flex-wrap gap-4 transition-all duration-500 ease-out delay-300 pb-6"
 						class:opacity-0={!heroReady}
 						style="{!heroReady ? 'clip-path: inset(0 100% 0 0);' : 'clip-path: inset(0 0% 0 0);'}"
 					>
@@ -122,7 +122,7 @@
 						</a>
 					</div>
 
-					<div class="flex flex-wrap gap-8 border-y-2 border-ink py-6 font-mono uppercase tracking-[0.4em] text-sm">
+					<div class="flex flex-wrap gap-8 border-y-2 border-ink pb-6 font-mono uppercase tracking-[0.4em] text-sm">
 						<div 
 							class="transition-all duration-500 ease-out delay-400"
 							class:opacity-0={!heroReady}
@@ -174,12 +174,10 @@
 					<button
 						onclick={() => {
 							const messages = [
-								"Still working on that portrait... 🎨",
-								"Coming soon™",
-								"Maybe one day... 🤔",
-								"Portrait.exe has stopped working",
-								"404: Face not found",
-								"Loading... 99%"
+								"ALWAYS WORKING HARD WITH TWIN.",
+								"HAPPY NEW YEAR TWIN, HOPE YOU HAVE AN AMAZING 2026 !",
+								"YO TWIN, YOU LIKE MY PORTFOLIO ?",
+								"IM BUSY TWIN... CALL ME LATER..."
 							];
 							alert(messages[Math.floor(Math.random() * messages.length)]);
 						}}

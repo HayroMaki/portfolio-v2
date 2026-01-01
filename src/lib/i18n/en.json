@@ -391,12 +391,16 @@
             {
               "icon": "pen",
               "title": "Prompting",
-              "description": "System prompt + per-tool instructions describing usage, errors, params—everything must be crystal clear to the AI."
+              "description": "System prompt + per-tool instructions describing usage, errors, params... everything must be crystal clear to the AI."
             }
           ]
         },
+        "code": {
+          "title": "Example of MCP tool"
+        },
         "security": {
-          "title": "Security & production",
+          "title": "Security in production",
+          "description": "Multi-layer security system to protect MCP tools and control AI usage costs.",
           "cards": [
             { "icon": "lock", "title": "Signed tokens", "description": "Secret key, token linked to IP/client to monitor usage and cut access instantly." },
             { "icon": "shield", "title": "Rate limiting", "description": "Strict control of AI API cost with per-user quotas." },
@@ -440,6 +444,71 @@
         "gallery": {
           "title": "Images coming soon",
           "description": "Upcoming captures of the AI chat + 3D viewer in action to show how the AI drives the tools."
+        },
+        "security_flow": {
+          "title": "Security Architecture",
+          "subtitle": "Origin check,HMAC tokens, IP/session binding & strict rate limiting",
+          "steps": [
+            {
+              "title": "1. Token Generation",
+              "description": "User accesses AI chat page & generates/renews a token.",
+              "code": ["Private token issuer", "→ HMAC-SHA256 signature", "→ Bound to session + IP"],
+              "badge": "HMAC secured"
+            },
+            {
+              "title": "2. Token Validation",
+              "description": "Every request is validated",
+              "code": ["Verify Origin/Referer", "Verify HMAC signature", "Check IP & session match", "Validate expiration"],
+              "badge": "Strict Validation"
+            },
+            {
+              "title": "3. Rate Limiting",
+              "description": "Prevent abuse and overuse",
+              "code": ["token expires in 30min", "10 req/session/min", "5 sessions/IP/hour"],
+              "badge": "Hard limits"
+            }
+          ],
+          "flow": {
+            "steps": [
+              { "label": "User Request", "sublabel": "From chat page" },
+              { "label": "Token Check", "sublabel": "HMAC + IP validation" },
+              { "label": "Rate Limit", "sublabel": "Check usage quota" },
+              { "label": "Secure API", "sublabel": "Call chat/tools" }
+            ]
+          },
+          "endpoints": {
+            "title": "Protected Endpoints",
+            "list": [
+              { "method": "POST", "path": "/api/chat", "desc": "Send message to AI and get response" },
+              { "method": "GET", "path": "/api/tools", "desc": "List available tools" },
+              { "method": "POST", "path": "/api/tool-call", "desc": "Execute MCP tool" },
+              { "method": "PRIVATE", "path": "Internal token service", "desc": "HMAC token issued server-side" }
+            ]
+          }
+        },
+        "workflow": {
+          "title": "MCP Workflow",
+          "subtitle": "Scroll to see the communication flow",
+          "actors": [
+            { "id": "client", "label": "Client" },
+            { "id": "site", "label": "Website" },
+            { "id": "ai", "label": "AI Provider" },
+            { "id": "mcp", "label": "MCP Server" }
+          ],
+          "steps": [
+            { "label": "Furniture request", "code": "\"I'd like a 120cm cabinet...\"" },
+            { "label": "POST /api/chat", "code": "Request transmission" },
+            { "label": "*/mcp", "code": "MCP server connection: fetching tools, resources, templates..." },
+            { "label": "Connection established - sending tools, resources...", "code": "[\"create-project\", \"update-column-structure\", ...]" },
+            { "label": "create-project", "code": "{ \"name\": \"Cabinet\", \"type\": \"cabinet\", \"dimensions\": {...} }" },
+            { "label": "Project ID", "code": "{ \"projectId\": \"proj_abc123\" }" },
+            { "label": "update-column-structure", "code": "{ \"projectId\": \"...\", \"structure\": { \"columns\": [...] } }" },
+            { "label": "Confirmation", "code": "{ \"success\": true }" },
+            { "label": "get-viewer-url", "code": "{ \"projectId\": \"proj_abc123\" }" },
+            { "label": "Viewer URL", "code": "{ \"url\": \"https://...\" }" },
+            { "label": "3D Display", "code": "<ViewerComponent />" },
+            { "label": "Furniture visualized", "code": "✓ Final render" }
+          ]
         }
       }
     },
@@ -480,7 +549,7 @@
         "stack": {
           "tag": "Cross stack",
           "items": [
-            { "label": "Frontend", "value": "HTML/CSS/JS + Leaflet" },
+            { "label": "Frontend", "value": "HTML/CSS/JS" },
             { "label": "Back-End", "value": "PHP + REST API" },
             { "label": "Server", "value": "Java + JDBC" },
             { "label": "Algorithm", "value": "C + A*" },
