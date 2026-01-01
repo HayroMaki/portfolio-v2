@@ -193,7 +193,7 @@
 					</div>
 				</div>
 
-				<div class="manga-panel p-8 space-y-6">
+				<div class="manga-panel p-8 z-20 space-y-6">
 					<div class="kanji-tag bg-paper">{t('sections.stack.tag')}</div>
 					<ul class="space-y-4 font-mono text-sm uppercase tracking-[0.35em]">
 						{#each t('sections.stack.items') as item}
@@ -244,7 +244,7 @@
 			</div>
 
 			<div class="grid gap-8 lg:grid-cols-[380px,1fr]">
-				<div class="space-y-6">
+				<div class="space-y-6 z-20">
 					<div class="manga-panel p-6 space-y-4">
 						<h3 class="font-mono text-xs uppercase tracking-[0.4em] text-ink/70">{t('sections.labyrinth.controls.title')}</h3>
 						<div>
@@ -344,7 +344,7 @@
 					</div>
 				</div>
 
-				<div class="manga-panel p-6 flex flex-col items-center justify-center min-h-[600px]">
+				<div class="manga-panel z-20 p-6 flex flex-col items-center justify-center min-h-[600px]">
 					{#if graph}
 						<div class="w-full h-full flex items-center justify-center">
 							<Labyrinth
@@ -422,7 +422,7 @@
 			</div>
 			<div class="grid gap-6 md:grid-cols-2">
 				{#each t('sections.learnings.items') as learning, index}
-					<div class="manga-panel p-6 flex items-start gap-4 hover:shadow-divider transition-shadow">
+					<div class="manga-panel z-20 p-6 flex items-start gap-4 hover:shadow-divider transition-shadow">
 						<span class="flex-shrink-0 w-8 h-8 border-2 border-ink flex items-center justify-center font-display text-sm">
 							{index + 1}
 						</span>
@@ -435,7 +435,7 @@
 
 	<section class="py-24 border-t-2 border-dashed border-ink">
 		<div class="mx-auto max-w-6xl px-6">
-			<div class="manga-panel p-10 space-y-8">
+			<div class="manga-panel z-20 p-10 space-y-8">
 				<h3 class="text-3xl font-display uppercase tracking-[0.2em]">{t('sections.technologies.title')}</h3>
 				<div class="grid gap-8 md:grid-cols-3">
 					{#each t('sections.technologies.sections') as techSection}

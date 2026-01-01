@@ -122,7 +122,7 @@
 						</a>
 					</div>
 
-					<div class="flex flex-wrap gap-8 border-y-2 border-ink pb-6 font-mono uppercase tracking-[0.4em] text-sm">
+					<div class="flex flex-wrap gap-8 border-y-2 border-ink py-6 font-mono uppercase tracking-[0.4em] text-sm">
 						<div 
 							class="transition-all duration-500 ease-out delay-400"
 							class:opacity-0={!heroReady}
