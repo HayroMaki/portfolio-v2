@@ -761,6 +761,48 @@
             }
           ]
         },
+        "solver": {
+          "tag": "solveur python",
+          "title": "BFS Bidirectionnel avec Multi-Objectifs",
+          "subtitle": "Visualisation interactive du solveur de graphe",
+          "paragraphs": [
+            "Nous avons construit un service Python asynchrone qui explore le graphe Wikipedia depuis notre snapshot MongoDB. Il utilise un BFS bidirectionnel pour trouver des chemins entre plusieurs objectifs, puis optimise le parcours avec un scoring par permutations.",
+            "La démo ci-dessous montre comment l'algorithme explore simultanément depuis le départ et les objectifs, se rencontrant au milieu pour un speedup exponentiel.",
+            "(La démo s'execute en front dans le navigateur et peut devenir assez lent sur les gros graphes)"
+          ],
+          "bullets": [
+            "BFS bidirectionnel permets de trouver rapidement un chemin valable entre deux nodes (pas forcément le meilleur)",
+            "Plusieurs objectifs : on essayes alors toutes les combinaisons pour trouver le meilleur ordre"
+          ],
+          "footnote": "Solveur conçu par Martial Carceles. Prototype non exécuté pendant les parties.",
+          "controls": {
+            "title": "Contrôles",
+            "nodes": "Nœuds",
+            "speed": "Vitesse (ms)",
+            "regenerate": "Régénérer",
+            "play": "Lecture",
+            "pause": "Pause",
+            "reset": "Réinitialiser",
+            "step_back": "← Étape",
+            "step_forward": "Étape →",
+            "legend": {
+              "title": "Légende",
+              "subtitle": "États des nœuds",
+              "start": "Départ",
+              "goals": "Objectifs",
+              "forward": "Avant",
+              "backward": "Arrière",
+              "fwd_queue": "File Avant",
+              "bwd_queue": "File Arrière",
+              "fwd_visited": "Visités Avant",
+              "bwd_visited": "Visités Arrière",
+              "intersection": "Intersection",
+              "path": "Chemin",
+              "testing": "Test",
+              "best": "Meilleur"
+            }
+          }
+        },
         "features": {
           "title": "Fonctionnalités",
           "list": [
@@ -769,7 +811,8 @@
             "Système d'objets collectables (positifs et négatifs) pour pimenter les courses",
             "Chat intégré pour la communication entre joueurs pendant la partie",
             "Gestion de lobbies avec codes d'invitation uniques",
-            "Persistance des parties dans MongoDB pour historique et statistiques"
+            "Persistance des parties dans MongoDB pour historique et statistiques",
+            "Prototype de solveur Python qui pré-valide les objectifs hors-prod"
           ]
         },
         "technologies": {
@@ -790,6 +833,10 @@
             {
               "label": "Proxy avec Wikipedia",
               "items": ["Axios", "Réécriture HTML", "CORS custom"]
+            },
+            {
+              "label": "Solveur Python (R&D)",
+              "items": ["Python", "asyncio + aiohttp", "Motor (MongoDB)"]
             }
           ]
         },
@@ -817,7 +864,8 @@
             "Frontend — HTML / CSS / REACT",
             "Serveur — Express + Node",
             "Realtime — WebSocket",
-            "Collab — Git / GitHub"
+            "Collab — Git / GitHub",
+            "Solveur expérimental — Python async + Motor"
           ]
         },
         "gallery": {

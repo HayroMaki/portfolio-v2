@@ -757,6 +757,48 @@
             }
           ]
         },
+        "solver": {
+          "tag": "python solver",
+          "title": "Bidirectional BFS with Multi-Goal Pathfinding",
+          "subtitle": "Interactive visualization of the graph solver",
+          "paragraphs": [
+            "We built an asynchronous Python service that explores the Wikipedia graph from our MongoDB snapshot. It uses bidirectional BFS to find paths between multiple goals, then optimizes the tour with permutation scoring.",
+            "The demo below shows how the algorithm explores from both start and goals simultaneously, meeting in the middle for exponential speedup.",
+            "(The demo is executed in front, in the browser and may get pretty slow on big graphs)"
+          ],
+          "bullets": [
+            "Bidirectional BFS quickly finds a path between two nodes (not always the best one)",
+            "Multiple objectives : we try every combinations in order to find the best order"
+          ],
+          "footnote": "Solver designed by Martial Carceles. This is a prototype not executed during live games.",
+          "controls": {
+            "title": "Controls",
+            "nodes": "Nodes",
+            "speed": "Speed (ms)",
+            "regenerate": "Regenerate",
+            "play": "Play",
+            "pause": "Pause",
+            "reset": "Reset",
+            "step_back": "← Step",
+            "step_forward": "Step →",
+            "legend": {
+              "title": "Legend",
+              "subtitle": "Node states",
+              "start": "Start",
+              "goals": "Goals",
+              "forward": "Forward",
+              "backward": "Backward",
+              "fwd_queue": "Fwd Queue",
+              "bwd_queue": "Bwd Queue",
+              "fwd_visited": "Fwd Visited",
+              "bwd_visited": "Bwd Visited",
+              "intersection": "Intersection",
+              "path": "Path",
+              "testing": "Testing",
+              "best": "Best"
+            }
+          }
+        },
         "features": {
           "title": "Features",
           "list": [
@@ -765,7 +807,8 @@
             "Collectable items system (positive and negative) to spice up races",
             "Built-in chat for player communication during the game",
             "Lobby management with unique invitation codes",
-            "Game persistence in MongoDB for history and statistics"
+            "Game persistence in MongoDB for history and statistics",
+            "Python solver prototype that pre-validates target chains outside of production"
           ]
         },
         "technologies": {
@@ -773,7 +816,7 @@
           "sections": [
             {
               "label": "Frontend",
-              "items": ["React", "Vite", "TypeScript"]
+              "items": ["React 18", "Vite", "TypeScript", "Tailwind CSS"]
             },
             {
               "label": "Realtime",
@@ -786,6 +829,10 @@
             {
               "label": "Wikipedia Proxy",
               "items": ["Axios", "HTML rewrite", "Custom CORS"]
+            },
+            {
+              "label": "Python solver (R&D)",
+              "items": ["Python", "asyncio + aiohttp", "Motor (MongoDB)"]
             }
           ]
         },
@@ -813,7 +860,8 @@
             "Frontend — HTML / CSS / REACT",
             "Server — Express + Node",
             "Realtime — WebSocket",
-            "Collab — Git / GitHub"
+            "Collab — Git / GitHub",
+            "Experimental solver — Python async + Motor"
           ]
         },
         "gallery": {

@@ -1,9 +1,11 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { ArrowLeft, Zap, Users, GitBranch, Globe, MessageSquare, Wifi, Server, Package, Code, Sparkles } from 'lucide-svelte';
 	import { locale } from '$lib/stores/locale';
 	import { getTranslations } from '$lib/i18n';
 	import SequenceDiagram from '$lib/components/projects/SequenceDiagram.svelte';
 	import { getSpeedyWikiWorkflowData } from '$lib/data/speedyWikiWorkflowData';
+	import { GraphVisualizer, generateRandomGraph, findOppositeCornerNodes, type LabyrinthControls } from '@hayro_o7/labyrinth';
 
 	const iconMap = {
 		message_square: MessageSquare,
@@ -25,6 +27,92 @@
 			return { ...card, Component };
 		})
 	);
+
+	let graphControls = $state<LabyrinthControls | null>(null);
+	let isPlaying = $state(false);
+	let nodeCount = $state(100);
+	let animSpeed = $state(0);
+	let width = $state(700);
+	let height = $state(600);
+	let maxConnectionsPerNode = $state(3);
+	let connectionRadius = $state(200);
+	let minNodeDistance = $state(200);
+	let currentGraph = $state<any | null>(null);
+	let currentStartNode = $state<any | null>(null);
+	let currentGoalNodes = $state<any | null>(null);
+	let numberOfGoals = $state(3);
+
+	function handleControls(controls: LabyrinthControls) {
+		graphControls = controls;
+	}
+	
+	function togglePlay() {
+		if (isPlaying) {
+			graphControls?.pause();
+		} else {
+			graphControls?.play();
+		}
+		isPlaying = !isPlaying;
+	}
+	
+	function handleReset() {
+		graphControls?.reset();
+		isPlaying = false;
+	}
+	
+	function regenerateGraph() {
+		const newGraph = generateRandomGraph({
+			nodeCount,
+			width,
+			height,
+			maxConnectionsPerNode,
+			connectionRadius,
+			minNodeDistance
+		});
+		
+		const corners = findOppositeCornerNodes(newGraph);
+		const nodeIds = Array.from(newGraph.nodes.keys());
+		const availableNodes = nodeIds.filter(id => id !== corners.topLeft && id !== corners.bottomRight);
+		
+		let goalNodes = [];
+		for (let i = 0; i < numberOfGoals-1; i++) {
+			goalNodes.push(availableNodes[Math.floor(Math.random() * availableNodes.length)]);
+		}
+		goalNodes.push(corners.bottomRight);	
+		
+		currentGraph = newGraph;
+		currentStartNode = corners.topLeft;
+		currentGoalNodes = goalNodes;
+		isPlaying = false;
+	}
+
+	function adaptRadiusAndDistance(nodeCount: number) {
+		// Base values for 40 nodes
+		const baseNodeCount = 60;
+		const baseConnectionRadius = 200;
+		const baseMinNodeDistance = 50;
+		
+		// Scale inversely with node count
+		const scale = Math.sqrt(baseNodeCount / nodeCount);
+		
+		connectionRadius = Math.max(50, Math.round(baseConnectionRadius * scale));
+		minNodeDistance = Math.max(20, Math.round(baseMinNodeDistance * scale));
+	}
+	
+	function updateNodeCount(e: Event) {
+		nodeCount = parseInt((e.target as HTMLInputElement).value);
+		adaptRadiusAndDistance(nodeCount);
+		regenerateGraph();
+	}
+	
+	function updateSpeed(e: Event) {
+		animSpeed = parseInt((e.target as HTMLInputElement).value);
+		graphControls?.pause();
+		graphControls?.play();
+	}
+
+	adaptRadiusAndDistance(nodeCount);
+	regenerateGraph();
 </script>
 
 <main class="min-h-screen bg-paper text-ink">
@@ -116,6 +204,203 @@
 			</div>
 		</div>
 	</section>
+
+	{#if sections.solver}
+		<section class="border-t border-b border-ink py-24 bg-paper">
+			<div class="mx-auto max-w-7xl px-6 space-y-12">
+				<div class="space-y-6 text-center max-w-3xl mx-auto">
+					<div class="kanji-tag bg-paper mx-auto">{sections.solver.tag}</div>
+					<div class="space-y-2">
+						<h2 class="text-4xl font-display uppercase tracking-[0.3em] leading-tight">{sections.solver.title}</h2>
+						<p class="font-mono text-xs uppercase tracking-[0.4em] text-ink/60">{sections.solver.subtitle}</p>
+					</div>
+					<div class="space-y-4 font-mono text-sm leading-relaxed text-ink/80">
+						{#each sections.solver.paragraphs as paragraph}
+							<p>{paragraph}</p>
+						{/each}
+					</div>
+				</div>
+				
+				<div class="grid gap-8 lg:grid-cols-[380px,1fr]">
+					<div class="space-y-6 z-20">
+						<div class="manga-panel p-6 space-y-4">
+							<h3 class="font-mono text-xs uppercase tracking-[0.4em] text-ink/70">{sections.solver.controls.title}</h3>
+							
+							<div>
+								<label
+									for="node-count"
+									class="flex items-center justify-between font-mono text-xs uppercase tracking-[0.3em] text-ink/60"
+								>
+									<span>{sections.solver.controls.nodes}</span>
+									<span class="text-ink">{nodeCount}</span>
+								</label>
+								<input
+									id="node-count"
+									type="range"
+									min="60"
+									max="400"
+									step="10"
+									value={nodeCount}
+									oninput={updateNodeCount}
+									class="mt-2 h-2 w-full cursor-ew-resize appearance-none bg-ink/10 accent-ink"
+								/>
+							</div>
+							
+							<div>
+								<label
+									for="anim-speed"
+									class="flex items-center justify-between font-mono text-xs uppercase tracking-[0.3em] text-ink/60"
+								>
+									<span>{sections.solver.controls.speed}</span>
+									<span class="text-ink">{animSpeed}</span>
+								</label>
+								<input
+									id="anim-speed"
+									type="range"
+									min="0"
+									max="200"
+									step="10"
+									value={animSpeed}
+									oninput={updateSpeed}
+									class="mt-2 h-2 w-full cursor-ew-resize appearance-none bg-ink/10 accent-ink"
+								/>
+							</div>
+							
+							<button
+								type="button"
+								class="w-full border-2 border-ink bg-ink px-4 py-3 font-mono text-xs uppercase tracking-[0.4em] text-paper transition hover:bg-paper hover:text-ink"
+								onclick={regenerateGraph}
+							>
+								{sections.solver.controls.regenerate}
+							</button>
+						</div>
+						
+						<div class="manga-panel p-6 space-y-4">
+							<div>
+								<p class="font-mono text-xs uppercase tracking-[0.35em]">{sections.solver.controls.legend.title}</p>
+								<p class="font-mono text-[10px] uppercase tracking-[0.3em] text-ink/60 mt-1">{sections.solver.controls.legend.subtitle}</p>
+							</div>
+							<div class="grid gap-3 grid-cols-2">
+								<div class="flex items-center gap-2">
+									<span class="h-5 w-5 border border-ink flex-shrink-0" style="background-color: #22c55e"></span>
+									<span class="font-mono text-[10px] uppercase tracking-[0.25em] leading-tight">{sections.solver.controls.legend.start}</span>
+								</div>
+								<div class="flex items-center gap-2">
+									<span class="h-5 w-5 border border-ink flex-shrink-0" style="background-color: #ef4444"></span>
+									<span class="font-mono text-[10px] uppercase tracking-[0.25em] leading-tight">{sections.solver.controls.legend.goals}</span>
+								</div>
+								<div class="flex items-center gap-2">
+									<span class="h-5 w-5 border border-ink flex-shrink-0" style="background-color: #f59e0b"></span>
+									<span class="font-mono text-[10px] uppercase tracking-[0.25em] leading-tight">{sections.solver.controls.legend.forward}</span>
+								</div>
+								<div class="flex items-center gap-2">
+									<span class="h-5 w-5 border border-ink flex-shrink-0" style="background-color: #f97316"></span>
+									<span class="font-mono text-[10px] uppercase tracking-[0.25em] leading-tight">{sections.solver.controls.legend.backward}</span>
+								</div>
+								<div class="flex items-center gap-2">
+									<span class="h-5 w-5 border border-ink flex-shrink-0" style="background-color: #fef3c7"></span>
+									<span class="font-mono text-[10px] uppercase tracking-[0.25em] leading-tight">{sections.solver.controls.legend.fwd_queue}</span>
+								</div>
+								<div class="flex items-center gap-2">
+									<span class="h-5 w-5 border border-ink flex-shrink-0" style="background-color: #fed7aa"></span>
+									<span class="font-mono text-[10px] uppercase tracking-[0.25em] leading-tight">{sections.solver.controls.legend.bwd_queue}</span>
+								</div>
+								<div class="flex items-center gap-2">
+									<span class="h-5 w-5 border border-ink flex-shrink-0" style="background-color: #e5e7eb"></span>
+									<span class="font-mono text-[10px] uppercase tracking-[0.25em] leading-tight">{sections.solver.controls.legend.fwd_visited}</span>
+								</div>
+								<div class="flex items-center gap-2">
+									<span class="h-5 w-5 border border-ink flex-shrink-0" style="background-color: #fecaca"></span>
+									<span class="font-mono text-[10px] uppercase tracking-[0.25em] leading-tight">{sections.solver.controls.legend.bwd_visited}</span>
+								</div>
+								<div class="flex items-center gap-2">
+									<span class="h-5 w-5 border border-ink flex-shrink-0" style="background-color: #a855f7"></span>
+									<span class="font-mono text-[10px] uppercase tracking-[0.25em] leading-tight">{sections.solver.controls.legend.intersection}</span>
+								</div>
+								<div class="flex items-center gap-2">
+									<span class="h-5 w-5 border border-ink flex-shrink-0" style="background-color: #3b82f6"></span>
+									<span class="font-mono text-[10px] uppercase tracking-[0.25em] leading-tight">{sections.solver.controls.legend.path}</span>
+								</div>
+								<div class="flex items-center gap-2">
+									<span class="h-5 w-5 border border-ink flex-shrink-0" style="background-color: #fbbf24"></span>
+									<span class="font-mono text-[10px] uppercase tracking-[0.25em] leading-tight">{sections.solver.controls.legend.testing}</span>
+								</div>
+								<div class="flex items-center gap-2">
+									<span class="h-5 w-5 border border-ink flex-shrink-0" style="background-color: #10b981"></span>
+									<span class="font-mono text-[10px] uppercase tracking-[0.25em] leading-tight">{sections.solver.controls.legend.best}</span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="flex z-20 gap-3 flex-wrap">
+							<button 
+								onclick={togglePlay}
+								class="flex-1 border-2 border-ink px-6 py-2 font-mono text-xs uppercase tracking-[0.3em] hover:bg-ink hover:text-paper transition"
+							>
+								{isPlaying ? sections.solver.controls.pause : sections.solver.controls.play}
+							</button>
+							<button 
+								onclick={handleReset}
+								class="flex-1 border-2 border-ink px-6 py-2 font-mono text-xs uppercase tracking-[0.3em] hover:bg-ink hover:text-paper transition"
+							>
+								{sections.solver.controls.reset}
+							</button>
+						</div>
+						<div class="flex gap-3 flex-wrap">
+							<button 
+								onclick={() => graphControls?.stepBackward()}
+								class="flex-1 border-2 border-ink px-6 py-2 font-mono text-xs uppercase tracking-[0.3em] hover:bg-ink hover:text-paper transition"
+							>
+								{sections.solver.controls.step_back}
+							</button>
+							<button 
+								onclick={() => graphControls?.stepForward()}
+								class="flex-1 border-2 border-ink px-6 py-2 font-mono text-xs uppercase tracking-[0.3em] hover:bg-ink hover:text-paper transition"
+							>
+								{sections.solver.controls.step_forward}
+							</button>
+						</div>
+					</div>
+					
+					<div class="manga-panel z-20 max-h-[660px] p-8">
+						<GraphVisualizer 
+							graph={currentGraph}
+							startNode={currentStartNode}
+							goalNodes={currentGoalNodes}
+							nodeRadius={Math.max(8, Math.min(20, Math.round(16 / (nodeCount / 100))))}
+							animationSpeed={animSpeed}
+							showMultiGoal={true}
+							showNodeIds={false}
+							onControls={handleControls}
+							colors={{
+								start: '#22c55e',
+								end: '#ef4444',
+								current: '#f59e0b',
+								visiting: '#fef3c7',
+								visited: '#e5e7eb',
+								path: '#3b82f6',
+								background: '#ffffff',
+								wall: '#1f2937',
+								grid: '#d1d5db'
+							}}
+						/>
+					</div>
+				</div>
+				
+				<div class="max-w-3xl mx-auto">
+					<ul class="space-y-3">
+						{#each sections.solver.bullets as bullet}
+							<li class="flex items-start gap-3 font-mono text-sm text-ink/90">
+								<span class="flex-shrink-0 mt-1 inline-block h-2 w-2 bg-ink"></span>
+								<span>{bullet}</span>
+							</li>
+						{/each}
+					</ul>
+					<p class="mt-6 font-mono text-xs text-ink/60 text-center italic">{sections.solver.footnote}</p>
+				</div>
+			</div>
+		</section>
+	{/if}
 
 	<section class="py-20 border-t border-b border-dashed border-ink bg-paper/50">
 		<div class="mx-auto max-w-6xl px-6 grid gap-8 lg:grid-cols-[1.2fr,0.8fr]">
