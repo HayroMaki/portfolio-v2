@@ -59,7 +59,6 @@ All Cloudflare commands rely on the generated `.svelte-kit/cloudflare` bundle fr
 
 1. Create a new Pages project and connect this Git repository.
 2. Build command: `npm run build`.
-3. Build output directory: `.svelte-kit/cloudflare`.
-4. Set any required environment variables (e.g., analytics keys) in the Pages dashboard.
+3. Deploy command: `npx wrangler pages deploy .svelte-kit/cloudflare --project-name=portfolio-v2`.
 
 Once the build succeeds, Cloudflare will expose preview and production URLs automatically. Use the provided scripts for manual deploys or rely on the Pages Git integration for CI-driven deployments.
