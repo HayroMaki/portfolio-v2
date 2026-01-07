@@ -1,38 +1,65 @@
-# sv
+# Portfolio v2
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+SvelteKit + Tailwind portfolio site, styled with manga-inspired aesthetic described in the project brief. This repo is configured to deploy on **Cloudflare Pages**.
 
-## Creating a project
+## Prerequisites
 
-If you're seeing this, you've probably already done this step. Congrats!
+- Node 20+
+- npm 10+
+- Cloudflare account with Pages enabled
+- [`wrangler`](https://developers.cloudflare.com/workers/wrangler/install-and-update/) CLI (already included in `devDependencies`)
 
-```sh
-# create a new project in the current directory
-npx sv create
+## Local development
 
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
+```bash
+npm install
 npm run dev
-
-# or start the server and open the app in a new browser tab
+# or open the browser automatically
 npm run dev -- --open
 ```
 
-## Building
+## Type checking
 
-To create a production version of your app:
-
-```sh
-npm run build
+```bash
+npm run check
 ```
 
-You can preview the production build with `npm run preview`.
+## Production build
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```bash
+npm run build
+npm run preview   # serve the built app locally
+```
+
+## Cloudflare Pages deployment
+
+1. **Build the Cloudflare bundle**
+   ```bash
+   npm run build
+   ```
+
+2. **Preview with Cloudflare’s emulator**
+   ```bash
+   npm run cf:dev
+   ```
+
+3. **Deploy**
+   - Preview branch (optional):
+     ```bash
+     npm run cf:preview
+     ```
+   - Production:
+     ```bash
+     npm run cf:deploy
+     ```
+
+All Cloudflare commands rely on the generated `.svelte-kit/cloudflare` bundle from `@sveltejs/adapter-cloudflare`. Set the `CF_ACCOUNT_ID` and `CF_API_TOKEN` environment variables or run `wrangler login` before deploying.
+
+### Cloudflare Pages dashboard steps
+
+1. Create a new Pages project and connect this Git repository.
+2. Build command: `npm run build`.
+3. Build output directory: `.svelte-kit/cloudflare`.
+4. Set any required environment variables (e.g., analytics keys) in the Pages dashboard.
+
+Once the build succeeds, Cloudflare will expose preview and production URLs automatically. Use the provided scripts for manual deploys or rely on the Pages Git integration for CI-driven deployments.

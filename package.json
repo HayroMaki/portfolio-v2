@@ -7,12 +7,15 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
+		"cf:dev": "npm run build && wrangler pages dev .svelte-kit/cloudflare",
+		"cf:preview": "npm run build && wrangler pages deploy .svelte-kit/cloudflare --branch preview --project-name=portfolio-v2",
+		"cf:deploy": "npm run build && wrangler pages deploy .svelte-kit/cloudflare --project-name=portfolio-v2",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^7.0.0",
+		"@sveltejs/adapter-cloudflare": "^7.2.4",
 		"@sveltejs/kit": "^2.49.1",
 		"@sveltejs/vite-plugin-svelte": "^6.2.1",
 		"autoprefixer": "^10.4.23",
@@ -21,7 +24,8 @@
 		"svelte-check": "^4.3.4",
 		"tailwindcss": "^3.4.19",
 		"typescript": "^5.9.3",
-		"vite": "^7.2.6"
+		"vite": "^7.2.6",
+		"wrangler": "^4.57.0"
 	},
 	"dependencies": {
 		"@hayro_o7/labyrinth": "^0.0.12",
