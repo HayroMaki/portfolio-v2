@@ -189,6 +189,11 @@
         "tags": ["UX/UI", "Svelte", "TypeScript", "tailwindCSS", "HTML Canvas"]
       },
       {
+        "title": "CoDec",
+        "description": "C Image Encoder/Decoder with differential algorithm and VLC compression",
+        "tags": ["C", "Binary", "Compression", "Algo", "Unix"]
+      },
+      {
         "title": "Travia",
         "description": "Web application for optimized route searches in the Star Wars universe",
         "tags": ["Java", "C", "PHP", "React", "MySQL", "Security", "Captcha", "API"]
@@ -645,6 +650,138 @@
         "gallery": {
           "title": "Images coming soon",
           "description": "Screens, maps, and prototypes coming soon to illustrate hyperspace routes."
+        }
+      }
+    },
+    "codec": {
+      "hero": {
+        "badge": "university project",
+        "back": "back",
+        "title": {
+          "regular": "CoDec",
+          "highlight": "Image"
+        },
+        "description": "Image Encoder/Decoder designed in pure C. The goal? Understand digital compression fundamentals by implementing a 'Near-Lossless' algorithm based on differential coding and a VLC (Variable Length Coding) table. No magic libraries, just bit manipulation.",
+        "stats": [
+          { "label": "Language", "value": "C", "sub": "pure" },
+          { "label": "Format", "value": "DIFF", "sub": "custom binary" },
+          { "label": "Method", "value": "VLC", "sub": "static huffman" }
+        ],
+        "crew": {
+          "title": "crew",
+          "subtitle": "solo"
+        }
+      },
+      "crew": [
+        { "name": "Jules Grange", "role": "C Developer" }
+      ],
+      "sections": {
+        "overview": {
+          "title": "overview",
+          "paragraphs": [
+            "The goal of this project is to create a compression utility capable of transforming a PGM (grayscale) or PPM (color) image into an optimized binary format (.dif).",
+            "The algorithm relies on the principle that neighboring pixels often have similar values. Instead of storing the raw value (e.g., 180), we store the difference from the previous one (e.g., +2).",
+            "These differences are then encoded via a VLC table (short codes for small differences, long codes for large differences) to reduce the final size."
+          ]
+        },
+        "stack": {
+          "tag": "Low level tools",
+          "items": [
+            { "label": "Language", "value": "C (C99)" },
+            { "label": "Graphics", "value": "libg2x (OpenGL/Glut wrapper)" },
+            { "label": "Build", "value": "Makefile" },
+            { "label": "Image", "value": "NetPBM (PGM/PPM)" },
+            { "label": "Binary", "value": "Hex Editor" }
+          ]
+        },
+        "architecture": {
+          "tag": "Software Architecture",
+          "subtitle": "Data Flow",
+          "cards": [
+            {
+              "icon": "code",
+              "title": "imgdif.c",
+              "description": "The reactor core. Contains all image manipulation functions, memory management, and especially the bit-by-bit routines for writing the compressed file."
+            },
+            {
+              "icon": "zap",
+              "title": "Differential Encoding",
+              "description": "Transforming pixels into deviations from their neighbors. Mathematical folding to transform signed deviations into positive integers."
+            },
+            {
+              "icon": "database",
+              "title": "VLC Quantizer",
+              "description": "Static 4-level compression table. Small variations (background noise) are encoded with very few bits."
+            },
+            {
+              "icon": "monitor",
+              "title": "Graphical Interfaces",
+              "description": "pgmtodif and diftopgm offer real-time visualization of the image, its differential version, and its histogram."
+            }
+          ]
+        },
+        "demo": {
+          "tag": "Interactive Demo",
+          "title": "Try CoDec",
+          "description": [
+            "I ported the original C algorithm to TypeScript to let you test it directly in the browser.",
+            "Drop an image, and see how the algorithm 'sees' the differences between pixels."
+          ],
+          "controls": {
+            "title": "Compressor",
+            "drop": "Drag & drop an image or click to upload",
+            "select": "Or click to select",
+            "compressing": "Compressing image...",
+            "stats": "Statistics",
+            "ratio": "Compression Ratio",
+            "original": "Original",
+            "compressed": "Compressed (DIFF)",
+            "formats": "JPG, PNG, WEBP",
+            "processing": "Processing..."
+          },
+          "ui": {
+            "steps": ["Upload", "Original", "Differential", "Result"],
+            "histograms": {
+              "original": "Pixel Value Distribution",
+              "differential": "Difference Distribution",
+              "reconstructed": "Reconstructed Distribution"
+            },
+            "buttons": {
+              "prev": "← Back",
+              "next": "Next →",
+              "reset": "Reset"
+            },
+            "stats": {
+              "ratio": "COMPRESSION RATIO"
+            },
+            "alts": {
+              "original": "Original image preview",
+              "diff": "Differential encoded image",
+              "reconstructed": "Reconstructed image preview"
+            }
+          }
+        },
+        "learnings": {
+          "title": "key learnings",
+          "tag": "hard skills",
+          "items": [
+            "Binary file manipulation and bit-by-bit writing (Bitwise operations).",
+            "Manual memory management (malloc/free) and pointer arithmetic.",
+            "Deep understanding of image formats and lossless compression.",
+            "Creating robust command-line tools (arguments, I/O, errors)."
+          ]
+        },
+        "technologies": {
+          "title": "Tech used",
+          "sections": [
+            { "label": "Language", "items": ["C", "Makefile"] },
+            { "label": "Libraries", "items": ["libg2x", "OpenGL"] },
+            { "label": "Concepts", "items": ["VLC", "Huffman", "Binary I/O"] }
+          ]
+        },
+        "gallery": {
+          "title": "Gallery",
+          "description": "Preview of the original C/OpenGL interface."
         }
       }
     },

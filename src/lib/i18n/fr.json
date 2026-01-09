@@ -177,6 +177,11 @@
         "tags": ["UX/UI", "Svelte", "TypeScript", "tailwindCSS", "Canvas HTML"]
       },
       {
+        "title": "CoDec",
+        "description": "Encodeur/Décodeur d'images C avec algorithme différentiel et compression VLC",
+        "tags": ["C", "Binaire", "Compression", "Algo", "Unix"]
+      },
+      {
         "title": "Travia",
         "description": "Application web de recherche de trajets optimisés dans l'univers de Star Wars",
         "tags": ["Java", "C", "PHP", "React", "MySQL", "Sécurité", "Captcha", "API"]
@@ -652,6 +657,138 @@
         }
       }
     },
+    "codec": {
+      "hero": {
+        "badge": "projet universitaire",
+        "back": "retour",
+        "title": {
+          "regular": "CoDec",
+          "highlight": "Image"
+        },
+        "description": "Encodeur/Décodeur d'images conçu en C pur. Le but ? Comprendre les fondamentaux de la compression numérique en implémentant un algorithme 'Near-Lossless' basé sur le codage différentiel et une table VLC (Variable Length Coding). Pas de bibliothèques magiques, juste de la manipulation de bits.",
+        "stats": [
+          { "label": "Langage", "value": "C", "sub": "pur et dur" },
+          { "label": "Format", "value": "DIFF", "sub": "binaire custom" },
+          { "label": "Méthode", "value": "VLC", "sub": "huffman statique" }
+        ],
+        "crew": {
+          "title": "crew",
+          "subtitle": "solo"
+        }
+      },
+      "crew": [
+        { "name": "Jules Grange", "role": "Développeur C" }
+      ],
+      "sections": {
+        "overview": {
+          "title": "vue d'ensemble",
+          "paragraphs": [
+            "L'objectif de ce projet est de créer un utilitaire de compression capable de transformer une image PGM (niveaux de gris) ou PPM (couleur) en un format binaire optimisé (.dif).",
+            "L'algorithme repose sur le principe que les pixels voisins ont souvent des valeurs proches. Au lieu de stocker la valeur brute (ex: 180), on stocke la différence avec le précédent (ex: +2).",
+            "Ces différences sont ensuite encodées via une table VLC (codes courts pour petites différences, codes longs pour grandes différences) pour réduire la taille finale."
+          ]
+        },
+        "stack": {
+          "tag": "Outils bas niveau",
+          "items": [
+            { "label": "Langage", "value": "C (C99)" },
+            { "label": "Graphisme", "value": "libg2x (OpenGL/Glut wrapper)" },
+            { "label": "Build", "value": "Makefile" },
+            { "label": "Image", "value": "NetPBM (PGM/PPM)" },
+            { "label": "Binaire", "value": "Hex Editor" }
+          ]
+        },
+        "architecture": {
+          "tag": "Architecture logicielle",
+          "subtitle": "Flux de données",
+          "cards": [
+            {
+              "icon": "code",
+              "title": "imgdif.c",
+              "description": "Le cœur du réacteur. Contient toutes les fonctions de manipulation d'images, de gestion mémoire, et surtout les routines bit-à-bit pour l'écriture du fichier compressé."
+            },
+            {
+              "icon": "zap",
+              "title": "Encodage Différentiel",
+              "description": "Transformation des pixels en écarts par rapport à leurs voisins. Repliement mathématique pour transformer les écarts signés en entiers positifs."
+            },
+            {
+              "icon": "database",
+              "title": "Quantificateur VLC",
+              "description": "Table de compression statique à 4 niveaux. Les petites variations (le bruit de fond de l'image) sont codées sur très peu de bits."
+            },
+            {
+              "icon": "monitor",
+              "title": "Interfaces Graphiques",
+              "description": "pgmtodif et diftopgm offrent une visualisation temps réel de l'image, de sa version différentielle et de son histogramme."
+            }
+          ]
+        },
+        "demo": {
+          "tag": "Démonstration Interactive",
+          "title": "Essayez le CoDec",
+          "description": [
+            "J'ai porté l'algorithme C original en TypeScript pour vous permettre de le tester directement dans le navigateur.",
+            "Déposez une image, et voyez comment l'algorithme 'voit' les différences entre les pixels."
+          ],
+          "controls": {
+            "title": "Compresseur",
+            "drop": "Glissez-déposez une image ou cliquez pour importer",
+            "select": "Ou cliquez pour sélectionner",
+            "compressing": "Compression en cours...",
+            "stats": "Statistiques",
+            "ratio": "Taux de compression",
+            "original": "Original",
+            "compressed": "Compressé (DIFF)",
+            "formats": "JPG, PNG, WEBP",
+            "processing": "Traitement..."
+          },
+          "ui": {
+            "steps": ["Import", "Original", "Différentielle", "Résultat"],
+            "histograms": {
+              "original": "Distribution des valeurs de pixels",
+              "differential": "Distribution des différences",
+              "reconstructed": "Distribution reconstruite"
+            },
+            "buttons": {
+              "prev": "← Retour",
+              "next": "Suivant →",
+              "reset": "Réinitialiser"
+            },
+            "stats": {
+              "ratio": "TAUX DE COMPRESSION"
+            },
+            "alts": {
+              "original": "Aperçu de l'image originale",
+              "diff": "Image encodée en différentiel",
+              "reconstructed": "Aperçu de l'image reconstruite"
+            }
+          }
+        },
+        "learnings": {
+          "title": "apprentissages clés",
+          "tag": "hard skills",
+          "items": [
+            "Manipulation de fichiers binaires et écriture bit-à-bit (Bitwise operations).",
+            "Gestion manuelle de la mémoire (malloc/free) et arithmétique des pointeurs.",
+            "Compréhension profonde des formats d'images et de la compression sans perte.",
+            "Création d'outils en ligne de commande robustes (arguments, I/O, erreurs)."
+          ]
+        },
+        "technologies": {
+          "title": "Technos utilisées",
+          "sections": [
+            { "label": "Langage", "items": ["C", "Makefile"] },
+            { "label": "Librairies", "items": ["libg2x", "OpenGL"] },
+            { "label": "Concepts", "items": ["VLC", "Huffman", "Binary I/O"] }
+          ]
+        },
+        "gallery": {
+          "title": "Galerie",
+          "description": "Aperçu de l'interface graphique originale en C/OpenGL."
+        }
+      }
+    },
     "speedywiki": {
       "hero": {
         "badge": "jeu multijoueur",
@@ -873,6 +1010,6 @@
           "description": "Captures d’écran du lobby et des speedruns seront ajoutées pour montrer comment l’interface réagit en mode speedrun."
         }
       }
-    }
+        }
   }
 }

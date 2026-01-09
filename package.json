@@ -29,6 +29,7 @@
 	},
 	"dependencies": {
 		"@hayro_o7/labyrinth": "^0.0.12",
+		"codecjs": "^0.0.2",
 		"lucide-svelte": "^0.562.0"
 	}
 }

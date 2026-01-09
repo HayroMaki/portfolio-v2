@@ -52,7 +52,7 @@
 					<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-b-[12px] border-b-ink"></div>
 					<p class="font-mono text-sm uppercase tracking-[0.3em]">
 						{#if errorCode === 404}
-							"This is not the page you're looking for..."
+							"This is not the page you're looking for twin."
 						{:else}
 							"Something went wrong..."
 						{/if}

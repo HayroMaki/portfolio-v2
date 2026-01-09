@@ -29,6 +29,7 @@
 	const projectsData = [
 		{ href: '/projets/mcp', featured: true, color: '#4a90e2', icon: '🤖' },
 		{ href: '/projets/configurateurs', featured: true, color: '#e67e22', icon: '🪑' },
+		{ href: '/projets/codec', featured: false, color: '#607d8b', icon: '💾' },
 		{ href: '/projets/travia', featured: false, color: '#9b59b6', icon: '🌌' },
 		{ href: '/projets/speedywiki', featured: false, color: '#27ae60', icon: '⚡' }
 	];
