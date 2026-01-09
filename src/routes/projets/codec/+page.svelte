@@ -65,21 +65,6 @@
 					</div>
 				{/each}
 			</div>
-
-			<div class="manga-panel p-8">
-				<div class="flex items-center justify-between gap-4 mb-6 pb-4 border-b-2 border-ink/20">
-					<h2 class="font-display text-2xl uppercase tracking-[0.3em]">{t('hero.crew.title')}</h2>
-					<span class="font-mono text-xs uppercase tracking-[0.4em] text-ink/60">{t('hero.crew.subtitle')}</span>
-				</div>
-				<div class="grid gap-4 sm:grid-cols-2">
-					{#each t('crew') as person}
-						<div class="border-2 border-ink p-4 hover:bg-ink hover:text-paper transition-colors">
-							<p class="font-display text-xl mb-2">{person.name}</p>
-							<p class="text-xs font-mono uppercase tracking-[0.3em] opacity-70">{person.role}</p>
-						</div>
-					{/each}
-				</div>
-			</div>
 		</div>
 	</section>
 

@@ -656,6 +656,7 @@
     "codec": {
       "hero": {
         "badge": "university project",
+        "badge2": "",
         "back": "back",
         "title": {
           "regular": "CoDec",
@@ -666,15 +667,8 @@
           { "label": "Language", "value": "C", "sub": "pure" },
           { "label": "Format", "value": "DIFF", "sub": "custom binary" },
           { "label": "Method", "value": "VLC", "sub": "static huffman" }
-        ],
-        "crew": {
-          "title": "crew",
-          "subtitle": "solo"
-        }
+        ]
       },
-      "crew": [
-        { "name": "Jules Grange", "role": "C Developer" }
-      ],
       "sections": {
         "overview": {
           "title": "overview",
@@ -808,7 +802,7 @@
         { "name": "Jules Grange (that's me)", "role": "Back-End WebSocket & Proxy dev" },
         { "name": "Martial Carceles", "role": "MongoDB & Python solver" },
         { "name": "Guillaume Augeraud", "role": "Front-End dev & designer" },
-        { "name": "Randhy Bou-Jaber", "role": "Game designer" }
+        { "name": "Randy Bou Jaber", "role": "Game designer" }
       ],
       "sections": {
         "highlight": {

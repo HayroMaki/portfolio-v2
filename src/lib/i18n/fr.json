@@ -670,15 +670,8 @@
           { "label": "Langage", "value": "C", "sub": "pur et dur" },
           { "label": "Format", "value": "DIFF", "sub": "binaire custom" },
           { "label": "Méthode", "value": "VLC", "sub": "huffman statique" }
-        ],
-        "crew": {
-          "title": "crew",
-          "subtitle": "solo"
-        }
+        ]
       },
-      "crew": [
-        { "name": "Jules Grange", "role": "Développeur C" }
-      ],
       "sections": {
         "overview": {
           "title": "vue d'ensemble",
@@ -812,7 +805,7 @@
         { "name": "Jules Grange (C'est moi)", "role": "Développeur Back-End Websocket & Proxy" },
         { "name": "Martial Carceles", "role": "MongoDB & Solveur python" },
         { "name": "Guillaume Augeraud", "role": "Développeur Front-End & Designer" },
-        { "name": "Randhy Bou-Jaber", "role": "Game Designer" }
+        { "name": "Randy Bou Jaber", "role": "Game Designer" }
       ],
       "sections": {
         "highlight": {
