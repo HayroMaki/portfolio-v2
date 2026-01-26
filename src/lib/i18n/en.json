@@ -350,6 +350,27 @@
             { "label": "Skills", "value": "UX, Algorithms & furniture data models" }
           ]
         },
+        "flow": {
+          "title": "The User Experience",
+          "steps": [
+            {
+              "title": "1. Canvas View",
+              "description": "Technical 2D visualization of the staircase. The drawing uses the exact same functions as the real configurator to ensure precision."
+            },
+            {
+              "title": "2. Dimensions",
+              "description": "Adjusting width and height. The system automatically recalculates the step count using Blondel's rule (2H + G = 60-64cm)."
+            },
+            {
+              "title": "3. Base Height",
+              "description": "Adding a base height to raise the first step. Useful for adapting to specific architectural constraints."
+            },
+            {
+              "title": "4. Asymmetric Steps",
+              "description": "Customizing top and bottom step widths. Allows creating stairs with wider starting and landing steps."
+            }
+          ]
+        },
         "gallery": {
           "title": "Images coming soon",
           "description": "Interface captures coming soon to show the full flow."

@@ -338,6 +338,27 @@
             { "label": "Compétences", "value": "UX, Algorithmie & modèles de données des meubles" }
           ]
         },
+        "flow": {
+          "title": "L'expérience utilisateur",
+          "steps": [
+            {
+              "title": "1. Vue Canvas",
+              "description": "Visualisation 2D technique de l'escalier. Le dessin utilise les mêmes fonctions que le configurateur réel pour garantir la précision."
+            },
+            {
+              "title": "2. Dimensions",
+              "description": "Ajustement de la largeur et hauteur. Le système recalcule automatiquement le nombre de marches selon la loi de Blondel (2H + G = 60-64cm)."
+            },
+            {
+              "title": "3. Hauteur de base",
+              "description": "Ajout d'une hauteur de socle pour surélever la première marche. Utile pour s'adapter à des contraintes architecturales spécifiques."
+            },
+            {
+              "title": "4. Marches asymétriques",
+              "description": "Personnalisation des largeurs de marche haute et basse. Permet de créer des escaliers avec des marches de départ et d'arrivée plus larges."
+            }
+          ]
+        },
         "gallery": {
           "title": "Images à venir",
           "description": "Les captures de l'interface seront ajoutées dès que possible pour montrer le flow complet."

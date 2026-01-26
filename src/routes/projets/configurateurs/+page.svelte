@@ -2,6 +2,7 @@
 	import { ArrowLeft, Box, Ruler, TrendingUp, Monitor, Sparkles, Eye } from 'lucide-svelte';
 	import { locale } from '$lib/stores/locale';
 	import { getTranslations } from '$lib/i18n';
+	import ConfiguratorFlow from '$lib/components/projects/ConfiguratorFlow.svelte';
 
 	const iconMap = {
 		box: Box,
@@ -151,6 +152,10 @@
 				</div>
 			</div>
 		</div>
+	</section>
+
+	<section>
+		<ConfiguratorFlow steps={sections.flow.steps} title={sections.flow.title} />
 	</section>
 
 	<section class="py-16">
