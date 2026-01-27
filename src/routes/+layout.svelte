@@ -6,6 +6,7 @@
 	import { Menu, X, Github, Linkedin, Mail, Languages, Wallet, Brush } from 'lucide-svelte';
 	import { locale } from '$lib/stores/locale';
 	import { _t } from '$lib/i18n';
+	import type { Locale } from '$lib/i18n';
 	import InkBrush from '$lib/components/InkBrush.svelte';
 	import { isTransitioning } from '$lib/stores/pageTransition';
 
@@ -18,6 +19,8 @@
 	}
 
 	const currentOrigin = $page.url.origin;
+
+	let availableLocales: Locale[] = ['fr', 'en']; // Add zh for chinese peeps
 
 	let mobileMenuOpen = $state(false);
 	let brushEnabled = $state(true);
@@ -48,8 +51,13 @@
 		localStorage.setItem('brush-enabled', brushEnabled ? 'true' : 'false');
 	});
 
+	/**
+	 * Cycles through available locales to allow FR/EN/ZH selection.
+	 */
 	function toggleLocale() {
-		$locale = $locale === 'fr' ? 'en' : 'fr';
+		const currentIndex = availableLocales.indexOf($locale);
+		const nextIndex = (currentIndex + 1) % availableLocales.length;
+		$locale = availableLocales[nextIndex];
 	}
 
 	function toggleBrush() {

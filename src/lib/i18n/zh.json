@@ -1,0 +1,863 @@
+{
+  "nav": {
+    "home": "首页"
+  },
+  "hero": {
+    "badge": "全栈开发者",
+    "name": "Jules",
+    "surname": "Grange",
+    "description": "计算机科学学生——想知道我在做什么？都在这里：",
+    "cta_projects": "查看我的项目",
+    "cta_journey": "我的历程",
+    "stats": {
+      "projects": "真实项目",
+      "projects_nb": "8+",
+      "experience": "年经验",
+      "experience_nb": "2+",
+      "motivation": "动力",
+      "motivation_nb": "∞"
+    }
+  },
+  "about": {
+    "badge": "这就是我",
+    "title": "构建",
+    "title_highlight": "有效的解决方案。",
+    "p1": "我是一个能交付成果的问题解决者。好奇、细致，并被将复杂需求转化为简洁、功能性代码的挑战所驱动。",
+    "p2": "专注于现代Web技术的全栈通才。我能快速适应并学习完成工作所需的技能。",
+    "p3": "目前正在构建生产环境中的AI工具和3D配置器。我不只是编码——我交付用户真正使用的解决方案。",
+    "atelier": {
+      "headline": "工作室日志",
+      "journal": {
+        "title": "工作室日志",
+        "subtitle": "我目前正在积极开发的内容",
+        "entries": [
+          {
+            "date": "2025年12月27日",
+            "tag": "AI工具",
+            "label": "配置更安全的MCP流程",
+            "detail": "重写提示路由器，在客户接触3D构建器之前保持配置器请求的确定性。"
+          }
+        ],
+        "footer": "每周更新——如果你想了解更详细的版本，请联系我。"
+      },
+      "stack_intro": "目前沾满墨水的工具",
+      "stack_cta": "需要其他工具？尽管问。"
+    },
+    "experience": {
+      "title": "经验",
+      "current": "自2025年起在Dessine ton meuble/Aryga实习和学徒",
+      "uni": "以及许多不同的大学项目 - 见下文"
+    },
+    "education": {
+      "title": "教育",
+      "degree": "计算机科学学士学位，古斯塔夫·埃菲尔大学，马恩河谷，法国",
+      "bac": "STI2D高中文凭最高荣誉，狄德罗高中，巴黎，法国"
+    },
+    "mentality": {
+      "title": "心态",
+      "p1": "高效工作、自主性和沟通：这是成功的关键。别忘了保持水分。"
+    },
+    "passions": {
+      "title": "爱好",
+      "p1": "文学（《致不灭的你》、《BLAME》、《叶之屋》...）我的书架快要爆炸了",
+      "p2": "电子游戏（《怪物猎人》、《塞尔达》、《雨世界》、《黑暗之魂》...）我的Steam库快要爆炸了",
+      "p3": "绘画，在我笔记本的边缘 :P",
+      "p4": "在阿尔卑斯山滑雪，我应得的休息时间"
+    },
+    "skills": {
+      "title": "技能清单",
+      "subtitle": "我每天依赖的分组工具包",
+      "groups": [
+        {
+          "name": "前端/UI",
+          "items": ["Svelte", "React", "Vue", "Astro", "TailwindCSS"]
+        },
+        {
+          "name": "后端",
+          "items": ["PHP", "Node.js", "SvelteKit"]
+        },
+        {
+          "name": "数据",
+          "items": ["PostgreSQL", "MySQL", "MongoDB"]
+        },
+        {
+          "name": "算法",
+          "items": ["Python", "C", "Java"]
+        },
+        {
+          "name": "部署",
+          "items": ["Docker", "Git"]
+        }
+      ]
+    }
+  },
+  "journey": {
+    "badge": "时间线",
+    "title": "我的",
+    "title_highlight": "历程",
+    "items": [
+      {
+        "year": "2020-2023",
+        "title": "STI2D高中文凭",
+        "description": "在巴黎狄德罗高中，我以最高荣誉获得了STI2D文凭。专业方向为SIN（信息与数字系统）。毕业后进入BUT计算机科学专业。",
+        "sub_events": [
+          "使用Arduino和树莓派的地理定位机器人项目",
+          "开始BUT计算机科学专业"
+        ]
+      },
+      {
+        "year": "2024-2026（进行中）",
+        "title": "BUT计算机科学",
+        "description": "在古斯塔夫·埃菲尔大学马恩河谷分校，我目前正在攻读BUT计算机科学学位。培养开发、编程、数据库和项目管理方面的技能（我们甚至上了法律课，救命）。",
+        "sub_events": [
+          "Qix项目（第一年）",
+          "Travia项目（第二年）",
+          "SpeedyWiki项目（第二年）",
+          "Custom Forms项目（第三年）",
+          "逃课一周去桑给巴尔（不值得骄傲）",
+          "其他小项目"
+        ]
+      },
+      {
+        "year": "2025-2026（进行中）",
+        "title": "实习后学徒",
+        "description": "在Dessine ton meuble/Aryga - Web应用开发者。学习如何使用AI工具（学校不教这个）。",
+        "sub_events": [
+          "Easy配置器项目",
+          "MCP服务器项目"
+        ]
+      },
+      {
+        "year": "2026-..?",
+        "title": "工程学院",
+        "description": "继续在工程学院学习，然后我就发财了——这就是计划...",
+        "sub_events": []
+      }
+    ]
+  },
+  "contact": {
+    "badge": "联系我",
+    "title": "让我们",
+    "title_highlight": "一起工作",
+    "description": "正在寻找一个快速交付并构建可靠解决方案的开发者？让我们谈谈你的下一个项目。",
+    "availability": {
+      "title": "可用性",
+      "status": "开放机会",
+      "description": "目前正在寻求学徒机会，以便在2026年进入工程学院。联系我 :)"
+    },
+    "info": {
+      "title": "联系信息",
+      "email_label": "邮箱",
+      "location_label": "位置",
+      "response_label": "响应时间",
+      "response_time": "24-48小时内（假期除外）"
+    },
+    "cta": {
+      "email": "给我发邮件",
+      "linkedin": "在LinkedIn上联系",
+      "cv": "下载简历"
+    }
+  },
+  "projects": {
+    "badge": "作品集",
+    "title": "我的",
+    "title_highlight": "项目",
+    "description": "我最重要成就的精选，从大学项目到企业开发。",
+    "featured": "专业项目",
+    "cta": "查看项目",
+    "list": [
+      {
+        "title": "MCP服务器",
+        "description": "为Dessine ton meuble/Aryga开发的AI驱动家具创建MCP服务器",
+        "tags": ["TypeScript", "MCP服务器", "AI", "Docker", "Svelte包"]
+      },
+      {
+        "title": "Easy配置器",
+        "description": "Dessine ton meuble/Aryga的定制家具交互式3D配置器套件",
+        "tags": ["UX/UI", "Svelte", "TypeScript", "tailwindCSS", "HTML Canvas"]
+      },
+      {
+        "title": "CoDec",
+        "description": "带差分算法和VLC压缩的C语言图像编码器/解码器",
+        "tags": ["C", "二进制", "压缩", "算法", "Unix"]
+      },
+      {
+        "title": "Travia",
+        "description": "星球大战宇宙中优化路线搜索的Web应用",
+        "tags": ["Java", "C", "PHP", "React", "MySQL", "安全", "验证码", "API"]
+      },
+      {
+        "title": "SpeedyWiki",
+        "description": "实时多人维基百科速通游戏",
+        "tags": ["React", "MongoDB", "WebSocket服务器", "代理服务器", "项目管理"]
+      }
+    ]
+  },
+  "footer": {
+    "project_name": "作品集 V2",
+    "copyright": "2025 Jules Renaud-Grange. 保留所有权利。"
+  },
+  "misc": {
+    "technos_forget": "我可能忘记了一些...",
+    "empty_list": "...这里相当空...",
+    "konami_title": "科乐美秘技！",
+    "konami_text": "就这样。你还期待什么？"
+  },
+  "cv_page": {
+    "badge": "简历",
+    "title": {
+      "regular": "我的",
+      "highlight": "简历"
+    },
+    "ctas": {
+      "open": "在新标签页中打开",
+      "download": "下载PDF"
+    },
+    "last_update": "2025年更新",
+    "contact": {
+      "title": "直接联系",
+      "items": [
+        { "label": "邮箱", "value": "julesgrange@outlook.fr" },
+        { "label": "电话", "value": "+33 6 01 28 37 28" },
+        { "label": "LinkedIn", "value": "julesrenaudgrange" },
+        { "label": "Github", "value": "HayroMaki" },
+        { "label": "巴黎10区", "value": "北站" }
+      ]
+    },
+    "viewer": {
+      "banner": "我的简历",
+      "hint": "通过查看器滚动/缩放"
+    }
+  },
+  "project_pages": {
+    "configurateurs": {
+      "hero": {
+        "badge": "公司项目",
+        "back": "返回",
+        "title": {
+          "regular": "配置器",
+          "highlight": "Easy"
+        },
+        "description": "我将主要3D配置器的DNA浓缩成三个超聚焦的体验。目标：让用户在一分钟内创建标准件，同时保持个性化最大化。",
+        "stats": [
+          { "label": "配置器", "value": "3个项目", "sub": "Easy" },
+          { "label": "家具", "value": "实时", "sub": "3D查看器" },
+          { "label": "用户体验", "value": "超引导", "sub": "交互式" }
+        ]
+      },
+      "sections": {
+        "context": {
+          "title": "背景",
+          "paragraphs": [
+            "历史配置器是一个精确的野兽，但并不总是适合重复请求。",
+            "我首先在简单柜子上进行实验，然后在更复杂的家具上，如楼梯和投影仪控制台。",
+            "对于每个配置器，我都追求超引导体验：逐步流程、极简画布、智能字段，以及实时变化的查看器。"
+          ],
+          "details": [
+            { "label": "范围", "value": "3个配置器" },
+            { "label": "目标时间", "value": "< 60秒" },
+            { "label": "技术栈", "value": "Svelte + TS + 内部包" }
+          ]
+        },
+        "workflow": {
+          "tag": "工作流程",
+          "paragraphs": [
+            "极其引导的界面：您逐步完成尺寸、材料、选项等，同时3D查看器保持更新。",
+            "结果：用户只能在验证每个步骤后才能继续，并在一分钟内构建家具。非常适合非技术或移动客户。",
+            "这种方法是与团队设计师一起设计的，他参与了整个过程。"
+          ]
+        },
+        "modules": {
+          "tag": "3个模块",
+          "subtitle": "专注于配置器",
+          "cards": [
+            {
+              "icon": "box",
+              "title": "简单柜子",
+              "bullets": [
+                "交互式画布手绘尺寸",
+                "在所有配置器中重复使用的逐步界面",
+                "每步刷新的3D预览"
+              ]
+            },
+            {
+              "icon": "trending_up",
+              "title": "楼梯家具",
+              "bullets": [
+                "舒适算法计算理想台阶和高度——客户无需头疼",
+                "每个参数的超精确画布（鼻子、涂层等）",
+                "材料调色板建议"
+              ]
+            },
+            {
+              "icon": "monitor",
+              "title": "投影仪单元",
+              "bullets": [
+                "复杂组装：屏幕后部空间",
+                "投影仪滑动托盘",
+                "可配置扬声器插槽",
+                "通过唯一客户令牌集成到Prestashop工作流程中"
+              ]
+            }
+          ]
+        },
+        "innovations": {
+          "title": "关键创新",
+          "cards": [
+            {
+              "icon": "ruler",
+              "title": "交互式画布",
+              "description": "动态矢量绘图，无需痛苦的表单即可设置尺寸和参数。"
+            },
+            {
+              "icon": "eye",
+              "title": "内部3D查看器",
+              "description": "实时更新的纹理家具视觉效果。"
+            },
+            {
+              "icon": "sparkles",
+              "title": "Svelte/TS技术栈",
+              "description": "逐步思考，引导客户直到结账 :)。"
+            }
+          ]
+        },
+        "impact": {
+          "title": "影响与学习",
+          "learnings": [
+            "简化用户体验。",
+            "构建领域算法（舒适指数、列自动调整大小）。",
+            "设计一致的画布 + 3D界面。",
+            "交付易于适应的模块化工具。"
+          ]
+        },
+        "technologies": {
+          "title": "使用的技术",
+          "items": [
+            { "label": "框架", "value": "Svelte + TypeScript" },
+            { "label": "可视化", "value": "Canvas + 3D查看器" },
+            { "label": "技能", "value": "UX、算法和家具数据模型" }
+          ]
+        },
+        "flow": {
+          "title": "用户体验",
+          "steps": [
+            {
+              "title": "1. 画布视图",
+              "description": "楼梯的技术2D可视化。绘图使用与真实配置器完全相同的函数以确保精度。"
+            },
+            {
+              "title": "2. 尺寸",
+              "description": "调整宽度和高度。系统使用Blondel规则（2H + G = 60-64cm）自动重新计算台阶数。"
+            },
+            {
+              "title": "3. 基础高度",
+              "description": "添加基础高度以抬高第一个台阶。用于适应特定的建筑约束。"
+            },
+            {
+              "title": "4. 不对称台阶",
+              "description": "自定义顶部和底部台阶宽度。允许创建具有更宽起始和着陆台阶的楼梯。"
+            }
+          ]
+        },
+        "gallery": {
+          "title": "图片即将推出",
+          "description": "界面截图即将推出，展示完整流程。"
+        }
+      }
+    },
+    "mcp": {
+      "hero": {
+        "badge": "当前项目",
+        "back": "返回",
+        "title": {
+          "regular": "MCP",
+          "highlight": "服务器"
+        },
+        "description": "MCP（模型上下文协议）服务器，让LLM像人类顾问一样从客户文本或草图制作家具。",
+        "stats": [
+          { "label": "AI x 工具", "value": "MCP", "sub": "（模型上下文协议）" },
+          { "label": "安全", "value": "令牌 - IP", "sub": "速率限制和来源" },
+          { "label": "生产", "value": "客户", "sub": "安全界面" }
+        ]
+      },
+      "sections": {
+        "highlight": {
+          "title": "旗舰项目",
+          "paragraphs": [
+            "目标：让客户无需触摸配置器即可获得家具——AI处理一切。从文本或草图，LLM推理，调用多个工具来构建然后调整项目，最后报告。",
+            "首先使用Claude和ChatGPT进行测试，现在嵌入到网站中并被客户使用。安全至关重要：只有合法用户才能访问AI（否则成本会迅速上升）。"
+          ]
+        },
+        "architecture": {
+          "tag": "架构",
+          "subtitle": "MCP",
+          "cards": [
+            {
+              "icon": "brain",
+              "title": "MCP工具",
+              "description": "为LLM映射业务功能：家具创建、结构计算、组装家具套装。"
+            },
+            {
+              "icon": "package",
+              "title": "Svelte包",
+              "description": "快速设置API的处理程序 + 无头组件（聊天、工具、手动调用）来驱动UI。"
+            },
+            {
+              "icon": "pen",
+              "title": "提示",
+              "description": "系统提示 + 每个工具的说明，描述使用、错误、参数...一切对AI都必须清晰。"
+            }
+          ]
+        },
+        "code": {
+          "title": "MCP工具示例"
+        },
+        "security": {
+          "title": "生产安全",
+          "description": "多层安全系统，保护MCP工具并控制AI使用成本。",
+          "cards": [
+            { "icon": "lock", "title": "签名令牌", "description": "密钥，令牌链接到IP/客户端以监控使用并立即切断访问。" },
+            { "icon": "shield", "title": "速率限制", "description": "通过每用户配额严格控制AI API成本。" },
+            { "icon": "globe", "title": "来源检查", "description": "只有官方域可以调用敏感端点。" },
+            { "icon": "zap", "title": "隔离API", "description": "令牌检索和AI调用保持在服务器端。" }
+          ]
+        },
+        "features": {
+          "title": "关键功能",
+          "list": [
+            "从客户文本或草图生成家具。",
+            "聊天内实时3D可视化。",
+            "带处理程序的Svelte包 + 无头聊天组件。",
+            "AI API调用的多层安全。",
+            "通过OpenRouter支持多模型（GPT、Claude、Gemini）。"
+          ]
+        },
+        "technologies": {
+          "title": "技术",
+          "items": [
+            "核心 — TypeScript、Node、MCP",
+            "前端 — Svelte、3D查看器",
+            "AI — ChatGPT SDK、Claude",
+            "安全 — 令牌、速率限制、来源检查"
+          ]
+        },
+        "impact": {
+          "title": "影响与学习",
+          "paragraphs": [
+            "生产项目首先由销售团队使用，通过LLM预先设计件。",
+            "现在直接由客户使用，创建或启动他们的设计。"
+          ],
+          "learnings": [
+            "将家具工作流程转化为AI友好工具。",
+            "设计多层AI安全计划。",
+            "交付可重用包而不是单体。",
+            "使用Docker在服务器上部署。",
+            "处理真实客户使用的生产部署。"
+          ]
+        },
+        "gallery": {
+          "title": "图片即将推出",
+          "description": "即将推出AI聊天 + 3D查看器的截图，展示AI如何驱动工具。"
+        },
+        "security_flow": {
+          "title": "安全架构",
+          "subtitle": "来源检查、HMAC令牌、IP/会话绑定和严格速率限制",
+          "steps": [
+            {
+              "title": "1. 令牌生成",
+              "description": "用户访问AI聊天页面并生成/更新令牌。",
+              "code": ["私有令牌发行者", "→ HMAC-SHA256签名", "→ 绑定到会话 + IP"],
+              "badge": "HMAC安全"
+            },
+            {
+              "title": "2. 令牌验证",
+              "description": "每个请求都经过验证",
+              "code": ["验证来源/引用者", "验证HMAC签名", "检查IP和会话匹配", "验证过期"],
+              "badge": "严格验证"
+            },
+            {
+              "title": "3. 速率限制",
+              "description": "防止滥用和过度使用",
+              "code": ["令牌30分钟过期", "10请求/会话/分钟", "5会话/IP/小时"],
+              "badge": "硬限制"
+            }
+          ],
+          "flow": {
+            "steps": [
+              { "label": "用户请求", "sublabel": "从聊天页面" },
+              { "label": "令牌检查", "sublabel": "HMAC + IP验证" },
+              { "label": "速率限制", "sublabel": "检查使用配额" },
+              { "label": "安全API", "sublabel": "调用聊天/工具" }
+            ]
+          },
+          "endpoints": {
+            "title": "受保护端点",
+            "list": [
+              { "method": "POST", "path": "/api/chat", "desc": "向AI发送消息并获取响应" },
+              { "method": "GET", "path": "/api/tools", "desc": "列出可用工具" },
+              { "method": "POST", "path": "/api/tool-call", "desc": "执行MCP工具" },
+              { "method": "私有", "path": "内部令牌服务", "desc": "服务器端发行的HMAC令牌" }
+            ]
+          }
+        },
+        "workflow": {
+          "title": "MCP工作流程",
+          "subtitle": "滚动查看通信流程",
+          "actors": [
+            { "id": "client", "label": "客户" },
+            { "id": "site", "label": "网站" },
+            { "id": "ai", "label": "AI提供商" },
+            { "id": "mcp", "label": "MCP服务器" }
+          ],
+          "steps": [
+            { "label": "家具请求", "code": "\"我想要一个120厘米的柜子...\"" },
+            { "label": "POST /api/chat", "code": "请求传输" },
+            { "label": "*/mcp", "code": "MCP服务器连接：获取工具、资源、模板..." },
+            { "label": "连接已建立 - 发送工具、资源...", "code": "[\"create-project\", \"update-column-structure\", ...]" },
+            { "label": "create-project", "code": "{ \"name\": \"Cabinet\", \"type\": \"cabinet\", \"dimensions\": {...} }" },
+            { "label": "项目ID", "code": "{ \"projectId\": \"proj_abc123\" }" },
+            { "label": "update-column-structure", "code": "{ \"projectId\": \"...\", \"structure\": { \"columns\": [...] } }" },
+            { "label": "确认", "code": "{ \"success\": true }" },
+            { "label": "get-viewer-url", "code": "{ \"projectId\": \"proj_abc123\" }" },
+            { "label": "查看器URL", "code": "{ \"url\": \"https://...\" }" },
+            { "label": "3D显示", "code": "<ViewerComponent />" },
+            { "label": "家具可视化", "code": "✓ 最终渲染" }
+          ]
+        }
+      }
+    },
+    "travia": {
+      "hero": {
+        "badge": "大学项目",
+        "back": "返回",
+        "title": {
+          "regular": "Travia",
+          "highlight": "星际路线"
+        },
+        "description": "绘制星球大战银河系优化路线的Web应用。模块化架构：C + Java + PHP + JS + 数据库像反叛军团队一样协作。C构建的A*算法找到行星之间最快的路径。",
+        "stats": [
+          { "label": "技术", "value": "5", "sub": "多语言" },
+          { "label": "算法", "value": "A*", "sub": "优化" },
+          { "label": "架构", "value": "100%", "sub": "模块化" }
+        ],
+        "crew": {
+          "title": "团队",
+          "subtitle": "网络"
+        }
+      },
+      "crew": [
+        { "name": "Jules Grange（就是我）", "role": "C算法和后端开发" },
+        { "name": "Guillaume Augeraud", "role": "前端开发" },
+        { "name": "Benjamin Rissot", "role": "数据库管理和Java开发" },
+        { "name": "Andrei Achirecesei", "role": "后端开发" }
+      ],
+      "sections": {
+        "overview": {
+          "title": "概述",
+          "paragraphs": [
+            "Travia探索C、Java、PHP、JavaScript模块加上MySQL数据库如何协作实现一个目标：行星系统之间的超快路线。",
+            "Leaflet映射星球大战银河系，而C构建的A*算法计算最优路径。Java编排MySQL数据并以完美顺序调用每个站点。PHP管理用户会话和REST API，带有验证码和电子邮件验证。",
+            "一切都为最大效率而通信。"
+          ]
+        },
+        "stack": {
+          "tag": "跨技术栈",
+          "items": [
+            { "label": "前端", "value": "HTML/CSS/JS" },
+            { "label": "后端", "value": "PHP + REST API" },
+            { "label": "服务器", "value": "Java + JDBC" },
+            { "label": "算法", "value": "C + A*" },
+            { "label": "数据", "value": "MySQL" }
+          ]
+        },
+        "architecture": {
+          "tag": "技术架构",
+          "subtitle": "对齐的模块",
+          "cards": [
+            {
+              "icon": "globe",
+              "title": "Web服务器",
+              "description": "在模块之间分发请求的网关。每个调用在前往Java图处理之前都经过这里。"
+            },
+            {
+              "icon": "code",
+              "title": "Leaflet界面",
+              "description": "交互式画布浏览银河系并提取每个行星的信息。纯JS + Leaflet保持地图流畅。"
+            },
+            {
+              "icon": "database",
+              "title": "Java + MySQL",
+              "description": "JDBC模块提供行星间图，计算启发式，并向C算法发送干净数据。"
+            },
+            {
+              "icon": "zap",
+              "title": "A*算法",
+              "description": "用C实现以获得最大速度。结果返回服务器，服务器将它们转换为可读路线和覆盖层。"
+            },
+            {
+              "icon": "users",
+              "title": "用户管理",
+              "description": "账户创建、登录、恢复 + 验证码 + 电子邮件验证：安全工作流程，以便每个反叛者都可以保存路线而不被帝国窥探。"
+            }
+          ]
+        },
+        "labyrinth": {
+          "tag": "交互式演示",
+          "title": "最短路径算法 - 可视化",
+          "description": [
+            "我构建了一个自定义包来可视化路径查找算法的实际操作。实时观看A*和Dijkstra解决迷宫。",
+            "这个交互式演示展示了算法如何探索节点并找到最优路径——驱动Travia路线计算的相同逻辑。"
+          ],
+          "controls": {
+            "title": "控制",
+            "subtitle": "自定义迷宫",
+            "algorithm": "算法",
+            "width": "宽度",
+            "height": "高度",
+            "rate": "速度（毫秒）",
+            "regenerate": "重新生成迷宫",
+            "loading": "加载中...",
+            "play": "播放",
+            "pause": "暂停",
+            "stepForward": "前进",
+            "stepBackward": "后退",
+            "reset": "重置",
+            "status": "状态",
+            "status_playing": "探索中",
+            "status_paused": "已暂停",
+            "legendTitle": "图例",
+            "legendSubtitle": "路径查找期间的单元格状态"
+          },
+          "legend": {
+            "start": "开始",
+            "end": "结束",
+            "current": "当前",
+            "visiting": "访问中",
+            "visited": "已访问",
+            "path": "最优路径"
+          }
+        },
+        "learnings": {
+          "title": "关键学习",
+          "tag": "笔记",
+          "items": [
+            "无摩擦地组合多语言架构并保持数据流动。",
+            "用启发式优先思维在C中优化A*路径。",
+            "使用Leaflet在JS中创建沉浸式地图 + 覆盖界面。",
+            "设计处理图处理的Java后端。",
+            "使用验证码和验证电子邮件设置用户安全。"
+          ]
+        },
+        "technologies": {
+          "title": "使用的技术",
+          "sections": [
+            { "label": "前端", "items": ["HTML/CSS", "JavaScript", "Leaflet"] },
+            { "label": "后端", "items": ["PHP", "Java", "JDBC", "MySQL"] },
+            { "label": "算法", "items": ["C", "A*"] }
+          ]
+        },
+        "gallery": {
+          "title": "图片即将推出",
+          "description": "屏幕截图、地图和原型即将推出，以说明超空间路线。"
+        }
+      }
+    },
+    "codec": {
+      "hero": {
+        "badge": "大学项目",
+        "back": "返回",
+        "title": {
+          "regular": "CoDec",
+          "highlight": "图像"
+        },
+        "description": "用纯C设计的图像编码器/解码器。目标？通过实现基于差分编码和VLC（可变长度编码）表的'近无损'算法来理解数字压缩基础。没有魔法库，只有位操作。",
+        "stats": [
+          { "label": "语言", "value": "C", "sub": "纯粹" },
+          { "label": "格式", "value": "DIFF", "sub": "自定义二进制" },
+          { "label": "方法", "value": "VLC", "sub": "静态霍夫曼" }
+        ]
+      },
+      "sections": {
+        "overview": {
+          "title": "概述",
+          "paragraphs": [
+            "该项目的目标是创建一个能够将PGM（灰度）或PPM（彩色）图像转换为优化二进制格式（.dif）的压缩实用程序。",
+            "该算法基于相邻像素通常具有相似值的原理。我们不是存储原始值（例如：180），而是存储与前一个的差异（例如：+2）。",
+            "然后通过VLC表（小差异用短代码，大差异用长代码）对这些差异进行编码，以减小最终大小。"
+          ]
+        },
+        "stack": {
+          "tag": "低级工具",
+          "items": [
+            { "label": "语言", "value": "C (C99)" },
+            { "label": "图形", "value": "libg2x (OpenGL/Glut包装器)" },
+            { "label": "构建", "value": "Makefile" },
+            { "label": "图像", "value": "NetPBM (PGM/PPM)" },
+            { "label": "二进制", "value": "十六进制编辑器" }
+          ]
+        },
+        "architecture": {
+          "tag": "软件架构",
+          "subtitle": "数据流",
+          "cards": [
+            {
+              "icon": "code",
+              "title": "imgdif.c",
+              "description": "反应堆核心。包含所有图像操作函数、内存管理，特别是用于写入压缩文件的逐位例程。"
+            },
+            {
+              "icon": "zap",
+              "title": "差分编码",
+              "description": "将像素转换为与其邻居的偏差。数学折叠将有符号偏差转换为正整数。"
+            },
+            {
+              "icon": "database",
+              "title": "VLC量化器",
+              "description": "静态4级压缩表。小变化（背景噪声）用很少的位编码。"
+            },
+            {
+              "icon": "monitor",
+              "title": "图形界面",
+              "description": "pgmtodif和diftopgm提供图像、其差分版本和直方图的实时可视化。"
+            }
+          ]
+        },
+        "demo": {
+          "tag": "交互式演示",
+          "title": "试用CoDec",
+          "description": [
+            "我将原始C算法移植到TypeScript，让您直接在浏览器中测试它。",
+            "放置图像，看看算法如何'看到'像素之间的差异。"
+          ],
+          "controls": {
+            "title": "压缩器",
+            "drop": "拖放图像或点击上传",
+            "select": "或点击选择",
+            "compressing": "压缩图像中...",
+            "stats": "统计",
+            "ratio": "压缩比",
+            "original": "原始",
+            "compressed": "压缩（DIFF）",
+            "formats": "JPG、PNG、WEBP",
+            "processing": "处理中..."
+          },
+          "ui": {
+            "title": "可视化",
+            "tabs": {
+              "original": "原始",
+              "differential": "差分",
+              "histogram": "直方图"
+            },
+            "histogram": {
+              "title": "差分值分布",
+              "xaxis": "差分值",
+              "yaxis": "频率"
+            }
+          }
+        },
+        "learnings": {
+          "title": "关键学习",
+          "tag": "笔记",
+          "items": [
+            "理解图像压缩的基本原理。",
+            "在C中实现位级操作。",
+            "设计自定义二进制格式。",
+            "优化内存使用和性能。",
+            "使用libg2x创建图形界面。"
+          ]
+        },
+        "technologies": {
+          "title": "使用的技术",
+          "sections": [
+            { "label": "语言", "items": ["C (C99)"] },
+            { "label": "图形", "items": ["libg2x", "OpenGL", "Glut"] },
+            { "label": "工具", "items": ["Makefile", "Hex Editor"] },
+            { "label": "格式", "items": ["NetPBM", "PGM", "PPM"] }
+          ]
+        },
+        "gallery": {
+          "title": "图片即将推出",
+          "description": "屏幕截图和示例即将推出，以说明压缩过程。"
+        }
+      }
+    },
+    "speedywiki": {
+      "hero": {
+        "badge": "大学项目",
+        "back": "返回",
+        "title": {
+          "regular": "SpeedyWiki",
+          "highlight": "速通"
+        },
+        "description": "实时多人维基百科速通游戏。玩家竞相从一个维基百科页面导航到另一个页面。WebSocket实时同步，代理服务器修改维基百科页面以跟踪点击。",
+        "stats": [
+          { "label": "玩家", "value": "多人", "sub": "实时" },
+          { "label": "同步", "value": "WebSocket", "sub": "即时" },
+          { "label": "架构", "value": "代理", "sub": "修改页面" }
+        ],
+        "crew": {
+          "title": "团队",
+          "subtitle": "网络"
+        }
+      },
+      "crew": [
+        { "name": "Jules Grange（就是我）", "role": "后端和WebSocket开发" },
+        { "name": "团队成员", "role": "前端和游戏逻辑" }
+      ],
+      "sections": {
+        "overview": {
+          "title": "概述",
+          "paragraphs": [
+            "SpeedyWiki是一个实时多人游戏，玩家竞相从一个维基百科页面导航到另一个页面。",
+            "WebSocket服务器处理实时同步，而代理服务器修改维基百科页面以跟踪玩家点击。",
+            "游戏逻辑确保公平竞争，排行榜跟踪最佳时间。"
+          ]
+        },
+        "stack": {
+          "tag": "技术栈",
+          "items": [
+            { "label": "前端", "value": "React" },
+            { "label": "后端", "value": "Node.js" },
+            { "label": "实时", "value": "WebSocket" },
+            { "label": "代理", "value": "自定义代理服务器" },
+            { "label": "数据库", "value": "MongoDB" }
+          ]
+        },
+        "features": {
+          "title": "关键功能",
+          "list": [
+            "实时多人游戏。",
+            "WebSocket同步。",
+            "代理服务器修改维基百科页面。",
+            "排行榜和统计。",
+            "游戏房间和邀请系统。"
+          ]
+        },
+        "learnings": {
+          "title": "关键学习",
+          "tag": "笔记",
+          "items": [
+            "实现实时WebSocket通信。",
+            "构建代理服务器以修改外部内容。",
+            "管理多人游戏状态同步。",
+            "设计公平的游戏机制。",
+            "处理团队项目管理。"
+          ]
+        },
+        "technologies": {
+          "title": "使用的技术",
+          "sections": [
+            { "label": "前端", "items": ["React", "CSS"] },
+            { "label": "后端", "items": ["Node.js", "Express"] },
+            { "label": "实时", "items": ["WebSocket", "Socket.io"] },
+            { "label": "数据库", "items": ["MongoDB"] }
+          ]
+        },
+        "gallery": {
+          "title": "图片即将推出",
+          "description": "游戏界面和游戏玩法的屏幕截图即将推出。"
+        }
+      }
+    }
+  }
+}
