@@ -6,7 +6,7 @@
     "badge": "Développeur Full-Stack",
     "name": "Jules",
     "surname": "Grange",
-    "description": "Étudiant en BUT Informatique, vous voulez savoir ce que je fais ? ça se passe ici :",
+    "description": "Étudiant en BUT Informatique, vous voulez savoir ce que je fais ? Ça se passe ici :",
     "cta_projects": "Check mes projets",
     "cta_journey": "Mon parcours",
     "stats": {
@@ -19,7 +19,7 @@
     }
   },
   "about": {
-    "badge": "ça c'est moi",
+    "badge": "Ça c'est moi",
     "title": "Construire des solutions",
     "title_highlight": "qui fonctionnent.",
     "p1": "Je suis un problem solver qui livre. Curieux, méticuleux, et motivé par le défi de transformer des besoins complexes en code propre et fonctionnel.",
