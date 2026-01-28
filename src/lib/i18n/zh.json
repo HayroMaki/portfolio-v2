@@ -78,7 +78,7 @@
         },
         {
           "name": "数据",
-          "items": ["PostgreSQL", "MySQL", "MongoDB"]
+          "items": ["PostgreSQL", "MySQL", "MongoDB", "Supabase"]
         },
         {
           "name": "算法",

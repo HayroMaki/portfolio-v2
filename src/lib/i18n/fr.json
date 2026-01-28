@@ -78,7 +78,7 @@
         },
         {
           "name": "Données",
-          "items": ["PostgreSQL", "MySQL", "MongoDB"]
+          "items": ["PostgreSQL", "MySQL", "MongoDB", "Supabase"]
         },
         {
           "name": "Algorithmie",

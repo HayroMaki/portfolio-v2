@@ -68,29 +68,7 @@
 		// Draw components in order
 		drawTopFloor(ctx, height, width, side, scale, canvasWidth, canvasHeight, width, height);
 		drawBase(ctx, width, height, plinthHeight, plinthLeft, plinthRight, stepNose, side, scale, canvasWidth, canvasHeight, width, height, baseType);
-		drawSteps(
-			ctx,
-			width,
-			height,
-			steps,
-			useTopStepWidth,
-			useBotStepWidth,
-			useBotHeight,
-			stepNose,
-			baseThickness,
-			giron,
-			plinthHeight,
-			side,
-			scale,
-			canvasWidth,
-			canvasHeight,
-			width,
-			height,
-			boxesClose,
-			countersteps,
-			topVertical,
-			v2
-		);
+		drawSteps(ctx, width, height, steps, useTopStepWidth, useBotStepWidth, useBotHeight, stepNose, baseThickness, giron, plinthHeight, side, scale, canvasWidth, canvasHeight, width, height, boxesClose, countersteps, topVertical, v2);
 	}
 
 	onMount(() => {

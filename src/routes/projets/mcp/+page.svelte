@@ -33,6 +33,8 @@
 			return { ...card, Component };
 		})
 	);
+
+	let codeExpanded = $state(false);
 </script>
 
 <main class="min-h-screen bg-paper text-ink">
@@ -114,11 +116,25 @@
 
 			<!-- Code Example -->
 			<div class="manga-panel border-paper bg-black/30 p-6">
-				<div class="flex items-center gap-3 mb-4">
-					<Code size={20} />
-					<h3 class="font-display text-lg uppercase tracking-[0.2em]">{sections.code.title}</h3>
+				<div class="flex flex-wrap items-center gap-3 justify-between">
+					<div class="flex items-center gap-3">
+						<Code size={20} />
+						<h3 class="font-display text-lg uppercase tracking-[0.2em]">{sections.code.title}</h3>
+					</div>
+					<button
+						type="button"
+						class="inline-flex z-10 bg-paper items-center gap-2 border border-paper px-3 py-1 font-mono uppercase tracking-[0.3em] text-ink hover:bg-ink hover:text-paper transition"
+						onclick={() => (codeExpanded = !codeExpanded)}
+						aria-expanded={codeExpanded}
+					>
+						<span>{codeExpanded ? 'Hide' : 'Show'}</span>
+						<span class={`inline-blocks leading-none transition-transform duration-200 ${codeExpanded ? 'rotate-45' : ''}`}>
+							+
+						</span>
+					</button>
 				</div>
-				<pre class="font-mono text-xs text-paper/90 overflow-x-auto p-4 bg-black/40 border border-paper/30"><code>
+				{#if codeExpanded}
+					<pre class="font-mono mt-4 text-xs text-paper/90 overflow-x-auto p-4 bg-black/40 border border-paper/30"><code>
 {`
 	server.registerTool(
         "create-project",
@@ -197,7 +213,8 @@
         }
     );`
 }
-				</code></pre>
+					</code></pre>
+				{/if}
 			</div>
 		</div>
 	</section>

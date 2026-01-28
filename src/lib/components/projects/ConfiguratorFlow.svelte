@@ -24,8 +24,7 @@
 		const practicalSteps = steps;
 		return (w - stepNose) / practicalSteps;
 	}
-
-	const plinthHeight = 80;
+	
 	const defaultBotHeightBase = 150; // Higher baseline for visibility
 
 	// Calculate initial defaults for step 0

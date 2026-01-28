@@ -90,7 +90,7 @@
         },
         {
           "name": "Data",
-          "items": ["PostgreSQL", "MySQL", "MongoDB"]
+          "items": ["PostgreSQL", "MySQL", "MongoDB", "Supabase"]
         },
         {
           "name": "Algorithms",
