@@ -86,7 +86,7 @@
         },
         {
           "name": "Déploiement",
-          "items": ["Docker", "Git"]
+          "items": ["Docker", "Git", "Cloudflare", "AWS"]
         }
       ]
     }
@@ -165,11 +165,39 @@
     "description": "Une sélection de mes réalisations les plus significatives, des projets universitaires aux développements en entreprise.",
     "featured": "Projet Pro",
     "cta": "Voir le projet",
+    "m": "mois",
+    "ms": "mois",
+    "y": "an",
+    "ys": "ans",
+    "featured_section": {
+      "title": "Expositions actives",
+      "subtitle": "Actuellement en production ou récemment livrés"
+    },
+    "archive_section": {
+      "title": "Archives des projets",
+      "subtitle": "Projets universitaires et travaux passés",
+      "filter_all": "Tous",
+      "filter_pro": "Professionnel",
+      "filter_uni": "Universitaire",
+      "filter_perso": "Personnel",
+      "expand": "Ouvrir les archives",
+      "collapse": "Fermer les archives"
+    },
+    "metadata": {
+      "year": "Année",
+      "team": "Équipe",
+      "team_single": "Solo",
+      "duration": "Durée",
+      "tech_count": "Technos",
+      "type_pro": "Professionnel",
+      "type_uni": "Universitaire",
+      "type_perso": "Personnel"
+    },
     "list": [
       {
         "title": "MCP Server",
         "description": "Serveur MCP pour la création de meubles par l'IA pour Dessine ton meuble/Aryga",
-        "tags": ["TypeScript", "Serveur MCP", "IA", "Docker", "Package Svelte"]
+        "tags": ["TypeScript", "Serveur MCP", "IA", "Docker", "Thumbmark", "Cloudflare Turnstile"]
       },
       {
         "title": "Configurateurs Easy",
@@ -189,7 +217,7 @@
       {
         "title": "SpeedyWiki",
         "description": "Jeu multijoueur de speedrun Wikipedia en temps réel",
-        "tags": ["React", "MongoDB", "Serveur WebSocket", "Serveur Proxy", "Gestion de Projet"]
+        "tags": ["React", "MongoDB", "Serveur WebSocket", "Serveur Proxy", "AWS", "Redis", "Gestion de Projet"]
       }
     ]
   },
@@ -376,7 +404,7 @@
         "description": "Serveur MCP (Model Context Protocol) qui permet à un LLM de générer des meubles comme un conseiller humain à partir de texte ou croquis d'un client.",
         "stats": [
           { "label": "IA x tools", "value": "MCP", "sub": "(Model Context Protocol)" },
-          { "label": "Sécurité", "value": "Tokens - IP", "sub": "rate-limit & origin" },
+          { "label": "Sécurité", "value": "3 Couches", "sub": "Turnstile & Thumbmark" },
           { "label": "Production", "value": "Clients", "sub": "interface sécurisée" }
         ]
       },
@@ -410,31 +438,41 @@
           ]
         },
         "code": {
-          "title": "Exemple d'outil MCP"
+          "title": "Exemple d'outil MCP",
+          "notes": {
+            "description": {
+              "label": "Description",
+              "body": "Important : explique l'utilité du tool, son comportement, et quand l'IA doit l'appeler."
+            },
+            "inputSchema": {
+              "label": "Input Schema",
+              "body": "Définis clairement chaque paramètre, leurs contraintes et leurs valeurs par défaut pour éviter les erreurs."
+            }
+          }
         },
         "security": {
           "title": "Sécurité en production",
           "description": "Système de sécurité multi-couches pour protéger l'accès aux outils MCP et contrôler les coûts d'utilisation de l'IA.",
           "cards": [
             {
-              "icon": "lock",
-              "title": "Tokens signés",
-              "description": "Avec une clé secrète, token lié aux IP/clients pour suivre l’usage et couper à la volée."
-            },
-            {
               "icon": "shield",
-              "title": "Rate limiting",
-              "description": "Contrôle strict des coûts API IA via quotas par utilisateur par heure."
+              "title": "Anti-Bot",
+              "description": "Cloudflare Turnstile bloque les bots et scripts malveillants avant même qu'ils n'atteignent l'API."
             },
             {
-              "icon": "globe",
-              "title": "Origin check",
-              "description": "Seul le domaine officiel peut appeler les endpoints sensibles."
+              "icon": "lock",
+              "title": "Fingerprinting",
+              "description": "Identification unique des visiteurs via ThumbmarkJS (sans cookies) pour suivre l'usage réel."
             },
             {
               "icon": "zap",
+              "title": "Rate limiting",
+              "description": "Contrôle strict des coûts : quotas horaires basés sur l'empreinte navigateur et l'IP."
+            },
+            {
+              "icon": "globe",
               "title": "APIs cloisonnées",
-              "description": "Récupération de tokens et appels IA uniquement côté serveur."
+              "description": "Les appels aux LLM (Claude, GPT, Gemini...) se font uniquement côté serveur, clés masquées."
             }
           ]
         },
@@ -444,7 +482,7 @@
             "Génération de meubles depuis texte ou croquis client.",
             "Visualisation 3D en temps réel dans l’interface de chat.",
             "Package Svelte avec handlers pour setup l'API facilement + Composant headless pour la gestion du chat.",
-            "Sécurité multi-couches pour les appels API IA.",
+            "Sécurité 3 couches : Anti-bot, Fingerprinting et Quotas.",
             "Support multi-models (GPT, Claude, Gemini) via même protocole en utilisant OpenRouter."
           ]
         },
@@ -452,9 +490,9 @@
           "title": "Technologies",
           "items": [
             "Core — TypeScript, Node, MCP",
-            "Frontend — Svelte, Viewer 3D",
-            "IA — ChatGPT SDK, Claude",
-            "Sécurité — Tokens, Rate-limit, Origin check"
+            "Frontend — Svelte, Astro, Viewer 3D",
+            "IA — ChatGPT SDK, Claude, Gemini",
+            "Sécurité — Turnstile, Thumbmark, Rate-limit"
           ]
         },
         "impact": {
@@ -465,7 +503,7 @@
           ],
           "learnings": [
             "Traduire des workflows meubles en outils IA compréhensibles.",
-            "Concevoir un plan de sécurité multi-couches pour l’IA.",
+            "Concevoir un plan de sécurité 3 couches (Bot, ID, Quota).",
             "Livrer des packages réutilisables plutôt qu’un monolithe.",
             "Déploiement sur un serveur avec Docker.",
             "Piloter un déploiement production utilisé par des clients finaux."
@@ -477,42 +515,41 @@
         },
         "security_flow": {
           "title": "Architecture sécurisée",
-          "subtitle": "Vérification d'origine, tokens HMAC, liaison IP/session & rate limiting strict",
+          "subtitle": "Protection en 3 couches pour garantir un usage légitime",
           "steps": [
             {
-              "title": "1. Génération de token",
-              "description": "L'utilisateur accède à la page de chat & génère/renouvelle un token.",
-              "code": ["Service privé de token", "→ Signature HMAC-SHA256", "→ Lié à session + IP"],
-              "badge": "Sécurisé HMAC/clé privée"
+              "title": "1. Anti-Bot (Turnstile)",
+              "description": "Le widget Cloudflare valide que l'utilisateur est humain.",
+              "code": ["Challenge invisible", "→ Token éphémère (5min)", "→ Validation serveur"],
+              "badge": "Couche 1 : Accès"
             },
             {
-              "title": "2. Validation du token",
-              "description": "Chaque requête est validée",
-              "code": ["Vérifier Origin/Referer","Vérifier signature HMAC", "Contrôler IP + session", "Valider expiration"],
-              "badge": "Validation stricte"
+              "title": "2. Identification (Thumbmark)",
+              "description": "Génération d'une empreinte navigateur unique.",
+              "code": ["Hash matériel (Canvas, Audio...)", "→ VisitorID stable", "→ Sans cookies tiers"],
+              "badge": "Couche 2 : Identité"
             },
             {
-              "title": "3. Limitation de débit",
-              "description": "Prévenir les abus et la surutilisation",
-              "code": ["token expire en 30min", "10 req/session/min", "5 sessions/IP/heure"],
-              "badge": "Limites dures"
+              "title": "3. Rate Limiting",
+              "description": "Application des quotas sur l'API Chat.",
+              "code": ["Clé : VisitorID + IP", "Quota : 10 req/heure", "Réponse 429 si dépassement"],
+              "badge": "Couche 3 : Quotas"
             }
           ],
           "flow": {
             "steps": [
-              { "label": "Requête utilisateur", "sublabel": "Depuis la page de chat" },
-              { "label": "Vérification token", "sublabel": "Validation HMAC + IP" },
-              { "label": "Limite de débit", "sublabel": "Vérifier quota d'usage" },
-              { "label": "API sécurisée", "sublabel": "Appel de chat/outils" }
+              { "label": "Requête utilisateur", "sublabel": "Message chat" },
+              { "label": "Check Humain", "sublabel": "Token Turnstile" },
+              { "label": "Check Quota", "sublabel": "Compteur VisitorID" },
+              { "label": "API IA", "sublabel": "Streaming réponse" }
             ]
           },
           "endpoints": {
             "title": "Endpoints protégés",
             "list": [
-              { "method": "POST", "path": "/api/chat", "desc": "Envoyer un message à l'IA et obtenir une réponse" },
-              { "method": "GET", "path": "/api/tools", "desc": "Lister les outils disponibles" },
-              { "method": "POST", "path": "/api/tool-call", "desc": "Exécuter un outil MCP" },
-              { "method": "PRIVÉ", "path": "Service interne de token", "desc": "Token HMAC émis côté serveur" }
+              { "method": "POST", "path": "/iapi/ary-chat/chat", "desc": "Message IA (Protégé par les 3 couches)" },
+              { "method": "GET", "path": "/iapi/ary-chat/tools", "desc": "Liste outils (Protégé par Turnstile uniquement)" },
+              { "method": "PRIVÉ", "path": "Clés API", "desc": "Stockées serveur, jamais exposées" }
             ]
           }
         },
@@ -527,16 +564,18 @@
           ],
           "steps": [
             { "label": "Demande meuble", "code": "\"Je voudrais un meuble de 120cm...\"" },
-            { "label": "POST /api/chat", "code": "Transmission de la demande" },
-            { "label": "*/mcp", "code": "Connexion au serveur MCP : récupération des tools, resources, templates..." },
-            { "label": "Connexion établie - envoie les tools, resources...", "code": "[\"create-project\", \"update-column-structure\", ...]" },
+            { "label": "POST /chat", "code": "Transmission de la demande" },
+            { "label": "Connexion MCP", "code": "Récupération des tools, resources, templates..." },
+            { "label": "Outils & Ressources", "code": "[\"create-project\", \"update-columns\", \"finish-project\"...]" },
             { "label": "create-project", "code": "{ \"name\": \"Cabinet\", \"type\": \"cabinet\", \"dimensions\": {...} }" },
             { "label": "Project ID", "code": "{ \"projectId\": \"proj_abc123\" }" },
             { "label": "update-column-structure", "code": "{ \"projectId\": \"...\", \"structure\": { \"columns\": [...] } }" },
             { "label": "Confirmation", "code": "{ \"success\": true }" },
-            { "label": "get-viewer-url", "code": "{ \"projectId\": \"proj_abc123\" }" },
-            { "label": "Viewer URL", "code": "{ \"url\": \"https://...\" }" },
-            { "label": "Affichage 3D", "code": "<ViewerComponent />" },
+            { "label": "finish-project", "code": "{ \"projectId\": \"proj_abc123\" }" },
+            { "label": "Download ID", "code": "{ \"downloadId\": \"...\" }" },
+            { "label": "Download ID", "code": "Récupère l'ID de téléchargement du projet en cache" },
+            { "label": "Download depuis le cache", "code": "GET /download-project/:id" },
+            { "label": "Visualisation 3D", "code": "<ProjectViewer />" },
             { "label": "Meuble visualisé", "code": "✓ Rendu final" }
           ]
         }
@@ -954,6 +993,33 @@
             }
           }
         },
+        "deployment": {
+          "title": "Déploiement Cloud & Redis",
+          "subtitle": "Mise à jour 2026 - Scalabilité",
+          "tag": "Architecture v2",
+          "paragraphs": [
+            "Un an après le rendu du projet, nous sommes revenus sur le code pour le passer en production réelle. Fini le localhost, place au Cloud.",
+            "L'objectif principal était la scalabilité : transformer un serveur Node.js monolithique en une architecture stateless capable de monter en charge. Pour cela, nous avons intégré Redis qui gère désormais tout l'état du jeu (lobbies, joueurs, scores) et la synchronisation via Pub/Sub.",
+            "Le tout est conteneurisé avec Docker et déployé sur AWS (Lightsail pour les WebSockets, App Runner pour l'API) via des scripts PowerShell automatisés."
+          ],
+          "cards": [
+             {
+              "icon": "cloud",
+              "title": "AWS Lightsail",
+              "description": "Hébergement des conteneurs WebSocket avec support des connexions persistantes longue durée."
+            },
+            {
+              "icon": "database",
+              "title": "Redis Store",
+              "description": "Centralisation de l'état du jeu. Permet à n'importe quel conteneur de traiter les messages de n'importe quel joueur."
+            },
+             {
+              "icon": "lock",
+              "title": "Sécurité & Env",
+              "description": "Sortie des secrets du code, passage en variables d'environnement injectées au runtime."
+            }
+          ]
+        },
         "features": {
           "title": "Fonctionnalités",
           "list": [
@@ -988,6 +1054,10 @@
             {
               "label": "Solveur Python (R&D)",
               "items": ["Python", "asyncio + aiohttp", "Motor (MongoDB)"]
+            },
+            {
+              "label": "DevOps",
+              "items": ["Docker", "AWS Lightsail", "AWS App Runner", "Redis", "PowerShell"]
             }
           ]
         },

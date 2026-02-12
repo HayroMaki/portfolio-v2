@@ -95,7 +95,7 @@
 	</section>
 
 	<section class="py-24 bg-ink text-paper">
-		<div class="mx-auto max-w-6xl px-6 space-y-12">
+		<div class="mx-auto max-w-6xl px-6 space-y-12 overflow-visible">
 			<div class="flex items-center gap-4">
 				<div class="kanji-tag bg-ink border-paper text-paper">{sections.architecture.tag}</div>
 				<p class="font-mono text-xs uppercase tracking-[0.4em] text-paper/70">{sections.architecture.subtitle}</p>
@@ -115,7 +115,7 @@
 			</div>
 
 			<!-- Code Example -->
-			<div class="manga-panel border-paper bg-black/30 p-6">
+			<div class="manga-panel border-paper bg-black/30 p-6 overflow-visible">
 				<div class="flex flex-wrap items-center gap-3 justify-between">
 					<div class="flex items-center gap-3">
 						<Code size={20} />
@@ -134,7 +134,8 @@
 					</button>
 				</div>
 				{#if codeExpanded}
-					<pre class="font-mono mt-4 text-xs text-paper/90 overflow-x-auto p-4 bg-black/40 border border-paper/30"><code>
+					<div class="relative mt-4 overflow-visible">
+						<pre class="font-mono text-xs text-paper/90 overflow-x-auto p-4 bg-black/40 border border-paper/30"><code>
 {`
 	server.registerTool(
         "create-project",
@@ -175,10 +176,15 @@
                 
                 // Staircase-specific dimensions
                 staircase: z.object({
-                    bottom_platform_height_mm: z.number().nonnegative().optional().describe("Height of empty space UNDER the first step (creates a raised base platform) - stairs only"),
-                    top_platform_extension_mm: z.number().nonnegative().optional().describe("Extra depth added to the TOP-MOST step to create a larger landing platform - stairs only"),
-                    bottom_platform_extension_mm: z.number().nonnegative().optional().describe("Extra depth added to the BOTTOM-MOST step to create a larger entry platform - stairs only"),
-                }).optional().describe("Platform/offset parameters for stairs (does NOT control step count or individual step sizes - those are automatic)"),
+                    mirror: z.boolean().optional().default(false).describe("Mirror stairs - stairs only"),
+                    bottom_platform_height_mm: z.number().nonnegative().optional().describe(
+						"Height of empty space UNDER the first step (creates a raised base platform) - stairs only"),
+                    top_platform_extension_mm: z.number().nonnegative().optional().describe(
+						"Extra depth added to the TOP-MOST step to create a larger landing platform - stairs only"),
+                    bottom_platform_extension_mm: z.number().nonnegative().optional().describe(
+						"Extra depth added to the BOTTOM-MOST step to create a larger entry platform - stairs only"),
+                }).optional().describe(
+					"Platform/offset parameters for stairs (does NOT control step count or individual step sizes - those are automatic)"),
                 
                 // Back option
                 backOption: z.enum(["no-back", "hdf-back", "hard-back"]).optional().describe("Back panel type (optional)"),
@@ -213,7 +219,38 @@
         }
     );`
 }
-					</code></pre>
+						</code></pre>
+
+						<div aria-hidden="true" class="pointer-events-none absolute left-[6rem] right-[2rem] top-[7rem] h-[16rem] border border-accent/40 bg-accent/15 shadow-[8px_8px_0_theme(colors.accent/25)]"></div>
+						<!-- Desktop annotation: description block -->
+						<div class="z-20 pointer-events-none absolute -right-[10rem] top-[4rem] hidden max-w-xs flex-col gap-2 lg:flex">
+							<div class="bg-paper text-ink border-2 border-paper px-4 py-3 shadow-[4px_4px_0_theme(colors.paper)]">
+								<p class="font-mono text-[0.65rem] uppercase tracking-[0.35em] text-ink/70">{sections.code.notes.description.label}</p>
+								<p class="font-mono text-xs leading-relaxed">{sections.code.notes.description.body}</p>
+							</div>
+						</div>
+
+						<div aria-hidden="true" class="pointer-events-none absolute left-[6rem] right-[2rem] top-[28rem] h-[47rem] border border-accent/40 bg-accent/15 shadow-[8px_8px_0_theme(colors.accent/25)]"></div>
+						<!-- Desktop annotation: input schema block -->
+						<div class="pointer-events-none absolute -right-[10rem] top-[25rem] hidden max-w-xs flex-col gap-2 lg:flex">
+							<div class="bg-paper text-ink border-2 border-paper px-4 py-3 shadow-[4px_4px_0_theme(colors.paper)]">
+								<p class="font-mono text-[0.65rem] uppercase tracking-[0.35em] text-ink/70">{sections.code.notes.inputSchema.label}</p>
+								<p class="font-mono text-xs leading-relaxed">{sections.code.notes.inputSchema.body}</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Mobile annotations fallback -->
+					<div class="mt-6 space-y-4 lg:hidden">
+						<div class="bg-paper text-ink border-2 border-paper px-4 py-3">
+							<p class="font-mono text-[0.65rem] uppercase tracking-[0.35em] text-ink/70">{sections.code.notes.description.label}</p>
+							<p class="font-mono text-xs leading-relaxed">{sections.code.notes.description.body}</p>
+						</div>
+						<div class="bg-paper text-ink border-2 border-paper px-4 py-3">
+							<p class="font-mono text-[0.65rem] uppercase tracking-[0.35em] text-ink/70">{sections.code.notes.inputSchema.label}</p>
+							<p class="font-mono text-xs leading-relaxed">{sections.code.notes.inputSchema.body}</p>
+						</div>
+					</div>
 				{/if}
 			</div>
 		</div>

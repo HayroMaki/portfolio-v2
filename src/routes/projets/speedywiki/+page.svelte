@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { ArrowLeft, Zap, Users, GitBranch, Globe, MessageSquare, Wifi, Server, Package, Code, Sparkles } from 'lucide-svelte';
+	import { ArrowLeft, Zap, Users, GitBranch, Globe, MessageSquare, Wifi, Server, Package, Code, Sparkles, Cloud, Database, Lock } from 'lucide-svelte';
 	import { locale } from '$lib/stores/locale';
 	import { getTranslations } from '$lib/i18n';
 	import SequenceDiagram from '$lib/components/projects/SequenceDiagram.svelte';
@@ -12,7 +12,10 @@
 		globe: Globe,
 		git_branch: GitBranch,
 		wifi: Wifi,
-		server: Server
+		server: Server,
+		cloud: Cloud,
+		database: Database,
+		lock: Lock
 	} as const;
 
 	const t = $derived(getTranslations($locale));
@@ -26,6 +29,13 @@
 			const Component = iconMap[card.icon as keyof typeof iconMap] ?? MessageSquare;
 			return { ...card, Component };
 		})
+	);
+
+	const deploymentCards = $derived(
+		sections.deployment?.cards.map((card) => {
+			const Component = iconMap[card.icon as keyof typeof iconMap] ?? MessageSquare;
+			return { ...card, Component };
+		}) ?? []
 	);
 
 	let graphControls = $state<LabyrinthControls | null>(null);
@@ -397,6 +407,42 @@
 						{/each}
 					</ul>
 					<p class="mt-6 font-mono text-xs text-ink/60 text-center italic">{sections.solver.footnote}</p>
+				</div>
+			</div>
+		</section>
+	{/if}
+
+	{#if sections.deployment}
+		<section class="border-b-2 border-dashed border-ink py-24 bg-ink/5">
+			<div class="mx-auto max-w-6xl px-6 space-y-12">
+				<div class="flex items-center gap-4">
+					<div class="kanji-tag bg-ink border-paper text-paper">{sections.deployment.tag}</div>
+					<div class="space-y-1">
+						<h2 class="text-3xl font-display uppercase tracking-[0.2em]">{sections.deployment.title}</h2>
+						<p class="font-mono text-xs uppercase tracking-[0.4em] text-ink/60">{sections.deployment.subtitle}</p>
+					</div>
+				</div>
+
+				<div class="grid gap-12 lg:grid-cols-2">
+					<div class="space-y-6">
+						{#each sections.deployment.paragraphs as paragraph}
+							<p class="font-mono text-sm leading-relaxed text-ink/80">{paragraph}</p>
+						{/each}
+					</div>
+
+					<div class="grid gap-6">
+						{#each deploymentCards as card}
+							<div class="manga-panel p-6 bg-paper border-2 border-ink hover:translate-x-1 hover:-translate-y-1 transition-transform">
+								<div class="flex items-center gap-4 mb-3">
+									<div class="w-10 h-10 border-2 border-ink flex items-center justify-center bg-ink text-paper">
+										<card.Component size={20} />
+									</div>
+									<h3 class="font-display text-lg uppercase tracking-[0.1em]">{card.title}</h3>
+								</div>
+								<p class="font-mono text-xs text-ink/70 leading-relaxed pl-[3.5rem]">{card.description}</p>
+							</div>
+						{/each}
+					</div>
 				</div>
 			</div>
 		</section>

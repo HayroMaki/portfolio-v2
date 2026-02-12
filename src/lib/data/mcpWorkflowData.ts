@@ -34,6 +34,8 @@ const stepFlow = [
 	{ from: 'ai', to: 'mcp' },
 	{ from: 'mcp', to: 'ai' },
 	{ from: 'ai', to: 'site' },
+	{ from: 'site', to: 'mcp' },
+	{ from: 'mcp', to: 'site' },
 	{ from: 'site', to: 'client' }
 ];
 

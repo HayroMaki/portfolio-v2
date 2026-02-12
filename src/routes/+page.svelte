@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ArrowRight, PenTool, Sparkles, Zap, BookHeart } from 'lucide-svelte';
+	import { ArrowRight, PenTool, Sparkles, Zap, BookHeart, Filter, ChevronDown, ChevronUp } from 'lucide-svelte';
 	import { onMount } from 'svelte';
 	import { locale } from '$lib/stores/locale';
 	import TimelineSection from '$lib/components/home/TimelineSection.svelte';
@@ -25,14 +25,94 @@
 
 	const SHOW_JOURNAL = false;
 
+	// Archive state management
+	let archiveExpanded = $state(false);
+	let activeFilter = $state<'all' | 'pro' | 'uni' | 'perso'>('all');
 
 	const projectsData = [
-		{ href: '/projets/mcp', featured: true, color: '#4a90e2', icon: '🤖' },
-		{ href: '/projets/configurateurs', featured: true, color: '#e67e22', icon: '🪑' },
-		{ href: '/projets/codec', featured: false, color: '#607d8b', icon: '💾' },
-		{ href: '/projets/travia', featured: false, color: '#9b59b6', icon: '🌌' },
-		{ href: '/projets/speedywiki', featured: false, color: '#27ae60', icon: '⚡' }
+		{ 
+			id: 'mcp',
+			href: '/projets/mcp', 
+			featured: true, 
+			color: '#4a90e2',
+			year: '2025 - 2026',
+			teamSize: 1,
+			duration: 4,
+			techCount: 4,
+			type: 'pro',
+			visualPattern: 'circuit'
+		},
+		{ 
+			id: 'configurateurs',
+			href: '/projets/configurateurs', 
+			featured: false, 
+			color: '#e67e22',
+			year: '2025',
+			teamSize: 1,
+			duration: 3,
+			techCount: 4,
+			type: 'pro',
+			visualPattern: 'grid'
+		},
+		{ 
+			id: 'codec',
+			href: '/projets/codec', 
+			featured: true, 
+			color: '#607d8b',
+			year: '2025',
+			teamSize: 1,
+			duration: 1,
+			techCount: 2,
+			type: 'uni',
+			visualPattern: 'pixels'
+		},
+		{ 
+			id: 'travia',
+			href: '/projets/travia', 
+			featured: false, 
+			color: '#9b59b6',
+			year: '2024',
+			teamSize: 4,
+			duration: 6,
+			techCount: 5,
+			type: 'uni',
+			visualPattern: 'stars'
+		},
+		{ 
+			id: 'speedywiki',
+			href: '/projets/speedywiki', 
+			featured: false, 
+			color: '#27ae60',
+			year: '2025',
+			teamSize: 4,
+			duration: 3,
+			techCount: 4,
+			type: 'uni',
+			visualPattern: 'waves'
+		}
 	];
+
+	function monthsToText(months: number) {
+		if (months > 12) {
+			const years = Math.floor(months / 12);
+			if (years > 1) {
+				return `${years} ${t('projects.ys')}`;
+			}
+			return `${years} ${t('projects.y')}`;
+		} else if (months > 1) {
+			return `${months} ${t('projects.ms')}`;
+		}
+		return `${months} ${t('projects.m')}`;
+	}
+
+	// Derived project lists (must be after projectsData definition)
+	const featuredProjects = $derived(projectsData.filter(p => p.featured));
+	const archiveProjects = $derived(projectsData.filter(p => !p.featured));
+	const filteredArchive = $derived(
+		activeFilter === 'all' 
+			? archiveProjects 
+			: archiveProjects.filter(p => p.type === activeFilter)
+	);
 
 	let konamiCode = $state<string[]>([]);
 	let easterEggActivated = $state(false);
@@ -400,7 +480,8 @@
 		bind:this={projectsSection}
 	>
 		<div class="absolute inset-x-6 top-12 bottom-12 border-2 border-ink/70 pointer-events-none"></div>
-		<div class="container relative z-10 mx-auto max-w-6xl px-6 space-y-12">
+		<div class="container relative z-10 mx-auto max-w-6xl px-6 space-y-16">
+			<!-- Header -->
 			<div class="text-center space-y-4">
 				<div 
 					class="inline-flex px-4 py-2 border-2 border-ink uppercase font-mono tracking-[0.4em] transition-all duration-700 ease-out"
@@ -424,55 +505,222 @@
 				>{t('projects.description')}</p>
 			</div>
 
-			<div class="grid gap-8 md:grid-cols-2">
-				{#each projectsData as projectData, i}
-					<a
-						href={projectData.href}
-						class={`manga-panel group block overflow-hidden transition-all duration-700 ease-out hover:-translate-y-2 hover:shadow-divider ${
-							projectData.featured ? 'md:col-span-2 lg:col-span-1' : ''
-						}`}
-						class:opacity-0={!$projectsVisible}
-						class:translate-x-16={!$projectsVisible && i % 2 === 0}
-						class:-translate-x-16={!$projectsVisible && i % 2 === 1}
-						style="transition-delay: {300 + i * 150}ms"
-					>
-						<!-- Visual Thumbnail -->
-						<div class="relative h-48 overflow-hidden border-b-2 border-ink">
-							<div 
-								class="absolute inset-0 transition-transform duration-500 group-hover:scale-110"
-								style="background: linear-gradient(135deg, {projectData.color}22 0%, {projectData.color}44 100%)"
-							>
-								<div class="absolute inset-0 bg-[radial-gradient(circle_at_1px,rgba(0,0,0,0.15)_1px,transparent_0)] bg-[length:20px_20px]"></div>
-								<div class="absolute inset-0 flex items-center justify-center text-8xl opacity-30 group-hover:opacity-40 transition-opacity">
-									{projectData.icon}
+			<!-- Featured Projects Section -->
+			<div class="space-y-8">
+				<div 
+					class="flex items-center gap-4 transition-all duration-700 ease-out delay-300"
+					class:opacity-0={!$projectsVisible}
+					class:-translate-x-8={!$projectsVisible}
+				>
+					<div class="h-px flex-1 bg-ink/30"></div>
+					<div class="text-center">
+						<h3 class="text-2xl font-display uppercase tracking-[0.3em]">{t('projects.featured_section.title')}</h3>
+						<p class="mt-1 text-xs font-mono uppercase tracking-[0.4em] text-ink/60">{t('projects.featured_section.subtitle')}</p>
+					</div>
+					<div class="h-px flex-1 bg-ink/30"></div>
+				</div>
+
+				<!-- Featured Projects Grid -->
+				<div class="grid gap-8 lg:grid-cols-2">
+					{#each featuredProjects as project, i}
+						{@const projectIndex = projectsData.findIndex(p => p.id === project.id)}
+						<a
+							href={project.href}
+							class="manga-panel group block overflow-hidden transition-all duration-700 ease-out hover:-translate-y-2 hover:shadow-divider"
+							class:opacity-0={!$projectsVisible}
+							class:translate-y-16={!$projectsVisible}
+							style="transition-delay: {400 + i * 150}ms"
+						>
+							<!-- Hero Visual with Abstract Pattern -->
+							<div class="relative h-64 overflow-hidden border-b-2 border-ink">
+								<!-- Background gradient -->
+								<div 
+									class="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
+									style="background: linear-gradient(135deg, {project.color}15 0%, {project.color}35 100%)"
+								>
+								</div>
+
+								<!-- Project metadata strip -->
+								<div class="absolute top-4 left-4 right-4 flex items-start justify-between gap-4">
+									<span class="px-3 py-1 bg-ink text-paper border border-ink font-mono text-xs uppercase tracking-[0.4em]">
+										{t('projects.metadata.type_' + project.type)}
+									</span>
+									<span class="px-3 py-1 bg-paper border border-ink font-mono text-xs uppercase tracking-[0.4em]">
+										{project.year}
+									</span>
+								</div>
+
+								<!-- Punch-card style metadata at bottom -->
+								<div class="absolute bottom-4 left-4 right-4 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.3em]">
+									<div class="px-2 py-1 bg-paper/90 border border-ink backdrop-blur-sm">
+										<span class="text-ink/60">{t('projects.metadata.team')}</span>
+										<span class="ml-2 font-bold">{project.teamSize === 1 ? t('projects.metadata.team_single') : project.teamSize}</span>
+									</div>
+									<div class="px-2 py-1 bg-paper/90 border border-ink backdrop-blur-sm">
+										<span class="text-ink/60">{t('projects.metadata.duration')}</span>
+										<span class="ml-2 font-bold">{monthsToText(project.duration)}</span>
+									</div>
+									<div class="px-2 py-1 bg-paper/90 border border-ink backdrop-blur-sm">
+										<span class="text-ink/60">{t('projects.metadata.tech_count')}</span>
+										<span class="ml-2 font-bold">{project.techCount}</span>
+									</div>
 								</div>
 							</div>
-							<div class="absolute top-4 left-4 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.4em]">
-								<span class="px-3 py-1 bg-paper border border-ink">project {i + 1}</span>
-								{#if projectData.featured}
-									<span class="px-3 py-1 border border-ink bg-ink text-paper">{t('projects.featured')}</span>
-								{/if}
+							
+							<!-- Content -->
+							<div class="p-8 space-y-4">
+								<h3 class="text-3xl font-display uppercase tracking-[0.2em] group-hover:text-accent transition-colors">
+									{t('projects.list.' + projectIndex + '.title')}
+								</h3>
+								<p class="font-mono text-sm text-ink/80 leading-relaxed">
+									{t('projects.list.' + projectIndex + '.description')}
+								</p>
+								<div class="flex flex-wrap gap-2">
+									{#each t('projects.list.' + projectIndex + '.tags') as tag}
+										<span class="px-3 py-1 border border-dashed border-ink text-xs font-mono uppercase tracking-[0.3em] hover:bg-ink hover:text-paper transition-colors">
+											{tag}
+										</span>
+									{/each}
+								</div>
+								<div class="pt-2 inline-flex items-center gap-3 border-b-2 border-ink text-sm font-mono uppercase tracking-[0.4em] group-hover:gap-5 transition-all">
+									{t('projects.cta')}
+									<ArrowRight size={16} class="group-hover:translate-x-1 transition-transform" />
+								</div>
 							</div>
+						</a>
+					{/each}
+				</div>
+			</div>
+
+			<!-- Archive Section -->
+			<div class="space-y-6">
+				<div 
+					class="flex items-center gap-4 transition-all duration-700 ease-out delay-600"
+					class:opacity-0={!$projectsVisible}
+					class:translate-x-8={!$projectsVisible}
+				>
+					<div class="h-px flex-1 bg-ink/30"></div>
+					<div class="text-center">
+						<h3 class="text-2xl font-display uppercase tracking-[0.3em]">{t('projects.archive_section.title')}</h3>
+						<p class="mt-1 text-xs font-mono uppercase tracking-[0.4em] text-ink/60">{t('projects.archive_section.subtitle')}</p>
+					</div>
+					<div class="h-px flex-1 bg-ink/30"></div>
+				</div>
+
+				<!-- Filter chips -->
+				<div 
+					class="flex items-center justify-center gap-3 transition-all duration-700 ease-out delay-700"
+					class:opacity-0={!$projectsVisible}
+					class:translate-y-8={!$projectsVisible}
+				>
+					<Filter size={16} class="text-ink/60" />
+					<button
+						onclick={() => activeFilter = 'all'}
+						class="px-4 py-2 border-2 font-mono text-xs uppercase tracking-[0.3em] transition-all hover:border-ink {activeFilter === 'all' ? 'border-ink bg-ink text-paper' : 'border-ink/30'}"
+					>
+						{t('projects.archive_section.filter_all')}
+					</button>
+					<button
+						onclick={() => activeFilter = 'pro'}
+						class="px-4 py-2 border-2 font-mono text-xs uppercase tracking-[0.3em] transition-all hover:border-ink {activeFilter === 'pro' ? 'border-ink bg-ink text-paper' : 'border-ink/30'}"
+					>
+						{t('projects.archive_section.filter_pro')}
+					</button>
+					<button
+						onclick={() => activeFilter = 'uni'}
+						class="px-4 py-2 border-2 font-mono text-xs uppercase tracking-[0.3em] transition-all hover:border-ink {activeFilter === 'uni' ? 'border-ink bg-ink text-paper' : 'border-ink/30'}"
+					>
+						{t('projects.archive_section.filter_uni')}
+					</button>
+					{#if projectsData.some(p => p.type === 'perso')}
+						<button
+							onclick={() => activeFilter = 'perso'}
+							class="px-4 py-2 border-2 font-mono text-xs uppercase tracking-[0.3em] transition-all hover:border-ink {activeFilter === 'perso' ? 'border-ink bg-ink text-paper' : 'border-ink/30'}"
+						>
+							{t('projects.archive_section.filter_perso')}
+						</button>
+					{/if}
+				</div>
+
+				<!-- Archive list -->
+				<div 
+					class="space-y-6 transition-all duration-700 ease-out delay-800"
+					class:opacity-0={!$projectsVisible}
+					class:translate-y-16={!$projectsVisible}
+				>
+					{#each filteredArchive as project, i}
+						{@const projectIndex = projectsData.findIndex(p => p.id === project.id)}
+						<a
+							href={project.href}
+							class="manga-panel group block overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-divider"
+						>
+							<!-- Content -->
+							<div class="p-6">
+								<!-- Header with title and metadata badges -->
+								<div class="flex items-start justify-between gap-4 mb-4">
+									<div class="flex-1">
+										<h3 class="text-2xl font-display uppercase tracking-[0.2em] group-hover:text-accent transition-colors">
+											{t('projects.list.' + projectIndex + '.title')}
+										</h3>
+									</div>
+									<div class="flex items-center gap-2">
+										<span class="px-3 py-1 bg-ink text-paper border border-ink font-mono text-xs uppercase tracking-[0.4em]">
+											{t('projects.metadata.type_' + project.type)}
+										</span>
+										<span class="px-3 py-1 bg-paper border border-ink font-mono text-xs uppercase tracking-[0.4em]">
+											{project.year}
+										</span>
+									</div>
+								</div>
+
+								<!-- Description -->
+								<p class="font-mono text-sm text-ink/80 leading-relaxed mb-4">
+									{t('projects.list.' + projectIndex + '.description')}
+								</p>
+
+								<!-- Metadata strip -->
+								<div class="flex flex-wrap items-center gap-3 mb-4 font-mono text-xs">
+									<div class="px-2 py-1 bg-paper border border-ink/30">
+										<span class="text-ink/60">{t('projects.metadata.team')}</span>
+										<span class="ml-2 font-bold">{project.teamSize === 1 ? t('projects.metadata.team_single') : project.teamSize}</span>
+									</div>
+									<div class="px-2 py-1 bg-paper border border-ink/30">
+										<span class="text-ink/60">{t('projects.metadata.duration')}</span>
+										<span class="ml-2 font-bold">{monthsToText(project.duration)}</span>
+									</div>
+									<div class="px-2 py-1 bg-paper border border-ink/30">
+										<span class="text-ink/60">{t('projects.metadata.tech_count')}</span>
+										<span class="ml-2 font-bold">{project.techCount}</span>
+									</div>
+								</div>
+
+								<!-- Tech tags -->
+								<div class="flex flex-wrap gap-2">
+									{#each t('projects.list.' + projectIndex + '.tags') as tag}
+										<span class="px-2 py-1 border border-dashed border-ink/40 text-xs font-mono uppercase tracking-[0.2em] hover:bg-ink hover:text-paper transition-colors">
+											{tag}
+										</span>
+									{/each}
+								</div>
+
+								<!-- CTA -->
+								<div class="mt-4 inline-flex items-center gap-3 border-b-2 border-ink text-xs font-mono uppercase tracking-[0.4em] group-hover:gap-5 transition-all">
+									{t('projects.cta')}
+									<ArrowRight size={14} class="group-hover:translate-x-1 transition-transform" />
+								</div>
+							</div>
+						</a>
+					{/each}
+
+					<!-- Empty state -->
+					{#if filteredArchive.length === 0}
+						<div class="p-12 text-center">
+							<p class="font-mono text-sm text-ink/60 uppercase tracking-[0.3em]">
+								{t('misc.empty_list')}
+							</p>
 						</div>
-						
-						<!-- Content -->
-						<div class="p-8">
-							<h3 class="text-3xl font-display uppercase tracking-[0.2em] group-hover:text-accent transition-colors">{t('projects.list.' + i + '.title')}</h3>
-							<p class="mt-3 font-mono text-sm text-ink/80 leading-relaxed">{t('projects.list.' + i + '.description')}</p>
-							<div class="mt-5 flex flex-wrap gap-2">
-								{#each t('projects.list.' + i + '.tags') as tag}
-									<span class="px-3 py-1 border border-dashed border-ink text-xs font-mono uppercase tracking-[0.3em] hover:bg-ink hover:text-paper transition-colors">
-										{tag}
-									</span>
-								{/each}
-							</div>
-							<div class="mt-6 inline-flex items-center gap-3 border-b-2 border-ink text-sm font-mono uppercase tracking-[0.4em] group-hover:gap-5 transition-all">
-								{t('projects.cta')}
-								<ArrowRight size={16} class="group-hover:translate-x-1 transition-transform" />
-							</div>
-						</div>
-					</a>
-				{/each}
+					{/if}
+				</div>
 			</div>
 		</div>
 	</section>
@@ -605,13 +853,6 @@
 		flex-shrink: 0;
 	}
 
-	@media (max-width: 767px) {
-		.timeline-spine,
-		.timeline-spine__glow {
-			display: none;
-		}
-	}
-
 	@keyframes marquee-slide {
 		from {
 			transform: translateX(0);
@@ -647,21 +888,6 @@
 		animation-duration: 26s;
 	}
 
-	.atelier-stamp {
-		position: absolute;
-		top: 2rem;
-		right: 3rem;
-		padding: 0.4rem 1rem;
-		border: 2px solid #000;
-		text-transform: uppercase;
-		font-size: 0.7rem;
-		font-family: var(--font-mono, 'Space Mono', monospace);
-		letter-spacing: 0.55em;
-		background: rgba(255, 255, 255, 0.8);
-		transform: rotate(-8deg);
-		box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.2);
-	}
-
 	.atelier-skills {
 		position: relative;
 		overflow: hidden;
@@ -673,144 +899,5 @@
 		inset: 1.25rem;
 		border: 1px dashed rgba(0, 0, 0, 0.2);
 		pointer-events: none;
-	}
-
-
-	.atelier-stack {
-		position: relative;
-		overflow: hidden;
-	}
-
-	.atelier-stack::before {
-		content: '';
-		position: absolute;
-		inset: 0;
-		background: linear-gradient(120deg, rgba(0, 0, 0, 0.04), transparent 60%);
-		opacity: 0;
-		transition: opacity 0.4s ease;
-	}
-
-	.atelier-stack[data-visible='true']::before {
-		opacity: 1;
-	}
-
-	.atelier-stack__grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-		gap: 1rem;
-	}
-
-	.atelier-stack-card {
-		display: inline-flex;
-		flex-direction: column;
-		gap: 0.4rem;
-		padding: 1.1rem;
-		border: 2px solid #000;
-		background: #fff;
-		box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
-		opacity: 0;
-		transform: translateY(12px) scale(0.96);
-	}
-
-	.atelier-stack-card--visible {
-		animation: card-rise 0.45s var(--card-delay, 0ms) cubic-bezier(0.2, 0.75, 0.25, 1.1) forwards;
-	}
-
-	@keyframes card-rise {
-		0% {
-			opacity: 0;
-			transform: translateY(12px) scale(0.9);
-		}
-		70% {
-			opacity: 1;
-			transform: translateY(-4px) scale(1.04);
-		}
-		100% {
-			opacity: 1;
-			transform: translateY(0) scale(1);
-		}
-	}
-
-	.atelier-journal {
-		background: repeating-linear-gradient(
-				transparent,
-				transparent 22px,
-				rgba(0, 0, 0, 0.04) 23px
-			),
-			#fff;
-		position: relative;
-	}
-
-	.atelier-journal::before {
-		content: '';
-		position: absolute;
-		top: 1.5rem;
-		bottom: 1.5rem;
-		left: 2.5rem;
-		width: 2px;
-		background: rgba(0, 0, 0, 0.2);
-		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) inset;
-	}
-
-	.atelier-journal__entries {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-	}
-
-	.atelier-journal__entry {
-		display: grid;
-		grid-template-columns: auto 1fr;
-		gap: 1.2rem;
-		font-family: var(--font-mono, 'Space Mono', monospace);
-	}
-
-	.atelier-journal__index {
-		width: 2.6rem;
-		height: 2.6rem;
-		border: 2px solid #000;
-		border-radius: 999px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		font-size: 0.8rem;
-		background: #fff;
-	}
-
-	.atelier-journal__meta {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-		font-size: 0.7rem;
-		text-transform: uppercase;
-		letter-spacing: 0.3em;
-		color: rgba(0, 0, 0, 0.6);
-	}
-
-	.atelier-journal__tag {
-		border: 1px solid #000;
-		padding: 0.2rem 0.6rem;
-	}
-
-	.atelier-journal__label {
-		font-size: 0.95rem;
-		text-transform: uppercase;
-		letter-spacing: 0.25em;
-	}
-
-	.atelier-journal__detail {
-		font-size: 0.8rem;
-		color: rgba(0, 0, 0, 0.75);
-		line-height: 1.6;
-		max-width: 48ch;
-	}
-
-	@keyframes blueprint-pan {
-		from {
-			transform: rotate(var(--initial-rotation, 0deg)) translateY(0);
-		}
-		to {
-			transform: rotate(var(--initial-rotation, 0deg)) translateY(60px);
-		}
 	}
 </style>

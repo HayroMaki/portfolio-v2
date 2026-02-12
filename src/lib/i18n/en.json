@@ -98,7 +98,7 @@
         },
         {
           "name": "Deployment",
-          "items": ["Docker", "Git"]
+          "items": ["Docker", "Git", "Cloudflare", "AWS"]
         }
       ]
     }
@@ -177,11 +177,39 @@
     "description": "A selection of my most significant achievements, from university projects to enterprise builds.",
     "featured": "Pro project",
     "cta": "View the project",
+    "m": "month",
+    "ms": "months",
+    "y": "year",
+    "ys": "years",
+    "featured_section": {
+      "title": "Active Exhibits",
+      "subtitle": "Currently in production or recently shipped"
+    },
+    "archive_section": {
+      "title": "Project Archive",
+      "subtitle": "University projects and past work",
+      "filter_all": "All",
+      "filter_pro": "Professional",
+      "filter_uni": "University",
+      "filter_perso": "Personal",
+      "expand": "Expand archive",
+      "collapse": "Collapse archive"
+    },
+    "metadata": {
+      "year": "Year",
+      "team": "Team",
+      "team_single": "Solo",
+      "duration": "Duration",
+      "tech_count": "Technos",
+      "type_pro": "Professional",
+      "type_uni": "University",
+      "type_perso": "Personal"
+    },
     "list": [
       {
         "title": "MCP Server",
         "description": "MCP server for AI-powered furniture creation for Dessine ton meuble/Aryga",
-        "tags": ["TypeScript", "MCP Server", "AI", "Docker", "Svelte Package"]
+        "tags": ["TypeScript", "MCP Server", "AI", "Docker", "Thumbmark", "Cloudflare Turnstile"]
       },
       {
         "title": "Easy Configurators",
@@ -201,7 +229,7 @@
       {
         "title": "SpeedyWiki",
         "description": "Real-time multiplayer Wikipedia speedrun game",
-        "tags": ["React", "MongoDB", "WebSocket Server", "Proxy Server", "Project Management"]
+        "tags": ["React", "MongoDB", "WebSocket Server", "Proxy Server", "AWS", "Redis", "Project Management"]
       }
     ]
   },
@@ -388,7 +416,7 @@
         "description": "MCP (Model Context Protocol) server letting an LLM craft furniture like a human advisor from client text or sketches.",
         "stats": [
           { "label": "AI x tools", "value": "MCP", "sub": "(Model Context Protocol)" },
-          { "label": "Security", "value": "Tokens - IP", "sub": "rate-limit & origin" },
+          { "label": "Security", "value": "3 Layers", "sub": "Turnstile & Thumbmark" },
           { "label": "Production", "value": "Clients", "sub": "secured interface" }
         ]
       },
@@ -422,16 +450,42 @@
           ]
         },
         "code": {
-          "title": "Example of MCP tool"
+          "title": "Example of MCP tool",
+          "notes": {
+            "description": {
+              "label": "Description",
+              "body": "Critical: spell out what the tool does, how it behaves, and when the AI should trigger it."
+            },
+            "inputSchema": {
+              "label": "Input Schema",
+              "body": "Define each parameter, constraints, and defaults precisely to prevent invalid calls."
+            }
+          }
         },
         "security": {
           "title": "Security in production",
           "description": "Multi-layer security system to protect MCP tools and control AI usage costs.",
           "cards": [
-            { "icon": "lock", "title": "Signed tokens", "description": "Secret key, token linked to IP/client to monitor usage and cut access instantly." },
-            { "icon": "shield", "title": "Rate limiting", "description": "Strict control of AI API cost with per-user quotas." },
-            { "icon": "globe", "title": "Origin check", "description": "Only the official domain can call sensitive endpoints." },
-            { "icon": "zap", "title": "Isolated APIs", "description": "Token retrieval and AI calls stay server-side." }
+            {
+              "icon": "shield",
+              "title": "Anti-Bot",
+              "description": "Cloudflare Turnstile blocks bots and malicious scripts before they reach the API."
+            },
+            {
+              "icon": "lock",
+              "title": "Fingerprinting",
+              "description": "Unique visitor identification via ThumbmarkJS (cookie-less) to track actual usage."
+            },
+            {
+              "icon": "zap",
+              "title": "Rate limiting",
+              "description": "Strict cost control: hourly quotas based on browser fingerprint and IP."
+            },
+            {
+              "icon": "globe",
+              "title": "Isolated APIs",
+              "description": "LLM calls (Claude, GPT, Gemini) happen server-side only, keys remain hidden."
+            }
           ]
         },
         "features": {
@@ -440,7 +494,7 @@
             "Furniture generation from client text or sketches.",
             "Real-time 3D visualization inside the chat.",
             "Svelte package with handlers + headless chat component.",
-            "Multi-layer security for AI API calls.",
+            "3-layer security: Anti-bot, Fingerprinting, and Quotas.",
             "Multi-model support (GPT, Claude, Gemini) via OpenRouter."
           ]
         },
@@ -448,9 +502,9 @@
           "title": "Technologies",
           "items": [
             "Core — TypeScript, Node, MCP",
-            "Frontend — Svelte, 3D Viewer",
-            "AI — ChatGPT SDK, Claude",
-            "Security — Tokens, Rate-limit, Origin check"
+            "Frontend — Svelte, Astro, 3D Viewer",
+            "AI — ChatGPT SDK, Claude, Gemini",
+            "Security — Turnstile, Thumbmark, Rate-limit"
           ]
         },
         "impact": {
@@ -461,7 +515,7 @@
           ],
           "learnings": [
             "Translate furniture workflows into AI-friendly tools.",
-            "Design a multi-layer AI security plan.",
+            "Design a 3-layer security plan (Bot, ID, Quota).",
             "Ship reusable packages instead of one monolith.",
             "Deploy on a server with Docker.",
             "Handle a production rollout used by real clients."
@@ -473,42 +527,41 @@
         },
         "security_flow": {
           "title": "Security Architecture",
-          "subtitle": "Origin check,HMAC tokens, IP/session binding & strict rate limiting",
+          "subtitle": "3-layer protection to ensure legitimate usage",
           "steps": [
             {
-              "title": "1. Token Generation",
-              "description": "User accesses AI chat page & generates/renews a token.",
-              "code": ["Private token issuer", "→ HMAC-SHA256 signature", "→ Bound to session + IP"],
-              "badge": "HMAC secured"
+              "title": "1. Anti-Bot (Turnstile)",
+              "description": "Cloudflare widget validates the user is human.",
+              "code": ["Invisible challenge", "→ Ephemeral token (5min)", "→ Server validation"],
+              "badge": "Layer 1: Access"
             },
             {
-              "title": "2. Token Validation",
-              "description": "Every request is validated",
-              "code": ["Verify Origin/Referer", "Verify HMAC signature", "Check IP & session match", "Validate expiration"],
-              "badge": "Strict Validation"
+              "title": "2. Identification (Thumbmark)",
+              "description": "Generates a unique browser fingerprint.",
+              "code": ["Hardware hash (Canvas, Audio...)", "→ Stable VisitorID", "→ No third-party cookies"],
+              "badge": "Layer 2: Identity"
             },
             {
               "title": "3. Rate Limiting",
-              "description": "Prevent abuse and overuse",
-              "code": ["token expires in 30min", "10 req/session/min", "5 sessions/IP/hour"],
-              "badge": "Hard limits"
+              "description": "Enforcing quotas on the Chat API.",
+              "code": ["Key: VisitorID + IP", "Quota: 10 req/hour", "429 response if exceeded"],
+              "badge": "Layer 3: Quotas"
             }
           ],
           "flow": {
             "steps": [
-              { "label": "User Request", "sublabel": "From chat page" },
-              { "label": "Token Check", "sublabel": "HMAC + IP validation" },
-              { "label": "Rate Limit", "sublabel": "Check usage quota" },
-              { "label": "Secure API", "sublabel": "Call chat/tools" }
+              { "label": "User Request", "sublabel": "Chat message" },
+              { "label": "Human Check", "sublabel": "Turnstile Token" },
+              { "label": "Quota Check", "sublabel": "VisitorID Counter" },
+              { "label": "AI API", "sublabel": "Streaming response" }
             ]
           },
           "endpoints": {
             "title": "Protected Endpoints",
             "list": [
-              { "method": "POST", "path": "/api/chat", "desc": "Send message to AI and get response" },
-              { "method": "GET", "path": "/api/tools", "desc": "List available tools" },
-              { "method": "POST", "path": "/api/tool-call", "desc": "Execute MCP tool" },
-              { "method": "PRIVATE", "path": "Internal token service", "desc": "HMAC token issued server-side" }
+              { "method": "POST", "path": "/iapi/ary-chat/chat", "desc": "AI Message (Protected by all 3 layers)" },
+              { "method": "GET", "path": "/iapi/ary-chat/tools", "desc": "List tools (Protected by Turnstile only)" },
+              { "method": "PRIVATE", "path": "API Keys", "desc": "Stored server-side, never exposed" }
             ]
           }
         },
@@ -523,16 +576,18 @@
           ],
           "steps": [
             { "label": "Furniture request", "code": "\"I'd like a 120cm cabinet...\"" },
-            { "label": "POST /api/chat", "code": "Request transmission" },
-            { "label": "*/mcp", "code": "MCP server connection: fetching tools, resources, templates..." },
-            { "label": "Connection established - sending tools, resources...", "code": "[\"create-project\", \"update-column-structure\", ...]" },
+            { "label": "POST /chat", "code": "Request transmission" },
+            { "label": "MCP Connection", "code": "Fetching tools, resources, templates..." },
+            { "label": "Tools & Resources", "code": "[\"create-project\", \"update-columns\", \"finish-project\"...]" },
             { "label": "create-project", "code": "{ \"name\": \"Cabinet\", \"type\": \"cabinet\", \"dimensions\": {...} }" },
             { "label": "Project ID", "code": "{ \"projectId\": \"proj_abc123\" }" },
             { "label": "update-column-structure", "code": "{ \"projectId\": \"...\", \"structure\": { \"columns\": [...] } }" },
             { "label": "Confirmation", "code": "{ \"success\": true }" },
-            { "label": "get-viewer-url", "code": "{ \"projectId\": \"proj_abc123\" }" },
-            { "label": "Viewer URL", "code": "{ \"url\": \"https://...\" }" },
-            { "label": "3D Display", "code": "<ViewerComponent />" },
+            { "label": "finish-project", "code": "{ \"projectId\": \"proj_abc123\" }" },
+            { "label": "Download ID", "code": "{ \"downloadId\": \"...\" }" },
+            { "label": "Download ID", "code": "Gets the project's cached download ID"},
+            { "label": "Download from cache", "code": "GET /download-project/:id" },
+            { "label": "3D Display", "code": "<ProjectViewer />" },
             { "label": "Furniture visualized", "code": "✓ Final render" }
           ]
         }
@@ -951,6 +1006,33 @@
             }
           }
         },
+        "deployment": {
+          "title": "Cloud Deployment & Redis",
+          "subtitle": "2026 Update - Scalability",
+          "tag": "Architecture v2",
+          "paragraphs": [
+            "One year after the project delivery, we revisited the codebase to ship it to production. Goodbye localhost, hello Cloud.",
+            "The main goal was scalability: transforming a monolithic Node.js server into a stateless architecture capable of scaling. We integrated Redis to handle all game state (lobbies, players, scores) and Pub/Sub synchronization.",
+            "Everything is containerized with Docker and deployed on AWS (Lightsail for WebSockets, App Runner for the API) via automated PowerShell scripts."
+          ],
+          "cards": [
+             {
+              "icon": "cloud",
+              "title": "AWS Lightsail",
+              "description": "Hosting WebSocket containers with support for long-lived persistent connections."
+            },
+            {
+              "icon": "database",
+              "title": "Redis Store",
+              "description": "Centralized game state. Allows any container to process messages from any player."
+            },
+             {
+              "icon": "lock",
+              "title": "Security & Env",
+              "description": "Secrets moved out of code, passed as environment variables injected at runtime."
+            }
+          ]
+        },
         "features": {
           "title": "Features",
           "list": [
@@ -985,6 +1067,10 @@
             {
               "label": "Python solver (R&D)",
               "items": ["Python", "asyncio + aiohttp", "Motor (MongoDB)"]
+            },
+            {
+              "label": "DevOps",
+              "items": ["Docker", "AWS Lightsail", "AWS App Runner", "Redis", "PowerShell"]
             }
           ]
         },
