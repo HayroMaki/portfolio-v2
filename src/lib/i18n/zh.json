@@ -169,7 +169,7 @@
       {
         "title": "MCP服务器",
         "description": "为Dessine ton meuble/Aryga开发的AI驱动家具创建MCP服务器",
-        "tags": ["TypeScript", "MCP服务器", "AI", "Docker", "Svelte包"]
+        "tags": ["TypeScript", "SvelteKit", "Astro", "MCP服务器", "Docker", "Sentry", "Thumbmark", "Cloudflare Turnstile"]
       },
       {
         "title": "Easy配置器",
@@ -419,7 +419,12 @@
             { "icon": "lock", "title": "签名令牌", "description": "密钥，令牌链接到IP/客户端以监控使用并立即切断访问。" },
             { "icon": "shield", "title": "速率限制", "description": "通过每用户配额严格控制AI API成本。" },
             { "icon": "globe", "title": "来源检查", "description": "只有官方域可以调用敏感端点。" },
-            { "icon": "zap", "title": "隔离API", "description": "令牌检索和AI调用保持在服务器端。" }
+            { "icon": "zap", "title": "隔离API", "description": "令牌检索和AI调用保持在服务器端。" },
+            {
+              "icon": "activity",
+              "title": "监控",
+              "description": "使用 Sentry 实时跟踪错误和性能，以实现最大响应能力。"
+            }
           ]
         },
         "features": {
@@ -438,7 +443,7 @@
             "核心 — TypeScript、Node、MCP",
             "前端 — Svelte、3D查看器",
             "AI — ChatGPT SDK、Claude",
-            "安全 — 令牌、速率限制、来源检查"
+            "安全与监控 — Turnstile, Thumbmark, Sentry"
           ]
         },
         "impact": {

@@ -38,7 +38,7 @@
 			year: '2025 - 2026',
 			teamSize: 1,
 			duration: 4,
-			techCount: 4,
+			techCount: 5,
 			type: 'pro',
 			visualPattern: 'circuit'
 		},

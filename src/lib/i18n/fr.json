@@ -196,27 +196,27 @@
     "list": [
       {
         "title": "MCP Server",
-        "description": "Serveur MCP pour la création de meubles par l'IA pour Dessine ton meuble/Aryga",
-        "tags": ["TypeScript", "Serveur MCP", "IA", "Docker", "Thumbmark", "Cloudflare Turnstile"]
+        "description": "Serveur MCP pour la création de meubles par l'IA pour Dessine ton meuble/Aryga.",
+        "tags": ["TS", "SvelteKit", "Astro", "Serveur MCP", "Docker", "Sentry", "Thumbmark", "Cloudflare Turnstile"]
       },
       {
         "title": "Configurateurs Easy",
-        "description": "Suite de configurateurs 3D interactifs pour meubles sur mesure pour Dessine ton meuble/Aryga",
-        "tags": ["UX/UI", "Svelte", "TypeScript", "tailwindCSS", "Canvas HTML"]
+        "description": "Suite de configurateurs 3D interactifs pour meubles sur mesure pour Dessine ton meuble/Aryga.",
+        "tags": ["UX/UI", "Svelte", "TS", "tailwindCSS", "Canvas HTML"]
       },
       {
         "title": "CoDec",
-        "description": "Encodeur/Décodeur d'images C avec algorithme différentiel et compression VLC",
+        "description": "Encodeur/Décodeur d'images C avec algorithme différentiel et compression VLC.",
         "tags": ["C", "Binaire", "Compression", "Algo", "Unix"]
       },
       {
         "title": "Travia",
-        "description": "Application web de recherche de trajets optimisés dans l'univers de Star Wars",
+        "description": "Application web de recherche de trajets optimisés dans l'univers de Star Wars.",
         "tags": ["Java", "C", "PHP", "React", "MySQL", "Sécurité", "Captcha", "API"]
       },
       {
         "title": "SpeedyWiki",
-        "description": "Jeu multijoueur de speedrun Wikipedia en temps réel",
+        "description": "Jeu multijoueur de speedrun Wikipedia en temps réel. Déployé sur AWS.",
         "tags": ["React", "MongoDB", "Serveur WebSocket", "Serveur Proxy", "AWS", "Redis", "Gestion de Projet"]
       }
     ]
@@ -473,6 +473,11 @@
               "icon": "globe",
               "title": "APIs cloisonnées",
               "description": "Les appels aux LLM (Claude, GPT, Gemini...) se font uniquement côté serveur, clés masquées."
+            },
+            {
+              "icon": "activity",
+              "title": "Monitoring",
+              "description": "Suivi des erreurs et des performances en temps réel avec Sentry pour une réactivité maximale."
             }
           ]
         },
@@ -492,7 +497,7 @@
             "Core — TypeScript, Node, MCP",
             "Frontend — Svelte, Astro, Viewer 3D",
             "IA — ChatGPT SDK, Claude, Gemini",
-            "Sécurité — Turnstile, Thumbmark, Rate-limit"
+            "Sécurité & Monitoring — Turnstile, Thumbmark, Sentry"
           ]
         },
         "impact": {

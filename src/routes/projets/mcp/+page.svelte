@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ArrowLeft, Brain, Shield, Package, Zap, Lock, Globe, Pen, Code, Sparkles } from 'lucide-svelte';
+	import { ArrowLeft, Brain, Shield, Package, Zap, Lock, Globe, Pen, Code, Sparkles, Activity } from 'lucide-svelte';
 	import { locale } from '$lib/stores/locale';
 	import { getTranslations } from '$lib/i18n';
 	import SequenceDiagram from '$lib/components/projects/SequenceDiagram.svelte';
@@ -13,7 +13,8 @@
 		lock: Lock,
 		shield: Shield,
 		globe: Globe,
-		zap: Zap
+		zap: Zap,
+		activity: Activity
 	} as const;
 
 	const t = $derived(getTranslations($locale));
@@ -267,7 +268,7 @@
 			<MCPSecurityFlow data={sections.security_flow} />
 
 			<!-- Security Cards -->
-			<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+			<div class="grid gap-6 md:grid-cols-3 lg:grid-cols-3">
 				{#each securityCards as item}
 					<div class="manga-panel z-20 p-6 hover:shadow-lg transition-shadow">
 						<div class="flex items-center gap-3 mb-3">

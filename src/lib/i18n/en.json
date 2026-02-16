@@ -208,27 +208,27 @@
     "list": [
       {
         "title": "MCP Server",
-        "description": "MCP server for AI-powered furniture creation for Dessine ton meuble/Aryga",
-        "tags": ["TypeScript", "MCP Server", "AI", "Docker", "Thumbmark", "Cloudflare Turnstile"]
+        "description": "MCP server for AI-powered furniture creation for Dessine ton meuble/Aryga.",
+        "tags": ["TS", "SvelteKit", "Astro", "MCP Server", "Docker", "Sentry", "Thumbmark", "Cloudflare Turnstile"]
       },
       {
         "title": "Easy Configurators",
-        "description": "Suite of interactive 3D configurators for bespoke furniture at Dessine ton meuble/Aryga",
-        "tags": ["UX/UI", "Svelte", "TypeScript", "tailwindCSS", "HTML Canvas"]
+        "description": "Suite of interactive 3D configurators for bespoke furniture at Dessine ton meuble/Aryga.",
+        "tags": ["UX/UI", "Svelte", "TS", "tailwindCSS", "HTML Canvas"]
       },
       {
         "title": "CoDec",
-        "description": "C Image Encoder/Decoder with differential algorithm and VLC compression",
+        "description": "C Image Encoder/Decoder with differential algorithm and VLC compression.",
         "tags": ["C", "Binary", "Compression", "Algo", "Unix"]
       },
       {
         "title": "Travia",
-        "description": "Web application for optimized route searches in the Star Wars universe",
+        "description": "Web application for optimized route searches in the Star Wars universe.",
         "tags": ["Java", "C", "PHP", "React", "MySQL", "Security", "Captcha", "API"]
       },
       {
         "title": "SpeedyWiki",
-        "description": "Real-time multiplayer Wikipedia speedrun game",
+        "description": "Real-time multiplayer Wikipedia speedrun game. Deployed on AWS.",
         "tags": ["React", "MongoDB", "WebSocket Server", "Proxy Server", "AWS", "Redis", "Project Management"]
       }
     ]
@@ -485,6 +485,11 @@
               "icon": "globe",
               "title": "Isolated APIs",
               "description": "LLM calls (Claude, GPT, Gemini) happen server-side only, keys remain hidden."
+            },
+            {
+              "icon": "activity",
+              "title": "Monitoring",
+              "description": "Real-time error and performance tracking with Sentry for maximum responsiveness."
             }
           ]
         },
@@ -504,7 +509,7 @@
             "Core — TypeScript, Node, MCP",
             "Frontend — Svelte, Astro, 3D Viewer",
             "AI — ChatGPT SDK, Claude, Gemini",
-            "Security — Turnstile, Thumbmark, Rate-limit"
+            "Security & Monitoring — Turnstile, Thumbmark, Sentry"
           ]
         },
         "impact": {
