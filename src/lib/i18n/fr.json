@@ -70,23 +70,47 @@
       "groups": [
         {
           "name": "Front-End/UI",
-          "items": ["Svelte", "React", "Vue", "Astro", "TailwindCSS"]
+          "items": [
+            "Svelte",
+            "React",
+            "Vue",
+            "Astro",
+            "TailwindCSS"
+          ]
         },
         {
           "name": "Back-End",
-          "items": ["PHP", "Node.js", "SvelteKit"]
+          "items": [
+            "PHP",
+            "Node.js",
+            "SvelteKit"
+          ]
         },
         {
           "name": "Données",
-          "items": ["PostgreSQL", "MySQL", "MongoDB", "Supabase"]
+          "items": [
+            "PostgreSQL",
+            "MySQL",
+            "MongoDB",
+            "Supabase"
+          ]
         },
         {
           "name": "Algorithmie",
-          "items": ["Python", "C", "Java"]
+          "items": [
+            "Python",
+            "C",
+            "Java"
+          ]
         },
         {
           "name": "Déploiement",
-          "items": ["Docker", "Git", "Cloudflare", "AWS"]
+          "items": [
+            "Docker",
+            "Git",
+            "Cloudflare",
+            "AWS"
+          ]
         }
       ]
     }
@@ -197,27 +221,65 @@
       {
         "title": "MCP Server",
         "description": "Serveur MCP pour la création de meubles par l'IA pour Dessine ton meuble/Aryga.",
-        "tags": ["TS", "SvelteKit", "Astro", "Serveur MCP", "Docker", "Sentry", "Thumbmark", "Cloudflare Turnstile"]
+        "tags": [
+          "TS",
+          "SvelteKit",
+          "Astro",
+          "Serveur MCP",
+          "Docker",
+          "Sentry",
+          "Thumbmark",
+          "Cloudflare Turnstile"
+        ]
       },
       {
         "title": "Configurateurs Easy",
         "description": "Suite de configurateurs 3D interactifs pour meubles sur mesure pour Dessine ton meuble/Aryga.",
-        "tags": ["UX/UI", "Svelte", "TS", "tailwindCSS", "Canvas HTML"]
+        "tags": [
+          "UX/UI",
+          "Svelte",
+          "TS",
+          "tailwindCSS",
+          "Canvas HTML"
+        ]
       },
       {
         "title": "CoDec",
         "description": "Encodeur/Décodeur d'images C avec algorithme différentiel et compression VLC.",
-        "tags": ["C", "Binaire", "Compression", "Algo", "Unix"]
+        "tags": [
+          "C",
+          "Binaire",
+          "Compression",
+          "Algo",
+          "Unix"
+        ]
       },
       {
         "title": "Travia",
         "description": "Application web de recherche de trajets optimisés dans l'univers de Star Wars.",
-        "tags": ["Java", "C", "PHP", "React", "MySQL", "Sécurité", "Captcha", "API"]
+        "tags": [
+          "Java",
+          "C",
+          "PHP",
+          "JS",
+          "MySQL",
+          "Sécurité",
+          "Captcha",
+          "API"
+        ]
       },
       {
         "title": "SpeedyWiki",
         "description": "Jeu multijoueur de speedrun Wikipedia en temps réel. Déployé sur AWS.",
-        "tags": ["React", "MongoDB", "Serveur WebSocket", "Serveur Proxy", "AWS", "Redis", "Gestion de Projet"]
+        "tags": [
+          "React",
+          "MongoDB",
+          "Serveur WebSocket",
+          "Serveur Proxy",
+          "AWS",
+          "Redis",
+          "Gestion de Projet"
+        ]
       }
     ]
   },
@@ -228,8 +290,8 @@
   "misc": {
     "technos_forget": "j'en ai peut-être oublié...",
     "empty_list": "...c'est vide ici...",
-    "konami_title":"Konami Code !",
-    "konami_text":"C'est tout. Tu t'attendais à quoi ?"
+    "konami_title": "Konami Code !",
+    "konami_text": "C'est tout. Tu t'attendais à quoi ?"
   },
   "cv_page": {
     "badge": "Curriculum",
@@ -245,11 +307,26 @@
     "contact": {
       "title": "contact direct",
       "items": [
-        { "label": "Mail", "value": "julesgrange@outlook.fr" },
-        { "label": "Numéro", "value": "06 01 28 37 28" },
-        { "label": "LinkedIn", "value": "julesrenaudgrange" },
-        { "label": "Github", "value": "HayroMaki" },
-        { "label": "Paris 10", "value": "Gare du Nord" }
+        {
+          "label": "Mail",
+          "value": "julesgrange@outlook.fr"
+        },
+        {
+          "label": "Numéro",
+          "value": "06 01 28 37 28"
+        },
+        {
+          "label": "LinkedIn",
+          "value": "julesrenaudgrange"
+        },
+        {
+          "label": "Github",
+          "value": "HayroMaki"
+        },
+        {
+          "label": "Paris 10",
+          "value": "Gare du Nord"
+        }
       ]
     },
     "viewer": {
@@ -268,9 +345,21 @@
         },
         "description": "J'ai condensé l'ADN du configurateur 3D principal en trois expériences ultra ciblées. Objectif : permettre aux utilisateurs de créer un meuble standard en moins d'une minute, tout en gardant la personnalisation au maximum.",
         "stats": [
-          { "label": "Configurateurs", "value": "3 Projets", "sub": "Easy" },
-          { "label": "Meuble en", "value": "Temps réel", "sub": "viewer 3D" },
-          { "label": "UX", "value": "Ultra-Guidée", "sub": "Intéractive" }
+          {
+            "label": "Configurateurs",
+            "value": "3 Projets",
+            "sub": "Easy"
+          },
+          {
+            "label": "Meuble en",
+            "value": "Temps réel",
+            "sub": "viewer 3D"
+          },
+          {
+            "label": "UX",
+            "value": "Ultra-Guidée",
+            "sub": "Intéractive"
+          }
         ]
       },
       "sections": {
@@ -282,9 +371,18 @@
             "J'ai pour chaque configurateur visé une expérience ultra guidée : étape par étape, canvas minimaliste, champs intelligents et viewer qui change en temps réel."
           ],
           "details": [
-            { "label": "Scope", "value": "3 configurateurs" },
-            { "label": "Temps cible", "value": "< 60s" },
-            { "label": "Stack", "value": "Svelte + TS + package interne" }
+            {
+              "label": "Scope",
+              "value": "3 configurateurs"
+            },
+            {
+              "label": "Temps cible",
+              "value": "< 60s"
+            },
+            {
+              "label": "Stack",
+              "value": "Svelte + TS + package interne"
+            }
           ]
         },
         "workflow": {
@@ -361,9 +459,18 @@
         "technologies": {
           "title": "Technos utilisées",
           "items": [
-            { "label": "Framework", "value": "Svelte + TypeScript" },
-            { "label": "Visualisation", "value": "Canvas + Viewer 3D" },
-            { "label": "Compétences", "value": "UX, Algorithmie & modèles de données des meubles" }
+            {
+              "label": "Framework",
+              "value": "Svelte + TypeScript"
+            },
+            {
+              "label": "Visualisation",
+              "value": "Canvas + Viewer 3D"
+            },
+            {
+              "label": "Compétences",
+              "value": "UX, Algorithmie & modèles de données des meubles"
+            }
           ]
         },
         "flow": {
@@ -403,9 +510,21 @@
         },
         "description": "Serveur MCP (Model Context Protocol) qui permet à un LLM de générer des meubles comme un conseiller humain à partir de texte ou croquis d'un client.",
         "stats": [
-          { "label": "IA x tools", "value": "MCP", "sub": "(Model Context Protocol)" },
-          { "label": "Sécurité", "value": "3 Couches", "sub": "Turnstile & Thumbmark" },
-          { "label": "Production", "value": "Clients", "sub": "interface sécurisée" }
+          {
+            "label": "IA x tools",
+            "value": "MCP",
+            "sub": "(Model Context Protocol)"
+          },
+          {
+            "label": "Sécurité",
+            "value": "3 Couches",
+            "sub": "Turnstile & Thumbmark"
+          },
+          {
+            "label": "Production",
+            "value": "Clients",
+            "sub": "interface sécurisée"
+          }
         ]
       },
       "sections": {
@@ -525,36 +644,72 @@
             {
               "title": "1. Anti-Bot (Turnstile)",
               "description": "Le widget Cloudflare valide que l'utilisateur est humain.",
-              "code": ["Challenge invisible", "→ Token éphémère (5min)", "→ Validation serveur"],
+              "code": [
+                "Challenge invisible",
+                "→ Token éphémère (5min)",
+                "→ Validation serveur"
+              ],
               "badge": "Couche 1 : Accès"
             },
             {
               "title": "2. Identification (Thumbmark)",
               "description": "Génération d'une empreinte navigateur unique.",
-              "code": ["Hash matériel (Canvas, Audio...)", "→ VisitorID stable", "→ Sans cookies tiers"],
+              "code": [
+                "Hash matériel (Canvas, Audio...)",
+                "→ VisitorID stable",
+                "→ Sans cookies tiers"
+              ],
               "badge": "Couche 2 : Identité"
             },
             {
               "title": "3. Rate Limiting",
               "description": "Application des quotas sur l'API Chat.",
-              "code": ["Clé : VisitorID + IP", "Quota : 10 req/heure", "Réponse 429 si dépassement"],
+              "code": [
+                "Clé : VisitorID + IP",
+                "Quota : 10 req/heure",
+                "Réponse 429 si dépassement"
+              ],
               "badge": "Couche 3 : Quotas"
             }
           ],
           "flow": {
             "steps": [
-              { "label": "Requête utilisateur", "sublabel": "Message chat" },
-              { "label": "Check Humain", "sublabel": "Token Turnstile" },
-              { "label": "Check Quota", "sublabel": "Compteur VisitorID" },
-              { "label": "API IA", "sublabel": "Streaming réponse" }
+              {
+                "label": "Requête utilisateur",
+                "sublabel": "Message chat"
+              },
+              {
+                "label": "Check Humain",
+                "sublabel": "Token Turnstile"
+              },
+              {
+                "label": "Check Quota",
+                "sublabel": "Compteur VisitorID"
+              },
+              {
+                "label": "API IA",
+                "sublabel": "Streaming réponse"
+              }
             ]
           },
           "endpoints": {
             "title": "Endpoints protégés",
             "list": [
-              { "method": "POST", "path": "/iapi/ary-chat/chat", "desc": "Message IA (Protégé par les 3 couches)" },
-              { "method": "GET", "path": "/iapi/ary-chat/tools", "desc": "Liste outils (Protégé par Turnstile uniquement)" },
-              { "method": "PRIVÉ", "path": "Clés API", "desc": "Stockées serveur, jamais exposées" }
+              {
+                "method": "POST",
+                "path": "/iapi/ary-chat/chat",
+                "desc": "Message IA (Protégé par les 3 couches)"
+              },
+              {
+                "method": "GET",
+                "path": "/iapi/ary-chat/tools",
+                "desc": "Liste outils (Protégé par Turnstile uniquement)"
+              },
+              {
+                "method": "PRIVÉ",
+                "path": "Clés API",
+                "desc": "Stockées serveur, jamais exposées"
+              }
             ]
           }
         },
@@ -562,26 +717,80 @@
           "title": "MCP Workflow",
           "subtitle": "Scroll pour voir le flux de communication",
           "actors": [
-            { "id": "client", "label": "Client" },
-            { "id": "site", "label": "Site Web" },
-            { "id": "ai", "label": "AI Provider" },
-            { "id": "mcp", "label": "MCP Server" }
+            {
+              "id": "client",
+              "label": "Client"
+            },
+            {
+              "id": "site",
+              "label": "Site Web"
+            },
+            {
+              "id": "ai",
+              "label": "AI Provider"
+            },
+            {
+              "id": "mcp",
+              "label": "MCP Server"
+            }
           ],
           "steps": [
-            { "label": "Demande meuble", "code": "\"Je voudrais un meuble de 120cm...\"" },
-            { "label": "POST /chat", "code": "Transmission de la demande" },
-            { "label": "Connexion MCP", "code": "Récupération des tools, resources, templates..." },
-            { "label": "Outils & Ressources", "code": "[\"create-project\", \"update-columns\", \"finish-project\"...]" },
-            { "label": "create-project", "code": "{ \"name\": \"Cabinet\", \"type\": \"cabinet\", \"dimensions\": {...} }" },
-            { "label": "Project ID", "code": "{ \"projectId\": \"proj_abc123\" }" },
-            { "label": "update-column-structure", "code": "{ \"projectId\": \"...\", \"structure\": { \"columns\": [...] } }" },
-            { "label": "Confirmation", "code": "{ \"success\": true }" },
-            { "label": "finish-project", "code": "{ \"projectId\": \"proj_abc123\" }" },
-            { "label": "Download ID", "code": "{ \"downloadId\": \"...\" }" },
-            { "label": "Download ID", "code": "Récupère l'ID de téléchargement du projet en cache" },
-            { "label": "Download depuis le cache", "code": "GET /download-project/:id" },
-            { "label": "Visualisation 3D", "code": "<ProjectViewer />" },
-            { "label": "Meuble visualisé", "code": "✓ Rendu final" }
+            {
+              "label": "Demande meuble",
+              "code": "\"Je voudrais un meuble de 120cm...\""
+            },
+            {
+              "label": "POST /chat",
+              "code": "Transmission de la demande"
+            },
+            {
+              "label": "Connexion MCP",
+              "code": "Récupération des tools, resources, templates..."
+            },
+            {
+              "label": "Outils & Ressources",
+              "code": "[\"create-project\", \"update-columns\", \"finish-project\"...]"
+            },
+            {
+              "label": "create-project",
+              "code": "{ \"name\": \"Cabinet\", \"type\": \"cabinet\", \"dimensions\": {...} }"
+            },
+            {
+              "label": "Project ID",
+              "code": "{ \"projectId\": \"proj_abc123\" }"
+            },
+            {
+              "label": "update-column-structure",
+              "code": "{ \"projectId\": \"...\", \"structure\": { \"columns\": [...] } }"
+            },
+            {
+              "label": "Confirmation",
+              "code": "{ \"success\": true }"
+            },
+            {
+              "label": "finish-project",
+              "code": "{ \"projectId\": \"proj_abc123\" }"
+            },
+            {
+              "label": "Download ID",
+              "code": "{ \"downloadId\": \"...\" }"
+            },
+            {
+              "label": "Download ID",
+              "code": "Récupère l'ID de téléchargement du projet en cache"
+            },
+            {
+              "label": "Download depuis le cache",
+              "code": "GET /download-project/:id"
+            },
+            {
+              "label": "Visualisation 3D",
+              "code": "<ProjectViewer />"
+            },
+            {
+              "label": "Meuble visualisé",
+              "code": "✓ Rendu final"
+            }
           ]
         }
       }
@@ -596,9 +805,21 @@
         },
         "description": "Application web qui trace des itinéraires optimisés dans la galaxie de Star Wars. Architecture modulaire : C + Java + PHP + JS + Base de données qui collaborent comme un équipage rebelle. L'algorithme A* en C se charge de trouver la route la plus rapide entre les planètes.",
         "stats": [
-          { "label": "Technologies", "value": "5", "sub": "multi-langages" },
-          { "label": "Algorithme", "value": "A*", "sub": "optimisé" },
-          { "label": "Architecture", "value": "100%", "sub": "modulaire" }
+          {
+            "label": "Technologies",
+            "value": "5",
+            "sub": "multi-langages"
+          },
+          {
+            "label": "Algorithme",
+            "value": "A*",
+            "sub": "optimisé"
+          },
+          {
+            "label": "Architecture",
+            "value": "100%",
+            "sub": "modulaire"
+          }
         ],
         "crew": {
           "title": "crew",
@@ -606,10 +827,22 @@
         }
       },
       "crew": [
-        { "name": "Jules Grange (C'est moi)", "role": "Développeur Algo C & Back-End" },
-        { "name": "Guillaume Augeraud", "role": "Développeur Front-End" },
-        { "name": "Benjamin Rissot", "role": "Gestionnaire BDD & Dev. Java" },
-        { "name": "Andrei Achirecesei", "role": "Développeur Back-End" }
+        {
+          "name": "Jules Grange (C'est moi)",
+          "role": "Développeur Algo C & Back-End"
+        },
+        {
+          "name": "Guillaume Augeraud",
+          "role": "Développeur Front-End"
+        },
+        {
+          "name": "Benjamin Rissot",
+          "role": "Gestionnaire BDD & Dev. Java"
+        },
+        {
+          "name": "Andrei Achirecesei",
+          "role": "Développeur Back-End"
+        }
       ],
       "sections": {
         "overview": {
@@ -623,11 +856,26 @@
         "stack": {
           "tag": "Stack croisée",
           "items": [
-            { "label": "Frontend", "value": "HTML/CSS/JS" },
-            { "label": "Back-End", "value": "PHP + API REST" },
-            { "label": "Serveur", "value": "Java + JDBC" },
-            { "label": "Algo", "value": "C + A*" },
-            { "label": "Data", "value": "MySQL" }
+            {
+              "label": "Frontend",
+              "value": "HTML/CSS/JS"
+            },
+            {
+              "label": "Back-End",
+              "value": "PHP + API REST"
+            },
+            {
+              "label": "Serveur",
+              "value": "Java + JDBC"
+            },
+            {
+              "label": "Algo",
+              "value": "C + A*"
+            },
+            {
+              "label": "Data",
+              "value": "MySQL"
+            }
           ]
         },
         "architecture": {
@@ -711,9 +959,30 @@
         "technologies": {
           "title": "Technos utilisées",
           "sections": [
-            { "label": "Frontend", "items": ["HTML/CSS", "JavaScript", "Leaflet"] },
-            { "label": "Backend", "items": ["PHP", "Java", "JDBC", "MySQL"] },
-            { "label": "Algorithme", "items": ["C", "A*"] }
+            {
+              "label": "Frontend",
+              "items": [
+                "HTML/CSS",
+                "JavaScript",
+                "Leaflet"
+              ]
+            },
+            {
+              "label": "Backend",
+              "items": [
+                "PHP",
+                "Java",
+                "JDBC",
+                "MySQL"
+              ]
+            },
+            {
+              "label": "Algorithme",
+              "items": [
+                "C",
+                "A*"
+              ]
+            }
           ]
         },
         "gallery": {
@@ -732,9 +1001,21 @@
         },
         "description": "Encodeur/Décodeur d'images conçu en C pur. Le but ? Comprendre les fondamentaux de la compression numérique en implémentant un algorithme 'Near-Lossless' basé sur le codage différentiel et une table VLC (Variable Length Coding). Pas de bibliothèques magiques, juste de la manipulation de bits.",
         "stats": [
-          { "label": "Langage", "value": "C", "sub": "pur et dur" },
-          { "label": "Format", "value": "DIFF", "sub": "binaire custom" },
-          { "label": "Méthode", "value": "VLC", "sub": "huffman statique" }
+          {
+            "label": "Langage",
+            "value": "C",
+            "sub": "pur et dur"
+          },
+          {
+            "label": "Format",
+            "value": "DIFF",
+            "sub": "binaire custom"
+          },
+          {
+            "label": "Méthode",
+            "value": "VLC",
+            "sub": "huffman statique"
+          }
         ]
       },
       "sections": {
@@ -749,11 +1030,26 @@
         "stack": {
           "tag": "Outils bas niveau",
           "items": [
-            { "label": "Langage", "value": "C (C99)" },
-            { "label": "Graphisme", "value": "libg2x (OpenGL/Glut wrapper)" },
-            { "label": "Build", "value": "Makefile" },
-            { "label": "Image", "value": "NetPBM (PGM/PPM)" },
-            { "label": "Binaire", "value": "Hex Editor" }
+            {
+              "label": "Langage",
+              "value": "C (C99)"
+            },
+            {
+              "label": "Graphisme",
+              "value": "libg2x (OpenGL/Glut wrapper)"
+            },
+            {
+              "label": "Build",
+              "value": "Makefile"
+            },
+            {
+              "label": "Image",
+              "value": "NetPBM (PGM/PPM)"
+            },
+            {
+              "label": "Binaire",
+              "value": "Hex Editor"
+            }
           ]
         },
         "architecture": {
@@ -802,7 +1098,12 @@
             "processing": "Traitement..."
           },
           "ui": {
-            "steps": ["Import", "Original", "Différentielle", "Résultat"],
+            "steps": [
+              "Import",
+              "Original",
+              "Différentielle",
+              "Résultat"
+            ],
             "histograms": {
               "original": "Distribution des valeurs de pixels",
               "differential": "Distribution des différences",
@@ -836,9 +1137,28 @@
         "technologies": {
           "title": "Technos utilisées",
           "sections": [
-            { "label": "Langage", "items": ["C", "Makefile"] },
-            { "label": "Librairies", "items": ["libg2x", "OpenGL"] },
-            { "label": "Concepts", "items": ["VLC", "Huffman", "Binary I/O"] }
+            {
+              "label": "Langage",
+              "items": [
+                "C",
+                "Makefile"
+              ]
+            },
+            {
+              "label": "Librairies",
+              "items": [
+                "libg2x",
+                "OpenGL"
+              ]
+            },
+            {
+              "label": "Concepts",
+              "items": [
+                "VLC",
+                "Huffman",
+                "Binary I/O"
+              ]
+            }
           ]
         },
         "gallery": {
@@ -857,9 +1177,21 @@
         },
         "description": "Speedrun Wikipedia en multijoueur, tout dans le navigateur. On part d’une page, et on a une liste de pages à atteindre, à vous de chercher en naviguant de liens en liens. Pendant ce temps, le serveur WebSocket calcule les moves, le proxy réécrit les pages et l’UI affiche une interface style Windows 95.",
         "stats": [
-          { "label": "Jeu web multijoueurs", "value": "TEMPS RÉEL", "sub": "via websocket" },
-          { "label": "Discussions en direct", "value": "CHAT", "sub": "socialisez!" },
-          { "label": "Logs des parties", "value": "MongoDB", "sub": "BDD NoSQL" }
+          {
+            "label": "Jeu web multijoueurs",
+            "value": "TEMPS RÉEL",
+            "sub": "via websocket"
+          },
+          {
+            "label": "Discussions en direct",
+            "value": "CHAT",
+            "sub": "socialisez!"
+          },
+          {
+            "label": "Logs des parties",
+            "value": "MongoDB",
+            "sub": "BDD NoSQL"
+          }
         ],
         "crew": {
           "title": "crew",
@@ -867,10 +1199,22 @@
         }
       },
       "crew": [
-        { "name": "Jules Grange (C'est moi)", "role": "Développeur Back-End Websocket & Proxy" },
-        { "name": "Martial Carceles", "role": "MongoDB & Solveur python" },
-        { "name": "Guillaume Augeraud", "role": "Développeur Front-End & Designer" },
-        { "name": "Randy Bou Jaber", "role": "Game Designer" }
+        {
+          "name": "Jules Grange (C'est moi)",
+          "role": "Développeur Back-End Websocket & Proxy"
+        },
+        {
+          "name": "Martial Carceles",
+          "role": "MongoDB & Solveur python"
+        },
+        {
+          "name": "Guillaume Augeraud",
+          "role": "Développeur Front-End & Designer"
+        },
+        {
+          "name": "Randy Bou Jaber",
+          "role": "Game Designer"
+        }
       ],
       "sections": {
         "highlight": {
@@ -884,35 +1228,116 @@
           "title": "Flux de communication temps réel",
           "subtitle": "Comment les joueurs interagissent avec le système",
           "actors": [
-            { "id": "client1", "label": "Client 1 (Hôte)" },
-            { "id": "client2", "label": "Client 2 (Joueur)" },
-            { "id": "websocket", "label": "Serveur WebSocket" },
-            { "id": "proxy", "label": "Serveur Proxy" },
-            { "id": "wikipedia", "label": "Wikipedia" }
+            {
+              "id": "client1",
+              "label": "Client 1 (Hôte)"
+            },
+            {
+              "id": "client2",
+              "label": "Client 2 (Joueur)"
+            },
+            {
+              "id": "websocket",
+              "label": "Serveur WebSocket"
+            },
+            {
+              "id": "proxy",
+              "label": "Serveur Proxy"
+            },
+            {
+              "id": "wikipedia",
+              "label": "Wikipedia"
+            }
           ],
           "steps": [
-            { "label": "Connexion WS établie", "code": "CONNECT" },
-            { "label": "Création de partie", "code": "CREATE" },
-            { "label": "Confirmation de création", "code": "OK" },
-            { "label": "Partage du code lobby", "code": "SHARE" },
-            { "label": "Tentative de rejoindre", "code": "JOIN" },
-            { "label": "Confirmation d'ajout", "code": "OK" },
-            { "label": "Lancement de la partie", "code": "START" },
-            { "label": "Fetch des articles randoms", "code": "FETCH" },
-            { "label": "Retour des articles", "code": "ARTICLES" },
-            { "label": "Distribution objectifs", "code": "OBJECTIVES" },
-            { "label": "Distribution objectifs", "code": "OBJECTIVES" },
-            { "label": "Navigation vers page", "code": "GET" },
-            { "label": "Requête Wikipedia", "code": "REQUEST" },
-            { "label": "Page originale", "code": "HTML" },
-            { "label": "Page modifiée", "code": "MODIFIED" },
-            { "label": "Navigation vers page", "code": "GET" },
-            { "label": "Requête Wikipedia", "code": "REQUEST" },
-            { "label": "Page originale", "code": "HTML" },
-            { "label": "Page modifiée", "code": "MODIFIED" },
-            { "label": "Message chat", "code": "CHAT" },
-            { "label": "Broadcast à l'expéditeur", "code": "BROADCAST" },
-            { "label": "Broadcast aux autres", "code": "BROADCAST" }
+            {
+              "label": "Connexion WS établie",
+              "code": "CONNECT"
+            },
+            {
+              "label": "Création de partie",
+              "code": "CREATE"
+            },
+            {
+              "label": "Confirmation de création",
+              "code": "OK"
+            },
+            {
+              "label": "Partage du code lobby",
+              "code": "SHARE"
+            },
+            {
+              "label": "Tentative de rejoindre",
+              "code": "JOIN"
+            },
+            {
+              "label": "Confirmation d'ajout",
+              "code": "OK"
+            },
+            {
+              "label": "Lancement de la partie",
+              "code": "START"
+            },
+            {
+              "label": "Fetch des articles randoms",
+              "code": "FETCH"
+            },
+            {
+              "label": "Retour des articles",
+              "code": "ARTICLES"
+            },
+            {
+              "label": "Distribution objectifs",
+              "code": "OBJECTIVES"
+            },
+            {
+              "label": "Distribution objectifs",
+              "code": "OBJECTIVES"
+            },
+            {
+              "label": "Navigation vers page",
+              "code": "GET"
+            },
+            {
+              "label": "Requête Wikipedia",
+              "code": "REQUEST"
+            },
+            {
+              "label": "Page originale",
+              "code": "HTML"
+            },
+            {
+              "label": "Page modifiée",
+              "code": "MODIFIED"
+            },
+            {
+              "label": "Navigation vers page",
+              "code": "GET"
+            },
+            {
+              "label": "Requête Wikipedia",
+              "code": "REQUEST"
+            },
+            {
+              "label": "Page originale",
+              "code": "HTML"
+            },
+            {
+              "label": "Page modifiée",
+              "code": "MODIFIED"
+            },
+            {
+              "label": "Message chat",
+              "code": "CHAT"
+            },
+            {
+              "label": "Broadcast à l'expéditeur",
+              "code": "BROADCAST"
+            },
+            {
+              "label": "Broadcast aux autres",
+              "code": "BROADCAST"
+            }
           ]
         },
         "concept": {
@@ -926,10 +1351,22 @@
         "loop": {
           "tag": "boucle jeu",
           "items": [
-            { "label": "Lobby", "value": "création / invitation" },
-            { "label": "Course", "value": "tracking des actions" },
-            { "label": "Résultat", "value": "podium & stats" },
-            { "label": "Replay", "value": "je suis addict" }
+            {
+              "label": "Lobby",
+              "value": "création / invitation"
+            },
+            {
+              "label": "Course",
+              "value": "tracking des actions"
+            },
+            {
+              "label": "Résultat",
+              "value": "podium & stats"
+            },
+            {
+              "label": "Replay",
+              "value": "je suis addict"
+            }
           ]
         },
         "architecture": {
@@ -940,19 +1377,29 @@
               "icon": "message_square",
               "title": "Serveur WebSocket",
               "description": "Interactions instantanées, synchronisation des courses et scoreboard en direct. Le serveur pilote tout le rythme des speedruns.",
-              "tags": ["WebSocket", "Temps réel"]
+              "tags": [
+                "WebSocket",
+                "Temps réel"
+              ]
             },
             {
               "icon": "globe",
               "title": "Proxy Wikipedia",
               "description": "Express + Axios + CORS pour modifier les pages Wiki à la volée et injecter le tracking des liens dans la couche front.",
-              "tags": ["Express", "Axios", "CORS"]
+              "tags": [
+                "Express",
+                "Axios",
+                "CORS"
+              ]
             },
             {
               "icon": "git_branch",
               "title": "Cadence Git",
               "description": "Travail en workflow strict avec branches, PR, revues (presque) quotidiennes et règles de merge. Documentation clean.",
-              "tags": ["Git", "GitHub"]
+              "tags": [
+                "Git",
+                "GitHub"
+              ]
             }
           ]
         },
@@ -1008,7 +1455,7 @@
             "Le tout est conteneurisé avec Docker et déployé sur AWS (Lightsail pour les WebSockets, App Runner pour l'API) via des scripts PowerShell automatisés."
           ],
           "cards": [
-             {
+            {
               "icon": "cloud",
               "title": "AWS Lightsail",
               "description": "Hébergement des conteneurs WebSocket avec support des connexions persistantes longue durée."
@@ -1018,7 +1465,7 @@
               "title": "Redis Store",
               "description": "Centralisation de l'état du jeu. Permet à n'importe quel conteneur de traiter les messages de n'importe quel joueur."
             },
-             {
+            {
               "icon": "lock",
               "title": "Sécurité & Env",
               "description": "Sortie des secrets du code, passage en variables d'environnement injectées au runtime."
@@ -1042,27 +1489,52 @@
           "sections": [
             {
               "label": "Frontend",
-              "items": ["React", "Vite", "TypeScript"]
+              "items": [
+                "React",
+                "Vite",
+                "TypeScript"
+              ]
             },
             {
               "label": "Temps réel",
-              "items": ["WebSocket", "WSContext custom"]
+              "items": [
+                "WebSocket",
+                "WSContext custom"
+              ]
             },
             {
               "label": "Backend",
-              "items": ["Node.js", "Express", "MongoDB Atlas"]
+              "items": [
+                "Node.js",
+                "Express",
+                "MongoDB Atlas"
+              ]
             },
             {
               "label": "Proxy avec Wikipedia",
-              "items": ["Axios", "Réécriture HTML", "CORS custom"]
+              "items": [
+                "Axios",
+                "Réécriture HTML",
+                "CORS custom"
+              ]
             },
             {
               "label": "Solveur Python (R&D)",
-              "items": ["Python", "asyncio + aiohttp", "Motor (MongoDB)"]
+              "items": [
+                "Python",
+                "asyncio + aiohttp",
+                "Motor (MongoDB)"
+              ]
             },
             {
               "label": "DevOps",
-              "items": ["Docker", "AWS Lightsail", "AWS App Runner", "Redis", "PowerShell"]
+              "items": [
+                "Docker",
+                "AWS Lightsail",
+                "AWS App Runner",
+                "Redis",
+                "PowerShell"
+              ]
             }
           ]
         },
@@ -1099,6 +1571,6 @@
           "description": "Captures d’écran du lobby et des speedruns seront ajoutées pour montrer comment l’interface réagit en mode speedrun."
         }
       }
-        }
+    }
   }
 }
