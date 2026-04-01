@@ -15,6 +15,7 @@
 	import TimelineSection from "$lib/components/home/TimelineSection.svelte";
 	import { useIntersectionVisibility } from "$lib/hooks/useIntersectionVisibility";
 	import { _t } from "$lib/i18n";
+	import brush3Url from "$lib/assets/brush/brush3.svg?url";
 
 	/**
 	 * Wrapper to not have to put locale every time
@@ -390,7 +391,7 @@
 		></div>
 		<div class="container relative z-10 mx-auto max-w-7xl px-6">
 			<div class="grid gap-12 lg:grid-cols-[1.1fr,0.9fr] items-start">
-				<div class="space-y-8">
+				<div class="mb-12 space-y-8">
 					<div
 						class="kanji-tag bg-paper transition-all duration-500 ease-out"
 						class:opacity-0={!$atelierVisible}
@@ -447,101 +448,122 @@
 
 				<div class="space-y-6">
 					<div
-						class="manga-panel p-6 space-y-6 transition-all duration-700 ease-out"
+						class="manga-panel p-6 transition-all duration-700 ease-out group cursor-default"
 						class:opacity-0={!$atelierVisible}
 						style="transition-delay: 200ms"
 					>
 						<div
-							class="flex items-center gap-3 font-mono uppercase text-xs tracking-[0.3em]"
+							class="flex items-center gap-3 font-mono uppercase text-xs tracking-[0.3em] group-hover:text-accent transition-colors duration-300"
 						>
 							<PenTool size={20} />
 							{t("about.experience.title")}
 						</div>
 						<div
-							class="space-y-3 text-sm font-mono leading-relaxed text-ink/80"
+							class="max-h-0 overflow-hidden group-hover:max-h-[500px] transition-all duration-700 ease-in-out"
 						>
-							<p>{t("about.experience.current")}</p>
-							<p>{t("about.experience.uni")}</p>
+							<div
+								class="space-y-3 text-sm font-mono leading-relaxed text-ink/80 pt-6"
+							>
+								<p>{t("about.experience.current")}</p>
+								<p>{t("about.experience.uni")}</p>
+							</div>
 						</div>
 					</div>
 
 					<div
-						class="manga-panel p-6 space-y-6 transition-all duration-700 ease-out"
+						class="manga-panel p-6 transition-all duration-700 ease-out group cursor-default"
 						class:opacity-0={!$atelierVisible}
 						style="transition-delay: 350ms"
 					>
 						<div
-							class="flex items-center gap-3 font-mono uppercase text-xs tracking-[0.3em]"
+							class="flex items-center gap-3 font-mono uppercase text-xs tracking-[0.3em] group-hover:text-accent transition-colors duration-300"
 						>
 							<Sparkles size={20} />
 							{t("about.education.title")}
 						</div>
 						<div
-							class="space-y-3 text-sm font-mono leading-relaxed text-ink/80"
+							class="max-h-0 overflow-hidden group-hover:max-h-[500px] transition-all duration-700 ease-in-out"
 						>
-							<p>{t("about.education.degree")}</p>
-							<p>{t("about.education.bac")}</p>
+							<div
+								class="space-y-3 text-sm font-mono leading-relaxed text-ink/80 pt-6"
+							>
+								<p>{t("about.education.degree")}</p>
+								<p>{t("about.education.bac")}</p>
+							</div>
 						</div>
 					</div>
 
 					<div
-						class="manga-panel p-6 space-y-6 transition-all duration-700 ease-out"
+						class="manga-panel p-6 transition-all duration-700 ease-out group cursor-default"
 						class:opacity-0={!$atelierVisible}
 						style="transition-delay: 500ms"
 					>
 						<div
-							class="flex items-center gap-3 font-mono uppercase text-xs tracking-[0.3em]"
+							class="flex items-center gap-3 font-mono uppercase text-xs tracking-[0.3em] group-hover:text-accent transition-colors duration-300"
 						>
 							<Zap size={20} />
 							{t("about.mentality.title")}
 						</div>
-						<p
-							class="text-sm font-mono leading-relaxed text-ink/80"
+						<div
+							class="max-h-0 overflow-hidden group-hover:max-h-[500px] transition-all duration-700 ease-in-out"
 						>
-							{t("about.mentality.p1")}
-						</p>
+							<p
+								class="text-sm font-mono leading-relaxed text-ink/80 pt-6"
+							>
+								{t("about.mentality.p1")}
+							</p>
+						</div>
 					</div>
 
 					<div
-						class="manga-panel p-6 space-y-6 transition-all duration-700 ease-out"
+						class="manga-panel p-6 transition-all duration-700 ease-out group cursor-default"
 						class:opacity-0={!$atelierVisible}
 						style="transition-delay: 650ms"
 					>
 						<div
-							class="flex items-center gap-3 font-mono uppercase text-xs tracking-[0.3em]"
+							class="flex items-center gap-3 font-mono uppercase text-xs tracking-[0.3em] group-hover:text-accent transition-colors duration-300"
 						>
 							<Heart size={20} />
 							{t("about.passions.title")}
 						</div>
-						<ul
-							class="space-y-4 text-sm font-mono leading-relaxed text-ink/80"
+						<div
+							class="max-h-0 overflow-hidden group-hover:max-h-[500px] transition-all duration-700 ease-in-out"
 						>
-							<li class="flex items-start gap-3">
-								<span class="text-ink mt-1">/</span>
-								<span>{t("about.passions.p1")}</span>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-ink mt-1">/</span>
-								<span>{t("about.passions.p2")}</span>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-ink mt-1">/</span>
-								<a
-									href="/art"
-									class="group relative inline-flex items-center transition-all duration-300 hover:text-accent"
-								>
-									<span>{t("about.passions.p3")}</span>
+							<ul
+								class="space-y-4 text-sm font-mono leading-relaxed text-ink/80 pt-6"
+							>
+								<li class="flex items-start gap-3">
+									<span class="text-ink mt-1">/</span>
+									<span>{t("about.passions.p1")}</span>
+								</li>
+								<li class="flex items-start gap-3">
+									<span class="text-ink mt-1">/</span>
+									<span>{t("about.passions.p2")}</span>
+								</li>
+								<li class="flex items-start gap-3 w-fit">
 									<span
-										class="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 text-accent font-bold ml-2"
-										>→</span
+										class="text-ink mt-1 relative z-10"
+										>/</span
 									>
-								</a>
-							</li>
-							<li class="flex items-start gap-3">
-								<span class="text-ink mt-1">/</span>
-								<span>{t("about.passions.p4")}</span>
-							</li>
-						</ul>
+									<a
+										href="/art"
+										class="group/art relative z-0 inline-flex items-center transition-colors duration-[300ms] delay-[100ms] hover:text-paper"
+									>
+										<span
+											class="absolute -inset-x-2 -inset-y-1 -z-10 bg-ink origin-left scale-x-0 group-hover/art:scale-x-100 transition-transform duration-[400ms] ease-out pointer-events-none"
+											style="clip-path: polygon(1% 5%, 98% 0%, 100% 97%, 0% 100%);"
+										></span>
+										<span class="relative z-10 px-1 py-1">
+											{t("about.passions.p3")}
+										</span>
+									</a>
+								</li>
+								<li class="flex items-start gap-3">
+									<span class="text-ink mt-1">/</span>
+									<span>{t("about.passions.p4")}</span>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
