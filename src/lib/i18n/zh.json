@@ -25,6 +25,11 @@
     "p1": "我是一个能交付成果的问题解决者。好奇、细致，并被将复杂需求转化为简洁、功能性代码的挑战所驱动。",
     "p2": "专注于现代Web技术的全栈通才。我能快速适应并学习完成工作所需的技能。",
     "p3": "目前正在构建生产环境中的AI工具和3D配置器。我不只是编码——我交付用户真正使用的解决方案。",
+    "art_link": {
+      "title": "艺术与插画",
+      "description": "我也是数字绘画爱好者。来看看我的插画画廊吧！",
+      "cta": "查看画廊"
+    },
     "atelier": {
       "headline": "工作室日志",
       "journal": {
@@ -70,23 +75,45 @@
       "groups": [
         {
           "name": "前端/UI",
-          "items": ["Svelte", "React", "Vue", "Astro", "TailwindCSS"]
+          "items": [
+            "Svelte",
+            "React",
+            "Vue",
+            "Astro",
+            "TailwindCSS"
+          ]
         },
         {
           "name": "后端",
-          "items": ["PHP", "Node.js", "SvelteKit"]
+          "items": [
+            "PHP",
+            "Node.js",
+            "SvelteKit"
+          ]
         },
         {
           "name": "数据",
-          "items": ["PostgreSQL", "MySQL", "MongoDB", "Supabase"]
+          "items": [
+            "PostgreSQL",
+            "MySQL",
+            "MongoDB",
+            "Supabase"
+          ]
         },
         {
           "name": "算法",
-          "items": ["Python", "C", "Java"]
+          "items": [
+            "Python",
+            "C",
+            "Java"
+          ]
         },
         {
           "name": "部署",
-          "items": ["Docker", "Git"]
+          "items": [
+            "Docker",
+            "Git"
+          ]
         }
       ]
     }
@@ -169,27 +196,63 @@
       {
         "title": "MCP服务器",
         "description": "为Dessine ton meuble/Aryga开发的AI驱动家具创建MCP服务器",
-        "tags": ["TypeScript", "SvelteKit", "Astro", "MCP服务器", "Docker", "Sentry", "Thumbmark", "Cloudflare Turnstile"]
+        "tags": [
+          "TypeScript",
+          "SvelteKit",
+          "Astro",
+          "MCP服务器",
+          "Docker",
+          "Sentry",
+          "Thumbmark",
+          "Cloudflare Turnstile"
+        ]
       },
       {
         "title": "Easy配置器",
         "description": "Dessine ton meuble/Aryga的定制家具交互式3D配置器套件",
-        "tags": ["UX/UI", "Svelte", "TypeScript", "tailwindCSS", "HTML Canvas"]
+        "tags": [
+          "UX/UI",
+          "Svelte",
+          "TypeScript",
+          "tailwindCSS",
+          "HTML Canvas"
+        ]
       },
       {
         "title": "CoDec",
         "description": "带差分算法和VLC压缩的C语言图像编码器/解码器",
-        "tags": ["C", "二进制", "压缩", "算法", "Unix"]
+        "tags": [
+          "C",
+          "二进制",
+          "压缩",
+          "算法",
+          "Unix"
+        ]
       },
       {
         "title": "Travia",
         "description": "星球大战宇宙中优化路线搜索的Web应用",
-        "tags": ["Java", "C", "PHP", "React", "MySQL", "安全", "验证码", "API"]
+        "tags": [
+          "Java",
+          "C",
+          "PHP",
+          "React",
+          "MySQL",
+          "安全",
+          "验证码",
+          "API"
+        ]
       },
       {
         "title": "SpeedyWiki",
         "description": "实时多人维基百科速通游戏",
-        "tags": ["React", "MongoDB", "WebSocket服务器", "代理服务器", "项目管理"]
+        "tags": [
+          "React",
+          "MongoDB",
+          "WebSocket服务器",
+          "代理服务器",
+          "项目管理"
+        ]
       }
     ]
   },
@@ -217,11 +280,26 @@
     "contact": {
       "title": "直接联系",
       "items": [
-        { "label": "邮箱", "value": "julesgrange@outlook.fr" },
-        { "label": "电话", "value": "+33 6 01 28 37 28" },
-        { "label": "LinkedIn", "value": "julesrenaudgrange" },
-        { "label": "Github", "value": "HayroMaki" },
-        { "label": "巴黎10区", "value": "北站" }
+        {
+          "label": "邮箱",
+          "value": "julesgrange@outlook.fr"
+        },
+        {
+          "label": "电话",
+          "value": "+33 6 01 28 37 28"
+        },
+        {
+          "label": "LinkedIn",
+          "value": "julesrenaudgrange"
+        },
+        {
+          "label": "Github",
+          "value": "HayroMaki"
+        },
+        {
+          "label": "巴黎10区",
+          "value": "北站"
+        }
       ]
     },
     "viewer": {
@@ -240,9 +318,21 @@
         },
         "description": "我将主要3D配置器的DNA浓缩成三个超聚焦的体验。目标：让用户在一分钟内创建标准件，同时保持个性化最大化。",
         "stats": [
-          { "label": "配置器", "value": "3个项目", "sub": "Easy" },
-          { "label": "家具", "value": "实时", "sub": "3D查看器" },
-          { "label": "用户体验", "value": "超引导", "sub": "交互式" }
+          {
+            "label": "配置器",
+            "value": "3个项目",
+            "sub": "Easy"
+          },
+          {
+            "label": "家具",
+            "value": "实时",
+            "sub": "3D查看器"
+          },
+          {
+            "label": "用户体验",
+            "value": "超引导",
+            "sub": "交互式"
+          }
         ]
       },
       "sections": {
@@ -254,9 +344,18 @@
             "对于每个配置器，我都追求超引导体验：逐步流程、极简画布、智能字段，以及实时变化的查看器。"
           ],
           "details": [
-            { "label": "范围", "value": "3个配置器" },
-            { "label": "目标时间", "value": "< 60秒" },
-            { "label": "技术栈", "value": "Svelte + TS + 内部包" }
+            {
+              "label": "范围",
+              "value": "3个配置器"
+            },
+            {
+              "label": "目标时间",
+              "value": "< 60秒"
+            },
+            {
+              "label": "技术栈",
+              "value": "Svelte + TS + 内部包"
+            }
           ]
         },
         "workflow": {
@@ -333,9 +432,18 @@
         "technologies": {
           "title": "使用的技术",
           "items": [
-            { "label": "框架", "value": "Svelte + TypeScript" },
-            { "label": "可视化", "value": "Canvas + 3D查看器" },
-            { "label": "技能", "value": "UX、算法和家具数据模型" }
+            {
+              "label": "框架",
+              "value": "Svelte + TypeScript"
+            },
+            {
+              "label": "可视化",
+              "value": "Canvas + 3D查看器"
+            },
+            {
+              "label": "技能",
+              "value": "UX、算法和家具数据模型"
+            }
           ]
         },
         "flow": {
@@ -375,9 +483,21 @@
         },
         "description": "MCP（模型上下文协议）服务器，让LLM像人类顾问一样从客户文本或草图制作家具。",
         "stats": [
-          { "label": "AI x 工具", "value": "MCP", "sub": "（模型上下文协议）" },
-          { "label": "安全", "value": "令牌 - IP", "sub": "速率限制和来源" },
-          { "label": "生产", "value": "客户", "sub": "安全界面" }
+          {
+            "label": "AI x 工具",
+            "value": "MCP",
+            "sub": "（模型上下文协议）"
+          },
+          {
+            "label": "安全",
+            "value": "令牌 - IP",
+            "sub": "速率限制和来源"
+          },
+          {
+            "label": "生产",
+            "value": "客户",
+            "sub": "安全界面"
+          }
         ]
       },
       "sections": {
@@ -416,10 +536,26 @@
           "title": "生产安全",
           "description": "多层安全系统，保护MCP工具并控制AI使用成本。",
           "cards": [
-            { "icon": "lock", "title": "签名令牌", "description": "密钥，令牌链接到IP/客户端以监控使用并立即切断访问。" },
-            { "icon": "shield", "title": "速率限制", "description": "通过每用户配额严格控制AI API成本。" },
-            { "icon": "globe", "title": "来源检查", "description": "只有官方域可以调用敏感端点。" },
-            { "icon": "zap", "title": "隔离API", "description": "令牌检索和AI调用保持在服务器端。" },
+            {
+              "icon": "lock",
+              "title": "签名令牌",
+              "description": "密钥，令牌链接到IP/客户端以监控使用并立即切断访问。"
+            },
+            {
+              "icon": "shield",
+              "title": "速率限制",
+              "description": "通过每用户配额严格控制AI API成本。"
+            },
+            {
+              "icon": "globe",
+              "title": "来源检查",
+              "description": "只有官方域可以调用敏感端点。"
+            },
+            {
+              "icon": "zap",
+              "title": "隔离API",
+              "description": "令牌检索和AI调用保持在服务器端。"
+            },
             {
               "icon": "activity",
               "title": "监控",
@@ -471,37 +607,78 @@
             {
               "title": "1. 令牌生成",
               "description": "用户访问AI聊天页面并生成/更新令牌。",
-              "code": ["私有令牌发行者", "→ HMAC-SHA256签名", "→ 绑定到会话 + IP"],
+              "code": [
+                "私有令牌发行者",
+                "→ HMAC-SHA256签名",
+                "→ 绑定到会话 + IP"
+              ],
               "badge": "HMAC安全"
             },
             {
               "title": "2. 令牌验证",
               "description": "每个请求都经过验证",
-              "code": ["验证来源/引用者", "验证HMAC签名", "检查IP和会话匹配", "验证过期"],
+              "code": [
+                "验证来源/引用者",
+                "验证HMAC签名",
+                "检查IP和会话匹配",
+                "验证过期"
+              ],
               "badge": "严格验证"
             },
             {
               "title": "3. 速率限制",
               "description": "防止滥用和过度使用",
-              "code": ["令牌30分钟过期", "10请求/会话/分钟", "5会话/IP/小时"],
+              "code": [
+                "令牌30分钟过期",
+                "10请求/会话/分钟",
+                "5会话/IP/小时"
+              ],
               "badge": "硬限制"
             }
           ],
           "flow": {
             "steps": [
-              { "label": "用户请求", "sublabel": "从聊天页面" },
-              { "label": "令牌检查", "sublabel": "HMAC + IP验证" },
-              { "label": "速率限制", "sublabel": "检查使用配额" },
-              { "label": "安全API", "sublabel": "调用聊天/工具" }
+              {
+                "label": "用户请求",
+                "sublabel": "从聊天页面"
+              },
+              {
+                "label": "令牌检查",
+                "sublabel": "HMAC + IP验证"
+              },
+              {
+                "label": "速率限制",
+                "sublabel": "检查使用配额"
+              },
+              {
+                "label": "安全API",
+                "sublabel": "调用聊天/工具"
+              }
             ]
           },
           "endpoints": {
             "title": "受保护端点",
             "list": [
-              { "method": "POST", "path": "/api/chat", "desc": "向AI发送消息并获取响应" },
-              { "method": "GET", "path": "/api/tools", "desc": "列出可用工具" },
-              { "method": "POST", "path": "/api/tool-call", "desc": "执行MCP工具" },
-              { "method": "私有", "path": "内部令牌服务", "desc": "服务器端发行的HMAC令牌" }
+              {
+                "method": "POST",
+                "path": "/api/chat",
+                "desc": "向AI发送消息并获取响应"
+              },
+              {
+                "method": "GET",
+                "path": "/api/tools",
+                "desc": "列出可用工具"
+              },
+              {
+                "method": "POST",
+                "path": "/api/tool-call",
+                "desc": "执行MCP工具"
+              },
+              {
+                "method": "私有",
+                "path": "内部令牌服务",
+                "desc": "服务器端发行的HMAC令牌"
+              }
             ]
           }
         },
@@ -509,24 +686,72 @@
           "title": "MCP工作流程",
           "subtitle": "滚动查看通信流程",
           "actors": [
-            { "id": "client", "label": "客户" },
-            { "id": "site", "label": "网站" },
-            { "id": "ai", "label": "AI提供商" },
-            { "id": "mcp", "label": "MCP服务器" }
+            {
+              "id": "client",
+              "label": "客户"
+            },
+            {
+              "id": "site",
+              "label": "网站"
+            },
+            {
+              "id": "ai",
+              "label": "AI提供商"
+            },
+            {
+              "id": "mcp",
+              "label": "MCP服务器"
+            }
           ],
           "steps": [
-            { "label": "家具请求", "code": "\"我想要一个120厘米的柜子...\"" },
-            { "label": "POST /api/chat", "code": "请求传输" },
-            { "label": "*/mcp", "code": "MCP服务器连接：获取工具、资源、模板..." },
-            { "label": "连接已建立 - 发送工具、资源...", "code": "[\"create-project\", \"update-column-structure\", ...]" },
-            { "label": "create-project", "code": "{ \"name\": \"Cabinet\", \"type\": \"cabinet\", \"dimensions\": {...} }" },
-            { "label": "项目ID", "code": "{ \"projectId\": \"proj_abc123\" }" },
-            { "label": "update-column-structure", "code": "{ \"projectId\": \"...\", \"structure\": { \"columns\": [...] } }" },
-            { "label": "确认", "code": "{ \"success\": true }" },
-            { "label": "get-viewer-url", "code": "{ \"projectId\": \"proj_abc123\" }" },
-            { "label": "查看器URL", "code": "{ \"url\": \"https://...\" }" },
-            { "label": "3D显示", "code": "<ViewerComponent />" },
-            { "label": "家具可视化", "code": "✓ 最终渲染" }
+            {
+              "label": "家具请求",
+              "code": "\"我想要一个120厘米的柜子...\""
+            },
+            {
+              "label": "POST /api/chat",
+              "code": "请求传输"
+            },
+            {
+              "label": "*/mcp",
+              "code": "MCP服务器连接：获取工具、资源、模板..."
+            },
+            {
+              "label": "连接已建立 - 发送工具、资源...",
+              "code": "[\"create-project\", \"update-column-structure\", ...]"
+            },
+            {
+              "label": "create-project",
+              "code": "{ \"name\": \"Cabinet\", \"type\": \"cabinet\", \"dimensions\": {...} }"
+            },
+            {
+              "label": "项目ID",
+              "code": "{ \"projectId\": \"proj_abc123\" }"
+            },
+            {
+              "label": "update-column-structure",
+              "code": "{ \"projectId\": \"...\", \"structure\": { \"columns\": [...] } }"
+            },
+            {
+              "label": "确认",
+              "code": "{ \"success\": true }"
+            },
+            {
+              "label": "get-viewer-url",
+              "code": "{ \"projectId\": \"proj_abc123\" }"
+            },
+            {
+              "label": "查看器URL",
+              "code": "{ \"url\": \"https://...\" }"
+            },
+            {
+              "label": "3D显示",
+              "code": "<ViewerComponent />"
+            },
+            {
+              "label": "家具可视化",
+              "code": "✓ 最终渲染"
+            }
           ]
         }
       }
@@ -541,9 +766,21 @@
         },
         "description": "绘制星球大战银河系优化路线的Web应用。模块化架构：C + Java + PHP + JS + 数据库像反叛军团队一样协作。C构建的A*算法找到行星之间最快的路径。",
         "stats": [
-          { "label": "技术", "value": "5", "sub": "多语言" },
-          { "label": "算法", "value": "A*", "sub": "优化" },
-          { "label": "架构", "value": "100%", "sub": "模块化" }
+          {
+            "label": "技术",
+            "value": "5",
+            "sub": "多语言"
+          },
+          {
+            "label": "算法",
+            "value": "A*",
+            "sub": "优化"
+          },
+          {
+            "label": "架构",
+            "value": "100%",
+            "sub": "模块化"
+          }
         ],
         "crew": {
           "title": "团队",
@@ -551,10 +788,22 @@
         }
       },
       "crew": [
-        { "name": "Jules Grange（就是我）", "role": "C算法和后端开发" },
-        { "name": "Guillaume Augeraud", "role": "前端开发" },
-        { "name": "Benjamin Rissot", "role": "数据库管理和Java开发" },
-        { "name": "Andrei Achirecesei", "role": "后端开发" }
+        {
+          "name": "Jules Grange（就是我）",
+          "role": "C算法和后端开发"
+        },
+        {
+          "name": "Guillaume Augeraud",
+          "role": "前端开发"
+        },
+        {
+          "name": "Benjamin Rissot",
+          "role": "数据库管理和Java开发"
+        },
+        {
+          "name": "Andrei Achirecesei",
+          "role": "后端开发"
+        }
       ],
       "sections": {
         "overview": {
@@ -568,11 +817,26 @@
         "stack": {
           "tag": "跨技术栈",
           "items": [
-            { "label": "前端", "value": "HTML/CSS/JS" },
-            { "label": "后端", "value": "PHP + REST API" },
-            { "label": "服务器", "value": "Java + JDBC" },
-            { "label": "算法", "value": "C + A*" },
-            { "label": "数据", "value": "MySQL" }
+            {
+              "label": "前端",
+              "value": "HTML/CSS/JS"
+            },
+            {
+              "label": "后端",
+              "value": "PHP + REST API"
+            },
+            {
+              "label": "服务器",
+              "value": "Java + JDBC"
+            },
+            {
+              "label": "算法",
+              "value": "C + A*"
+            },
+            {
+              "label": "数据",
+              "value": "MySQL"
+            }
           ]
         },
         "architecture": {
@@ -656,9 +920,30 @@
         "technologies": {
           "title": "使用的技术",
           "sections": [
-            { "label": "前端", "items": ["HTML/CSS", "JavaScript", "Leaflet"] },
-            { "label": "后端", "items": ["PHP", "Java", "JDBC", "MySQL"] },
-            { "label": "算法", "items": ["C", "A*"] }
+            {
+              "label": "前端",
+              "items": [
+                "HTML/CSS",
+                "JavaScript",
+                "Leaflet"
+              ]
+            },
+            {
+              "label": "后端",
+              "items": [
+                "PHP",
+                "Java",
+                "JDBC",
+                "MySQL"
+              ]
+            },
+            {
+              "label": "算法",
+              "items": [
+                "C",
+                "A*"
+              ]
+            }
           ]
         },
         "gallery": {
@@ -677,9 +962,21 @@
         },
         "description": "用纯C设计的图像编码器/解码器。目标？通过实现基于差分编码和VLC（可变长度编码）表的'近无损'算法来理解数字压缩基础。没有魔法库，只有位操作。",
         "stats": [
-          { "label": "语言", "value": "C", "sub": "纯粹" },
-          { "label": "格式", "value": "DIFF", "sub": "自定义二进制" },
-          { "label": "方法", "value": "VLC", "sub": "静态霍夫曼" }
+          {
+            "label": "语言",
+            "value": "C",
+            "sub": "纯粹"
+          },
+          {
+            "label": "格式",
+            "value": "DIFF",
+            "sub": "自定义二进制"
+          },
+          {
+            "label": "方法",
+            "value": "VLC",
+            "sub": "静态霍夫曼"
+          }
         ]
       },
       "sections": {
@@ -694,11 +991,26 @@
         "stack": {
           "tag": "低级工具",
           "items": [
-            { "label": "语言", "value": "C (C99)" },
-            { "label": "图形", "value": "libg2x (OpenGL/Glut包装器)" },
-            { "label": "构建", "value": "Makefile" },
-            { "label": "图像", "value": "NetPBM (PGM/PPM)" },
-            { "label": "二进制", "value": "十六进制编辑器" }
+            {
+              "label": "语言",
+              "value": "C (C99)"
+            },
+            {
+              "label": "图形",
+              "value": "libg2x (OpenGL/Glut包装器)"
+            },
+            {
+              "label": "构建",
+              "value": "Makefile"
+            },
+            {
+              "label": "图像",
+              "value": "NetPBM (PGM/PPM)"
+            },
+            {
+              "label": "二进制",
+              "value": "十六进制编辑器"
+            }
           ]
         },
         "architecture": {
@@ -774,10 +1086,35 @@
         "technologies": {
           "title": "使用的技术",
           "sections": [
-            { "label": "语言", "items": ["C (C99)"] },
-            { "label": "图形", "items": ["libg2x", "OpenGL", "Glut"] },
-            { "label": "工具", "items": ["Makefile", "Hex Editor"] },
-            { "label": "格式", "items": ["NetPBM", "PGM", "PPM"] }
+            {
+              "label": "语言",
+              "items": [
+                "C (C99)"
+              ]
+            },
+            {
+              "label": "图形",
+              "items": [
+                "libg2x",
+                "OpenGL",
+                "Glut"
+              ]
+            },
+            {
+              "label": "工具",
+              "items": [
+                "Makefile",
+                "Hex Editor"
+              ]
+            },
+            {
+              "label": "格式",
+              "items": [
+                "NetPBM",
+                "PGM",
+                "PPM"
+              ]
+            }
           ]
         },
         "gallery": {
@@ -796,9 +1133,21 @@
         },
         "description": "实时多人维基百科速通游戏。玩家竞相从一个维基百科页面导航到另一个页面。WebSocket实时同步，代理服务器修改维基百科页面以跟踪点击。",
         "stats": [
-          { "label": "玩家", "value": "多人", "sub": "实时" },
-          { "label": "同步", "value": "WebSocket", "sub": "即时" },
-          { "label": "架构", "value": "代理", "sub": "修改页面" }
+          {
+            "label": "玩家",
+            "value": "多人",
+            "sub": "实时"
+          },
+          {
+            "label": "同步",
+            "value": "WebSocket",
+            "sub": "即时"
+          },
+          {
+            "label": "架构",
+            "value": "代理",
+            "sub": "修改页面"
+          }
         ],
         "crew": {
           "title": "团队",
@@ -806,8 +1155,14 @@
         }
       },
       "crew": [
-        { "name": "Jules Grange（就是我）", "role": "后端和WebSocket开发" },
-        { "name": "团队成员", "role": "前端和游戏逻辑" }
+        {
+          "name": "Jules Grange（就是我）",
+          "role": "后端和WebSocket开发"
+        },
+        {
+          "name": "团队成员",
+          "role": "前端和游戏逻辑"
+        }
       ],
       "sections": {
         "overview": {
@@ -821,11 +1176,26 @@
         "stack": {
           "tag": "技术栈",
           "items": [
-            { "label": "前端", "value": "React" },
-            { "label": "后端", "value": "Node.js" },
-            { "label": "实时", "value": "WebSocket" },
-            { "label": "代理", "value": "自定义代理服务器" },
-            { "label": "数据库", "value": "MongoDB" }
+            {
+              "label": "前端",
+              "value": "React"
+            },
+            {
+              "label": "后端",
+              "value": "Node.js"
+            },
+            {
+              "label": "实时",
+              "value": "WebSocket"
+            },
+            {
+              "label": "代理",
+              "value": "自定义代理服务器"
+            },
+            {
+              "label": "数据库",
+              "value": "MongoDB"
+            }
           ]
         },
         "features": {
@@ -852,10 +1222,33 @@
         "technologies": {
           "title": "使用的技术",
           "sections": [
-            { "label": "前端", "items": ["React", "CSS"] },
-            { "label": "后端", "items": ["Node.js", "Express"] },
-            { "label": "实时", "items": ["WebSocket", "Socket.io"] },
-            { "label": "数据库", "items": ["MongoDB"] }
+            {
+              "label": "前端",
+              "items": [
+                "React",
+                "CSS"
+              ]
+            },
+            {
+              "label": "后端",
+              "items": [
+                "Node.js",
+                "Express"
+              ]
+            },
+            {
+              "label": "实时",
+              "items": [
+                "WebSocket",
+                "Socket.io"
+              ]
+            },
+            {
+              "label": "数据库",
+              "items": [
+                "MongoDB"
+              ]
+            }
           ]
         },
         "gallery": {
@@ -864,5 +1257,40 @@
         }
       }
     }
+  },
+  "art_gallery": {
+    "title": "艺术画廊",
+    "badge": "插画",
+    "back": "返回",
+    "description": "一些关于网络小说《Shadow Slave》（暗影奴隶）的个人插画，用于实体卷印刷。",
+    "hover_hint": "将鼠标悬停在图像上以查看延时摄影。",
+    "list": [
+      {
+        "id": "mongrel",
+        "title": "Mongrel",
+        "description": "Sunless的秘密身份。",
+        "image": "/art/mongrel.png",
+        "video": "/art/timelapses/mongrel.mp4"
+      },
+      {
+        "id": "mordret",
+        "title": "Mordret",
+        "description": "The Prince of Nothing（虚无王子）。",
+        "image": "/art/mordret.png",
+        "video": "/art/timelapses/mordret.mp4"
+      },
+      {
+        "id": "gunlaug",
+        "title": "Gunlaug",
+        "description": "明亮领主（黑暗之城）。",
+        "image": "/art/gunlaug.png"
+      },
+      {
+        "id": "nephis",
+        "title": "Nephis",
+        "description": "Changing Star（变星）。",
+        "image": "/art/nephis.png"
+      }
+    ]
   }
 }

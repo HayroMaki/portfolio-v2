@@ -25,6 +25,11 @@
     "p1": "I'm a problem solver who ships. Curious, meticulous, and driven by the challenge of turning complex requirements into clean, functional code.",
     "p2": "Full-stack generalist with a focus on modern web technologies. I adapt quickly and learn what's needed to get the job done.",
     "p3": "Currently building AI-powered tools and 3D configurators in production. I don't just code, I deliver solutions that users actually use.",
+    "art_link": {
+      "title": "Art & Illustrations",
+      "description": "I'm also a digital drawing enthusiast. Check out my illustration gallery!",
+      "cta": "View gallery"
+    },
     "atelier": {
       "headline": "Studio log",
       "journal": {
@@ -1586,5 +1591,40 @@
         }
       }
     }
+  },
+  "art_gallery": {
+    "title": "Art Gallery",
+    "badge": "illustrations",
+    "back": "back",
+    "description": "Some personal illustrations based on the web novel Shadow Slave, drawn for physical volume printing.",
+    "hover_hint": "Hover the image to see the timelapse.",
+    "list": [
+      {
+        "id": "mongrel",
+        "title": "Mongrel",
+        "description": "Sunless's secret identity.",
+        "image": "/art/mongrel.png",
+        "video": "/art/timelapses/mongrel.mp4"
+      },
+      {
+        "id": "mordret",
+        "title": "Mordret",
+        "description": "The Prince of Nothing.",
+        "image": "/art/mordret.png",
+        "video": "/art/timelapses/mordret.mp4"
+      },
+      {
+        "id": "gunlaug",
+        "title": "Gunlaug",
+        "description": "Bright Lord of the Dark City.",
+        "image": "/art/gunlaug.png"
+      },
+      {
+        "id": "nephis",
+        "title": "Nephis",
+        "description": "Changing Star.",
+        "image": "/art/nephis.png"
+      }
+    ]
   }
 }

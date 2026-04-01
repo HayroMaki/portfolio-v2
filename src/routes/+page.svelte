@@ -8,6 +8,7 @@
 		Filter,
 		ChevronDown,
 		ChevronUp,
+		Heart,
 	} from "lucide-svelte";
 	import { onMount } from "svelte";
 	import { locale } from "$lib/stores/locale";
@@ -499,6 +500,48 @@
 						>
 							{t("about.mentality.p1")}
 						</p>
+					</div>
+
+					<div
+						class="manga-panel p-6 space-y-6 transition-all duration-700 ease-out"
+						class:opacity-0={!$atelierVisible}
+						style="transition-delay: 650ms"
+					>
+						<div
+							class="flex items-center gap-3 font-mono uppercase text-xs tracking-[0.3em]"
+						>
+							<Heart size={20} />
+							{t("about.passions.title")}
+						</div>
+						<ul
+							class="space-y-4 text-sm font-mono leading-relaxed text-ink/80"
+						>
+							<li class="flex items-start gap-3">
+								<span class="text-ink mt-1">/</span>
+								<span>{t("about.passions.p1")}</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<span class="text-ink mt-1">/</span>
+								<span>{t("about.passions.p2")}</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<span class="text-ink mt-1">/</span>
+								<a
+									href="/art"
+									class="group relative inline-flex items-center transition-all duration-300 hover:text-accent"
+								>
+									<span>{t("about.passions.p3")}</span>
+									<span
+										class="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 text-accent font-bold ml-2"
+										>→</span
+									>
+								</a>
+							</li>
+							<li class="flex items-start gap-3">
+								<span class="text-ink mt-1">/</span>
+								<span>{t("about.passions.p4")}</span>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
