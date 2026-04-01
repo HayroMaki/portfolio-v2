@@ -733,7 +733,7 @@
 										class="absolute inset-0 overflow-hidden"
 									>
 										<img
-											src="/images/mcp_server_visual.png"
+											src="/images/projects/mcp_server_visual.png"
 											alt="MCP Server Architecture"
 											class="w-full h-full object-cover grayscale contrast-125 transition-transform duration-700 group-hover:scale-105"
 										/>
@@ -743,7 +743,7 @@
 										class="absolute inset-0 overflow-hidden"
 									>
 										<img
-											src="/images/codec_server_visual.png"
+											src="/images/projects/codec_server_visual.png"
 											alt="CoDec Compression"
 											class="w-full h-full object-cover grayscale contrast-125 transition-transform duration-700 group-hover:scale-105"
 										/>
