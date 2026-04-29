@@ -170,7 +170,11 @@
 	];
 </script>
 
-<main class="relative overflow-hidden bg-paper text-ink">
+<div
+	itemscope
+	itemtype="https://schema.org/Person"
+	class="relative overflow-hidden bg-paper text-ink"
+>
 	<!-- Easter egg notification -->
 	{#if easterEggActivated}
 		<div
@@ -197,7 +201,7 @@
 			>
 				<img
 					src="/Me.png"
-					alt="Jules Portrait"
+					alt="Jules Grange Portrait Développeur : dessin noir & blanc manga, style Jojo's Bizarre Adventure"
 					class="max-h-[80%] md:max-h-[90%] lg:max-h-full w-auto object-contain object-bottom transition-all duration-1000 ease-out delay-200"
 					class:opacity-0={!heroReady}
 					style={!heroReady
@@ -223,6 +227,7 @@
 
 					<div class="space-y-5">
 						<h1
+							itemprop="name"
 							class="stroke-title leading-[0.85] transition-all duration-700 ease-out delay-100"
 							class:opacity-0={!heroReady}
 							style={!heroReady
@@ -233,6 +238,7 @@
 							<strong>{t("hero.surname")}</strong>
 						</h1>
 						<p
+							itemprop="jobTitle"
 							class="max-w-2xl text-lg leading-relaxed font-mono text-ink/80 transition-all duration-700 ease-out delay-200"
 							class:opacity-0={!heroReady}
 							style={!heroReady
@@ -760,151 +766,160 @@
 						{@const projectIndex = projectsData.findIndex(
 							(p) => p.id === project.id,
 						)}
-						<a
-							href={project.href}
+						<article
 							class="manga-panel group block overflow-hidden transition-all duration-700 ease-out hover:-translate-y-2 hover:shadow-divider"
 							class:opacity-0={!$projectsVisible}
 							class:translate-y-16={!$projectsVisible}
 							style="transition-delay: {400 + i * 150}ms"
 						>
-							<!-- Hero Visual with Abstract Pattern -->
-							<div
-								class="relative h-64 overflow-hidden border-b-2 border-ink"
+							<a
+								href={project.href}
+								class="block h-full w-full"
+								aria-label="Voir le projet {t(
+									'projects.list.' + projectIndex + '.title',
+								)}"
 							>
-								{#if project.id === "mcp"}
-									<div
-										class="absolute inset-0 overflow-hidden"
-									>
-										<img
-											src="/images/projects/mcp_server_visual.png"
-											alt="MCP Server Architecture"
-											class="w-full h-full object-cover grayscale contrast-125 transition-transform duration-700 group-hover:scale-105"
-										/>
-									</div>
-								{:else if project.id === "codec"}
-									<div
-										class="absolute inset-0 overflow-hidden"
-									>
-										<img
-											src="/images/projects/codec_server_visual.png"
-											alt="CoDec Compression"
-											class="w-full h-full object-cover grayscale contrast-125 transition-transform duration-700 group-hover:scale-105"
-										/>
-									</div>
-								{:else}
-									<!-- Background gradient -->
-									<div
-										class="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
-										style="background: linear-gradient(135deg, {project.color}15 0%, {project.color}35 100%)"
-									></div>
-								{/if}
-
-								<!-- Project metadata strip -->
+								<!-- Hero Visual with Abstract Pattern -->
 								<div
-									class="absolute top-4 left-4 right-4 flex items-start justify-between gap-4"
+									class="relative h-64 overflow-hidden border-b-2 border-ink"
 								>
-									<span
-										class="px-3 py-1 bg-ink text-paper border border-ink font-mono text-xs uppercase tracking-[0.4em]"
+									{#if project.id === "mcp"}
+										<div
+											class="absolute inset-0 overflow-hidden"
+										>
+											<img
+												src="/images/projects/mcp_server_visual.png"
+												alt="MCP Server Architecture"
+												class="w-full h-full object-cover grayscale contrast-125 transition-transform duration-700 group-hover:scale-105"
+											/>
+										</div>
+									{:else if project.id === "codec"}
+										<div
+											class="absolute inset-0 overflow-hidden"
+										>
+											<img
+												src="/images/projects/codec_server_visual.png"
+												alt="CoDec Compression"
+												class="w-full h-full object-cover grayscale contrast-125 transition-transform duration-700 group-hover:scale-105"
+											/>
+										</div>
+									{:else}
+										<!-- Background gradient -->
+										<div
+											class="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
+											style="background: linear-gradient(135deg, {project.color}15 0%, {project.color}35 100%)"
+										></div>
+									{/if}
+
+									<!-- Project metadata strip -->
+									<div
+										class="absolute top-4 left-4 right-4 flex items-start justify-between gap-4"
+									>
+										<span
+											class="px-3 py-1 bg-ink text-paper border border-ink font-mono text-xs uppercase tracking-[0.4em]"
+										>
+											{t(
+												"projects.metadata.type_" +
+													project.type,
+											)}
+										</span>
+										<span
+											class="px-3 py-1 bg-paper border border-ink font-mono text-xs uppercase tracking-[0.4em]"
+										>
+											{project.year}
+										</span>
+									</div>
+
+									<!-- Punch-card style metadata at bottom -->
+									<div
+										class="absolute bottom-4 left-4 right-4 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.3em]"
+									>
+										<div
+											class="px-2 py-1 bg-paper/90 border border-ink backdrop-blur-sm"
+										>
+											<span class="text-ink/60"
+												>{t(
+													"projects.metadata.team",
+												)}</span
+											>
+											<span class="ml-2 font-bold"
+												>{project.teamSize === 1
+													? t(
+															"projects.metadata.team_single",
+														)
+													: project.teamSize}</span
+											>
+										</div>
+										<div
+											class="px-2 py-1 bg-paper/90 border border-ink backdrop-blur-sm"
+										>
+											<span class="text-ink/60"
+												>{t(
+													"projects.metadata.duration",
+												)}</span
+											>
+											<span class="ml-2 font-bold"
+												>{monthsToText(
+													project.duration,
+												)}</span
+											>
+										</div>
+										<div
+											class="px-2 py-1 bg-paper/90 border border-ink backdrop-blur-sm"
+										>
+											<span class="text-ink/60"
+												>{t(
+													"projects.metadata.tech_count",
+												)}</span
+											>
+											<span class="ml-2 font-bold"
+												>{project.techCount}</span
+											>
+										</div>
+									</div>
+								</div>
+
+								<!-- Content -->
+								<div class="p-8 space-y-4">
+									<h3
+										class="text-3xl font-display uppercase tracking-[0.2em] group-hover:text-accent transition-colors"
 									>
 										{t(
-											"projects.metadata.type_" +
-												project.type,
+											"projects.list." +
+												projectIndex +
+												".title",
 										)}
-									</span>
-									<span
-										class="px-3 py-1 bg-paper border border-ink font-mono text-xs uppercase tracking-[0.4em]"
+									</h3>
+									<p
+										class="font-mono text-sm text-ink/80 leading-relaxed"
 									>
-										{project.year}
-									</span>
-								</div>
-
-								<!-- Punch-card style metadata at bottom -->
-								<div
-									class="absolute bottom-4 left-4 right-4 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.3em]"
-								>
-									<div
-										class="px-2 py-1 bg-paper/90 border border-ink backdrop-blur-sm"
-									>
-										<span class="text-ink/60"
-											>{t("projects.metadata.team")}</span
-										>
-										<span class="ml-2 font-bold"
-											>{project.teamSize === 1
-												? t(
-														"projects.metadata.team_single",
-													)
-												: project.teamSize}</span
-										>
+										{t(
+											"projects.list." +
+												projectIndex +
+												".description",
+										)}
+									</p>
+									<div class="flex flex-wrap gap-2">
+										{#each t("projects.list." + projectIndex + ".tags") as tag}
+											<span
+												class="px-3 py-1 border border-dashed border-ink text-xs font-mono uppercase tracking-[0.3em] hover:bg-ink hover:text-paper transition-colors"
+											>
+												{tag}
+											</span>
+										{/each}
 									</div>
 									<div
-										class="px-2 py-1 bg-paper/90 border border-ink backdrop-blur-sm"
+										class="pt-2 inline-flex items-center gap-3 border-b-2 border-ink text-sm font-mono uppercase tracking-[0.4em] group-hover:gap-5 transition-all"
 									>
-										<span class="text-ink/60"
-											>{t(
-												"projects.metadata.duration",
-											)}</span
-										>
-										<span class="ml-2 font-bold"
-											>{monthsToText(
-												project.duration,
-											)}</span
-										>
-									</div>
-									<div
-										class="px-2 py-1 bg-paper/90 border border-ink backdrop-blur-sm"
-									>
-										<span class="text-ink/60"
-											>{t(
-												"projects.metadata.tech_count",
-											)}</span
-										>
-										<span class="ml-2 font-bold"
-											>{project.techCount}</span
-										>
+										{t("projects.cta")}
+										<ArrowRight
+											size={16}
+											class="group-hover:translate-x-1 transition-transform"
+										/>
 									</div>
 								</div>
-							</div>
-
-							<!-- Content -->
-							<div class="p-8 space-y-4">
-								<h3
-									class="text-3xl font-display uppercase tracking-[0.2em] group-hover:text-accent transition-colors"
-								>
-									{t(
-										"projects.list." +
-											projectIndex +
-											".title",
-									)}
-								</h3>
-								<p
-									class="font-mono text-sm text-ink/80 leading-relaxed"
-								>
-									{t(
-										"projects.list." +
-											projectIndex +
-											".description",
-									)}
-								</p>
-								<div class="flex flex-wrap gap-2">
-									{#each t("projects.list." + projectIndex + ".tags") as tag}
-										<span
-											class="px-3 py-1 border border-dashed border-ink text-xs font-mono uppercase tracking-[0.3em] hover:bg-ink hover:text-paper transition-colors"
-										>
-											{tag}
-										</span>
-									{/each}
-								</div>
-								<div
-									class="pt-2 inline-flex items-center gap-3 border-b-2 border-ink text-sm font-mono uppercase tracking-[0.4em] group-hover:gap-5 transition-all"
-								>
-									{t("projects.cta")}
-									<ArrowRight
-										size={16}
-										class="group-hover:translate-x-1 transition-transform"
-									/>
-								</div>
-							</div>
-						</a>
+							</a>
+						</article>
 					{/each}
 				</div>
 			</div>
@@ -989,124 +1004,133 @@
 						{@const projectIndex = projectsData.findIndex(
 							(p) => p.id === project.id,
 						)}
-						<a
-							href={project.href}
+						<article
 							class="manga-panel group block overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-divider"
 						>
-							<!-- Content -->
-							<div class="p-6">
-								<!-- Header with title and metadata badges -->
-								<div
-									class="flex items-start justify-between gap-4 mb-4"
-								>
-									<div class="flex-1">
-										<h3
-											class="text-2xl font-display uppercase tracking-[0.2em] group-hover:text-accent transition-colors"
-										>
-											{t(
-												"projects.list." +
-													projectIndex +
-													".title",
-											)}
-										</h3>
-									</div>
-									<div class="flex items-center gap-2">
-										<span
-											class="px-3 py-1 bg-ink text-paper border border-ink font-mono text-xs uppercase tracking-[0.4em]"
-										>
-											{t(
-												"projects.metadata.type_" +
-													project.type,
-											)}
-										</span>
-										<span
-											class="px-3 py-1 bg-paper border border-ink font-mono text-xs uppercase tracking-[0.4em]"
-										>
-											{project.year}
-										</span>
-									</div>
-								</div>
-
-								<!-- Description -->
-								<p
-									class="font-mono text-sm text-ink/80 leading-relaxed mb-4"
-								>
-									{t(
-										"projects.list." +
-											projectIndex +
-											".description",
-									)}
-								</p>
-
-								<!-- Metadata strip -->
-								<div
-									class="flex flex-wrap items-center gap-3 mb-4 font-mono text-xs"
-								>
+							<a
+								href={project.href}
+								class="block h-full w-full"
+								aria-label="Voir le projet {t(
+									'projects.list.' + projectIndex + '.title',
+								)}"
+							>
+								<!-- Content -->
+								<div class="p-6">
+									<!-- Header with title and metadata badges -->
 									<div
-										class="px-2 py-1 bg-paper border border-ink/30"
+										class="flex items-start justify-between gap-4 mb-4"
 									>
-										<span class="text-ink/60"
-											>{t("projects.metadata.team")}</span
-										>
-										<span class="ml-2 font-bold"
-											>{project.teamSize === 1
-												? t(
-														"projects.metadata.team_single",
-													)
-												: project.teamSize}</span
-										>
+										<div class="flex-1">
+											<h3
+												class="text-2xl font-display uppercase tracking-[0.2em] group-hover:text-accent transition-colors"
+											>
+												{t(
+													"projects.list." +
+														projectIndex +
+														".title",
+												)}
+											</h3>
+										</div>
+										<div class="flex items-center gap-2">
+											<span
+												class="px-3 py-1 bg-ink text-paper border border-ink font-mono text-xs uppercase tracking-[0.4em]"
+											>
+												{t(
+													"projects.metadata.type_" +
+														project.type,
+												)}
+											</span>
+											<span
+												class="px-3 py-1 bg-paper border border-ink font-mono text-xs uppercase tracking-[0.4em]"
+											>
+												{project.year}
+											</span>
+										</div>
 									</div>
-									<div
-										class="px-2 py-1 bg-paper border border-ink/30"
-									>
-										<span class="text-ink/60"
-											>{t(
-												"projects.metadata.duration",
-											)}</span
-										>
-										<span class="ml-2 font-bold"
-											>{monthsToText(
-												project.duration,
-											)}</span
-										>
-									</div>
-									<div
-										class="px-2 py-1 bg-paper border border-ink/30"
-									>
-										<span class="text-ink/60"
-											>{t(
-												"projects.metadata.tech_count",
-											)}</span
-										>
-										<span class="ml-2 font-bold"
-											>{project.techCount}</span
-										>
-									</div>
-								</div>
 
-								<!-- Tech tags -->
-								<div class="flex flex-wrap gap-2">
-									{#each t("projects.list." + projectIndex + ".tags") as tag}
-										<span
-											class="px-2 py-1 border border-dashed border-ink/40 text-xs font-mono uppercase tracking-[0.2em] hover:bg-ink hover:text-paper transition-colors"
-										>
-											{tag}
-										</span>
-									{/each}
-								</div>
+									<!-- Description -->
+									<p
+										class="font-mono text-sm text-ink/80 leading-relaxed mb-4"
+									>
+										{t(
+											"projects.list." +
+												projectIndex +
+												".description",
+										)}
+									</p>
 
-								<!-- CTA -->
-								<div
-									class="mt-4 inline-flex items-center gap-3 border-b-2 border-ink text-xs font-mono uppercase tracking-[0.4em] group-hover:gap-5 transition-all"
-								>
-									{t("projects.cta")}
-									<ArrowRight
-										size={14}
-										class="group-hover:translate-x-1 transition-transform"
-									/>
+									<!-- Metadata strip -->
+									<div
+										class="flex flex-wrap items-center gap-3 mb-4 font-mono text-xs"
+									>
+										<div
+											class="px-2 py-1 bg-paper border border-ink/30"
+										>
+											<span class="text-ink/60"
+												>{t(
+													"projects.metadata.team",
+												)}</span
+											>
+											<span class="ml-2 font-bold"
+												>{project.teamSize === 1
+													? t(
+															"projects.metadata.team_single",
+														)
+													: project.teamSize}</span
+											>
+										</div>
+										<div
+											class="px-2 py-1 bg-paper border border-ink/30"
+										>
+											<span class="text-ink/60"
+												>{t(
+													"projects.metadata.duration",
+												)}</span
+											>
+											<span class="ml-2 font-bold"
+												>{monthsToText(
+													project.duration,
+												)}</span
+											>
+										</div>
+										<div
+											class="px-2 py-1 bg-paper border border-ink/30"
+										>
+											<span class="text-ink/60"
+												>{t(
+													"projects.metadata.tech_count",
+												)}</span
+											>
+											<span class="ml-2 font-bold"
+												>{project.techCount}</span
+											>
+										</div>
+									</div>
+
+									<!-- Tech tags -->
+									<div class="flex flex-wrap gap-2">
+										{#each t("projects.list." + projectIndex + ".tags") as tag}
+											<span
+												class="px-2 py-1 border border-dashed border-ink/40 text-xs font-mono uppercase tracking-[0.2em] hover:bg-ink hover:text-paper transition-colors"
+											>
+												{tag}
+											</span>
+										{/each}
+									</div>
+
+									<!-- CTA -->
+									<div
+										class="mt-4 inline-flex items-center gap-3 border-b-2 border-ink text-xs font-mono uppercase tracking-[0.4em] group-hover:gap-5 transition-all"
+									>
+										{t("projects.cta")}
+										<ArrowRight
+											size={14}
+											class="group-hover:translate-x-1 transition-transform"
+										/>
+									</div>
 								</div>
-							</div>
-						</a>
+							</a>
+						</article>
 					{/each}
 
 					<!-- Empty state -->
@@ -1267,7 +1291,7 @@
 			</div>
 		</div>
 	</section>
-</main>
+</div>
 
 <style lang="postcss">
 	.marquee {

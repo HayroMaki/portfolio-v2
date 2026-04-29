@@ -136,7 +136,7 @@
 	} as const;
 </script>
 
-<main class="min-h-screen bg-paper text-ink">
+<div itemscope itemtype="https://schema.org/SoftwareApplication" class="min-h-screen bg-paper text-ink">
 	<section class="relative overflow-hidden border-b-2 border-ink">
 		<div class="relative z-10 mx-auto max-w-6xl px-6 py-20 space-y-12">
 			<div class="flex items-center gap-4 text-xs font-mono uppercase tracking-[0.4em]">
@@ -148,7 +148,7 @@
 			</div>
 			
 			<div class="space-y-8">
-				<h1 class="stroke-title leading-[0.8]">
+				<h1 itemprop="name" class="stroke-title leading-[0.8]">
 					{t('hero.title.regular')} <strong>{t('hero.title.highlight')}</strong>
 				</h1>
 				<p class="max-w-3xl font-mono text-lg leading-relaxed text-ink/80">{t('hero.description')}</p>
@@ -469,4 +469,5 @@
 			</div>
 		</div>
 	</section>
-</main>
+</div>
+

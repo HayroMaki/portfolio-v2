@@ -24,7 +24,7 @@
 	}
 </script>
 
-<main class="min-h-screen bg-paper text-ink">
+<div itemscope itemtype="https://schema.org/CollectionPage" class="min-h-screen bg-paper text-ink">
 	<section class="border-b-2 border-ink">
 		<div class="mx-auto max-w-5xl px-6 py-20 space-y-10">
 			<div class="flex items-center gap-4 text-xs font-mono uppercase tracking-[0.4em]">
@@ -36,7 +36,7 @@
 			</div>
 
 			<div class="space-y-6">
-				<h1 class="text-5xl md:text-7xl font-display uppercase tracking-[0.3em] transition-all duration-700 ease-out delay-100">
+				<h1 itemprop="name" class="text-5xl md:text-7xl font-display uppercase tracking-[0.3em] transition-all duration-700 ease-out delay-100">
 					{page.title}
 				</h1>
 				<p class="max-w-3xl font-mono text-base leading-relaxed text-ink/80">{page.description}</p>
@@ -62,7 +62,7 @@
 		<div class="mx-auto max-w-6xl px-6 relative z-10">
 			<div class="grid gap-12 md:grid-cols-2">
 				{#each page.list as item}
-					<div class="manga-panel p-6 space-y-6 group bg-paper">
+					<article class="manga-panel p-6 space-y-6 group bg-paper">
 						<!-- Content Area -->
 						<!-- svelte-ignore a11y_no_static_element_interactions -->
 						<div 
@@ -107,9 +107,9 @@
 							</div>
 							<p class="font-mono text-sm leading-relaxed text-ink/80">{item.description}</p>
 						</div>
-					</div>
+					</article>
 				{/each}
 			</div>
 		</div>
 	</section>
-</main>
+</div>

@@ -7,14 +7,14 @@
 	const cvContent = $derived(t.cv_page);
 </script>
 
-<main class="min-h-screen bg-paper text-ink">
+<div itemscope itemtype="https://schema.org/Person" class="min-h-screen bg-paper text-ink">
 	<section class="border-b-2 border-ink">
 		<div
 			class="mx-auto flex max-w-5xl flex-col gap-8 px-6 py-20 lg:flex-row lg:items-center"
 		>
 			<div class="space-y-6">
 				<p class="kanji-tag bg-paper uppercase">{cvContent.badge}</p>
-				<h1 class="stroke-title leading-[0.8]">
+				<h1 itemprop="name" class="stroke-title leading-[0.8]">
 					{cvContent.title.regular}
 					<strong>{cvContent.title.highlight}</strong>
 				</h1>
@@ -85,4 +85,4 @@
 			</div>
 		</div>
 	</section>
-</main>
+</div>

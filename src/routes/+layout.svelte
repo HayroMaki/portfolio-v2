@@ -74,10 +74,10 @@
 	{/if}
 	
 	<InkBrush enabled={brushEnabled} />
-	<nav class="fixed top-0 left-0 right-0 z-50 border-b-2 border-ink bg-paper/90 backdrop-blur-sm">
-		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+	<header class="fixed top-0 left-0 right-0 z-50 border-b-2 border-ink bg-paper/90 backdrop-blur-sm">
+		<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Navigation principale">
 			<div class="flex items-center justify-between h-16">
-				<a href="/" class="flex flex-col leading-none">
+				<a href="/" class="flex flex-col leading-none" aria-label="Retour à l'accueil, Jules Grange">
 					<span class="font-display text-2xl tracking-[0.35em] uppercase">Jules</span>
 					<span class="text-xs font-mono uppercase tracking-[0.5em]">Grange</span>
 				</a>
@@ -95,19 +95,20 @@
 					<button
 						onclick={toggleLocale}
 						class="inline-flex items-center gap-2 border-2 border-ink px-3 py-2 font-mono text-xs uppercase tracking-[0.4em] hover:bg-ink hover:text-paper transition"
+						aria-label="Changer de langue"
 					>
 						<Languages size={18}/><span class="ml-1">{$locale}</span>
 					</button>
-					<a href="https://github.com/HayroMaki" target="_blank" rel="noopener noreferrer" class="p-2 border-2 border-ink hover:bg-ink hover:text-paper transition">
+					<a href="https://github.com/HayroMaki" target="_blank" rel="noopener noreferrer" class="p-2 border-2 border-ink hover:bg-ink hover:text-paper transition" aria-label="Consulter mon profil GitHub">
 						<Github size={18} />
 					</a>
-					<a href="https://www.linkedin.com/in/julesrenaudgrange/" target="_blank" rel="noopener noreferrer" class="p-2 border-2 border-ink hover:bg-ink hover:text-paper transition">
+					<a href="https://www.linkedin.com/in/julesrenaudgrange/" target="_blank" rel="noopener noreferrer" class="p-2 border-2 border-ink hover:bg-ink hover:text-paper transition" aria-label="Consulter mon profil LinkedIn">
 						<Linkedin size={18} />
 					</a>
-					<a href="mailto:julesgrange@outlook.fr" class="p-2 border-2 border-ink hover:bg-ink hover:text-paper transition">
+					<a href="mailto:julesgrange@outlook.fr" class="p-2 border-2 border-ink hover:bg-ink hover:text-paper transition" aria-label="M'envoyer un email">
 						<Mail size={18} />
 					</a>
-					<a href={currentOrigin + '/CV'} class="p-2 border-2 border-ink hover:bg-ink hover:text-paper transition">
+					<a href={currentOrigin + '/CV'} class="p-2 border-2 border-ink hover:bg-ink hover:text-paper transition" aria-label="Consulter mon CV">
 						<Wallet size={18} />
 					</a>
 				</div>
@@ -123,7 +124,7 @@
 					{/if}
 				</button>
 			</div>
-		</div>
+		</nav>
 
 		{#if mobileMenuOpen}
 			<div class="md:hidden border-t-2 border-ink bg-paper">
@@ -141,27 +142,28 @@
 						<button
 							onclick={toggleLocale}
 							class="inline-flex flex-1 items-center justify-center gap-2 border-2 border-ink px-3 py-2 font-mono text-xs uppercase tracking-[0.4em]"
+							aria-label="Changer de langue"
 						>
 							<Languages size={16} />
 							<span>{$locale}</span>
 						</button>
-						<a href="https://github.com/HayroMaki" target="_blank" rel="noopener noreferrer" class="p-2 border-2 border-ink">
+						<a href="https://github.com/HayroMaki" target="_blank" rel="noopener noreferrer" class="p-2 border-2 border-ink" aria-label="Consulter mon profil GitHub">
 							<Github size={18} />
 						</a>
-						<a href="https://www.linkedin.com/in/julesrenaudgrange/" target="_blank" rel="noopener noreferrer" class="p-2 border-2 border-ink">
+						<a href="https://www.linkedin.com/in/julesrenaudgrange/" target="_blank" rel="noopener noreferrer" class="p-2 border-2 border-ink" aria-label="Consulter mon profil LinkedIn">
 							<Linkedin size={18} />
 						</a>
-						<a href="mailto:julesgrange@outlook.fr" class="p-2 border-2 border-ink">
+						<a href="mailto:julesgrange@outlook.fr" class="p-2 border-2 border-ink" aria-label="M'envoyer un email">
 							<Mail size={18} />
 						</a>
-						<a href={currentOrigin + '/CV'} class="p-2 border-2 border-ink">
+						<a href={currentOrigin + '/CV'} class="p-2 border-2 border-ink" aria-label="Consulter mon CV">
 							<Wallet size={18} />
 						</a>
 					</div>
 				</div>
 			</div>
 		{/if}
-	</nav>
+	</header>
 
 	<main class="pt-20">
 		{@render children()}
