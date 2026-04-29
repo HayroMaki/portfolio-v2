@@ -1,3 +1,15 @@
 # allow crawling everything by default
 User-agent: *
 Disallow:
+
+# explicitly allow AI bots for parsing structured data
+User-agent: GPTBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Sitemap declaration for search engines
+Sitemap: [https://portfolio.julesgrange.workers.dev/sitemap.xml](https://portfolio.julesgrange.workers.dev/sitemap.xml)
+
+
