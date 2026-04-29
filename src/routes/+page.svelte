@@ -4,10 +4,7 @@
 		PenTool,
 		Sparkles,
 		Zap,
-		BookHeart,
 		Filter,
-		ChevronDown,
-		ChevronUp,
 		Heart,
 	} from "lucide-svelte";
 	import { onMount } from "svelte";
@@ -15,7 +12,6 @@
 	import TimelineSection from "$lib/components/home/TimelineSection.svelte";
 	import { useIntersectionVisibility } from "$lib/hooks/useIntersectionVisibility";
 	import { _t } from "$lib/i18n";
-	import brush3Url from "$lib/assets/brush/brush3.svg?url";
 
 	/**
 	 * Wrapper to not have to put locale every time
@@ -196,18 +192,24 @@
 	<section class="relative min-h-[90vh] flex flex-col overflow-hidden">
 		<div class="relative flex-1 w-full flex items-center">
 			<!-- Portrait Image -->
-			<div class="absolute inset-0 z-0 flex justify-center lg:justify-end items-end pointer-events-none overflow-hidden lg:pr-20">
-				<img 
-					src="/Me.png" 
-					alt="Jules Portrait" 
+			<div
+				class="absolute inset-0 z-0 flex justify-center lg:justify-end items-end pointer-events-none overflow-hidden lg:pr-20"
+			>
+				<img
+					src="/Me.png"
+					alt="Jules Portrait"
 					class="max-h-[80%] md:max-h-[90%] lg:max-h-full w-auto object-contain object-bottom transition-all duration-1000 ease-out delay-200"
 					class:opacity-0={!heroReady}
-					style={!heroReady ? 'transform: translateY(2rem) scale(0.95);' : 'transform: translateY(0) scale(1);'}
+					style={!heroReady
+						? "transform: translateY(2rem) scale(0.95);"
+						: "transform: translateY(0) scale(1);"}
 				/>
 			</div>
 
 			<div class="relative z-10 container mx-auto max-w-6xl px-6 py-24">
-				<div class="max-w-xl lg:max-w-2xl space-y-8 bg-paper/70 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 border-2 border-ink lg:border-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] lg:shadow-none">
+				<div
+					class="max-w-xl lg:max-w-2xl space-y-8 bg-paper/70 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 border-2 border-ink lg:border-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] lg:shadow-none"
+				>
 					<div
 						class="flex flex-wrap items-center gap-4 text-xs font-mono uppercase tracking-[0.5em] transition-all duration-500 ease-out"
 						class:opacity-0={!heroReady}
@@ -307,7 +309,10 @@
 			</div>
 
 			<!-- Interactive button -->
-			<div class="absolute bottom-8 right-8 lg:bottom-12 lg:right-12 z-20 pointer-events-auto transition-all duration-700 ease-out delay-500" class:opacity-0={!heroReady}>
+			<div
+				class="absolute bottom-8 right-8 lg:bottom-12 lg:right-12 z-20 pointer-events-auto transition-all duration-700 ease-out delay-500"
+				class:opacity-0={!heroReady}
+			>
 				<button
 					onclick={() => {
 						const messages = [
@@ -515,8 +520,7 @@
 									<span>{t("about.passions.p2")}</span>
 								</li>
 								<li class="flex items-start gap-3 w-fit">
-									<span
-										class="text-ink mt-1 relative z-10"
+									<span class="text-ink mt-1 relative z-10"
 										>/</span
 									>
 									<a
