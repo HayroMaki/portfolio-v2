@@ -193,10 +193,21 @@
 			</div>
 		</div>
 	{/if}
-	<section class="relative min-h-[90vh] overflow-hidden">
-		<div class="relative z-10 container mx-auto max-w-6xl px-6 py-24">
-			<div class="grid lg:grid-cols-[1.2fr,0.8fr] gap-14">
-				<div class="space-y-8">
+	<section class="relative min-h-[90vh] flex flex-col overflow-hidden">
+		<div class="relative flex-1 w-full flex items-center">
+			<!-- Portrait Image -->
+			<div class="absolute inset-0 z-0 flex justify-center lg:justify-end items-end pointer-events-none overflow-hidden lg:pr-20">
+				<img 
+					src="/Me.png" 
+					alt="Jules Portrait" 
+					class="max-h-[80%] md:max-h-[90%] lg:max-h-full w-auto object-contain object-bottom transition-all duration-1000 ease-out delay-200"
+					class:opacity-0={!heroReady}
+					style={!heroReady ? 'transform: translateY(2rem) scale(0.95);' : 'transform: translateY(0) scale(1);'}
+				/>
+			</div>
+
+			<div class="relative z-10 container mx-auto max-w-6xl px-6 py-24">
+				<div class="max-w-xl lg:max-w-2xl space-y-8 bg-paper/70 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 border-2 border-ink lg:border-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] lg:shadow-none">
 					<div
 						class="flex flex-wrap items-center gap-4 text-xs font-mono uppercase tracking-[0.5em] transition-all duration-500 ease-out"
 						class:opacity-0={!heroReady}
@@ -293,71 +304,34 @@
 						</div>
 					</div>
 				</div>
+			</div>
 
-				<div
-					class="relative flex items-center justify-center transition-all duration-700 ease-out delay-200"
-					class:opacity-0={!heroReady}
+			<!-- Interactive button -->
+			<div class="absolute bottom-8 right-8 lg:bottom-12 lg:right-12 z-20 pointer-events-auto transition-all duration-700 ease-out delay-500" class:opacity-0={!heroReady}>
+				<button
+					onclick={() => {
+						const messages = [
+							"ALWAYS WORKING HARD WITH TWIN.",
+							"HAPPY NEW YEAR TWIN, HOPE YOU HAVE AN AMAZING 2026 !",
+							"YO TWIN, YOU LIKE MY PORTFOLIO ?",
+							"IM BUSY TWIN... CALL ME LATER...",
+						];
+						alert(
+							messages[
+								Math.floor(Math.random() * messages.length)
+							],
+						);
+					}}
+					class="hidden h-24 w-24 rotate-3 border-2 border-dotted border-ink bg-paper font-display text-2xl md:flex items-center justify-center hover:rotate-6 hover:scale-110 transition-all cursor-pointer shadow-panel"
+					title="Click me!"
 				>
-					<div
-						class="manga-panel relative w-full max-w-sm overflow-hidden bg-paper/80"
-					>
-						<div
-							class="absolute inset-4 border-2 border-dashed border-ink pointer-events-none"
-						></div>
-						<div class="relative aspect-[3/4] w-full">
-							<div
-								class="absolute inset-0 bg-[radial-gradient(circle_at_1px,rgba(0,0,0,0.2)_1px,transparent_0)] bg-[length:14px_14px]"
-							></div>
-							<div
-								class="relative flex h-full w-full items-center justify-center"
-							>
-								<div
-									class="text-center font-mono text-xs uppercase tracking-[0.4em] text-ink/70"
-								>
-									<p
-										class="text-sm font-display tracking-[0.3em]"
-									>
-										Portrait
-									</p>
-								</div>
-							</div>
-						</div>
-						<div
-							class="absolute top-4 left-4 border border-ink bg-paper px-3 py-1 font-mono text-[0.65rem] uppercase tracking-[0.4em]"
-						>
-							self-portrait
-						</div>
-						<div
-							class="absolute bottom-4 right-4 border border-ink bg-ink px-3 py-1 font-mono text-[0.65rem] uppercase tracking-[0.4em] text-paper"
-						>
-							incoming
-						</div>
-					</div>
-					<button
-						onclick={() => {
-							const messages = [
-								"ALWAYS WORKING HARD WITH TWIN.",
-								"HAPPY NEW YEAR TWIN, HOPE YOU HAVE AN AMAZING 2026 !",
-								"YO TWIN, YOU LIKE MY PORTFOLIO ?",
-								"IM BUSY TWIN... CALL ME LATER...",
-							];
-							alert(
-								messages[
-									Math.floor(Math.random() * messages.length)
-								],
-							);
-						}}
-						class="absolute p-2 -bottom-8 -right-6 hidden h-24 w-24 rotate-3 border-2 border-dotted border-ink bg-paper font-display text-2xl md:flex items-center justify-center hover:rotate-6 hover:scale-110 transition-all cursor-pointer"
-						title="Click me!"
-					>
-						Working hard as always
-					</button>
-				</div>
+					Working hard as always
+				</button>
 			</div>
 		</div>
 
 		<div
-			class="relative z-10 border-y-2 border-ink bg-ink text-paper overflow-hidden"
+			class="relative z-20 border-y-2 border-ink bg-ink text-paper overflow-hidden shrink-0"
 		>
 			<div class="marquee" style="--marquee-duration: 22s">
 				<div class="marquee__inner">
