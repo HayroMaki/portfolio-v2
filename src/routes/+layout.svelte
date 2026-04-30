@@ -9,6 +9,7 @@
 	import type { Locale } from '$lib/i18n';
 	import InkBrush from '$lib/components/InkBrush.svelte';
 	import { isTransitioning } from '$lib/stores/pageTransition';
+	import { siteInverted } from '$lib/stores/theme';
 
 	/**
 	* Wrapper to not have to put locale every time
@@ -66,6 +67,11 @@
 </script>
 
 <div class="min-h-screen bg-paper text-ink font-sans">
+	<!-- Global Invert Overlay for Easter Egg -->
+	<div 
+		class="fixed inset-0 z-[9999] pointer-events-none transition-all duration-[1500ms] ease-in-out"
+		style="backdrop-filter: invert({$siteInverted ? '100%' : '0%'}); -webkit-backdrop-filter: invert({$siteInverted ? '100%' : '0%'});"
+	></div>
 	<!-- Page transition overlay -->
 	{#if transitioning}
 		<div class="fixed inset-0 z-[100] pointer-events-none">

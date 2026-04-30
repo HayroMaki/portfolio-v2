@@ -12,6 +12,7 @@
 	import TimelineSection from "$lib/components/home/TimelineSection.svelte";
 	import { useIntersectionVisibility } from "$lib/hooks/useIntersectionVisibility";
 	import { _t } from "$lib/i18n";
+	import { siteInverted } from "$lib/stores/theme";
 
 	/**
 	 * Wrapper to not have to put locale every time
@@ -199,20 +200,32 @@
 			<div
 				class="absolute inset-0 z-0 flex justify-center lg:justify-end items-end pointer-events-none overflow-hidden lg:pr-20"
 			>
-				<img
-					src="/Me.png"
-					alt="Jules Grange Portrait Développeur : dessin noir & blanc manga, style Jojo's Bizarre Adventure"
-					class="max-h-[80%] md:max-h-[90%] lg:max-h-full w-auto object-contain object-bottom transition-all duration-1000 ease-out delay-200"
+				<div
+					class="relative inline-flex max-h-[80%] md:max-h-[90%] lg:max-h-full h-full transition-all duration-1000 ease-out delay-200"
 					class:opacity-0={!heroReady}
 					style={!heroReady
 						? "transform: translateY(2rem) scale(0.95);"
 						: "transform: translateY(0) scale(1);"}
-				/>
+				>
+					<img
+						src="/Me.png"
+						alt="Jules Grange Portrait Développeur : dessin noir & blanc manga, style Jojo's Bizarre Adventure"
+						class="h-full w-auto object-contain object-bottom"
+					/>
+					<!-- Easter egg invert button -->
+					<button
+						onclick={() => ($siteInverted = !$siteInverted)}
+						class="absolute z-20 top-[10.6%] right-[50.2%] w-2 h-2 pointer-events-auto cursor-pointer"
+						aria-label="Toggle inverted theme"
+					></button>
+				</div>
 			</div>
 
-			<div class="relative z-10 container mx-auto max-w-6xl px-6 py-24">
+			<div
+				class="relative z-10 container mx-auto max-w-6xl px-6 py-24 pointer-events-none"
+			>
 				<div
-					class="max-w-xl lg:max-w-2xl space-y-8 bg-paper/70 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 border-2 border-ink lg:border-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] lg:shadow-none"
+					class="max-w-xl lg:max-w-2xl space-y-8 bg-paper/70 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 border-2 border-ink lg:border-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] lg:shadow-none pointer-events-auto"
 				>
 					<div
 						class="flex flex-wrap items-center gap-4 text-xs font-mono uppercase tracking-[0.5em] transition-all duration-500 ease-out"
