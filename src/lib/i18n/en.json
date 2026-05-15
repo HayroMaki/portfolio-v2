@@ -63,7 +63,7 @@
     "experience": {
       "title": "Experience",
       "current": "Internship and Apprenticeship at Dessine ton meuble/Aryga since 2025",
-      "uni": "And a lot of different Uni projects - see below"
+      "uni": "And a lot of different Uni projects, see below"
     },
     "education": {
       "title": "Education",
@@ -149,20 +149,18 @@
       {
         "year": "2024-2026 (ongoing)",
         "title": "BUT Computer Science",
-        "description": "At Université Gustave Eiffel Marne-la-Vallée, I'm currently in the BUT Computer Science program. Building skills in development, programming, databases, and project management (we even had law classes, send help).",
+        "description": "At Université Gustave Eiffel Marne-la-Vallée, I'm currently in the BUT Computer Science program. Building skills in development, programming, databases, and project management.",
         "sub_events": [
           "Qix project (1st year)",
           "Travia project (2nd year)",
           "SpeedyWiki project (2nd year)",
-          "Custom Forms project (3rd year)",
-          "Skipped a week of classes to go to Zanzibar (not proud)",
-          "other minor projects"
+          "Custom Forms project (3rd year)"
         ]
       },
       {
         "year": "2025-2026 (ongoing)",
         "title": "Internship then Apprenticeship",
-        "description": "At Dessine ton meuble/Aryga - Web application developer. Learning how to work with AI tools (they don't teach that in school).",
+        "description": "At Dessine ton meuble/Aryga - Web application developer. Learning how to work with AI tools.",
         "sub_events": [
           "Easy Configurators project",
           "MCP Server project"

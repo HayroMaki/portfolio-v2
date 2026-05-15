@@ -24,7 +24,7 @@
     "title_highlight": "qui fonctionnent.",
     "p1": "Je suis un problem solver qui livre. Curieux, méticuleux, et motivé par le défi de transformer des besoins complexes en code propre et fonctionnel.",
     "p2": "Généraliste full-stack avec un focus sur les technologies web modernes. Je m'adapte rapidement et j'apprends ce qu'il faut pour accomplir le travail.",
-    "p3": "Actuellement en train de construire des outils IA et des configurateurs 3D en production. Je ne code pas juste—je livre des solutions que les utilisateurs utilisent vraiment.",
+    "p3": "Actuellement en train de construire des outils IA et des configurateurs 3D en production. Je ne code pas juste, je livre des solutions que les utilisateurs utilisent vraiment.",
     "art_link": {
       "title": "Art & Illustrations",
       "description": "Je suis aussi un adepte du dessin numérique. Jette un œil à ma galerie d'illustrations !",
@@ -51,7 +51,7 @@
     "experience": {
       "title": "Expérience",
       "current": "Stage et Alternance chez Dessine ton meuble/Aryga depuis 2025",
-      "uni": "& Beaucoup de projets universitaires variés - à voir plus bas"
+      "uni": "& Beaucoup de projets universitaires variés à voir plus bas"
     },
     "education": {
       "title": "Formation",
@@ -137,20 +137,18 @@
       {
         "year": "2024-2026 (en cours)",
         "title": "BUT Informatique",
-        "description": "Au sein de l'Université Gustave Eiffel Marne-la-Vallée, je suis actuellement en BUT Informatique. Développement de compétences en développement, programmation, base de données et gestion de projets (j'ai même eu des cours de droit, à l'aide)",
+        "description": "Au sein de l'Université Gustave Eiffel Marne-la-Vallée, je suis actuellement en BUT Informatique. Développement de compétences en développement, programmation, base de données et gestion de projets",
         "sub_events": [
           "Projet Qix (1ère année)",
           "Projet Travia (2ème année)",
           "Projet SpeedyWiki (2ème année)",
-          "Projet Custom Forms (3ème année)",
-          "j'ai seiché une semaine de cours pour aller à Zanzibar (c'est pas bien)",
-          "d'autres projets mineurs"
+          "Projet Custom Forms (3ème année)"
         ]
       },
       {
         "year": "2025-2026 (en cours)",
         "title": "Stage puis Alternance",
-        "description": "Chez Dessine ton meuble/Aryga - Développeur d'applications web. Découvertes des méthodes de travail avec l'IA (on apprends pas ça en cours)",
+        "description": "Chez Dessine ton meuble/Aryga - Développeur d'applications web. Découvertes des méthodes de travail avec l'IA",
         "sub_events": [
           "Projet Configurateurs Easy",
           "Projet MCP Server"
